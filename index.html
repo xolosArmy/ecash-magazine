@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCash Magazine México | Ideas, Cultura e Infraestructura Abierta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap');
+        body { background-color: #05070a; color: #e2e8f0; font-family: 'Lexend', sans-serif; }
+        .space-mono { font-family: 'Space Mono', monospace; }
+        .neon-glow { box-shadow: 0 0 15px rgba(0, 171, 231, 0.2); border: 1px solid rgba(0, 171, 231, 0.4); }
+        .gold-glow:hover { border-color: #ffcc00; box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <header class="border-b border-white/10 bg-black/40 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+            <a href="https://ecash.mx" class="flex items-center gap-3">
+                <img src="https://i.imgur.com/UaAx4EK.png" alt="Logo" class="h-10 w-auto rounded-full border border-cyan-500/40">
+                <div class="text-xl font-bold tracking-tighter italic space-mono">
+                    <span class="text-white">eCash</span><span class="text-[#00abe7]">Magazine</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-[10px] uppercase font-bold tracking-widest space-mono text-gray-400">
+                <a href="#editoriales" class="hover:text-cyan-400">Editorial</a>
+                <a href="#infraestructura" class="hover:text-cyan-400">Infraestructura</a>
+                <a href="#cultura" class="hover:text-cyan-400">Cultura</a>
+            </nav>
+            <a href="https://ecash.mx" class="text-xs font-bold text-cyan-400 border border-cyan-500/30 px-4 py-2 rounded-sm hover:bg-cyan-500/10 transition space-mono">← PORTAL PRINCIPAL</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <section class="grid lg:grid-cols-12 gap-12 items-center mb-24">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="space-mono text-xs font-bold text-[#ffcc00] tracking-[0.3em] uppercase">Ensayo Destacado // Manifiesto</div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight italic tracking-tight">
+                    Por qué eCash necesita <span class="text-[#00abe7]">cultura</span>, no solo tecnología.
+                </h1>
+                <p class="text-gray-400 text-lg italic leading-relaxed text-pretty">
+                    El código puro es un desierto sin narrativa. Examinamos por qué el éxito de XEC en territorio hispano depende de la construcción de una identidad soberana y herramientas útiles para la vida real, no de la asimilación financiera tradicional.
+                </p>
+                <div class="pt-4">
+                    <a href="por-que-ecash-necesita-cultura.html" class="inline-flex items-center gap-3 text-sm font-bold text-cyan-400 hover:underline space-mono">
+                        LEER ENSAYO COMPLETO <i class="fas fa-angle-double-right animate-pulse"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5 p-8 bg-slate-900/40 rounded-3xl neon-glow border border-white/5 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-5 text-9xl text-cyan-400"><i class="fas fa-feather-alt"></i></div>
+                <h3 class="text-white space-mono font-bold text-xs uppercase tracking-widest mb-4">Línea Editorial</h3>
+                <p class="text-sm text-gray-400 italic leading-loose text-balance">
+                    "Ideas, cultura e infraestructura para la nueva economía eCash desde México." Una bitácora de resistencia técnica impulsada de manera independiente por builders de xolosArmy Network.
+                </p>
+            </div>
+        </section>
+
+        <section id="editoriales" class="mb-24">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-2xl font-bold italic tracking-tight uppercase text-white space-mono">Los Ensayos Fundacionales</h2>
+                <div class="h-px bg-white/10 flex-grow"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 italic">
+                <div class="p-6 bg-slate-900/20 border border-white/5 rounded-xl flex flex-col justify-between min-h-[250px] gold-glow transition duration-300">
+                    <div>
+                        <span class="text-[10px] space-mono text-cyan-500 font-bold uppercase tracking-widest">Cultura // 002</span>
+                        <h3 class="text-xl font-bold text-white mt-2 mb-3">Sin cultura no hay adopción</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Tesis sobre por qué la comunidad y la identidad simbólica anteceden al crecimiento de cualquier red descentralizada.</p>
+                    </div>
+                    <a href="sin-cultura-no-hay-adopcion.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block">ABRIR ARCHIVO →</a>
+                </div>
+
+                <div class="p-6 bg-slate-900/20 border border-white/5 rounded-xl flex flex-col justify-between min-h-[250px] gold-glow transition duration-300">
+                    <div>
+                        <span class="text-[10px] space-mono text-purple-400 font-bold uppercase tracking-widest">Sistemas // 003</span>
+                        <h3 class="text-xl font-bold text-white mt-2 mb-3">La diferencia entre liquidez nativa y dependencia de exchanges</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">El riesgo sistémico de los puentes centralizados y cómo la ruta de THORChain devuelve el poder a la autocustodia.</p>
+                    </div>
+                    <a href="liquidez-nativa-sin-wrapped-tokens.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block">ABRIR ARCHIVO →</a>
+                </div>
+
+                <div class="p-6 bg-slate-900/20 border border-white/5 rounded-xl flex flex-col justify-between min-h-[250px] gold-glow transition duration-300">
+                    <div>
+                        <span class="text-[10px] space-mono text-orange-500 font-bold uppercase tracking-widest">Infraestructura // 004</span>
+                        <h3 class="text-xl font-bold text-white mt-2 mb-3">Teyolia y el crowdfunding no custodial en XEC</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Análisis profundo sobre el uso de Covenants nativos de eCash para coordinar capital social sin intermediación legal.</p>
+                    </div>
+                    <a href="teyolia-crowdfunding-xec.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block">ABRIR ARCHIVO →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-12 px-6 border-t border-white/5 text-center text-[10px] text-gray-600 space-mono uppercase tracking-widest">
+        eCash Magazine México es una publicación libre y descentralizada. <br>
+        Contenidos distribuidos bajo la soberanía del código abierto y Licencia MIT. 2026.
+    </footer>
+
+</body>
+</html>
