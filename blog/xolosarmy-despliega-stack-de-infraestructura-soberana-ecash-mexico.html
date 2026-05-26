@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Especial Técnico: xolosArmy Despliega el Sovereign Infrastructure Stack para eCash México</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
         
@@ -12,157 +14,28 @@
         }
 
         body {
-            margin: 0;
-            padding: 40px 20px;
             background-color: #05070a;
             color: #cbd5e1;
             font-family: 'Lexend', sans-serif;
-            font-size: 11pt;
-            line-height: 1.6;
         }
 
+        .space-mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Efecto cinemático de escaneo de red */
+        .scanline {
+            width: 100%; height: 100px; z-index: 99; position: absolute; bottom: 100%;
+            background: linear-gradient(0deg, rgba(0, 171, 231, 0) 0%, rgba(0, 171, 231, 0.02) 50%, rgba(0, 171, 231, 0) 100%);
+            animation: scanline 12s linear infinite; pointer-events: none; opacity: 0.4;
+        }
+        @keyframes scanline { 0% { bottom: 100%; } 100% { bottom: -100%; } }
+
         .magazine-wrapper {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             background-color: #090d16;
             border: 1px solid rgba(0, 171, 231, 0.15);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Cabecera Tipo Revista */
-        .magazine-header {
-            border-bottom: 3px double rgba(255, 255, 255, 0.2);
-            padding-bottom: 20px;
-            margin-bottom: 35px;
-            text-align: center;
-        }
-
-        .brand-meta {
-            font-family: 'Space Mono', monospace;
-            font-size: 9pt;
-            font-weight: 700;
-            color: #00abe7;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .magazine-title {
-            font-size: 28pt;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.15;
-            margin: 10px 0;
-            letter-spacing: -0.02em;
-        }
-
-        .magazine-title span {
-            color: #ffcc00;
-        }
-
-        .issue-date {
-            font-family: 'Space Mono', monospace;
-            font-size: 9pt;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-top: 12px;
-        }
-
-        /* Sumario Ejecutivo de Prensa */
-        .press-summary-box {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.4) 100%);
-            border-left: 5px solid #00abe7;
-            border-right: 1px solid rgba(255,255,255,0.05);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            border-radius: 0 12px 12px 0;
-            padding: 24px;
-            margin-bottom: 35px;
-        }
-
-        .press-summary-box h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-family: 'Space Mono', monospace;
-            font-size: 11pt;
-            color: #ffcc00;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* Bloques de Preguntas Clave (5W) */
-        .qa-grid {
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .qa-item {
-            margin-bottom: 12px;
-            font-size: 10pt;
-            color: #e2e8f0;
-            line-height: 1.5;
-        }
-
-        .qa-label {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            color: #00abe7;
-            display: inline-block;
-            width: 90px;
-            text-transform: uppercase;
-        }
-
-        /* Distribución de Columnas de Periódico/Revista */
-        .article-body {
-            margin-top: 20px;
-        }
-
-        .lead-paragraph {
-            font-size: 13pt;
-            color: #ffffff;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            font-weight: 300;
-            text-align: justify;
-        }
-
-        /* Subtítulos de sección estilo Magazine */
-        h2.section-heading {
-            font-family: 'Space Mono', monospace;
-            font-size: 13pt;
-            font-weight: 700;
-            color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid #ffcc00;
-            padding: 6px 12px;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        p {
-            margin-top: 0;
-            margin-bottom: 18px;
-            text-align: justify;
-            color: #cbd5e1;
-            font-size: 10.5pt;
-        }
-
-        /* Listas Modernas */
-        ul.tech-list {
-            margin-top: 0;
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-
-        ul.tech-list li {
-            margin-bottom: 8px;
-            color: #cbd5e1;
-            font-size: 10pt;
         }
 
         .code-inline {
@@ -171,190 +44,149 @@
             color: #38bdf8;
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 9pt;
+            font-size: 0.85em;
             border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* Diagrama de Flujo Visual */
-        .flowchart-container {
-            margin: 30px 0;
-            background: #05070a;
-            border: 1px solid rgba(0, 171, 231, 0.2);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .flowchart-title {
-            font-family: 'Space Mono', monospace;
-            font-size: 9pt;
-            color: #64748b;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 0.1em;
-        }
-
-        .flow-step {
-            font-family: 'Space Mono', monospace;
-            font-size: 9.5pt;
-            color: #ffffff;
-            padding: 6px 12px;
-            background: #0f172a;
-            border: 1px solid rgba(255,255,255,0.05);
-            display: inline-block;
-            border-radius: 4px;
-        }
-
-        .flow-step.highlight {
-            border-color: #00abe7;
-            background: rgba(0, 171, 231, 0.05);
-        }
-
-        .flow-arrow {
-            color: #ffcc00;
-            font-weight: bold;
-            margin: 5px 0;
-            font-size: 12pt;
         }
 
         /* Tabla de Cronología de Lanzamiento */
         .timeline-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
-            border-radius: 8px;
-            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .timeline-table td {
             padding: 12px 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 9.5pt;
-            vertical-align: top;
-        }
-
-        .timeline-phase {
-            font-family: 'Space Mono', monospace;
-            color: #ffcc00;
-            font-weight: bold;
-            width: 22%;
-            background: rgba(255, 254, 0, 0.02);
-            text-transform: uppercase;
-        }
-
-        /* Pie de Página */
-        .magazine-footer {
-            margin-top: 45px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            font-family: 'Space Mono', monospace;
-            font-size: 8.5pt;
-            color: #475569;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            line-height: 1.6;
         }
     </style>
 </head>
-<body>
+<body class="p-4 md:p-10 relative">
+    <div class="scanline"></div>
 
-    <div class="magazine-wrapper">
+    <header class="max-w-[950px] mx-auto border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50 rounded-t-16">
+        <div class="p-5 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="https://i.imgur.com/YZvGu8q.png" alt="Miniatura eCash Magazine" class="h-10 w-auto rounded-full bg-black border border-cyan-500/30">
+                <div class="text-xl font-bold tracking-tighter italic space-mono">
+                    <span class="text-white">eCash</span><span class="text-[#00abe7]">Magazine</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex space-x-8 text-[11px] uppercase font-bold tracking-widest space-mono text-gray-400">
+                <a href="../index.html" class="hover:text-cyan-400 transition">Primera Plana</a>
+                <a href="./index.html" class="hover:text-cyan-400 transition">Historial</a>
+            </nav>
+            <a href="https://ecash.mx" class="text-xs font-bold text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-sm hover:bg-cyan-500/10 transition space-mono tracking-wider">
+                ← PORTAL GENERAL
+            </a>
+        </div>
+    </header>
+
+    <div class="magazine-wrapper p-6 md:p-10 rounded-b-16 shadow-2xl">
         
-        <div class="magazine-header">
-            <div class="brand-meta">eCash Magazine México // Boletín de Infraestructura</div>
-            <div class="magazine-title">Soberanía de Código: xolosArmy Despliega el Primer Bloque de su Stack Tecnológico Operativo</div>
-            <div class="issue-date">Publicación Oficial Actualizada — Mayo 2026 — Transmisión Central</div>
+        <div class="border-b-2 border-double border-white/20 pb-6 text-center mb-8">
+            <div class="space-mono text-xs font-bold text-[#00abe7] tracking-[0.35em] uppercase mb-2">eCash Magazine México // Boletín de Infraestructura</div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight tracking-tight mb-3">
+                Soberanía de Código: xolosArmy Despliega el Primer Bloque de su Stack Tecnológico Operativo
+            </h1>
+            <div class="space-mono text-xs text-gray-500 tracking-wider uppercase mt-3">Publicación Oficial Actualizada — Mayo 2026 — Transmisión Central</div>
         </div>
 
-        <!-- Bloque de Sumario Informativo / 5W Metodología Periodística -->
-        <div class="press-summary-box">
-            <h3>Ficha de Noticia Ampliada (Estructura de Sumarios)</h3>
-            <div class="qa-grid">
-                <div class="qa-item"><span class="qa-label">¿Qué?</span> El lanzamiento oficial de la librería modular <span class="code-inline">tonalli-core (v0.1.0)</span> y el despliegue público en la red del portal interactivo <span class="code-inline">Guardianía RMZ</span>.</div>
-                <div class="qa-item"><span class="qa-label">¿Quién?</span> Diseñado de forma abierta por los desarrolladores y operadores de nodos independientes de <strong>xolosArmy Network</strong>.</div>
-                <div class="qa-item"><span class="qa-label">¿Cuándo?</span> Consolidado y desplegado de manera exitosa tras un ciclo estructurado de desarrollo continuo completado este mes de mayo de 2026.</div>
-                <div class="qa-item"><span class="qa-label">¿Dónde?</span> Compilado e integrado nativamente dentro del ecosistema descentralizado de eCash, con acceso público activo desde el portal <span class="code-inline">https://xolosarmy.xyz/guardiania/</span>.</div>
-                <div class="qa-item"><span class="qa-label">¿Por qué?</span> Para proveer al ecosistema hispanohablante una capa técnica modular de validación local y control que elimine la dependencia ciega de APIs externas o servidores centralizados.</div>
+        <div class="relative w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl mb-8 group">
+            <img src="https://i.imgur.com/BsjnSBO.jpeg" alt="Xoloitzcuintle en la era del código" class="w-full h-auto object-cover transition duration-700 group-hover:scale-[1.01]">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-6 space-mono text-[10px] text-gray-400 font-bold tracking-widest uppercase">
+                Ilustración Editorial: El Guardián en la era de la infraestructura abierta.
             </div>
         </div>
 
-        <div class="article-body">
-            <div class="lead-paragraph">
+        <div class="bg-gradient-to-br from-slate-900/80 to-slate-800/40 border-l-5 border-[#00abe7] border-y border-r border-white/5 rounded-r-xl p-6 mb-8">
+            <h3 class="space-mono text-xs font-bold text-[#ffcc00] tracking-wider uppercase mb-4">Ficha de Noticia Ampliada (Estructura de Sumarios)</h3>
+            <div class="space-y-3">
+                <div class="text-sm text-slate-200"><span class="space-mono font-bold text-[#00abe7] inline-block w-20 uppercase">¿Qué?</span> El lanzamiento oficial de la librería modular <span class="code-inline">tonalli-core (v0.1.0)</span> y el despliegue público en la red del portal interactivo <span class="code-inline">Guardianía RMZ</span>.</div>
+                <div class="text-sm text-slate-200"><span class="space-mono font-bold text-[#00abe7] inline-block w-20 uppercase">¿Quién?</span> Diseñado de forma abierta por los desarrolladores y operadores de nodos independientes de <strong>xolosArmy Network</strong>.</div>
+                <div class="text-sm text-slate-200"><span class="space-mono font-bold text-[#00abe7] inline-block w-20 uppercase">¿Cuándo?</span> Consolidado y desplegado de manera exitosa tras un ciclo estructurado de desarrollo continuo completado este mes de mayo de 2026.</div>
+                <div class="text-sm text-slate-200"><span class="space-mono font-bold text-[#00abe7] inline-block w-20 uppercase">¿Dónde?</span> Compilado e integrado nativamente dentro del ecosistema descentralizado de eCash, con acceso público activo desde el portal <span class="code-inline">https://xolosarmy.xyz/guardiania/</span>.</div>
+                <div class="text-sm text-slate-200"><span class="space-mono font-bold text-[#00abe7] inline-block w-20 uppercase">¿Por qué?</span> Para proveer al ecosistema hispanohablante una capa técnica modular de validación local y control que elimine la dependencia ciega de APIs externas o servidores centralizados.</div>
+            </div>
+        </div>
+
+        <div class="space-y-6 text-justify">
+            <div class="text-lg md:text-xl font-light text-white leading-relaxed text-pretty border-l-4 border-cyan-500 pl-4">
                 <strong>CIUDAD DE MÉXICO</strong> — En un movimiento estratégico que transforma las directivas abstractas en infraestructura pública tangible, la red descentralizada xolosArmy Network anunció la puesta en marcha de su suite de software soberano para el protocolo eCash (XEC). El ecosistema cuenta ahora con un validador matemático local autónomo y un portal de control de acceso cultural en producción.
             </div>
 
-            <p>
+            <p class="text-sm md:text-base text-slate-300">
                 Históricamente, los desarrolladores de aplicaciones y pasarelas de pago dentro de la red eCash han estado ligados a la infraestructura centralizada de indexadores remotos. Con este lanzamiento, el stack soberano de xolosArmy demuestra que la construcción de herramientas útiles para la vida real y la autonomía técnica son indispensables para el crecimiento sostenido de la nueva economía digital en Latinoamérica.
             </p>
 
-            <h2 class="section-heading">Desglose de Ingeniería: El Núcleo Tonalli-Core</h2>
-            <p>
+            <h2 class="space-mono text-sm font-bold text-white bg-white/5 border-l-4 border-[#ffcc00] px-3 py-1.5 uppercase tracking-wider">Desglose de Ingeniería: El Núcleo Tonalli-Core</h2>
+            <p class="text-sm md:text-base text-slate-300">
                 El corazón lógico del stack opera en el nuevo repositorio abierto <span class="code-inline">xolosArmy/tonalli-core</span>. Esta librería modular en TypeScript se aleja de la captura del protocolo para enfocarse de manera estricta en la verificación local. Su implementación inicial introduce un módulo de alta seguridad para la gestión de direcciones que previene el desvío de fondos y la ambigüedad tipográfica antes de que los datos interactúen con la blockchain.
             </p>
             
-            <p>
-                Durante las fases tempranas del desarrollo, se dotó al núcleo de herramientas automatizadas esenciales (<span class="code-inline">isValidEcashAddress</span> y <span class="code-inline">normalizeEcashAddress</span>) bajo un entorno verificado con Vitest y compilado de manera optimizada mediante <span class="code-inline">tsup</span>, validando el correcto control de tipos de datos en cada compilación.
+            <p class="text-sm md:text-base text-slate-300">
+                Durante las fases tempranas del desarrollo, se doto al núcleo de herramientas automatizadas esenciales (<span class="code-inline">isValidEcashAddress</span> y <span class="code-inline">normalizeEcashAddress</span>) bajo un entorno verificado con Vitest y compilado de manera optimizada mediante <span class="code-inline">tsup</span>, validando el correcto control de tipos de datos en cada compilación.
             </p>
 
-            <h2 class="section-heading">La Abstracción del Patrón Adaptador</h2>
-            <p>
+            <h2 class="space-mono text-sm font-bold text-white bg-white/5 border-l-4 border-[#ffcc00] px-3 py-1.5 uppercase tracking-wider">La Abstracción del Patrón Adaptador</h2>
+            <p class="text-sm md:text-base text-slate-300">
                 El mayor hito de diseño arquitectónico llegó con la integración del módulo de acceso cultural basado en el token RMZ (<span class="code-inline">Token ID: c923bd0f09...6353802a3cb7c3f34fa7cc85c9305908</span>). En lugar de encadenar el software a un cliente de red único, los ingenieros implementaron la interfaz modular <span class="code-inline">BlockchainAdapter</span>. 
             </p>
-            <p>
-                A través de esta abstracción, <span class="code-inline font-bold">tonalli-core se independiza por completo de Chronik</span> u otros servicios propietarios. La librería simplemente define la naturaleza de los datos requeridos, convirtiendo a los indexadores externos en adaptadores reemplazables en cualquier momento.
+            <p class="text-sm md:text-base text-slate-300">
+                A través de esta abstracción, <strong>tonalli-core se independiza por completo de Chronik</strong> u otros servicios propietarios. La librería simplemente define la naturaleza de los datos requeridos, convirtiendo a los indexadores externos en adaptadores reemplazables en cualquier momento.
             </p>
 
-            <!-- Diagrama del Flujo de Datos Soberano -->
-            <div class="flowchart-container">
-                <div class="flowchart-title">Plano de Arquitectura de Datos y Acceso Local/On-Chain</div>
-                <div class="flow-step highlight">Petición de Usuario (Dirección eCash)</div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step">tonalli-core v0.1.0 (Resolución Matemática de Checksum)</div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step">BlockchainAdapter (Interfaz Contractual Abierta)</div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step">ChronikAdapter —&gt; Red Principal eCash (Mainnet)</div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step highlight">Estado Cultural Verificado (Holder / Non-Holder)</div>
+            <div class="my-8 bg-black/40 border border-cyan-500/20 rounded-xl p-6 text-center">
+                <div class="space-mono text-[10px] text-gray-500 uppercase tracking-widest mb-4">Plano de Arquitectura de Datos y Acceso Local/On-Chain</div>
+                <div class="flex flex-col items-center space-y-2">
+                    <div class="space-mono text-xs text-white px-3 py-1.5 bg-slate-900 border border-white/5 rounded-md bg-cyan-500/5 border-cyan-500/30">Petición de Usuario (Dirección eCash)</div>
+                    <div class="text-[#ffcc00] font-bold text-sm">↓</div>
+                    <div class="space-mono text-xs text-white px-3 py-1.5 bg-slate-900 border border-white/5 rounded-md">tonalli-core v0.1.0 (Resolución Matemática de Checksum)</div>
+                    <div class="text-[#ffcc00] font-bold text-sm">↓</div>
+                    <div class="space-mono text-xs text-white px-3 py-1.5 bg-slate-900 border border-white/5 rounded-md">BlockchainAdapter (Interfaz Contractual Abierta)</div>
+                    <div class="text-[#ffcc00] font-bold text-sm">↓</div>
+                    <div class="space-mono text-xs text-white px-3 py-1.5 bg-slate-900 border border-white/5 rounded-md">ChronikAdapter —&gt; Red Principal eCash (Mainnet)</div>
+                    <div class="text-[#ffcc00] font-bold text-sm">↓</div>
+                    <div class="space-mono text-xs text-white px-3 py-1.5 bg-slate-900 border border-white/5 rounded-md bg-cyan-500/5 border-cyan-500/30">Estado Cultural Verificado (Holder / Non-Holder)</div>
+                </div>
             </div>
 
-            <h2 class="section-heading">Validación Matemática Local de Grado Industrial</h2>
-            <p>
-                Para robustecer el sistema frente a ataques informáticos o fallos del operador, la fase final de pruebas introdujo un validador completo del algoritmo **Polymod** nativo de CashAddr. Utilizando operaciones de enteros grandes (<span class="code-inline">bigint</span>) y libre de dependencias externas en tiempo de ejecución, la librería ahora resuelve localmente el polinomio matemático de verificación de la cadena de texto. Cualquier error de teclado o carácter alterado es rechazado de inmediato de manera local, optimizando el consumo de red y protegiendo las capas internas de la aplicación.
+            <h2 class="space-mono text-sm font-bold text-white bg-white/5 border-l-4 border-[#ffcc00] px-3 py-1.5 uppercase tracking-wider">Validación Matemática Local de Grado Industrial</h2>
+            <p class="text-sm md:text-base text-slate-300">
+                Para robustecer el sistema frente a ataques informáticos o fallos del operador, la fase final de pruebas introdujo un validador completo del algoritmo <strong>Polymod</strong> nativo de CashAddr. Utilizando operaciones de enteros grandes (<span class="code-inline">bigint</span>) y libre de dependencias externas en tiempo de ejecución, la librería ahora resuelve localmente el polinomio matemático de verificación de la cadena de texto. Cualquier error de teclado o carácter alterado es rechazado de inmediato de manera local, optimizando el consumo de red y protegiendo las capas internas de la aplicación.
             </p>
 
-            <h2 class="section-heading">Despliegue Comercial: Portal de Guardianía RMZ</h2>
-            <p>
+            <h2 class="space-mono text-sm font-bold text-white bg-white/5 border-l-4 border-[#ffcc00] px-3 py-1.5 uppercase tracking-wider">Despliegue Comercial: Portal de Guardianía RMZ</h2>
+            <p class="text-sm md:text-base text-slate-300">
                 La narrativa se tradujo en un producto de cara al público mediante el lanzamiento de <strong>Guardianía RMZ</strong>. Utilizando React y Vite, esta aplicación web lee e inspecciona la tenencia de credenciales on-chain mediante el uso de la versión estable de la librería nativa. El portal web ha sido compilado, ajustado para directorios específicos de producción y cargado de manera exitosa en el dominio operativo de la organización.
             </p>
 
-            <h2 class="section-heading">Planificación de Lanzamiento e Infraestructura</h2>
-            <p>
+            <h2 class="space-mono text-sm font-bold text-white bg-white/5 border-l-4 border-[#ffcc00] px-3 py-1.5 uppercase tracking-wider">Planificación de Lanzamiento e Infraestructura</h2>
+            <p class="text-sm md:text-base text-slate-300">
                 El despliegue de esta suite técnica marca el inicio de una planificación estructurada para el desarrollo de los próximos meses:
             </p>
 
-            <table class="timeline-table">
-                <tr>
-                    <td class="timeline-phase">Fase Activa</td>
-                    <td>Auditoría y control de stress en el portal de producción. Pruebas dinámicas con carteras físicas y estructuración del nuevo <strong>Portal de Infraestructura (/infrastructure/)</strong> para centralizar manuales de integración de la red.</td>
+            <table class="timeline-table text-xs md:text-sm text-slate-300">
+                <tr class="border border-white/5">
+                    <td class="space-mono text-[#ffcc00] font-bold w-1/4 bg-yellow-500/5 text-center uppercase p-3">Fase Activa</td>
+                    <td class="p-3">Auditoría y control de stress en el portal de producción. Pruebas dinámicas con carteras físicas y estructuración del nuevo <strong>Portal de Infraestructura (/infrastructure/)</strong> para centralizar manuales de integración de la red.</td>
                 </tr>
-                <tr>
-                    <td class="timeline-phase">Distribución</td>
-                    <td>Preparación del manifiesto de empaquetado de Node para su publicación en el registro NPM global de código abierto bajo el identificador oficial <span class="code-inline">@xolosarmy/tonalli-core</span>.</td>
+                <tr class="border border-white/5">
+                    <td class="space-mono text-[#ffcc00] font-bold w-1/4 bg-yellow-500/5 text-center uppercase p-3">Distribución</td>
+                    <td class="p-3">Preparación del manifiesto de empaquetado de Node para su publicación en el registro NPM global de código abierto bajo el identificador oficial <span class="code-inline">@xolosarmy/tonalli-core</span>.</td>
                 </tr>
-                <tr>
-                    <td class="timeline-phase">Expansión</td>
-                    <td>Lanzamiento de la versión v2 del portal web (con balances dinámicos y enlaces directos a Cashtab) junto con la integración técnica de los módulos <strong>Tonalli</strong>, <strong>Teyolia (Crowdfunding No Custodial)</strong> y el Indexador de Metadatos Culturales.</td>
+                <tr class="border border-white/5">
+                    <td class="space-mono text-[#ffcc00] font-bold w-1/4 bg-yellow-500/5 text-center uppercase p-3">Expansión</td>
+                    <td class="p-3">Lanzamiento de la versión v2 del portal web (con balances dinámicos y enlaces directos a Cashtab) junto con la integración técnica de los módulos <strong>Tonalli</strong>, <strong>Teyolia (Crowdfunding No Custodial)</strong> y el Indexador de Metadatos Culturales.</td>
                 </tr>
             </table>
         </div>
 
-        <div class="magazine-footer">
+        <footer class="mt-12 pt-6 border-t border-white/10 space-mono text-[10px] text-gray-500 text-center uppercase tracking-widest leading-relaxed">
             eCash Magazine México — Publicación Libre e Independiente — Licencia CC0 / MIT 2026<br>
             Construido de manera descentralizada por builders de la XolosArmy Network
-        </div>
+        </footer>
 
     </div>
 
