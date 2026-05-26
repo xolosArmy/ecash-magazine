@@ -115,7 +115,7 @@
             text-transform: uppercase;
         }
 
-        /* Cuerpo del Artículo */
+        /* Distribución de Columnas de Periódico/Revista */
         .article-body {
             margin-top: 20px;
         }
@@ -129,6 +129,7 @@
             text-align: justify;
         }
 
+        /* Subtítulos de sección estilo Magazine */
         h2.section-heading {
             font-family: 'Space Mono', monospace;
             font-size: 13pt;
@@ -151,6 +152,19 @@
             font-size: 10.5pt;
         }
 
+        /* Listas Modernas */
+        ul.tech-list {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        ul.tech-list li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+            font-size: 10pt;
+        }
+
         .code-inline {
             font-family: 'Space Mono', monospace;
             background-color: #0f172a;
@@ -161,7 +175,7 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Diagrama de Flujo Estilo Plano */
+        /* Diagrama de Flujo Visual */
         .flowchart-container {
             margin: 30px 0;
             background: #05070a;
@@ -254,20 +268,21 @@
             <div class="issue-date">Publicación Oficial Actualizada — Mayo 2026 — Transmisión Central</div>
         </div>
 
+        <!-- Bloque de Sumario Informativo / 5W Metodología Periodística -->
         <div class="press-summary-box">
             <h3>Ficha de Noticia Ampliada (Estructura de Sumarios)</h3>
             <div class="qa-grid">
-                <div class="qa-item"><span class="qa-label">¿Qué?</span> El lanzamiento oficial de la librería modular <span class="code-inline">tonalli-core (v0.1.0)</span> y el despliegue público del portal interactivo <span class="code-inline">Guardianía RMZ</span>.</div>
-                <div class="qa-item"><span class="qa-label">¿Quién?</span> Diseñado y desarrollado de forma libre por la red de builders y operadores independientes de <strong>xolosArmy Network</strong>.</div>
-                <div class="qa-item"><span class="qa-label">¿Cuándo?</span> Consolidado, probado e integrado con éxito durante un ciclo estructurado de desarrollo completado este mes de mayo de 2026.</div>
-                <div class="qa-item"><span class="qa-label">¿Dónde?</span> Compilado localmente e instalado de forma activa en la red de producción con punto de entrada público desde el portal <span class="code-inline">https://xolosarmy.xyz/guardiania/</span>.</div>
-                <div class="qa-item"><span class="qa-label">¿Por qué?</span> Para proveer al ecosistema una capa técnica autónoma de verificación local de datos que evite la dependencia total de servidores o indexadores centralizados externos.</div>
+                <div class="qa-item"><span class="qa-label">¿Qué?</span> El lanzamiento oficial de la librería modular <span class="code-inline">tonalli-core (v0.1.0)</span> y el despliegue público en la red del portal interactivo <span class="code-inline">Guardianía RMZ</span>.</div>
+                <div class="qa-item"><span class="qa-label">¿Quién?</span> Diseñado de forma abierta por los desarrolladores y operadores de nodos independientes de <strong>xolosArmy Network</strong>.</div>
+                <div class="qa-item"><span class="qa-label">¿Cuándo?</span> Consolidado y desplegado de manera exitosa tras un ciclo estructurado de desarrollo continuo completado este mes de mayo de 2026.</div>
+                <div class="qa-item"><span class="qa-label">¿Dónde?</span> Compilado e integrado nativamente dentro del ecosistema descentralizado de eCash, con acceso público activo desde el portal <span class="code-inline">https://xolosarmy.xyz/guardiania/</span>.</div>
+                <div class="qa-item"><span class="qa-label">¿Por qué?</span> Para proveer al ecosistema hispanohablante una capa técnica modular de validación local y control que elimine la dependencia ciega de APIs externas o servidores centralizados.</div>
             </div>
         </div>
 
         <div class="article-body">
             <div class="lead-paragraph">
-                <strong>CIUDAD DE MÉXICO</strong> — En un movimiento estratégico que transforma las directivas abstractas en infraestructura pública tangible, la red descentralizada xolosArmy Network anunció la puesta en marcha de su suite de software soberano para el protocolo eCash (XEC). El ecosistema cuenta ahora con un validador matemático local autónomo y un portal de control de acceso en producción.
+                <strong>CIUDAD DE MÉXICO</strong> — En un movimiento estratégico que transforma las directivas abstractas en infraestructura pública tangible, la red descentralizada xolosArmy Network anunció la puesta en marcha de su suite de software soberano para el protocolo eCash (XEC). El ecosistema cuenta ahora con un validador matemático local autónomo y un portal de control de acceso cultural en producción.
             </div>
 
             <p>
@@ -285,12 +300,13 @@
 
             <h2 class="section-heading">La Abstracción del Patrón Adaptador</h2>
             <p>
-                El mayor hito de diseño arquitectónico llegó con la integración del módulo de acceso cultural basado en el token RMZ (<span class="code-inline">Token ID: c923bd0f09...6353802a3cb7c3f34fa7cc85c9305908</span>). En lugar de encadenar el software a un cliente de red único, los ingenieros implementaron la interfaz modular <span class="code-inline">BlockchainAdapter</span>.
+                El mayor hito de diseño arquitectónico llegó con la integración del módulo de acceso cultural basado en el token RMZ (<span class="code-inline">Token ID: c923bd0f09...6353802a3cb7c3f34fa7cc85c9305908</span>). En lugar de encadenar el software a un cliente de red único, los ingenieros implementaron la interfaz modular <span class="code-inline">BlockchainAdapter</span>. 
             </p>
             <p>
-                A través de esta abstracción, <span class="code-inline font-bold">tonalli-core se independiza por completo de Chronik</span>. La librería simplemente define la naturaleza de los datos requeridos, convirtiendo a los indexadores externos en adaptadores reemplazables en cualquier momento.
+                A través de esta abstracción, <span class="code-inline font-bold">tonalli-core se independiza por completo de Chronik</span> u otros servicios propietarios. La librería simplemente define la naturaleza de los datos requeridos, convirtiendo a los indexadores externos en adaptadores reemplazables en cualquier momento.
             </p>
 
+            <!-- Diagrama del Flujo de Datos Soberano -->
             <div class="flowchart-container">
                 <div class="flowchart-title">Plano de Arquitectura de Datos y Acceso Local/On-Chain</div>
                 <div class="flow-step highlight">Petición de Usuario (Dirección eCash)</div>
