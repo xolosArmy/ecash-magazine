@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo de Publicaciones | eCash Magazine México</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+        body { background-color: #05070a; color: #e2e8f0; font-family: 'Lexend', sans-serif; overflow-x: hidden; }
+        .space-mono { font-family: 'Space Mono', monospace; }
+
+        /* Efecto cinemático de escaneo de red */
+        .scanline {
+            width: 100%; height: 100px; z-index: 99; position: absolute; bottom: 100%;
+            background: linear-gradient(0deg, rgba(0, 171, 231, 0) 0%, rgba(0, 171, 231, 0.02) 50%, rgba(0, 171, 231, 0) 100%);
+            animation: scanline 12s linear infinite; pointer-events: none; opacity: 0.4;
+        }
+        @keyframes scanline { 0% { bottom: 100%; } 100% { bottom: -100%; } }
+
+        .archive-card:hover {
+            border-color: rgba(0, 171, 231, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 171, 231, 0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="https://i.imgur.com/YZvGu8q.png" alt="Miniatura eCash Magazine" class="h-10 w-auto rounded-full bg-black border border-cyan-500/30">
+                <div class="text-xl font-bold tracking-tighter italic space-mono">
+                    <span class="text-white">eCash</span><span class="text-[#00abe7]">Magazine</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex space-x-8 text-[11px] uppercase font-bold tracking-widest space-mono text-gray-400">
+                <a href="../index.html" class="hover:text-cyan-400 transition">Primera Plana</a>
+                <a href="#" class="hover:text-cyan-400 transition text-white border-b-2 border-cyan-400 pb-1">Historial Completo</a>
+            </nav>
+            <a href="https://ecash.mx" class="text-xs font-bold text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-sm hover:bg-cyan-500/10 transition space-mono tracking-wider">
+                ← PORTAL GENERAL
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-12">
+            <span class="text-[#ffcc00] font-bold text-xs uppercase tracking-[0.3em] space-mono">Bitácora General</span>
+            <h1 class="text-4xl font-extrabold text-white italic tracking-tight mt-2 mb-4">
+                Historial de Publicaciones
+            </h1>
+            <p class="text-gray-400 max-w-2xl text-sm italic">
+                Explora el compendio completo de ensayos de autoridad, reportajes de infraestructura y análisis culturales emitidos de manera independiente para la nueva economía eCash.
+            </p>
+            <div class="h-px bg-gradient-to-r from-cyan-500/30 to-transparent w-40 mt-6"></div>
+        </div>
+
+        <section id="articles-list" class="grid md:grid-cols-2 gap-6">
+
+            <article class="archive-card card-blur p-6 rounded-xl border border-white/5 bg-slate-900/10 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center text-[10px] space-mono text-cyan-500 font-bold mb-3">
+                        <span>CULTURA // VOL. I</span>
+                        <span class="text-gray-500">MAYO 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 italic tracking-tight hover:text-cyan-400 transition">
+                        <a href="https://ecash.mx/blog/que-es-ecash.html">Por qué eCash necesita cultura, no solo tecnología.</a>
+                    </h2>
+                    <p class="text-gray-400 text-sm italic mb-6 leading-relaxed">
+                        El código puro es estéril sin una narrativa comunitaria clara. Analizamos por qué el éxito de XEC en territorio hispano depende de la construcción de una identidad soberana útil para la vida real.
+                    </p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <span class="text-[10px] space-mono text-gray-500">AUTOR: BUILDERS XOLOSARMY</span>
+                    <a href="https://ecash.mx/blog/que-es-ecash.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono flex items-center gap-1">ABRIR ENSAYO <i class="fas fa-chevron-right text-[8px]"></i></a>
+                </div>
+            </article>
+
+            <article class="archive-card card-blur p-6 rounded-xl border border-white/5 bg-slate-900/10 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center text-[10px] space-mono text-purple-400 font-bold mb-3">
+                        <span>SISTEMAS // VOL. I</span>
+                        <span class="text-gray-500">MAYO 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 italic tracking-tight hover:text-cyan-400 transition">
+                        <a href="https://ecash.mx/blog/integracion-ecash-thorchain.html">Liquidez nativa sin wrapped tokens</a>
+                    </h2>
+                    <p class="text-gray-400 text-sm italic mb-6 leading-relaxed">
+                        El riesgo sistémico de los puentes centralizados y cómo la ruta abierta y descentralizada de THORChain devuelve el poder al usuario de autocustodia mediante swaps de Capa 1.
+                    </p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <span class="text-[10px] space-mono text-gray-500">AUTOR: BACKEND BUILDERS</span>
+                    <a href="https://ecash.mx/blog/integracion-ecash-thorchain.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono flex items-center gap-1">ABRIR ENSAYO <i class="fas fa-chevron-right text-[8px]"></i></a>
+                </div>
+            </article>
+
+            <article class="archive-card card-blur p-6 rounded-xl border border-white/5 bg-slate-900/10 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center text-[10px] space-mono text-orange-500 font-bold mb-3">
+                        <span>COORDINACIÓN // VOL. I</span>
+                        <span class="text-gray-500">MAYO 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 italic tracking-tight hover:text-cyan-400 transition">
+                        <a href="https://ecash.mx/blog/teyolia-crowdfunding-xec.html">Teyolia: Crowdfunding no custodial con XEC</a>
+                    </h2>
+                    <p class="text-gray-400 text-sm italic mb-6 leading-relaxed">
+                        Análisis detallado sobre el uso de Covenants nativos de eCash para coordinar capital social sin intermediación ni custodios centralizados en campañas comunitarias.
+                    </p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <span class="text-[10px] space-mono text-gray-500">AUTOR: PROTOCOL RESEARCH</span>
+                    <a href="https://ecash.mx/blog/teyolia-crowdfunding-xec.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono flex items-center gap-1">ABRIR ENSAYO <i class="fas fa-chevron-right text-[8px]"></i></a>
+                </div>
+            </article>
+
+            <article class="archive-card card-blur p-6 rounded-xl border border-white/5 bg-slate-900/10 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center text-[10px] space-mono text-amber-500 font-bold mb-3">
+                        <span>INFRAESTRUCTURA // VOL. I</span>
+                        <span class="text-gray-500">MAYO 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 italic tracking-tight hover:text-cyan-400 transition">
+                        <a href="https://ecash.mx/blog/mineria-ecash-mexico.html">Minería Soberana y Membresías RMZ</a>
+                    </h2>
+                    <p class="text-gray-400 text-sm italic mb-6 leading-relaxed">
+                        Estudio técnico sobre la emisión de credenciales mineras mediante validaciones on-chain con Chronik y la implementación del Plano de Control de xolosArmy.
+                    </p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                    <span class="text-[10px] space-mono text-gray-500">AUTOR: NETWORK OPERATIONS</span>
+                    <a href="https://ecash.mx/blog/mineria-ecash-mexico.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono flex items-center gap-1">ABRIR ENSAYO <i class="fas fa-chevron-right text-[8px]"></i></a>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="bg-black/80 py-12 px-6 border-t border-white/5 text-center text-[10px] text-gray-600 space-mono uppercase tracking-widest leading-loose mt-20">
+        eCash Magazine México es una publicación libre e independiente.<br>
+        Contenidos distribuidos bajo la soberanía del código abierto y la Licencia CC0. 2026.
+    </footer>
+
+</body>
+</html>
