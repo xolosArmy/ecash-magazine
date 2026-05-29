@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Crónica] XEC es el dinero, RMZ es la llave | eCash Magazine México</title>
+  <meta name="description" content="Crónica de eCash Magazine México sobre la presentación comunitaria de infraestructura RMZ, autenticación token-gated, soberanía financiera con XEC y posicionamiento digital del ecosistema mexicano." />
+  <meta property="og:title" content="[Crónica] XEC es el dinero, RMZ es la llave" />
+  <meta property="og:description" content="eCash México presenta una nueva capa de autenticación comunitaria basada en RMZ, con XEC como dinero permissionless y cultura como red." />
+  <meta property="og:type" content="article" />
+  <meta name="theme-color" content="#00abe7" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      --bg: #05070a;
+      --panel: #090d16;
+      --panel-2: #0f172a;
+      --text: #dbeafe;
+      --muted: #94a3b8;
+      --soft: #64748b;
+      --cyan: #00abe7;
+      --cyan-2: #38bdf8;
+      --gold: #ffcc00;
+      --line: rgba(255, 255, 255, 0.11);
+      --cyan-line: rgba(0, 171, 231, 0.28);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(0, 171, 231, 0.16), transparent 32%),
+        radial-gradient(circle at 80% 5%, rgba(255, 204, 0, 0.10), transparent 30%),
+        linear-gradient(180deg, #020305 0%, var(--bg) 42%, #030508 100%);
+      color: var(--text);
+      font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: 0;
+    }
+
+    .scanline {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 110px;
+      top: -120px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .32;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,171,231,.08) 50%, transparent 100%);
+      animation: scan 12s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { transform: translateY(-120px); }
+      100% { transform: translateY(calc(100vh + 240px)); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .mono {
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .site-shell {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .topbar {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      background: rgba(2, 6, 23, 0.72);
+      backdrop-filter: blur(16px);
+      border-radius: 22px 22px 0 0;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(255,255,255,.25), transparent 22%),
+        linear-gradient(135deg, rgba(0,171,231,.25), rgba(255,204,0,.14));
+      border: 1px solid var(--cyan-line);
+      box-shadow: 0 0 28px rgba(0,171,231,.18);
+      font-size: 23px;
+    }
+
+    .brand-title {
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      font-size: clamp(1.12rem, 3vw, 1.55rem);
+      white-space: nowrap;
+    }
+
+    .brand-title span {
+      color: var(--cyan);
+    }
+
+    .brand-sub {
+      color: var(--soft);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .topnav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-pill {
+      border: 1px solid rgba(255,255,255,.12);
+      color: #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.03);
+      transition: all .2s ease;
+    }
+
+    .nav-pill:hover {
+      border-color: var(--cyan-line);
+      color: white;
+      box-shadow: 0 0 18px rgba(0,171,231,.14);
+      transform: translateY(-1px);
+    }
+
+    .article {
+      background:
+        linear-gradient(180deg, rgba(9, 13, 22, .96) 0%, rgba(8, 12, 21, .98) 100%);
+      border: 1px solid var(--line);
+      border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 70px) 26px;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      min-height: 560px;
+      display: grid;
+      align-items: end;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.38) 52%, rgba(0,0,0,.92) 100%),
+        url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=82") center/cover no-repeat;
+      opacity: .74;
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 72% 20%, rgba(0,171,231,.24), transparent 30%),
+        radial-gradient(circle at 22% 32%, rgba(255,204,0,.16), transparent 32%),
+        linear-gradient(90deg, rgba(0,0,0,.72), transparent 55%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 930px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan-2);
+      border: 1px solid var(--cyan-line);
+      background: rgba(0,171,231,.08);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: .74rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 18px rgba(255,204,0,.7);
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 7vw, 5.75rem);
+      line-height: .92;
+      letter-spacing: -0.075em;
+      margin: 0 0 18px;
+      color: white;
+      max-width: 1020px;
+      text-wrap: balance;
+    }
+
+    .deck {
+      max-width: 800px;
+      color: #dbeafe;
+      font-size: clamp(1.02rem, 2.1vw, 1.35rem);
+      line-height: 1.65;
+      margin: 0 0 22px;
+      text-shadow: 0 2px 14px rgba(0,0,0,.5);
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: #cbd5e1;
+      font-size: .75rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 34px;
+      padding: clamp(22px, 5vw, 58px) clamp(20px, 5vw, 70px) 60px;
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .lede-card {
+      border: 1px solid rgba(0,171,231,.28);
+      background:
+        linear-gradient(135deg, rgba(0,171,231,.10), rgba(255,204,0,.05)),
+        rgba(15, 23, 42, .72);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .lede-label {
+      color: var(--gold);
+      font-size: .74rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .lede-card p {
+      margin: 0;
+      color: #e2e8f0;
+      font-size: 1.04rem;
+    }
+
+    .video-section {
+      margin: 34px 0;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #030712;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 22px 70px rgba(0,0,0,.45);
+    }
+
+    .video-header {
+      padding: 15px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    article p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+      margin: 0 0 1.25rem;
+    }
+
+    article strong {
+      color: white;
+      font-weight: 800;
+    }
+
+    article em {
+      color: #e0f2fe;
+      font-style: italic;
+    }
+
+    h2 {
+      color: white;
+      font-size: clamp(1.35rem, 3.2vw, 2.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      margin: 44px 0 16px;
+      padding-top: 10px;
+      text-wrap: balance;
+    }
+
+    h2 .num {
+      color: var(--gold);
+      font-size: .88em;
+      margin-right: 6px;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 30px;
+      border-left: 4px solid var(--gold);
+      background:
+        linear-gradient(90deg, rgba(255,204,0,.08), rgba(0,171,231,.05)),
+        rgba(255,255,255,.035);
+      border-radius: 0 20px 20px 0;
+      color: white;
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .pullquote small {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-top: 12px;
+      font-weight: 700;
+    }
+
+    .code-chip {
+      display: inline-block;
+      font-family: "Space Mono", monospace;
+      color: var(--cyan-2);
+      background: rgba(15, 23, 42, .9);
+      border: 1px solid rgba(0,171,231,.22);
+      padding: 1px 7px;
+      border-radius: 7px;
+      font-size: .9em;
+      white-space: nowrap;
+    }
+
+    .mini-panel {
+      margin: 30px 0;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(15,23,42,.62);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .mini-panel-title {
+      padding: 14px 18px;
+      color: var(--gold);
+      background: rgba(255,255,255,.035);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: .76rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .mini-panel ul {
+      margin: 0;
+      padding: 18px 22px 20px 40px;
+      color: #cbd5e1;
+    }
+
+    .mini-panel li {
+      margin: 8px 0;
+    }
+
+    .sidebar {
+      position: relative;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .side-card {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(15, 23, 42, .56);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .side-title {
+      color: var(--cyan-2);
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .side-card p,
+    .side-card li {
+      color: #cbd5e1;
+      font-size: .88rem;
+      line-height: 1.6;
+    }
+
+    .side-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .mantra {
+      border-color: rgba(255,204,0,.27);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,204,0,.10), transparent 44%),
+        rgba(15, 23, 42, .58);
+    }
+
+    .mantra-lines {
+      display: grid;
+      gap: 9px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .mantra-lines span {
+      display: block;
+      padding-bottom: 9px;
+      border-bottom: 1px dashed rgba(255,255,255,.12);
+    }
+
+    .mantra-lines span:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .source-note {
+      margin-top: 42px;
+      border-top: 1px solid rgba(255,255,255,.11);
+      padding-top: 20px;
+      color: var(--soft);
+      font-size: .88rem;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 26px clamp(20px, 5vw, 70px);
+      color: var(--soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,.18);
+    }
+
+    @media (max-width: 900px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .topnav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sticky {
+        position: static;
+      }
+
+      .sidebar {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .site-shell {
+        width: min(100% - 16px, 1120px);
+      }
+
+      .hero {
+        min-height: 560px;
+      }
+
+      .nav-pill {
+        font-size: .65rem;
+        padding: 7px 9px;
+      }
+
+      article p {
+        text-align: left;
+      }
+
+      .pullquote {
+        padding: 22px;
+      }
+
+      .footer {
+        display: block;
+      }
+
+      .footer div + div {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="../index.html" class="brand" aria-label="eCash Magazine México">
+          <div class="brand-mark" aria-hidden="true">✦</div>
+          <div>
+            <div class="brand-title mono">eCash<span>Magazine</span></div>
+            <div class="brand-sub mono">México · Infraestructura · Cultura</div>
+          </div>
+        </a>
+
+        <nav class="topnav mono" aria-label="Navegación principal">
+          <a class="nav-pill" href="../index.html">Primera Plana</a>
+          <a class="nav-pill" href="./index.html">Archivo</a>
+          <a class="nav-pill" href="https://ecash.mx">Portal eCash.mx</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="kicker mono">[Crónica] · eCash México</div>
+          <h1>XEC es el dinero, RMZ es la llave</h1>
+          <p class="deck">
+            En una transmisión comunitaria, eCash México presentó una nueva capa de autenticación basada en RMZ:
+            una herramienta para distinguir miembros reales, proteger comunidades digitales y construir infraestructura
+            soberana desde México.
+          </p>
+          <div class="meta-row mono">
+            <span class="tag">28 de mayo de 2026</span>
+            <span class="tag">Transmisión comunitaria</span>
+            <span class="tag">Infraestructura soberana</span>
+            <span class="tag">XolosArmy Network</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="main">
+          <div class="lede-card">
+            <div class="lede-label mono">El momento</div>
+            <p>
+              No fue solamente una actualización técnica. Fue una escena de construcción: una comunidad hablando de
+              código, dinero permissionless, identidad digital, buscadores, Telegram, NPM y cultura mexicana como si todo
+              perteneciera a la misma arquitectura.
+            </p>
+          </div>
+
+          <section class="video-section" aria-label="Video de la transmisión">
+            <div class="video-header mono">
+              <span>Video de referencia</span>
+              <span>YouTube · eCash México</span>
+            </div>
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/3jGWWfcrtZM?start=1"
+                title="Transmisión comunitaria eCash México - XEC es el dinero, RMZ es la llave"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </section>
+
+          <p>
+            La tarde del 28 de mayo de 2026, eCash México volvió a colocar una idea sobre la mesa:
+            la adopción de una moneda digital no se sostiene únicamente con entusiasmo, discursos o promesas.
+            Se sostiene con infraestructura. Con herramientas que funcionen. Con puntos de entrada claros para usuarios,
+            desarrolladores y comunidades.
+          </p>
+
+          <p>
+            En esa reunión, el eje fue una nueva pieza del stack soberano: una biblioteca publicada en NPM para verificar
+            la posesión del token <strong>RMZ</strong>. Su función es sencilla de explicar, pero poderosa en consecuencias:
+            permitir que una aplicación, una wallet o una comunidad digital pueda comprobar si una persona posee la llave
+            comunitaria correcta.
+          </p>
+
+          <div class="pullquote">
+            XEC es el dinero.<br>
+            RMZ es la llave.<br>
+            La cultura es la red.
+            <small class="mono">Mantra operativo del ecosistema</small>
+          </div>
+
+          <h2><span class="num">01</span>La llave RMZ contra el ruido digital</h2>
+
+          <p>
+            En internet, una comunidad abierta puede llenarse de ruido en cuestión de minutos. Bots, cuentas falsas,
+            spam, intentos de estafa, mensajes automáticos y usuarios sin relación real con el proyecto terminan
+            degradando los espacios donde debería ocurrir la coordinación.
+          </p>
+
+          <p>
+            La propuesta presentada por eCash México no busca cerrar la puerta a la comunidad, sino construir una
+            <strong>verificación criptográfica ligera</strong>. RMZ aparece como una llave simbólica y técnica: un token
+            que puede ser detectado para confirmar pertenencia, activar accesos o reducir la fricción de moderación en
+            canales como Telegram y futuras herramientas del ecosistema.
+          </p>
+
+          <p>
+            El paquete de NPM se vuelve entonces una pieza pequeña, pero estratégica. No pretende ser una plataforma
+            gigantesca ni una promesa abstracta. Es una herramienta instalable, reusable y pensada para que otros
+            constructores puedan integrarla en sus propios productos. En lenguaje de desarrollo, el mensaje es claro:
+            menos discurso, más librerías.
+          </p>
+
+          <div class="mini-panel">
+            <div class="mini-panel-title mono">Qué se presentó</div>
+            <ul>
+              <li>Una biblioteca en NPM para verificar posesión de RMZ.</li>
+              <li>Un mecanismo de autenticación comunitaria para productos y canales digitales.</li>
+              <li>Una estrategia para reducir bots y spam sin depender de plataformas cerradas.</li>
+              <li>Una narrativa técnica: XEC como dinero, RMZ como llave y cultura como ecosistema.</li>
+            </ul>
+          </div>
+
+          <h2><span class="num">02</span>Dinero permissionless frente al riesgo bancario</h2>
+
+          <p>
+            La conversación no se quedó en el terreno técnico. El contexto mexicano apareció como fondo inevitable.
+            En un país donde la banca tradicional puede imponer requisitos, controles, verificaciones intrusivas o
+            fricciones de acceso, eCash fue presentado como una alternativa de soberanía financiera práctica.
+          </p>
+
+          <p>
+            XEC no fue descrito como una idea lejana, sino como dinero utilizable sin pedir permiso. Una red donde el
+            usuario conserva sus llaves, mantiene control sobre sus activos y puede operar sin depender de la aprobación
+            de una institución bancaria. En esa lectura, la frase <em>permissionless</em> deja de ser jerga técnica y se
+            vuelve una necesidad cotidiana.
+          </p>
+
+          <p>
+            Esta parte de la transmisión conecta con una preocupación más amplia: la libertad monetaria no vive solo en
+            el precio de mercado. Vive en la capacidad de usar, guardar y mover valor sin quedar atrapado por filtros
+            institucionales. Para eCash México, esa idea se traduce en wallets, nodos, infraestructura regional,
+            educación y medios propios.
+          </p>
+
+          <h2><span class="num">03</span>El territorio .mx como infraestructura cultural</h2>
+
+          <p>
+            Otro punto importante fue el posicionamiento digital. La adopción no ocurre solamente en GitHub o en los
+            canales técnicos: también ocurre en los buscadores, en los nombres de dominio y en la memoria pública que
+            empieza a formarse alrededor de un proyecto.
+          </p>
+
+          <p>
+            El uso del dominio nacional <span class="code-chip">ecash.mx</span> y del medio
+            <span class="code-chip">magazine.ecash.mx</span> fue presentado como una decisión estratégica. No se trata
+            únicamente de tener una página bonita. Se trata de ocupar territorio digital mexicano con contenido propio,
+            en español, indexable y orientado a explicar qué es eCash desde una perspectiva local.
+          </p>
+
+          <p>
+            En esa línea, eCash Magazine México funciona como archivo, escaparate y memoria editorial. Cada publicación
+            suma una capa: noticias, crónicas, análisis técnicos, entrevistas y piezas culturales que ayudan a que XEC
+            deje de ser una sigla cripto aislada y empiece a tener contexto mexicano.
+          </p>
+
+          <h2><span class="num">04</span>Constructores, no espectadores</h2>
+
+          <p>
+            La reunión cerró con una visión de continuidad. La biblioteca de autenticación no aparece como un punto final,
+            sino como una invitación a construir encima. Si una herramienta permite verificar RMZ, otras aplicaciones
+            pueden usarla para crear membresías, accesos, dashboards, flujos de prueba de control, comunidades con menor
+            spam y experiencias más seguras.
+          </p>
+
+          <p>
+            Esa es la diferencia entre una comunidad que solo comenta el mercado y una comunidad que entrega piezas de
+            infraestructura. En la crónica de este día, eCash México se presentó menos como audiencia y más como taller:
+            un lugar donde se escribe código, se prueba, se publica, se corrige y se vuelve a explicar.
+          </p>
+
+          <div class="pullquote">
+            La soberanía digital no empieza cuando todo está terminado.<br>
+            Empieza cuando una comunidad decide publicar su primera herramienta útil.
+            <small class="mono">Lectura editorial</small>
+          </div>
+
+          <h2><span class="num">05</span>Una crónica de adopción real</h2>
+
+          <p>
+            Lo relevante de esta transmisión no fue únicamente que exista una biblioteca nueva. Lo relevante es el tipo
+            de ecosistema que esa biblioteca sugiere: uno donde el dinero, la identidad comunitaria y la cultura no se
+            tratan como piezas separadas, sino como capas de una misma red.
+          </p>
+
+          <p>
+            XEC aparece como la base monetaria. RMZ como la llave de pertenencia. La cultura como el tejido que permite
+            que las herramientas no se queden en manos de especialistas. Y México como territorio narrativo, técnico y
+            simbólico desde donde se puede construir una versión local de la soberanía financiera.
+          </p>
+
+          <p>
+            En tiempos donde muchas comunidades digitales se conforman con repetir consignas, eCash México eligió una
+            ruta más difícil: documentar, publicar, construir y explicar. La crónica de esta reunión deja una imagen
+            precisa: una comunidad pequeña, pero activa, intentando convertir una filosofía en infraestructura verificable.
+          </p>
+
+          <div class="source-note">
+            <strong>Nota editorial:</strong> Esta crónica se basa en la reunión comunitaria del 28 de mayo de 2026,
+            en las notas de la transmisión y en la línea editorial de eCash Magazine México. Se corrigieron transcripciones
+            automáticas donde aparecían términos incorrectos como “XC”, “RMC” o “Ikash”, sustituyéndolos por XEC, RMZ y
+            eCash México según el contexto del proyecto.
+          </div>
+        </article>
+
+        <aside class="sidebar" aria-label="Información editorial">
+          <div class="sticky">
+            <div class="side-card mantra">
+              <div class="side-title mono">Mantra</div>
+              <div class="mantra-lines">
+                <span>XEC es el dinero.</span>
+                <span>RMZ es la llave.</span>
+                <span>La cultura es la red.</span>
+              </div>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Ficha de la pieza</div>
+              <p>
+                <strong>Género:</strong> Crónica<br>
+                <strong>Medio:</strong> eCash Magazine México<br>
+                <strong>Tema:</strong> autenticación comunitaria, NPM, RMZ, XEC, soberanía financiera.
+              </p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Claves técnicas</div>
+              <ul>
+                <li>Verificación de posesión de RMZ.</li>
+                <li>Acceso comunitario token-gated.</li>
+                <li>Reducción de bots y spam.</li>
+                <li>Herramientas para builders.</li>
+                <li>XEC como dinero permissionless.</li>
+              </ul>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">URLs mencionadas</div>
+              <p>
+                <span class="code-chip">ecash.mx</span><br><br>
+                <span class="code-chip">magazine.ecash.mx</span><br><br>
+                <span class="code-chip">npmjs.com</span>
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer mono">
+        <div>eCash Magazine México · 2026</div>
+        <div>XEC es el dinero · RMZ es la llave · La cultura es la red</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
