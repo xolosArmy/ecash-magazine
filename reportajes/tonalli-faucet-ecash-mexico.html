@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Reportaje] Tonalli Faucet: el fan-out como puerta de entrada masiva a eCash en las universidades | eCash Magazine México</title>
+  <meta name="description" content="Del QR al primer XEC: la estrategia universitaria para masificar eCash en México. Análisis sobre Tonalli Faucet y el fan-out." />
+  <meta property="og:title" content="Tonalli Faucet: el fan-out como puerta de entrada masiva a eCash" />
+  <meta property="og:description" content="Tonalli Faucet no es solo una faucet. Es una herramienta de distribución inicial para convertir curiosidad universitaria en experiencia real." />
+  <meta property="og:image" content="https://i.imgur.com/jIm0Vp1.jpeg" />
+  <meta property="og:type" content="article" />
+  <meta name="theme-color" content="#00abe7" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      --bg: #05070a;
+      --panel: #090d16;
+      --panel-2: #0f172a;
+      --text: #dbeafe;
+      --muted: #94a3b8;
+      --soft: #64748b;
+      --cyan: #00abe7;
+      --cyan-2: #38bdf8;
+      --gold: #ffcc00;
+      --line: rgba(255, 255, 255, 0.11);
+      --cyan-line: rgba(0, 171, 231, 0.28);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(0, 171, 231, 0.16), transparent 32%),
+        radial-gradient(circle at 80% 5%, rgba(255, 204, 0, 0.10), transparent 30%),
+        linear-gradient(180deg, #020305 0%, var(--bg) 42%, #030508 100%);
+      color: var(--text);
+      font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: 0;
+    }
+
+    .scanline {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 110px;
+      top: -120px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .32;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,171,231,.08) 50%, transparent 100%);
+      animation: scan 12s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { transform: translateY(-120px); }
+      100% { transform: translateY(calc(100vh + 240px)); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .mono {
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .site-shell {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .topbar {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      background: rgba(2, 6, 23, 0.72);
+      backdrop-filter: blur(16px);
+      border-radius: 22px 22px 0 0;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(255,255,255,.25), transparent 22%),
+        linear-gradient(135deg, rgba(0,171,231,.25), rgba(255,204,0,.14));
+      border: 1px solid var(--cyan-line);
+      box-shadow: 0 0 28px rgba(0,171,231,.18);
+      font-size: 23px;
+    }
+
+    .brand-title {
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      font-size: clamp(1.12rem, 3vw, 1.55rem);
+      white-space: nowrap;
+    }
+
+    .brand-title span {
+      color: var(--cyan);
+    }
+
+    .brand-sub {
+      color: var(--soft);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .topnav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-pill {
+      border: 1px solid rgba(255,255,255,.12);
+      color: #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.03);
+      transition: all .2s ease;
+    }
+
+    .nav-pill:hover {
+      border-color: var(--cyan-line);
+      color: white;
+      box-shadow: 0 0 18px rgba(0,171,231,.14);
+      transform: translateY(-1px);
+    }
+
+    .article {
+      background:
+        linear-gradient(180deg, rgba(9, 13, 22, .96) 0%, rgba(8, 12, 21, .98) 100%);
+      border: 1px solid var(--line);
+      border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 70px) 26px;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      min-height: 560px;
+      display: grid;
+      align-items: end;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 52%, rgba(0,0,0,.95) 100%),
+        url("https://i.imgur.com/jIm0Vp1.jpeg") center/cover no-repeat;
+      opacity: .85;
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 72% 20%, rgba(0,171,231,.15), transparent 30%),
+        radial-gradient(circle at 22% 32%, rgba(255,204,0,.10), transparent 32%),
+        linear-gradient(90deg, rgba(0,0,0,.60), transparent 60%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 930px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan-2);
+      border: 1px solid var(--cyan-line);
+      background: rgba(0,171,231,.08);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: .74rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--cyan-2);
+      box-shadow: 0 0 18px rgba(0,171,231,.7);
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 6vw, 5.25rem);
+      line-height: 1;
+      letter-spacing: -0.075em;
+      margin: 0 0 18px;
+      color: white;
+      max-width: 1020px;
+      text-wrap: balance;
+    }
+
+    .deck {
+      max-width: 800px;
+      color: var(--gold);
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: 600;
+      line-height: 1.45;
+      margin: 0 0 22px;
+      text-shadow: 0 2px 14px rgba(0,0,0,.8);
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: #cbd5e1;
+      font-size: .75rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 34px;
+      padding: clamp(22px, 5vw, 58px) clamp(20px, 5vw, 70px) 60px;
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .lede-card {
+      border: 1px solid rgba(0,171,231,.28);
+      background:
+        linear-gradient(135deg, rgba(0,171,231,.10), rgba(255,204,0,.05)),
+        rgba(15, 23, 42, .72);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .lede-label {
+      color: var(--gold);
+      font-size: .74rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .lede-card p {
+      margin: 0;
+      color: #e2e8f0;
+      font-size: 1.08rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    article p {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      margin: 0 0 1.25rem;
+    }
+
+    article strong {
+      color: white;
+      font-weight: 800;
+    }
+
+    article em {
+      color: #e0f2fe;
+      font-style: italic;
+    }
+
+    h2 {
+      color: white;
+      font-size: clamp(1.35rem, 3.2vw, 2.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      margin: 44px 0 16px;
+      padding-top: 10px;
+      text-wrap: balance;
+    }
+
+    h2 .num {
+      color: var(--cyan-2);
+      font-size: .88em;
+      margin-right: 6px;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 30px;
+      border-left: 4px solid var(--cyan-2);
+      background:
+        linear-gradient(90deg, rgba(0,171,231,.08), rgba(255,204,0,.03)),
+        rgba(255,255,255,.035);
+      border-radius: 0 20px 20px 0;
+      color: white;
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .pullquote small {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-top: 12px;
+      font-weight: 700;
+    }
+
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--cyan);
+      color: #000;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 16px 28px;
+      border-radius: 12px;
+      margin: 24px 0;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,171,231,.3);
+    }
+
+    .action-button:hover {
+      background: #38bdf8;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,171,231,.4);
+    }
+
+    .action-button i {
+      font-size: 1.2em;
+    }
+
+    .mini-panel {
+      margin: 30px 0;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(15,23,42,.62);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .mini-panel-title {
+      padding: 14px 18px;
+      color: var(--cyan-2);
+      background: rgba(255,255,255,.035);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: .76rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .mini-panel ul {
+      margin: 0;
+      padding: 18px 22px 20px 40px;
+      color: #cbd5e1;
+    }
+
+    .mini-panel li {
+      margin: 8px 0;
+    }
+
+    .sidebar {
+      position: relative;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .side-card {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(15, 23, 42, .56);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .side-title {
+      color: var(--gold);
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .side-card p,
+    .side-card li {
+      color: #cbd5e1;
+      font-size: .88rem;
+      line-height: 1.6;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 26px clamp(20px, 5vw, 70px);
+      color: var(--soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,.18);
+    }
+
+    @media (max-width: 900px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .topnav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: 480px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sticky {
+        position: static;
+      }
+
+      .sidebar {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .site-shell {
+        width: min(100% - 16px, 1120px);
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      .nav-pill {
+        font-size: .65rem;
+        padding: 7px 9px;
+      }
+
+      article p {
+        text-align: left;
+      }
+
+      .pullquote {
+        padding: 22px;
+      }
+
+      .footer {
+        display: block;
+      }
+
+      .footer div + div {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="../index.html" class="brand" aria-label="eCash Magazine México">
+          <div class="brand-mark" aria-hidden="true">✦</div>
+          <div>
+            <div class="brand-title mono">eCash<span>Magazine</span></div>
+            <div class="brand-sub mono">México · Infraestructura · Cultura</div>
+          </div>
+        </a>
+
+        <nav class="topnav mono" aria-label="Navegación principal">
+          <a class="nav-pill" href="../index.html">Primera Plana</a>
+          <a class="nav-pill" href="./index.html">Archivo</a>
+          <a class="nav-pill" href="https://ecash.mx">Portal eCash.mx</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="kicker mono">[Reportaje] · [Análisis Técnico]</div>
+          <h1>Tonalli Faucet: el fan-out como puerta de entrada masiva a eCash en las universidades de México</h1>
+          <p class="deck">
+            Del QR al primer XEC: la estrategia universitaria para masificar eCash en México.
+          </p>
+          <div class="meta-row mono">
+            <span class="tag">Adopción Masiva</span>
+            <span class="tag">Soberanía Financiera</span>
+            <span class="tag">XolosArmy Network</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="main">
+          <div class="lede-card">
+            <div class="lede-label mono">Tesis Central</div>
+            <p>
+              Tonalli Faucet no es solo una faucet que regala XEC. Es una herramienta de distribución inicial para convertir curiosidad universitaria en experiencia real: recibir, guardar, enviar y entender dinero electrónico sin pedir permiso a bancos, exchanges ni intermediarios.
+            </p>
+          </div>
+
+          <h2><span class="num">01</span>La escena: del código QR al primer XEC</h2>
+
+          <p>
+            Un estudiante escanea un código QR en el muro de una universidad mexicana. No está abriendo una cuenta bancaria. No está llenando un formulario con sus datos personales. No está esperando la aprobación de ninguna institución financiera. En cuestión de segundos y con solo un par de toques en la pantalla, recibe sus primeros XEC directamente en su celular.
+          </p>
+
+          <p>
+            La pregunta que detona este escenario es clara: ¿Qué pasaría si el <em>onboarding</em> del ecosistema cripto en México empezara no en un exchange regulado y lleno de barreras, sino directamente en el campus universitario?
+          </p>
+
+          <h2><span class="num">02</span>El problema de la fricción inicial</h2>
+
+          <p>
+            Para entender el valor de una faucet, primero hay que explicar el problema de la adopción. Las universidades están repletas de estudiantes con alta curiosidad tecnológica, pero el primer contacto con el ecosistema cripto suele estar profundamente contaminado. Hoy, la "puerta de entrada" para un estudiante promedio implica plataformas de trading, especulación, miedo a estafas o un nivel de complejidad técnica que aleja a los recién llegados.
+          </p>
+
+          <p>
+            Un estudiante oye hablar de eCash, pero se topa con un muro: no tiene una wallet, no tiene cuenta en un exchange, rechaza los procesos engorrosos de KYC (Conoce a tu Cliente), no entiende la estructura de las direcciones criptográficas y no sabe cómo comprar sus primeros tokens. El resultado es el abandono antes siquiera de probar la tecnología.
+          </p>
+
+          <p>
+            eCash necesita presentarse de otra forma: como dinero electrónico usable, rápido, con comisiones fraccionarias y, sobre todo, educativo.
+          </p>
+
+          <h2><span class="num">03</span>La solución: Tonalli Faucet</h2>
+
+          <p>
+            Tonalli Faucet rompe esa primera gran barrera. Es una herramienta diseñada específicamente para el <em>onboarding</em>. No promete rendimientos mágicos; entrega una cantidad inicial de XEC para que el estudiante pueda probar una wallet por primera vez.
+          </p>
+
+          <div class="mini-panel">
+            <div class="mini-panel-title mono">El flujo educativo de Tonalli Faucet</div>
+            <ul>
+              <li><strong>Entrega valor inicial:</strong> Proporciona una cantidad semilla de XEC.</li>
+              <li><strong>Demuestra la tecnología:</strong> Enseña en tiempo real cómo funciona una dirección eCash y la velocidad de la red.</li>
+              <li><strong>Desmitifica las criptomonedas:</strong> Convierte una explicación abstracta de la blockchain en una experiencia práctica y tangible de pagos pequeños.</li>
+            </ul>
+          </div>
+
+          <a href="https://faucet.tonalli.cash" class="action-button mono" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-tint"></i> Visitar Tonalli Faucet
+          </a>
+
+          <h2><span class="num">04</span>El fan-out universitario: encendiendo el mapa</h2>
+
+          <p>
+            En términos de infraestructura técnica y de red, a esto se le conoce como <strong>estrategia de fan-out</strong> (dispersión). Desde un nodo o fuente inicial de fondos (la faucet), se distribuyen pequeñas cantidades de XEC a cientos o miles de direcciones nuevas simultáneamente. 
+          </p>
+
+          <p>
+            En vez de concentrar el dinero en unas cuantas carteras de <em>traders</em>, se abre el mapa. La imagen mental es poderosa: un nodo central encendiendo miles de pequeñas luces en las universidades de todo México. 
+          </p>
+
+          <p>
+            Un programa de activación universitaria con fan-out llevaría códigos QR impresos, <em>stickers</em>, charlas, talleres y retos simples a los pasillos:
+            <br><br>
+            <em>"Recibe tus primeros XEC."</em><br>
+            <em>"Envía 10 XEC a un compañero."</em><br>
+            <em>"Paga un café simbólico."</em><br>
+            <em>"Guarda tu semilla."</em><br>
+            <em>"Aprende, en la práctica, qué significa la autocustodia."</em>
+          </p>
+
+          <h2><span class="num">05</span>¿Por qué las universidades?</h2>
+
+          <p>
+            Las universidades mexicanas son el terreno de pruebas perfecto para la descentralización. Combinan factores inigualables: jóvenes conectados permanentemente a sus celulares, curiosidad natural, densidad de población, laboratorios de sistemas, <em>hackatones</em>, y una vibrante economía informal interna (cafeterías estudiantiles, ventas entre alumnos, colectivos). Es una cultura inherentemente dispuesta a la experimentación tecnológica.
+          </p>
+
+          <h2><span class="num">06</span>Límites y riesgos del modelo</h2>
+
+          <p>
+            Sin embargo, el rigor técnico exige reconocer los límites del modelo. Una faucet por sí sola no garantiza la adopción a largo plazo. Existen riesgos reales de abuso por parte de <em>bots</em> y recolectores automatizados. 
+          </p>
+
+          <p>
+            Los montos deben mantenerse estrictamente pequeños para preservar los fondos, y el reto mayor no es regalar XEC, sino crear un <strong>uso posterior</strong>. Se necesita educación profunda sobre la seguridad de las frases semilla (autocustodia) y medir constantemente la retención: ¿Cuántos estudiantes que reciben XEC instalan la wallet definitiva? ¿Cuántos vuelven a interactuar con la red?
+          </p>
+
+          <div class="pullquote">
+            La adopción no empieza cuando alguien compra cripto.<br>
+            Empieza cuando alguien la usa por primera vez sin miedo.
+          </div>
+
+          <h2><span class="num">07</span>Conclusión</h2>
+
+          <p>
+            La estrategia detrás de Tonalli Faucet tiene el potencial de convertir a las universidades mexicanas en laboratorios vivos de dinero electrónico. Al eliminar la fricción de entrada de los exchanges y enfocarse en la experiencia peer-to-peer real, eCash puede dejar de ser una promesa de internet para convertirse en dinero de bolsillo para la próxima generación de profesionales en México.
+          </p>
+
+        </article>
+
+        <aside class="sidebar" aria-label="Información editorial">
+          <div class="sticky">
+            
+            <div class="side-card">
+              <div class="side-title mono">Acceso Directo</div>
+              <p>
+                Experimenta la velocidad de la red y recibe tus primeros XEC directamente desde la herramienta oficial de la comunidad.
+              </p>
+              <br>
+              <a href="https://faucet.tonalli.cash" class="action-button mono" style="font-size: 0.7rem; padding: 10px 14px; margin: 0; width: 100%; text-align: center; justify-content: center;" target="_blank">
+                Ir a la Faucet
+              </a>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Ficha de la pieza</div>
+              <p>
+                <strong>Género:</strong> Reportaje / Análisis Técnico<br>
+                <strong>Medio:</strong> eCash Magazine México<br>
+                <strong>Temas:</strong> Onboarding, Fan-out, Autocustodia, XEC, Adopción Universitaria.
+              </p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Glosario Técnico</div>
+              <ul>
+                <li><strong>Fan-out:</strong> Estrategia de dispersión de fondos desde una fuente hacia múltiples direcciones de red.</li>
+                <li><strong>Faucet:</strong> Grifo digital. Herramienta que distribuye fracciones de criptomonedas para pruebas o adopción.</li>
+                <li><strong>Autocustodia:</strong> Control criptográfico absoluto de los fondos por parte del usuario mediante una llave privada.</li>
+              </ul>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer mono">
+        <div>eCash Magazine México · 2026</div>
+        <div>Construyendo Infraestructura Soberana y Cultura Digital</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
