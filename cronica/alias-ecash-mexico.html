@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Crónica] La noche en que xolosarmy.xec quedó vivo | eCash Magazine México</title>
+  <meta name="description" content="Tonalli Wallet registró xolosarmy.xec, cobró 1600 RMZ, usó alias.ecash.mx como indexador soberano y verificó la identidad desde ecash.mx." />
+  <meta property="og:title" content="La noche en que xolosarmy.xec quedó vivo" />
+  <meta property="og:description" content="eCash México registra su primera identidad soberana con Tonalli Wallet: el cierre de un circuito soberano entre wallet, token, alias e indexador propio." />
+  <meta property="og:type" content="article" />
+  <meta name="theme-color" content="#00abe7" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      --bg: #05070a;
+      --panel: #090d16;
+      --panel-2: #0f172a;
+      --text: #dbeafe;
+      --muted: #94a3b8;
+      --soft: #64748b;
+      --cyan: #00abe7;
+      --cyan-2: #38bdf8;
+      --gold: #ffcc00;
+      --line: rgba(255, 255, 255, 0.11);
+      --cyan-line: rgba(0, 171, 231, 0.28);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 0%, rgba(0, 171, 231, 0.16), transparent 32%),
+                  radial-gradient(circle at 80% 5%, rgba(255, 204, 0, 0.10), transparent 30%),
+                  linear-gradient(180deg, #020305 0%, var(--bg) 42%, #030508 100%);
+      color: var(--text);
+      font-family: "Lexend", system-ui, sans-serif;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: 0;
+    }
+
+    .scanline {
+      position: fixed; left: 0; width: 100%; height: 110px; top: -120px;
+      z-index: 1; pointer-events: none; opacity: .32;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,171,231,.08) 50%, transparent 100%);
+      animation: scan 12s linear infinite;
+    }
+    @keyframes scan { 0% { transform: translateY(-120px); } 100% { transform: translateY(calc(100vh + 240px)); } }
+
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: "Space Mono", monospace; }
+
+    .site-shell {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .topbar {
+      margin-top: 18px; border: 1px solid var(--line);
+      background: rgba(2, 6, 23, 0.72); backdrop-filter: blur(16px);
+      border-radius: 22px 22px 0 0; box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: radial-gradient(circle at 50% 38%, rgba(255,255,255,.25), transparent 22%), linear-gradient(135deg, rgba(0,171,231,.25), rgba(255,204,0,.14));
+      border: 1px solid var(--cyan-line); box-shadow: 0 0 28px rgba(0,171,231,.18); font-size: 23px;
+    }
+    .brand-title { font-weight: 900; letter-spacing: -0.06em; font-size: 1.3rem; }
+    .brand-title span { color: var(--cyan); }
+    .brand-sub { color: var(--soft); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
+
+    .topnav { display: flex; gap: 12px; }
+    .nav-pill {
+      border: 1px solid rgba(255,255,255,.12); color: #cbd5e1; padding: 8px 12px; border-radius: 999px;
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; background: rgba(255,255,255,.03); transition: all .2s;
+    }
+    .nav-pill:hover { border-color: var(--cyan-line); color: white; box-shadow: 0 0 18px rgba(0,171,231,.14); }
+
+    .article {
+      background: linear-gradient(180deg, rgba(9, 13, 22, .96) 0%, rgba(8, 12, 21, .98) 100%);
+      border: 1px solid var(--line); border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative; padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 70px) 26px;
+      border-bottom: 1px solid var(--line); min-height: 500px; display: grid; align-items: end;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.68) 52%, rgba(0,0,0,.98) 100%),
+                  url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80") center/cover;
+      opacity: .55;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 930px; }
+    
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--cyan-2); border: 1px solid var(--cyan-line);
+      background: rgba(0,171,231,.08); border-radius: 999px; padding: 7px 12px; font-size: .74rem; font-weight: 700; margin-bottom: 18px; text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 18px rgba(255,204,0,.7); }
+
+    h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.05em; margin: 0 0 18px; color: white; text-wrap: balance;}
+    .deck { color: var(--text); font-size: 1.2rem; font-weight: 400; line-height: 1.6; margin: 0 0 22px; }
+
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 34px; padding: 40px clamp(20px, 5vw, 70px); }
+    
+    .lede-card {
+      border: 1px solid rgba(255,204,0,0.3); background: rgba(15, 23, 42, .72);
+      border-radius: 20px; padding: 24px; margin-bottom: 32px;
+    }
+    .lede-label { color: var(--gold); font-size: .74rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .lede-card p { margin: 0; color: #e2e8f0; font-size: 1.05rem; }
+
+    article p { color: #cbd5e1; font-size: 1.05rem; margin: 0 0 1.25rem; }
+    article strong { color: white; font-weight: 800; }
+    h2 { color: white; font-size: 1.8rem; margin: 44px 0 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;}
+
+    .pullquote {
+      margin: 34px 0; padding: 30px; border-left: 4px solid var(--cyan);
+      background: rgba(0,171,231,.05); border-radius: 0 20px 20px 0;
+      color: white; font-size: 1.4rem; font-weight: 900; line-height: 1.4;
+    }
+
+    .code-chip {
+      display: inline-block; font-family: "Space Mono", monospace; color: var(--cyan-2);
+      background: rgba(15, 23, 42, .9); border: 1px solid rgba(0,171,231,.22);
+      padding: 2px 8px; border-radius: 7px; font-size: .9em;
+    }
+
+    .flow-box { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin: 20px 0; }
+    .flow-box .mono { color: var(--gold); font-size: 0.9rem; margin-bottom: 10px; display: block; text-transform: uppercase; }
+    .flow-step { margin-bottom: 15px; padding-left: 15px; border-left: 2px solid var(--cyan-2); }
+    .flow-step:last-child { margin-bottom: 0; }
+
+    .sidebar .sticky { position: sticky; top: 22px; display: grid; gap: 18px; }
+    .side-card { border: 1px solid var(--line); background: rgba(15, 23, 42, .56); border-radius: 20px; padding: 20px; }
+    .side-title { color: var(--gold); font-size: .75rem; text-transform: uppercase; font-weight: 800; margin-bottom: 12px; }
+    .side-card p, .side-card li { color: #cbd5e1; font-size: .88rem; margin-bottom: 8px; line-height: 1.6;}
+    .side-card ul { padding-left: 20px; margin: 0; }
+
+    .footer { border-top: 1px solid var(--line); padding: 26px clamp(20px, 5vw, 70px); color: var(--soft); font-size: .75rem; text-transform: uppercase; background: rgba(0,0,0,.18); text-align: center;}
+
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { order: -1; } .sidebar .sticky { position: static; } .topnav { display: none; } }
+  </style>
+</head>
+
+<body>
+  <div class="scanline"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="../index.html" class="brand">
+          <div class="brand-mark">✦</div>
+          <div>
+            <div class="brand-title mono">eCash<span>Magazine</span></div>
+            <div class="brand-sub mono">México · Infraestructura · Cultura</div>
+          </div>
+        </a>
+        <nav class="topnav mono">
+          <a class="nav-pill" href="../index.html">Primera Plana</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="kicker mono">[Crónica] + [Análisis Técnico]</div>
+          <h1>La noche en que xolosarmy.xec quedó vivo</h1>
+          <p class="deck">Tonalli Wallet registró xolosarmy.xec, cobró 1600 RMZ, escribió el alias en la blockchain de eCash y permitió verificar la identidad desde ecash.mx/identidad. No fue solo una prueba técnica: fue el cierre de un circuito soberano.</p>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="main">
+          
+          <div class="lede-card">
+            <div class="lede-label mono">El Bug</div>
+            <p>Hubo un momento en que todo parecía funcionar, pero no funcionaba. La wallet conectaba. La interfaz respondía. El flujo tenía sentido. Tonalli Wallet podía cobrar RMZ, preparar el registro de alias y mostrar la intención completa al usuario. Pero la segunda transacción, la importante, la que debía escribir <span class="code-chip">xolosarmy.xec</span> en la blockchain de eCash, no aparecía.</p>
+          </div>
+
+          <p>La primera transacción sí vivía. El pago de 1600 RMZ a la tesorería salía correctamente. Pero la segunda, la del alias <span class="code-chip">.xec</span>, quedaba en una zona incómoda: generada, calculada, aparentemente lista, pero ausente del explorador y de Chronik.</p>
+          <p>Ese fue el punto en que el proyecto dejó de ser una pantalla bonita y se convirtió en infraestructura real.</p>
+
+          <h2>De la identidad cultural a la identidad verificable</h2>
+          <p>El objetivo era claro: que <span class="code-chip">ecash.mx/identidad</span> no fuera solo una página simbólica para Guardianes RMZ, sino una puerta verificable.</p>
+
+          <div class="flow-box">
+            <span class="mono">Flujo de Identidad</span>
+            <div class="flow-step">1. El usuario conecta Tonalli Wallet.</div>
+            <div class="flow-step">2. La dApp verifica pertenencia RMZ.</div>
+            <div class="flow-step">3. El usuario registra o escribe un alias .xec.</div>
+            <div class="flow-step">4. El sistema resuelve ese alias contra un indexador propio.</div>
+            <div class="flow-step">5. La dirección del alias se compara con la wallet conectada. Si coincide, la identidad queda confirmada.</div>
+          </div>
+
+          <p>En la prueba final, la página mostró: <strong>xolosarmy.xec - Alias verificado. Identidad confirmada.</strong> Ese mensaje parece pequeño. Pero detrás hay cuatro piezas funcionando juntas: Tonalli Wallet, RMZ, la blockchain de eCash y <span class="code-chip">alias.ecash.mx</span>.</p>
+
+          <h2>El problema no era visual: era de UTXOs</h2>
+          <p>Durante la depuración, se agregó una herramienta interna para construir la transacción de alias sin enviarla. Esa prueba mostró que el <code>OP_RETURN</code> era correcto, que contenía el prefijo .xec, que el fee oficial era de 500 XEC y que la estructura general estaba bien.</p>
+          <p>El bug real estaba en otra parte: la segunda transacción intentaba usar como entrada el <strong>cambio producido por la primera transacción RMZ</strong>. Al intentar gastar ese cambio inmediatamente, la red / Chronik no la aceptaba correctamente.</p>
+          <p>La solución técnica fue <strong>reservar UTXOs XEC independientes</strong> antes de enviar la primera transacción. Así, la transacción RMZ y la transacción del alias dejaron de pisarse entre sí. Después de ese ajuste, el alias <span class="code-chip">xolosarmy.xec</span> quedó registrado exitosamente.</p>
+
+          <h2>La soberanía también era el indexador</h2>
+          <p>Otro punto decisivo fue abandonar la dependencia de servicios externos. La dApp necesitaba resolver alias .xec, pero una llamada directa desde navegador chocó con problemas de CORS. La salida fácil habría sido hacer un proxy. La salida soberana fue otra: construir un indexador propio.</p>
+          <p>Así nació <span class="code-chip">alias.ecash.mx</span>. El indexador lee Chronik por el Lokad ID <code>2e786563</code> (correspondiente a .xec), parsea los OP_RETURN y soporta registros pendientes desde mempool.</p>
+
+          <div class="pullquote">
+            xolosarmy.xec no es solo un alias. Es una prueba de arquitectura. Es una señal de que eCash México puede construir capas culturales sobre infraestructura real.
+          </div>
+
+          <h2>Lo que quedó vivo</h2>
+          <p>El resultado no fue una promesa. Fue un circuito completo, dejando vivos cuatro pilares fundamentales para el ecosistema:</p>
+          <ul>
+            <li style="color:#cbd5e1; margin-bottom:5px;"><strong>Wallet propia:</strong> Tonalli Wallet / RMZWallet</li>
+            <li style="color:#cbd5e1; margin-bottom:5px;"><strong>Token comunitario:</strong> RMZ</li>
+            <li style="color:#cbd5e1; margin-bottom:5px;"><strong>Identidad on-chain:</strong> alias .xec</li>
+            <li style="color:#cbd5e1; margin-bottom:5px;"><strong>Indexador soberano:</strong> alias.ecash.mx</li>
+          </ul>
+
+          <p>La frase fundacional del proyecto queda mucho más clara después de esta noche de código y despliegue:</p>
+          <p><em>XEC es el dinero.<br>RMZ es la llave.<br>La cultura es la red.</em></p>
+          <p>Y ahora, esa frase ya tiene una identidad verificable: <strong>xolosarmy.xec</strong>.</p>
+        </article>
+
+        <aside class="sidebar">
+          <div class="sticky">
+            
+            <div class="side-card">
+              <div class="side-title mono">Metadatos de la Tx</div>
+              <p><strong>Alias Registrado:</strong><br><span class="code-chip">xolosarmy.xec</span></p>
+              <p><strong>Costo:</strong><br>1600 RMZ + 500 XEC (Fee)</p>
+              <p><strong>Bloque:</strong><br>952171</p>
+              <p><strong>Estado:</strong><br><span style="color:#4ade80;">Confirmed</span></p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Stack Técnico</div>
+              <ul>
+                <li>Chronik Indexer</li>
+                <li>OP_RETURN</li>
+                <li>Gestión de UTXOs</li>
+                <li>Resolución CORS propia</li>
+              </ul>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer mono">
+        <div>eCash Magazine México · Crónica · 2026</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
