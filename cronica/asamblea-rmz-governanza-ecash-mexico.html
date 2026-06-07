@@ -150,6 +150,11 @@
       background: rgba(15, 23, 42, .9); border: 1px solid rgba(0,171,231,.22);
       padding: 2px 8px; border-radius: 7px; font-size: .9em;
     }
+    
+    .code-chip:hover {
+      background: rgba(0, 171, 231, 0.1);
+      border-color: var(--cyan);
+    }
 
     pre {
       background: #030712; border: 1px solid rgba(255,255,255,0.1);
@@ -286,7 +291,7 @@ POST /v1/assembly/votes</code></pre>
           <p>El backend fue desplegado en el VPS. PM2 confirmó el servicio corriendo internamente en el puerto 3016. Se configuró Nginx, se emitió SSL con Certbot y la Asamblea quedó viva públicamente en: <span class="code-chip">https://assembly.ecash.mx</span>.</p>
 
           <h2><span class="num">VIII</span> El frontend: ecash.mx/asamblea</h2>
-          <p>Con el backend funcionando, se implementó la página pública. Los archivos modificados en el repositorio demostraron la integración total del stack web: <code>asamblea/index.html</code>[cite: 12], <code>src/asamblea/asamblea.js</code>[cite: 12], <code>assets/js/asamblea.bundle.js</code>[cite: 12] y <code>package.json</code>[cite: 12].</p>
+          <p>Con el backend funcionando, se implementó la página pública. Los archivos modificados en el repositorio demostraron la integración total del stack web: <code>asamblea/index.html</code>, <code>src/asamblea/asamblea.js</code>, <code>assets/js/asamblea.bundle.js</code> y <code>package.json</code>.</p>
           <p>El sistema generó el mensaje canónico, el documento de voluntad listo para ser firmado por el usuario.</p>
 
           <h2><span class="num">IX</span> El primer voto real y la auditoría</h2>
@@ -301,6 +306,15 @@ effectiveVotes: 1</code></pre>
           <h2>Análisis: Lo que realmente se construyó</h2>
           <p>La identidad soberana dice: <em>"Esta wallet tiene un nombre."</em> La elegibilidad dice: <em>"Este nombre pertenece a la comunidad RMZ."</em> La firma dice: <em>"Esta voluntad fue expresada por quien controla la wallet."</em> El resultado dice: <em>"Esta voluntad cuenta."</em></p>
           <p>Hoy se construyó una primera forma de ciudadanía digital soberana sobre eCash. La ruta estratégica avanza: B3 Gobernanza (✅), B2 Reputación visual (siguiente) y B1 Acceso token-gated (al final).</p>
+
+          <h2><span class="num">X</span> Memoria On-Chain: El NFT Conmemorativo</h2>
+          <p>Para inmortalizar este hito histórico, la crónica y su esencia cultural fueron acuñadas permanentemente en la blockchain. Una pictografía azteca que representa el nacimiento de la ciudadanía digital fue minteada como NFT a través de Tonalli Wallet.</p>
+          <p>Este activo digital atestigua que <strong>xolosarmy.xec</strong> no solo tiene voz y voto, sino también memoria histórica inmutable.</p>
+          <p>
+            <a href="https://explorer.xolosarmy.xyz/tx/c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05" target="_blank" rel="noopener noreferrer" class="code-chip" style="color: var(--gold); border-color: var(--gold); background: rgba(255,204,0,0.1);">
+              Ver Transacción de Minteo en el Explorador ↗
+            </a>
+          </p>
 
         </article>
 
@@ -333,6 +347,16 @@ effectiveVotes: 1</code></pre>
                 <strong>Formato:</strong> Recoverable ECDSA (65 bytes)<br>
                 <strong>Hash:</strong> double-SHA256<br>
                 <strong>Prefijo:</strong> \x16eCash Signed Message:\n
+              </p>
+            </div>
+
+            <div class="side-card" style="border-color: var(--purple);">
+              <div class="side-title mono" style="color: var(--purple);">Memoria On-Chain</div>
+              <p><strong>NFT Conmemorativo:</strong><br>Pictografía Azteca</p>
+              <p><strong>Tx Hash:</strong><br>
+                <a href="https://explorer.xolosarmy.xyz/tx/c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05" target="_blank" style="color: var(--cyan-2); word-break: break-all; font-size: 0.75rem;" class="mono">
+                  c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05
+                </a>
               </p>
             </div>
 
