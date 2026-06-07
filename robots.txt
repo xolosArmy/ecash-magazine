@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://magazine.ecash.mx/sitemap.xml
