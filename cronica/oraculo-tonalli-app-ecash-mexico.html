@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Oráculo Tonalli xolosArmy: el tiempo sagrado entra a eCash</title>
+
+  <meta name="description" content="xolosArmy Network lanza Oráculo Tonalli, una app cultural que calcula el tonalpohualli, ofrece una lectura simbólica mexica y se activa con XEC." />
+
+  <style>
+    :root {
+      --bg: #090704;
+      --bg-soft: #151008;
+      --card: #1d1509;
+      --gold: #f2b84b;
+      --gold-soft: #ffd37a;
+      --red: #b23a2f;
+      --text: #f7efe1;
+      --muted: #c8b99d;
+      --line: rgba(242, 184, 75, 0.24);
+      --xec: #00a3ff;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(242, 184, 75, 0.18), transparent 34rem),
+        radial-gradient(circle at 20% 10%, rgba(178, 58, 47, 0.18), transparent 28rem),
+        linear-gradient(180deg, #090704 0%, #130d06 45%, #080604 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--gold-soft);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 211, 122, 0.45);
+    }
+
+    a:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+
+    .top-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(29, 21, 9, 0.78);
+      color: var(--gold-soft);
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px var(--shadow);
+    }
+
+    .hero {
+      padding: 56px 0 32px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 5rem);
+      line-height: 0.98;
+      margin: 0 0 22px;
+      letter-spacing: -0.06em;
+      max-width: 900px;
+    }
+
+    .subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 0 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px var(--shadow);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--gold), #ffdf8e);
+      color: #1b1105;
+      border: none;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--gold-soft);
+    }
+
+    .oracle-card {
+      position: relative;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at center, rgba(242, 184, 75, 0.20), transparent 48%),
+        linear-gradient(180deg, rgba(29, 21, 9, 0.96), rgba(12, 8, 4, 0.98));
+      border-radius: 30px;
+      padding: 32px;
+      overflow: hidden;
+      min-height: 430px;
+      box-shadow: 0 28px 70px var(--shadow);
+    }
+
+    .sun {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      margin: 10px auto 26px;
+      border: 2px solid rgba(242, 184, 75, 0.55);
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle, rgba(255, 211, 122, 0.22) 0%, rgba(242, 184, 75, 0.12) 38%, transparent 69%);
+    }
+
+    .sun span {
+      font-size: 4.4rem;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.5));
+    }
+
+    .oracle-card h2 {
+      text-align: center;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      margin: 0 0 10px;
+      color: var(--gold-soft);
+    }
+
+    .oracle-card p {
+      text-align: center;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 34px 0;
+    }
+
+    .meta {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      padding: 18px;
+    }
+
+    .meta strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 1.3rem;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .meta span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .article {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(21, 16, 8, 0.9);
+      padding: 24px;
+      box-shadow: 0 20px 50px var(--shadow);
+    }
+
+    .sidebar h3 {
+      margin: 0 0 14px;
+      color: var(--gold-soft);
+      font-size: 1.15rem;
+    }
+
+    .sidebar ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .content {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(15, 10, 5, 0.72);
+      padding: clamp(24px, 4vw, 46px);
+      box-shadow: 0 20px 60px var(--shadow);
+    }
+
+    .content h2 {
+      color: var(--gold-soft);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.08;
+      margin: 42px 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content p {
+      color: var(--text);
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      color: var(--gold-soft);
+      border-left: 4px solid var(--gold);
+      padding-left: 18px;
+      margin-bottom: 28px;
+    }
+
+    .quote {
+      margin: 34px 0;
+      padding: 26px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(242, 184, 75, 0.13), rgba(178, 58, 47, 0.12));
+      border: 1px solid var(--line);
+      font-size: 1.18rem;
+      color: var(--gold-soft);
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin: 26px 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(242, 184, 75, 0.16);
+    }
+
+    .num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(242, 184, 75, 0.16);
+      color: var(--gold-soft);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      border: 1px solid var(--line);
+    }
+
+    .step strong {
+      color: var(--gold-soft);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .tech-box {
+      margin: 28px 0;
+      padding: 22px;
+      border-radius: 22px;
+      background: #070503;
+      border: 1px solid rgba(0, 163, 255, 0.32);
+    }
+
+    .tech-box code {
+      display: block;
+      overflow-x: auto;
+      color: #d7f0ff;
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.93rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 28px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--gold-soft);
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 0.9rem;
+    }
+
+    .disclaimer {
+      margin-top: 36px;
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(242, 184, 75, 0.38);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .article {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .oracle-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+        padding-top: 22px;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        padding: 22px;
+      }
+
+      .sun {
+        width: 160px;
+        height: 160px;
+      }
+
+      .sun span {
+        font-size: 3.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <div class="top-label">[Crónica-análisis] · eCash Magazine México</div>
+
+    <section class="hero">
+      <div>
+        <div class="kicker">xolosArmy Network · Tonalpohualli · XEC</div>
+
+        <h1>Oráculo Tonalli: el tiempo sagrado ya tiene portal</h1>
+
+        <p class="subtitle">
+          xolosArmy Network lanzó una app pública que calcula el Tonalli de una fecha de nacimiento,
+          entrega una lectura simbólica basada en el calendario sagrado mexica de 260 días y abre
+          una nueva ruta de entrada cultural al ecosistema eCash.
+        </p>
+
+        <div class="cta-row">
+          <a class="button primary" href="https://tonalli.xolosarmy.xyz" target="_blank" rel="noopener">
+            Abrir Oráculo Tonalli
+          </a>
+          <a class="button secondary" href="https://xolosarmy.xyz" target="_blank" rel="noopener">
+            Entrar a xolosArmy
+          </a>
+        </div>
+      </div>
+
+      <aside class="oracle-card" aria-label="Tarjeta visual del Oráculo Tonalli">
+        <div class="sun">
+          <span>🐾☀️</span>
+        </div>
+        <h2>Descubre tu Tonalli.<br />Actívalo con XEC.</h2>
+        <p>
+          Una lectura cultural mexica conectada a identidad, memoria y tecnología soberana.
+        </p>
+      </aside>
+    </section>
+
+    <section class="meta-grid">
+      <div class="meta">
+        <strong>260 días</strong>
+        <span>Base simbólica del tonalpohualli.</span>
+      </div>
+      <div class="meta">
+        <strong>5,000 XEC</strong>
+        <span>Activación manual de la lectura completa en el MVP.</span>
+      </div>
+      <div class="meta">
+        <strong>TypeScript</strong>
+        <span>Motor matemático determinista y testeado.</span>
+      </div>
+      <div class="meta">
+        <strong>Render</strong>
+        <span>Deploy público bajo dominio propio.</span>
+      </div>
+    </section>
+
+    <section class="article">
+
+      <aside class="sidebar">
+        <h3>Ficha rápida</h3>
+        <ul>
+          <li><strong>Nombre:</strong> Oráculo Tonalli xolosArmy</li>
+          <li><strong>URL:</strong> <a href="https://tonalli.xolosarmy.xyz" target="_blank" rel="noopener">tonalli.xolosarmy.xyz</a></li>
+          <li><strong>Repo:</strong> <a href="https://github.com/xolosArmy/oraculo-tonalli-xolosarmy" target="_blank" rel="noopener">GitHub</a></li>
+          <li><strong>Stack:</strong> TypeScript, Fastify, Vanilla JS, Vitest, Render</li>
+          <li><strong>Pago:</strong> XEC con QR y comprobante manual</li>
+          <li><strong>Frase:</strong> XEC es el dinero. RMZ es la llave. La cultura es la red.</li>
+        </ul>
+      </aside>
+
+      <article class="content">
+
+        <p class="lead">
+          El Oráculo Tonalli xolosArmy no es solo una app de calendario. Es un experimento de
+          onboarding cultural: una puerta donde la curiosidad espiritual se convierte en interacción
+          cripto, y donde eCash deja de ser una moneda abstracta para convertirse en una experiencia.
+        </p>
+
+        <h2>Del tonalpohualli al navegador</h2>
+
+        <p>
+          El punto de partida fue una pregunta aparentemente sencilla: ¿qué Tonalli corresponde a una
+          fecha de nacimiento? La respuesta exigía rigor. En lugar de construir primero una interfaz
+          bonita, xolosArmy Network comenzó por el núcleo: un motor matemático capaz de calcular el
+          tonalpohualli de forma determinista.
+        </p>
+
+        <p>
+          La app usa como referencia la correlación Caso/Nicholson, con el ancla:
+          <strong>23 de agosto de 1521 gregoriano proléptico = 1 Cóatl</strong>. Desde ahí, el sistema
+          calcula la distancia en días, aplica aritmética modular segura y obtiene el número ritual,
+          el signo tonal y la trecena.
+        </p>
+
+        <div class="quote">
+          Descubre tu Tonalli. Actívalo con XEC. Entra al camino de xolosArmy.
+        </div>
+
+        <h2>La corrección que le dio coherencia al oráculo</h2>
+
+        <p>
+          Uno de los momentos más importantes del desarrollo fue corregir la trecena de una fecha de
+          prueba: <strong>18 de marzo de 1992</strong>. El resultado tonal quedó confirmado como
+          <strong>13 Ollin</strong>, pero la trecena correcta, al retroceder doce días desde ese punto,
+          no era 1 Cuetzpalin sino <strong>1 Cóatl</strong>.
+        </p>
+
+        <p>
+          Esa corrección fue clave porque evitó que el sistema quedara con una contradicción interna.
+          En una app cultural, el diseño importa; pero en una app simbólica con base calendárica, la
+          coherencia matemática importa más.
+        </p>
+
+        <div class="tech-box">
+          <code>const mod = (n: number, m: number): number =&gt; ((n % m) + m) % m;</code>
+        </div>
+
+        <p>
+          La decisión de usar un módulo matemático real resolvió un problema típico de JavaScript y
+          TypeScript: el operador <code>%</code> puede devolver residuos negativos para fechas
+          anteriores al ancla. Con esa función, el motor puede calcular fechas antes y después de 1521
+          sin romper los índices de los signos.
+        </p>
+
+        <h2>Una lectura cultural, no una promesa absoluta</h2>
+
+        <p>
+          La app no se presenta como adivinación determinista ni como promesa de destino. Su lenguaje
+          fue cuidado para explicar que el tonalpohualli es una cuenta sagrada mesoamericana de 260
+          días y que la lectura ofrecida es simbólica, cultural, educativa y espiritual.
+        </p>
+
+        <p>
+          Este punto es importante para eCash México porque evita convertir una herramienta cultural
+          en una promesa engañosa. El Oráculo Tonalli trabaja con memoria, interpretación y narrativa;
+          no con garantías absolutas sobre la vida de una persona.
+        </p>
+
+        <h2>Cómo funciona el MVP público</h2>
+
+        <p>
+          La versión inicial ya está en producción. El usuario entra al sitio, escribe su fecha de
+          nacimiento y recibe un resultado con su Tonalli, su trecena y una lectura previa. Después,
+          puede activar la lectura completa mediante un flujo de pago en XEC.
+        </p>
+
+        <div class="timeline">
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <strong>Ingreso de fecha</strong>
+              La persona escribe su fecha de nacimiento en el formulario principal.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <strong>Cálculo del Tonalli</strong>
+              La API consulta el motor TypeScript y devuelve número, signo, trecena y lectura.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <strong>Preview gratuito</strong>
+              El usuario ve una primera lectura cultural antes de pagar.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">4</div>
+            <div>
+              <strong>Activación con XEC</strong>
+              La app muestra dirección, QR real y campo opcional para TXID o comprobante.
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">5</div>
+            <div>
+              <strong>Lectura completa</strong>
+              En esta versión MVP, el desbloqueo y la verificación del pago son manuales.
+            </div>
+          </div>
+        </div>
+
+        <h2>La parte técnica: simple, auditable y suficiente</h2>
+
+        <p>
+          El stack elegido es deliberadamente directo: TypeScript para el motor, Fastify para la API,
+          HTML/CSS/JavaScript vanilla para la interfaz, Vitest para pruebas y Render para deploy.
+          No hay una arquitectura innecesariamente inflada. La app hace una cosa concreta y la hace
+          con claridad: calcular una lectura tonalli y conectarla a un flujo de pago con eCash.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">TypeScript</span>
+          <span class="pill">Fastify</span>
+          <span class="pill">Vitest</span>
+          <span class="pill">Render</span>
+          <span class="pill">QR de pago XEC</span>
+          <span class="pill">Dominio propio</span>
+          <span class="pill">MVP funcional</span>
+        </div>
+
+        <p>
+          La ruta pública quedó en <a href="https://tonalli.xolosarmy.xyz" target="_blank" rel="noopener">https://tonalli.xolosarmy.xyz</a>.
+          También existe un repositorio abierto en GitHub:
+          <a href="https://github.com/xolosArmy/oraculo-tonalli-xolosarmy" target="_blank" rel="noopener">xolosArmy/oraculo-tonalli-xolosarmy</a>.
+        </p>
+
+        <h2>Por qué importa para eCash México</h2>
+
+        <p>
+          La mayoría de los proyectos cripto intentan hacer onboarding con gráficas, promesas de precio
+          o lenguaje financiero. Oráculo Tonalli hace otra cosa: usa una puerta cultural. La persona no
+          llega primero por especulación; llega por identidad, curiosidad y símbolo.
+        </p>
+
+        <p>
+          Ahí está la potencia estratégica. XEC aparece como medio de activación dentro de una
+          experiencia concreta. El usuario no solo lee sobre eCash: escanea un QR, ve una cantidad,
+          copia una dirección, reporta un TXID y entiende que la moneda puede mover pequeñas
+          experiencias digitales.
+        </p>
+
+        <p>
+          Esto convierte al Oráculo Tonalli en un embudo cultural:
+          <strong>curiosidad espiritual → lectura mexica → microtransacción con XEC → entrada a xolosArmy Network</strong>.
+        </p>
+
+        <h2>La siguiente fase: medición, Chronik y conversión</h2>
+
+        <p>
+          Antes de escalar con Google Ads, la siguiente etapa lógica es instalar medición seria:
+          eventos para saber cuántas personas calculan su Tonalli, cuántas presionan activar lectura,
+          cuántas copian la dirección, cuántas reportan pago y cuántas continúan hacia xolosArmy.xyz.
+        </p>
+
+        <p>
+          Después vendrá la integración más importante: verificación automática con Chronik. En ese
+          momento, el flujo dejará de depender de revisión manual y podrá confirmar pagos XEC de forma
+          más nativa dentro del ecosistema eCash.
+        </p>
+
+        <h2>Conclusión: cultura como infraestructura</h2>
+
+        <p>
+          Oráculo Tonalli xolosArmy demuestra una tesis que eCash México ha venido construyendo desde
+          hace meses: la adopción no ocurre solamente por tener mejor tecnología. También necesita
+          símbolos, relatos, interfaces, pagos pequeños, identidad y razones culturales para entrar.
+        </p>
+
+        <p>
+          En ese sentido, la app no es un simple experimento espiritual. Es una pieza de infraestructura
+          cultural para eCash: una forma de mostrar que XEC puede vivir dentro de experiencias mexicanas,
+          simbólicas, verificables y públicas.
+        </p>
+
+        <div class="quote">
+          XEC es el dinero. RMZ es la llave. La cultura es la red.
+        </div>
+
+        <div class="disclaimer">
+          <strong>Nota editorial:</strong> El Oráculo Tonalli ofrece una interpretación simbólica basada
+          en la correlación Caso/Nicholson. Su contenido tiene fines culturales, educativos y espirituales.
+          No debe entenderse como predicción absoluta ni como asesoría financiera. En la versión MVP,
+          la verificación del pago XEC es manual; la integración automática con Chronik queda planteada
+          para una siguiente fase.
+        </div>
+
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span>eCash Magazine México · Crónica-análisis</span>
+      <span>XEC es el dinero · RMZ es la llave · La cultura es la red</span>
+    </footer>
+
+  </main>
+</body>
+</html>
