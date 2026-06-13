@@ -111,13 +111,14 @@
 
     .hero {
       position: relative; padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 70px) 26px;
-      border-bottom: 1px solid var(--line); min-height: 400px; display: grid; align-items: end;
+      border-bottom: 1px solid var(--line); min-height: 500px; display: grid; align-items: end;
     }
     .hero::before {
       content: ""; position: absolute; inset: 0;
+      /* Superposición degradada para legibilidad + Imagen proporcionada por el usuario */
       background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.68) 52%, rgba(0,0,0,.98) 100%),
-                  url("https://images.unsplash.com/photo-1518118014377-ce91dc6a2b8e?auto=format&fit=crop&w=1600&q=80") center/cover;
-      opacity: .45;
+                  url("https://i.imgur.com/jmb9k7i.jpeg") center/cover;
+      opacity: .65; /* Ajuste leve de opacidad para resaltar la imagen */
     }
     .hero-content { position: relative; z-index: 1; max-width: 930px; }
     
@@ -223,9 +224,6 @@
 const mod = (n: number, m: number): number => ((n % m) + m) % m;</code></pre>
           <p>Con este ajuste, el motor no solo validó correctamente el ancla (1 Coatl), sino que pasó la prueba vital de retroceso demostrando que el 18 de marzo de 1992 arroja <strong>13 Ollin, Trecena 1 Cóatl</strong>, asegurando una legitimidad matemática total antes de pasar al diseño.</p>
 
-          <h2>La biblioteca cultural determinista</h2>
-          <p>En lugar de depender de Inteligencia Artificial impredecible en tiempo real, se diseñó una biblioteca estática determinista. Al combinar el número ritual, el signo tonal (de los 20 posibles), la trecena, y una lectura conectada a la filosofía de la <em>xolosArmy</em>, la app genera interpretaciones estructuradas sobre los dones y desafíos del usuario.</p>
-
           <div class="pullquote">
             Descubre tu Tonalli. Actívalo con XEC. Entra al camino de xolosArmy.
           </div>
@@ -247,10 +245,6 @@ const mod = (n: number, m: number): number => ((n % m) + m) % m;</code></pre>
             <li><strong>Hosting:</strong> Render Web Service, desplegado desde la rama <code>main</code> del repositorio oficial en GitHub.</li>
           </ul>
           <p>El broche de oro de la infraestructura fue la integración del Custom Domain. Enlazando los DNS, la plataforma ahora respira en <span class="code-chip" style="color: var(--gold); border-color: rgba(255,204,0,0.3);">https://tonalli.xolosarmy.xyz</span>.</p>
-
-          <h2>Adopción y Posicionamiento Cultural (Google Ads)</h2>
-          <p>El esfuerzo final abarcó la estrategia de mercado. En lugar de competir por términos saturados de "astrología genérica", la campaña publicitaria está orientada a la identidad: <em>horóscopo azteca</em>, <em>tonalpohualli</em> y <em>calendario mexica</em>.</p>
-          <p>Además, se integró un <em>disclaimer</em> transparente aclarando que se trata de una lectura simbólica (correlación Caso/Nicholson) y no una predicción mágica, blindando el proyecto frente a las políticas de publicidad de Google Ads.</p>
           
           <p>El resultado es la materialización directa del mantra de la red: <strong>XEC es el dinero. RMZ es la llave. La cultura es la red.</strong> El tiempo sagrado ya tiene portal.</p>
 
