@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Crónica] Cuando XEC empieza a hablar de core a core con THORChain | eCash Magazine México</title>
+  <meta name="description" content="Una interacción técnica muestra que la integración nativa de eCash en THORChain entra al terreno de daemons, runners y CI oficial." />
+  <meta property="og:title" content="El nivel de los dioses: cuando XEC empieza a hablar de core a core con THORChain" />
+  <meta property="og:type" content="article" />
+  <meta name="theme-color" content="#00abe7" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      --bg: #05070a;
+      --panel: #090d16;
+      --text: #dbeafe;
+      --muted: #94a3b8;
+      --soft: #64748b;
+      --cyan: #00abe7;
+      --cyan-2: #38bdf8;
+      --gold: #ffcc00;
+      --purple: #a855f7;
+      --green: #4ade80;
+      --line: rgba(255, 255, 255, 0.11);
+      --cyan-line: rgba(0, 171, 231, 0.28);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 0%, rgba(0, 171, 231, 0.16), transparent 32%),
+                  radial-gradient(circle at 80% 5%, rgba(255, 204, 0, 0.10), transparent 30%),
+                  linear-gradient(180deg, #020305 0%, var(--bg) 42%, #030508 100%);
+      color: var(--text);
+      font-family: "Lexend", system-ui, sans-serif;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: 0;
+    }
+
+    .scanline {
+      position: fixed; left: 0; width: 100%; height: 110px; top: -120px;
+      z-index: 1; pointer-events: none; opacity: .32;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,171,231,.08) 50%, transparent 100%);
+      animation: scan 12s linear infinite;
+    }
+    @keyframes scan { 0% { transform: translateY(-120px); } 100% { transform: translateY(calc(100vh + 240px)); } }
+
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: "Space Mono", monospace; }
+
+    .site-shell {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .topbar {
+      margin-top: 18px; border: 1px solid var(--line);
+      background: rgba(2, 6, 23, 0.72); backdrop-filter: blur(16px);
+      border-radius: 22px 22px 0 0; box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: radial-gradient(circle at 50% 38%, rgba(255,255,255,.25), transparent 22%), linear-gradient(135deg, rgba(0,171,231,.25), rgba(255,204,0,.14));
+      border: 1px solid var(--cyan-line); box-shadow: 0 0 28px rgba(0,171,231,.18); font-size: 23px;
+    }
+    .brand-title { font-weight: 900; letter-spacing: -0.06em; font-size: 1.3rem; }
+    .brand-title span { color: var(--cyan); }
+    .brand-sub { color: var(--soft); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
+
+    .topnav { display: flex; gap: 12px; }
+    .nav-pill {
+      border: 1px solid rgba(255,255,255,.12); color: #cbd5e1; padding: 8px 12px; border-radius: 999px;
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; background: rgba(255,255,255,.03); transition: all .2s;
+    }
+    .nav-pill:hover { border-color: var(--cyan-line); color: white; box-shadow: 0 0 18px rgba(0,171,231,.14); }
+
+    .article {
+      background: linear-gradient(180deg, rgba(9, 13, 22, .96) 0%, rgba(8, 12, 21, .98) 100%);
+      border: 1px solid var(--line); border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative; padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 70px) 26px;
+      border-bottom: 1px solid var(--line); min-height: 480px; display: grid; align-items: end;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.68) 52%, rgba(0,0,0,.98) 100%),
+                  url("https://images.unsplash.com/photo-1639762681485-074b7f4ec651?auto=format&fit=crop&w=1600&q=80") center/cover;
+      opacity: .55;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 930px; }
+    
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--cyan-2); border: 1px solid var(--cyan-line);
+      background: rgba(0,171,231,.08); border-radius: 999px; padding: 7px 12px; font-size: .74rem; font-weight: 700; margin-bottom: 18px; text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 18px rgba(255,204,0,.7); }
+
+    h1 { font-size: clamp(2.25rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: -0.05em; margin: 0 0 18px; color: white; text-wrap: balance;}
+    .deck { color: var(--text); font-size: 1.25rem; font-weight: 400; line-height: 1.6; margin: 0 0 22px; }
+
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 34px; padding: 40px clamp(20px, 5vw, 70px); }
+    
+    .lede-card {
+      border: 1px solid rgba(0,171,231,0.3); background: rgba(15, 23, 42, .72);
+      border-radius: 20px; padding: 24px; margin-bottom: 32px;
+    }
+    .lede-label { color: var(--gold); font-size: .74rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .lede-card p { margin: 0; color: #e2e8f0; font-size: 1.05rem; }
+
+    article p { color: #cbd5e1; font-size: 1.05rem; margin: 0 0 1.25rem; }
+    article strong { color: white; font-weight: 800; }
+    h2 { color: white; font-size: 1.8rem; margin: 44px 0 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;}
+    h2 .num { color: var(--cyan-2); font-size: .88em; margin-right: 6px; }
+
+    .pullquote {
+      margin: 34px 0; padding: 30px; border-left: 4px solid var(--cyan-2);
+      background: rgba(0,171,231,.05); border-radius: 0 20px 20px 0;
+      color: white; font-size: 1.4rem; font-weight: 900; line-height: 1.4;
+    }
+
+    .code-chip {
+      display: inline-block; font-family: "Space Mono", monospace; color: var(--cyan-2);
+      background: rgba(15, 23, 42, .9); border: 1px solid rgba(0,171,231,.22);
+      padding: 2px 8px; border-radius: 7px; font-size: .9em;
+    }
+
+    pre {
+      background: #030712; border: 1px solid rgba(255,255,255,0.1);
+      padding: 16px; border-radius: 12px; overflow-x: auto;
+      margin: 20px 0;
+    }
+    code { font-family: "Space Mono", monospace; color: var(--gold); font-size: 0.9rem; }
+
+    .flow-box { background: rgba(0,0,0,0.4); border: 1px solid rgba(0,171,231,0.2); border-radius: 12px; padding: 20px; margin: 20px 0; }
+    .flow-box .mono { color: var(--gold); font-size: 0.9rem; margin-bottom: 10px; display: block; text-transform: uppercase; }
+    .flow-step { margin-bottom: 15px; padding-left: 15px; border-left: 2px solid var(--cyan-2); color: #cbd5e1; }
+    .flow-step:last-child { margin-bottom: 0; }
+
+    .sidebar .sticky { position: sticky; top: 22px; display: grid; gap: 18px; }
+    .side-card { border: 1px solid var(--line); background: rgba(15, 23, 42, .56); border-radius: 20px; padding: 20px; }
+    .side-title { color: var(--gold); font-size: .75rem; text-transform: uppercase; font-weight: 800; margin-bottom: 12px; }
+    .side-card p, .side-card li { color: #cbd5e1; font-size: .88rem; margin-bottom: 8px; line-height: 1.6;}
+    .side-card ul { padding-left: 20px; margin: 0; }
+
+    .footer { border-top: 1px solid var(--line); padding: 26px clamp(20px, 5vw, 70px); color: var(--soft); font-size: .75rem; text-transform: uppercase; background: rgba(0,0,0,.18); text-align: center;}
+
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { order: -1; } .sidebar .sticky { position: static; } .topnav { display: none; } }
+  </style>
+</head>
+
+<body>
+  <div class="scanline"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="../index.html" class="brand">
+          <div class="brand-mark">✦</div>
+          <div>
+            <div class="brand-title mono">eCash<span>Magazine</span></div>
+            <div class="brand-sub mono">México · Infraestructura · Integraciones</div>
+          </div>
+        </a>
+        <nav class="topnav mono">
+          <a class="nav-pill" href="../index.html">Primera Plana</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="kicker mono">[Crónica] + [Análisis Técnico]</div>
+          <h1>El nivel de los dioses: cuando XEC empieza a hablar de core a core con THORChain</h1>
+          <p class="deck">Una interacción técnica muestra que la integración nativa de eCash en THORChain dejó de ser solo una idea comunitaria y entró al terreno de daemons, runners y CI oficial.</p>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="main">
+          
+          <div class="lede-card">
+            <div class="lede-label mono">El Momento</div>
+            <p>En el mundo cripto hay momentos que parecen pequeños desde fuera: un mensaje en Discord, una prueba local, un error de RPC, una respuesta técnica. Pero para quienes construyen infraestructura, esos momentos pueden marcar un antes y un después. La reciente interacción entre <strong>Fernando Ramírez / xolosArmy Network</strong> y <strong>starsquid</strong>, integrante técnico del entorno de THORChain, es la prueba de ello.</p>
+          </div>
+
+          <h2><span class="num">01</span> El código ya fue tomado en serio</h2>
+          <p>La señal más importante no fue un emoji, ni un saludo, ni una frase amable. La señal fue que <strong>starsquid descargó y ejecutó localmente el trabajo</strong>. En el desarrollo de código abierto, eso significa algo muy concreto: alguien con contexto técnico decidió invertir tiempo real en probar la propuesta.</p>
+          <p>En un ecosistema como THORChain, donde cada integración debe tocar infraestructura crítica, pruebas de simulación y compatibilidad con los procesos del protocolo, correr el código localmente es un filtro de seriedad. El proyecto deja de vivir únicamente en el discurso y entra en la zona donde las cosas se rompen, se corrigen y se validan.</p>
+
+          <div class="pullquote">
+            La integración nativa de XEC no avanza por hype. Avanza cuando el código puede ser leído, ejecutado, corregido y validado por la infraestructura oficial.
+          </div>
+
+          <h2><span class="num">02</span> La llave: el CI oficial de THORChain</h2>
+          <p>El punto más relevante del intercambio fue la posibilidad de llevar el trabajo al repositorio oficial para que se active el <em>Continuous Integration</em> (CI) de THORChain. En términos simples, el CI es el sistema automático que corre pruebas, <em>linters</em> y simulaciones para verificar si un cambio puede convivir con el resto del código base.</p>
+          <p>El problema previo era práctico: los <em>runners</em> disponibles para las pruebas propias tenían límites de tiempo. Por eso, la posibilidad de correr en el CI oficial cambia por completo el tablero estratégico de la integración.</p>
+
+          <h2><span class="num">03</span> El error que reveló el nivel técnico</h2>
+          <p>Durante la prueba apareció un error clásico en entornos modernos derivados de Bitcoin Core:</p>
+
+<pre><code>-18: No wallet is loaded</code></pre>
+
+          <p>Ese error no significa necesariamente que la integración esté mal diseñada. Significa que el daemon arrancó sin una wallet cargada. En versiones modernas de nodos derivados de Bitcoin Core, la creación automática de billeteras dejó de ser una suposición segura. Ahora, muchos entornos requieren crear o cargar explícitamente la wallet antes de que ciertos comandos RPC puedan funcionar.</p>
+
+          <div class="pullquote">
+            En integraciones core-to-core, los errores pequeños son exámenes. No se gana negándolos; se gana entendiéndolos rápido.
+          </div>
+
+          <h2><span class="num">04</span> Qué sigue en la terminal</h2>
+          <p>La hoja de ruta inmediata queda clara. El objetivo no es anunciar victoria antes de tiempo, sino llevar el entorno local a verde para que el siguiente paso con el repositorio oficial tenga más fuerza.</p>
+
+          <div class="flow-box">
+            <span class="mono">Hoja de Ruta de Desarrollo</span>
+            <div class="flow-step">
+              <strong>1. Parchear el entrypoint del mocknet.</strong><br>
+              Después de levantar el daemon y antes de que los actores de simulación consulten el RPC, se debe crear explícitamente la wallet que requiere el entorno.
+            </div>
+            <div class="flow-step">
+              <strong>2. Crear la wallet de forma explícita.</strong><br>
+              El comando base sería una variante de:<br>
+              <span class="code-chip" style="margin-top:5px;">bitcoin-cli -regtest ... createwallet "default"</span>
+            </div>
+            <div class="flow-step">
+              <strong>3. Sincronizarse con la rama principal.</strong><br>
+              Hacer <span class="code-chip">git fetch</span> y <em>rebase</em> contra el estado más reciente de la rama <code>develop</code>.
+            </div>
+            <div class="flow-step">
+              <strong>4. Correr linters y simulación local.</strong><br>
+              La meta es llegar con <span class="code-chip">make lint</span> y <span class="code-chip">make test-sim</span> en verde antes de volver a pedir revisión.
+            </div>
+          </div>
+
+          <h2><span class="num">05</span> Por qué esto importa para eCash</h2>
+          <p>La integración nativa de XEC en THORChain tiene una diferencia crucial frente a modelos envueltos: no se trata de representar XEC mediante un token sintético, ni de mover liquidez por un puente externo. La tesis de xolosArmy es más directa: <strong>XEC como activo nativo dentro de una red de liquidez cross-chain</strong>.</p>
+          <p>Eso exige más trabajo técnico, pero también ofrece una narrativa más limpia. Para eCash México, el mensaje es fuerte: si XEC quiere participar en infraestructura DeFi seria, debe hacerlo con código auditable, pruebas reproducibles y conversaciones técnicas al nivel de los mantenedores.</p>
+
+          <h2><span class="num">06</span> Conclusión: el código entra al templo</h2>
+          <p>Hay avances que se anuncian con grandes campañas. Otros se anuncian con una línea seca en una terminal. Este pertenece al segundo tipo.</p>
+          <p>Que una persona técnica del entorno de THORChain descargue, ejecute, detecte un problema y abra la puerta al CI oficial no garantiza por sí solo una integración final. Pero sí marca un cambio de nivel: la conversación dejó de ser periférica y entró al terreno donde se validan las cosas serias. Menos promesa. Más logs.</p>
+
+        </article>
+
+        <aside class="sidebar">
+          <div class="sticky">
+            
+            <div class="side-card" style="border-color: var(--cyan-2); background: rgba(0, 171, 231, 0.05);">
+              <div class="side-title mono" style="color: var(--cyan-2);">Podcast Oficial de THORChain</div>
+              <p><strong>Fecha:</strong> Sábado 20 de junio de 2026</p>
+              <p><strong>Hora:</strong> 8:00 AM (CDMX)</p>
+              <p><strong>Participan:</strong> Kenton y Fernando Ramírez (xolosArmy Network)</p>
+              <p><strong>Temas:</strong> Integración nativa de $XEC, Draft MR, campaña Teyolia, Tonalli Wallet y la visión mexicana de infraestructura soberana.</p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Impacto Simbólico</div>
+              <p>México no aparece aquí como consumidor pasivo de infraestructura cripto. Aparece como origen de una propuesta técnica, cultural y comunitaria: xolosArmy empujando XEC hacia THORChain, Tonalli Wallet como capa de identidad y Teyolia como campaña para organizar apoyo alrededor de una integración nativa.</p>
+            </div>
+
+            <div class="side-card" style="border-color: var(--gold);">
+              <div class="side-title mono">Mantra</div>
+              <p style="font-weight:bold; color:white;">
+                XEC es el dinero.<br>
+                RMZ es la llave.<br>
+                La cultura es la red.
+              </p>
+              <p style="font-size: 0.8rem; margin-top: 10px; color: var(--cyan-2);"><em>Pero en el nivel de los dioses, todo empieza con una cosa: que el código corra.</em></p>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer mono">
+        <div>eCash Magazine México · Crónica Técnica · 2026</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
