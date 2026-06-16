@@ -1,287 +1,309 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualización Semanal de XolosArmy - 16 de Junio, 2026 | eCash Magazine</title>
-    <!-- Favicon assumed based on context -->
-    <link rel="icon" type="image/png" href="https://magazine.ecash.mx/assets/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Crónica-Análisis] De código a producción: XEC frente a THORChain | eCash Magazine México</title>
+  <meta name="description" content="Actualización semanal de xolosArmy Network: integración nativa en THORChain, Teyolia 2 y ecosistema .xec." />
+  <meta property="og:title" content="De código a producción: la actualización semanal que puso a XEC frente a THORChain" />
+  <meta property="og:type" content="article" />
+  <meta name="theme-color" content="#00abe7" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      --bg: #05070a;
+      --panel: #090d16;
+      --panel-2: #0f172a;
+      --text: #dbeafe;
+      --muted: #94a3b8;
+      --soft: #64748b;
+      --cyan: #00abe7;
+      --cyan-2: #38bdf8;
+      --gold: #ffcc00;
+      --purple: #a855f7;
+      --green: #4ade80;
+      --line: rgba(255, 255, 255, 0.11);
+      --cyan-line: rgba(0, 171, 231, 0.28);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     
-    <!-- Google Fonts: Open Sans for readability, Roboto Mono for technical details -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Mono&display=swap" rel="stylesheet">
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 0%, rgba(0, 171, 231, 0.16), transparent 32%),
+                  radial-gradient(circle at 80% 5%, rgba(255, 204, 0, 0.10), transparent 30%),
+                  linear-gradient(180deg, #020305 0%, var(--bg) 42%, #030508 100%);
+      color: var(--text);
+      font-family: "Lexend", system-ui, sans-serif;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-    <style>
-        /* CSS ESTÁNDAR DE ECASH MAGAZINE */
-        :root {
-            /* Paleta de colores eCash Magazine */
-            --color-bg: #0d1117; /* Fondo oscuro tipo GitHub */
-            --color-bg-alt: #161b22;
-            --color-text: #c9d1d9; /* Gris claro para texto principal */
-            --color-text-dim: #8b949e;
-            --color-white: #ffffff;
-            
-            /* Colores de acento eCash */
-            --color-cyan: #00fff2; /* Cian vibrante eCash */
-            --color-cyan-dim: #00a8a0;
-            --color-gold: #ffcc00; /* Oro Xolos reference */
-            
-            /* Tipografía */
-            --font-main: 'Open Sans', sans-serif;
-            --font-mono: 'Roboto Mono', monospace;
-            
-            /* Diseño */
-            --max-width: 800px;
-            --border-radius: 8px;
-            --transition: all 0.3s ease;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: 0;
+    }
 
-        /* Resets globales */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    .scanline {
+      position: fixed; left: 0; width: 100%; height: 110px; top: -120px;
+      z-index: 1; pointer-events: none; opacity: .32;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,171,231,.08) 50%, transparent 100%);
+      animation: scan 12s linear infinite;
+    }
+    @keyframes scan { 0% { transform: translateY(-120px); } 100% { transform: translateY(calc(100vh + 240px)); } }
 
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            font-family: var(--font-main);
-            line-height: 1.8;
-            font-size: 16px;
-            padding-top: 80px; /* Espacio para el header fijo */
-        }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: "Space Mono", monospace; }
 
-        /* Header Estándar */
-        header {
-            background-color: rgba(22, 27, 34, 0.95);
-            border-bottom: 1px solid #30363d;
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
+    .site-shell {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
 
-        .logo-container a {
-            text-decoration: none;
-            color: var(--color-white);
-            font-weight: 700;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    .topbar {
+      margin-top: 18px; border: 1px solid var(--line);
+      background: rgba(2, 6, 23, 0.72); backdrop-filter: blur(16px);
+      border-radius: 22px 22px 0 0; box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: radial-gradient(circle at 50% 38%, rgba(255,255,255,.25), transparent 22%), linear-gradient(135deg, rgba(0,171,231,.25), rgba(255,204,0,.14));
+      border: 1px solid var(--cyan-line); box-shadow: 0 0 28px rgba(0,171,231,.18); font-size: 23px;
+    }
+    .brand-title { font-weight: 900; letter-spacing: -0.06em; font-size: 1.3rem; }
+    .brand-title span { color: var(--cyan); }
+    .brand-sub { color: var(--soft); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
 
-        .logo-container img {
-            height: 40px;
-        }
+    .topnav { display: flex; gap: 12px; }
+    .nav-pill {
+      border: 1px solid rgba(255,255,255,.12); color: #cbd5e1; padding: 8px 12px; border-radius: 999px;
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; background: rgba(255,255,255,.03); transition: all .2s;
+    }
+    .nav-pill:hover { border-color: var(--cyan-line); color: white; box-shadow: 0 0 18px rgba(0,171,231,.14); }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+    .article {
+      background: linear-gradient(180deg, rgba(9, 13, 22, .96) 0%, rgba(8, 12, 21, .98) 100%);
+      border: 1px solid var(--line); border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow);
+    }
 
-        nav a {
-            text-decoration: none;
-            color: var(--color-text);
-            font-weight: 600;
-            transition: var(--transition);
-        }
+    .hero {
+      position: relative; padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 70px) 26px;
+      border-bottom: 1px solid var(--line); min-height: 400px; display: grid; align-items: end;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.68) 52%, rgba(0,0,0,.98) 100%),
+                  url("https://images.unsplash.com/photo-1639762681485-074b7f4ec651?auto=format&fit=crop&w=1600&q=80") center/cover;
+      opacity: .45;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 930px; }
+    
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--cyan-2); border: 1px solid var(--cyan-line);
+      background: rgba(0,171,231,.08); border-radius: 999px; padding: 7px 12px; font-size: .74rem; font-weight: 700; margin-bottom: 18px; text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 18px rgba(255,204,0,.7); }
 
-        nav a:hover {
-            color: var(--color-cyan);
-        }
+    h1 { font-size: clamp(2.25rem, 6vw, 3.8rem); line-height: 1.05; letter-spacing: -0.05em; margin: 0 0 18px; color: white; text-wrap: balance;}
+    .deck { color: var(--text); font-size: 1.25rem; font-weight: 400; line-height: 1.6; margin: 0 0 22px; }
 
-        /* Estilos de la Crónica */
-        .chronicle-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 2rem;
-        }
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 34px; padding: 40px clamp(20px, 5vw, 70px); }
+    
+    .lede-card {
+      border: 1px solid rgba(0,171,231,0.3); background: rgba(15, 23, 42, .72);
+      border-radius: 20px; padding: 24px; margin-bottom: 32px;
+    }
+    .lede-label { color: var(--gold); font-size: .74rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .lede-card p { margin: 0; color: #e2e8f0; font-size: 1.05rem; }
 
-        .chronicle-header {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
+    /* Contenedor responsivo para el video 16:9 */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      margin-bottom: 38px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      background: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
-        .category-tag {
-            background-color: rgba(0, 255, 242, 0.1);
-            color: var(--color-cyan);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
+    article p { color: #cbd5e1; font-size: 1.05rem; margin: 0 0 1.25rem; }
+    article strong { color: white; font-weight: 800; }
+    h2 { color: white; font-size: 1.8rem; margin: 44px 0 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;}
+    h2 .num { color: var(--cyan-2); font-size: .88em; margin-right: 6px; }
 
-        h1.headline {
-            color: var(--color-white);
-            font-size: 2.5rem;
-            line-height: 1.2;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
+    .pullquote {
+      margin: 34px 0; padding: 30px; border-left: 4px solid var(--cyan-2);
+      background: rgba(0,171,231,.05); border-radius: 0 20px 20px 0;
+      color: white; font-size: 1.4rem; font-weight: 900; line-height: 1.4;
+    }
 
-        .chronicle-meta {
-            color: var(--color-text-dim);
-            font-size: 0.9rem;
-            font-family: var(--font-mono);
-        }
+    .code-chip {
+      display: inline-block; font-family: "Space Mono", monospace; color: var(--cyan-2);
+      background: rgba(15, 23, 42, .9); border: 1px solid rgba(0,171,231,.22);
+      padding: 2px 8px; border-radius: 7px; font-size: .9em;
+    }
 
-        .chronicle-meta span {
-            margin: 0 10px;
-        }
+    .sidebar .sticky { position: sticky; top: 22px; display: grid; gap: 18px; }
+    .side-card { border: 1px solid var(--line); background: rgba(15, 23, 42, .56); border-radius: 20px; padding: 20px; }
+    .side-title { color: var(--gold); font-size: .75rem; text-transform: uppercase; font-weight: 800; margin-bottom: 12px; }
+    .side-card p, .side-card li { color: #cbd5e1; font-size: .88rem; margin-bottom: 8px; line-height: 1.6;}
+    .side-card ul { padding-left: 20px; margin: 0; }
+    
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+    .data-box { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+    .data-label { color: var(--soft); font-size: 0.7rem; text-transform: uppercase; display: block; margin-bottom: 4px;}
+    .data-value { color: var(--gold); font-weight: bold; font-size: 0.95rem; }
 
-        /* ESTILO DE VIDEO INCRUSTADO RESPONSIVO */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-            height: 0;
-            overflow: hidden;
-            margin-bottom: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            border: 2px solid #30363d; /* Borde sutil */
-        }
+    .footer { border-top: 1px solid var(--line); padding: 26px clamp(20px, 5vw, 70px); color: var(--soft); font-size: .75rem; text-transform: uppercase; background: rgba(0,0,0,.18); text-align: center;}
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Estilos de contenido */
-        .chronicle-content p {
-            margin-bottom: 1.5rem;
-            color: var(--color-text);
-        }
-
-        .chronicle-content h2 {
-            color: var(--color-white);
-            margin: 2.5rem 0 1rem;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 10px;
-        }
-
-        .chronicle-content strong {
-            color: var(--color-cyan);
-        }
-        
-        .chronicle-content .technical {
-            font-family: var(--font-mono);
-            background-color: rgba(48, 54, 61, 0.5);
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: var(--color-gold);
-        }
-
-        /* Footer Estándar */
-        footer {
-            background-color: var(--color-bg-alt);
-            border-top: 1px solid #30363d;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-            text-align: center;
-            color: var(--color-text-dim);
-        }
-
-        .footer-logo {
-            height: 50px;
-            margin-bottom: 1rem;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            h1.headline {
-                font-size: 2rem;
-            }
-            .chronicle-container {
-                padding: 1rem;
-            }
-            header {
-                flex-direction: column;
-                gap: 10px;
-                padding: 1rem;
-            }
-        }
-    </style>
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { order: -1; } .sidebar .sticky { position: static; } .topnav { display: none; } }
+  </style>
 </head>
-<body>
 
-    <header>
-        <div class="logo-container">
-            <a href="https://magazine.ecash.mx/">
-                <img src="https://magazine.ecash.mx/assets/ecash-magazine-logo-white.png" alt="eCash Magazine Logo">
-                <span>eCash Magazine</span>
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="https://ecash.mx/">eCash.mx</a></li>
-                <li><a href="https://xolosarmy.xyz/">XolosArmy</a></li>
-                <li><a href="https://magazine.ecash.mx/archive">Archivo</a></li>
-            </ul>
+<body>
+  <div class="scanline"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="../index.html" class="brand">
+          <div class="brand-mark">✦</div>
+          <div>
+            <div class="brand-title mono">eCash<span>Magazine</span></div>
+            <div class="brand-sub mono">México · Crónica · Análisis Técnico</div>
+          </div>
+        </a>
+        <nav class="topnav mono">
+          <a class="nav-pill" href="../index.html">Primera Plana</a>
         </nav>
+      </div>
     </header>
 
-    <main class="chronicle-container">
-        <article>
-            <header class="chronicle-header">
-                <span class="category-tag">XolosArmy Chronicle</span>
-                <h1 class="headline">Actualización Semanal de XolosArmy - 16 de Junio, 2026</h1>
-                <div class="chronicle-meta">
-                    Por <span>Corresponsal XolosArmy</span> <span>|</span> <span>16 de Junio, 2026</span> <span>|</span> <span>5 min de lectura</span>
-                </div>
-            </header>
+    <main class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="kicker mono">[Crónica-Análisis] · xolosArmy Network</div>
+          <h1>De código a producción: la actualización semanal que puso a XEC frente a THORChain</h1>
+          <p class="deck">En un Weekly Update de casi siete minutos, Fernando Ramírez confirmó que la integración nativa de eCash en THORChain avanza hacia una nueva etapa: código revisado, liquidez soberana y ecosistema L1 desde México.</p>
+        </div>
+      </section>
 
-            <!-- SECCIÓN DE VIDEO INCRUSTADO -->
-            <div class="video-wrapper">
-                <iframe 
-                    src="https://www.youtube.com/embed/icvT8sBCoK0" 
-                    title="XolosArmy Weekly Update - June 16, 2026" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-            </div>
+      <div class="content-grid">
+        <article class="main">
+          
+          <div class="lede-card">
+            <div class="lede-label mono">El Contexto</div>
+            <p>El video iba a ser una actualización breve. Un minuto, quizá dos. Pero terminó convertido en una declaración de ruta para xolosArmy Network: integración nativa de XEC en THORChain, rechazo frontal a los <em>wrapped tokens</em>, campaña Teyolia 2 por 4.5 billones de XEC, adelantos del Marketplace físico con <em>escrow</em> y el protocolo de alias <strong>.xec</strong> para Tonalli Wallet.</p>
+          </div>
 
-            <div class="chronicle-content">
-                <p>Esta semana, la XolosArmy ha demostrado una vez más por qué es una de las comunidades más activas y dedicadas en el ecosistema de eCash. La actualización técnica y comunitaria del 16 de junio de 2026 nos trae novedades emocionantes y avances significativos en la construcción de infraestructura soberana.</p>
+          <!-- Video Incrustado -->
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/icvT8sBCoK0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
 
-                <h2>Despliegue de Infraestructura Soberana</h2>
-                <p>El punto culminante de la semana fue el exitoso despliegue de nuevos nodos completos de eCash (<span class="technical">Bitcoin ABC 0.31.x</span>) administrados directamente por miembros de la XolosArmy. Este movimiento fortalece la descentralización de la red y reduce la dependencia de proveedores de servicios externos.</p>
-                <p>"No estamos solo minando o tradeando; estamos operando la red", comentó uno de los operadores de nodos. "La soberanía digital comienza con la soberanía de la infraestructura".</p>
+          <p>La frase de fondo fue sencilla: <strong>el dinero libre necesita liquidez libre</strong>. No una representación sintética de XEC. No un token envuelto. No una custodia disfrazada de interoperabilidad. La apuesta es que XEC pueda entrar al ecosistema cross-chain como lo que es: dinero nativo.</p>
 
-                <h2>Integración de Tonalli Core</h2>
-                <p>El equipo de desarrollo ha anunciado avances significativos en la integración de <strong class="technical">tonalli-core</strong>. Se han completado las pruebas iniciales para la gestión de tokens Cashtokens directamente desde la wallet comunitaria. Esto facilitará enormemente la creación y gestión de activos digitales por parte de la comunidad XolosArmy sin intermediarios.</p>
+          <h2><span class="num">01</span> El puente técnico ya no es solo una idea</h2>
+          <p>El primer punto fuerte de la actualización fue el estado del Merge Request para integrar eCash en THORChain. Según lo explicado en el video, el trabajo ya no se encuentra en una fase puramente conceptual: el código fue revisado, probado localmente y ahora entra en una conversación más seria con el equipo técnico de THORChain.</p>
+          <p>La mención a <span class="code-chip">starsquid</span> no es menor. En el mundo open source, que un desarrollador central descargue, ejecute y revise una propuesta significa que el trabajo superó la barrera del ruido. Ya no se trata de pedir atención desde fuera: se trata de entregar código que puede ser leído, probado y discutido.</p>
 
-                <h2>Cultura y Comunidad</h2>
-                <p>En el frente comunitario, se han presentado los primeros bocetos para la próxima colección de NFTs conmemorativos, que celebrarán los logros técnicos de la Army este año. Además, se están organizando meetups locales en la Ciudad de México y Guadalajara para discutir el roadmap del próximo trimestre.</p>
+          <h2><span class="num">02</span> Nativo contra wrapped: la diferencia filosófica</h2>
+          <p>Uno de los momentos centrales del Weekly Update fue la explicación de por qué xolosArmy rechaza los <em>wrapped tokens</em>. Para muchas comunidades, envolver un activo parece una solución rápida: se crea una representación de la moneda en otra red y se le da liquidez. Pero esa comodidad tiene un costo: introduce dependencia, custodia, riesgo de puente y una capa adicional de confianza.</p>
+          <p>La tesis de eCash México es otra. Si XEC aspira a ser dinero electrónico soberano, su interoperabilidad debe respetar esa naturaleza. No se busca crear “otro XEC” en otra cadena. Se busca que el XEC nativo pueda moverse dentro de una arquitectura cross-chain sin perder su identidad monetaria.</p>
 
-                <p>Como siempre, la XolosArmy sigue avanzando, construyendo y asegurando que eCash siga siendo el dinero electrónico más robusto y descentralizado del mundo.</p>
-                
-                <p><em>XolosArmy: La fuerza de la comunidad, la seguridad del código.</em></p>
-            </div>
+          <div class="pullquote">
+            Cero wrappers. Cero custodia. Solo liquidez nativa.
+          </div>
+
+          <h2><span class="num">03</span> Teyolia 2: 4.5 billones de XEC para liquidez soberana</h2>
+          <p>La actualización también marcó el anuncio público de <strong>Teyolia 2</strong>, una campaña enfocada en reunir capital para impulsar una posición comunitaria de liquidez soberana en el futuro pool XEC/RUNE.</p>
+          <p>Este punto es clave: la campaña no se presenta como un fondo para pagar promesas abstractas. Se trata de preparar capital comunitario para una función específica: respaldar liquidez nativa cuando la integración esté lista. Convertir convicción en una posición de infraestructura.</p>
+
+          <h2><span class="num">04</span> Más allá de THORChain: Marketplace, escrow y alias .xec</h2>
+          <p>El Weekly Update no se quedó en la integración. También dejó ver la dirección más amplia de xolosArmy Network: construir primitivas reales sobre eCash.</p>
+          <p>Entre los adelantos aparecieron dos piezas importantes. La primera es un Marketplace físico con sistema de <em>escrow</em>, pensado para comercio real y no solo para especulación digital. La segunda es el protocolo de alias <strong>.xec</strong>, diseñado para simplificar la experiencia de uso en Tonalli Wallet.</p>
+          <p>La lógica es clara: si eCash quiere llegar a usuarios comunes, no basta con tener una red rápida y comisiones bajas. También hacen falta nombres legibles, pagos sencillos, reputación, comercio, garantías y herramientas que puedan ser usadas por personas reales.</p>
+
+          <h2><span class="num">05</span> Conclusión: de la narrativa al protocolo</h2>
+          <p>Esta actualización semanal dejó una señal fuerte: xolosArmy ya no está hablando únicamente de adopción cultural. Está conectando cultura, código, liquidez y productos.</p>
+          <p>La integración XEC <> THORChain representa una frontera técnica. Teyolia 2 representa una frontera comunitaria. El Marketplace y los alias <strong>.xec</strong> representan una frontera de uso cotidiano.</p>
+
         </article>
+
+        <aside class="sidebar">
+          <div class="sticky">
+            
+            <div class="side-card" style="border-color: var(--cyan-2); background: rgba(0, 171, 231, 0.05);">
+              <div class="side-title mono" style="color: var(--cyan-2);">Podcast de THORChain</div>
+              <p>El <strong>20 de junio</strong>, xolosArmy participará en el podcast oficial de THORChain. Una oportunidad para explicar la tesis completa ante una comunidad acostumbrada a discutir liquidez, seguridad e integración cross-chain.</p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Teyolia 2 en cifras</div>
+              <div class="data-grid">
+                <div class="data-box">
+                  <span class="data-label">Meta Total</span>
+                  <span class="data-value">4.5 B XEC</span>
+                </div>
+                <div class="data-box">
+                  <span class="data-label">Objetivo</span>
+                  <span class="data-value">Pool XEC/RUNE</span>
+                </div>
+                <div class="data-box" style="grid-column: span 2;">
+                  <span class="data-label">Modelo</span>
+                  <span class="data-value">No custodial / Comunitario</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="side-card" style="border-color: var(--gold);">
+              <div class="side-title mono">Mantra Estratégico</div>
+              <p style="font-weight:bold; color:white;">
+                XEC es el dinero.<br>
+                RMZ es la llave.<br>
+                La cultura es la red.
+              </p>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer mono">
+        <div>eCash Magazine México · Junio 2026</div>
+      </footer>
     </main>
-
-    <footer>
-        <img src="https://magazine.ecash.mx/assets/ecash-magazine-logo-dim.png" alt="eCash Magazine Dim Logo" class="footer-logo">
-        <p>&copy; 2026 eCash Magazine México. Todos los derechos reservados.</p>
-        <p>Construido sobre eCash. La red cultural es la seguridad.</p>
-    </footer>
-
+  </div>
 </body>
 </html>
