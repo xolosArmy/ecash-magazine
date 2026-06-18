@@ -1,18 +1,18 @@
 <article class="ecash-article chronology-analysis">
   <style>
-    /* VARIABLES DE DISEÑO PRE ESTABLECIDAS - eCash Magazine México Style Guide */
+    /* VARIABLES DE DISEÑO PRE ESTABLECIDAS - al estilo eCash Magazine México */
     .ecash-article.chronology-analysis {
-      --emg-bg: #030a08; /* Dark, deep green/cyan background */
-      --emg-bg-alt: #071110; /* Slightly lighter dark panel */
-      --emg-text: #e0f2f1; /* Main text (very light teal) */
-      --emg-muted: #94b2af; /* Muted description text */
-      --emg-cyan: #00fff2; /* MG Primary Accent (MG Cyan) */
-      --emg-cyan-dim: #00a8a0; /* Borders, Dim text */
-      --emg-gold: #ffcc00; /* MG Secondary Accent (MG Gold) */
+      --emg-bg: #030a08; /* Fondo oscuro, verde/cian profundo */
+      --emg-bg-alt: #071110; /* Panel oscuro ligeramente más claro */
+      --emg-text: #e0f2f1; /* Texto principal (cian muy claro) */
+      --emg-muted: #94b2af; /* Texto secundario silenciado */
+      --emg-cyan: #00fff2; /* Acento primario (Cian vibrante eCash) */
+      --emg-cyan-dim: #00a8a0; /* Bordes, texto atenuado */
+      --emg-gold: #ffcc00; /* Acento secundario (Oro Xolos reference) */
       --emg-gold-dim: #b89300;
-      --emg-danger: #ff5252; /* EMG Danger accent */
-      --emg-line: rgba(224, 242, 241, 0.08); /* EMG standard divider line */
-      --emg-glow-cyan: 0 0 20px rgba(0, 255, 242, 0.15); /* mg Standard glow */
+      --emg-danger: #ff5252; /* Acento de peligro/advertencia */
+      --emg-line: rgba(224, 242, 241, 0.08); /* Línea divisoria estándar */
+      --emg-glow-cyan: 0 0 20px rgba(0, 255, 242, 0.15); /* Resplandor estándar cyan */
 
       max-width: 960px;
       margin: 2rem auto;
@@ -26,6 +26,7 @@
       line-height: 1.75;
       border-radius: 24px;
       box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
     }
 
     .ecash-article.chronology-analysis * {
@@ -92,12 +93,22 @@
       background: var(--emg-bg-alt);
     }
 
+    /* MODIFICACIÓN: Integración de la imagen Hero */
     .chronology-analysis-hero {
       margin: 26px 0 34px;
       padding: 32px;
       border: 1px solid var(--emg-line);
       border-radius: 22px;
-      background: linear-gradient(135deg, rgba(0, 255, 242, 0.1), rgba(255, 204, 0, 0.05));
+      /* Múltiples fondos: degradado tenue, degradado oscuro para legibilidad e imagen */
+      background:
+        /* Degradado cian/oro tenue original */
+        linear-gradient(135deg, rgba(0, 255, 242, 0.1), rgba(255, 204, 0, 0.05)),
+        /* Superposición oscura para legibilidad del texto */
+        linear-gradient(0deg, rgba(3, 10, 8, 0.8), rgba(3, 10, 8, 0.8)),
+        /* Imagen proporcionada por el usuario */
+        url("https://i.imgur.com/YBbW4xD.jpeg");
+      background-size: cover;
+      background-position: center;
       box-shadow: var(--emg-glow-cyan);
     }
 
@@ -272,13 +283,13 @@
       line-height: 1.6;
     }
 
-    /* EMG Bold text styling (Gold) */
+    /* EMG Bold text styling (Oro) */
     .ecash-article.chronology-analysis strong {
       color: var(--emg-gold);
       font-weight: 700;
     }
 
-    /* MG standard emphasis (EMG dim) */
+    /* Enfoque MG estándar (EMG silenciado) */
     .ecash-article.chronology-analysis em {
       color: var(--emg-muted);
       font-style: italic;
@@ -305,7 +316,7 @@
   </style>
 
   <header>
-    <div class="chronology-analysis-kicker">[Crónica-Análisis] · MG Infraestructura</div>
+    <div class="chronology-analysis-kicker">[Crónica-Análisis] · eCash México</div>
 
     <h1>Teyolia 2.0: Liquidez Soberana XEC en THORChain</h1>
 
@@ -316,7 +327,7 @@
     <div class="chronology-analysis-meta">
       <span>eCash Magazine México</span>
       <span>17 de junio de 2026</span>
-      <span>Infraestructura · MG Liquidez · eCash</span>
+      <span>Infraestructura · Liquidez · eCash</span>
     </div>
   </header>
 
