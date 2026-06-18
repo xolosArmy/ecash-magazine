@@ -1,0 +1,589 @@
+<article class="ecash-article chronology-analysis">
+  <style>
+    /* VARIABLES DE DISEÑO PRE ESTABLECIDAS - eCash Magazine México Style Guide */
+    .ecash-article.chronology-analysis {
+      --emg-bg: #030a08; /* Dark, deep green/cyan background */
+      --emg-bg-alt: #071110; /* Slightly lighter dark panel */
+      --emg-text: #e0f2f1; /* Main text (very light teal) */
+      --emg-muted: #94b2af; /* Muted description text */
+      --emg-cyan: #00fff2; /* MG Primary Accent (MG Cyan) */
+      --emg-cyan-dim: #00a8a0; /* Borders, Dim text */
+      --emg-gold: #ffcc00; /* MG Secondary Accent (MG Gold) */
+      --emg-gold-dim: #b89300;
+      --emg-danger: #ff5252; /* EMG Danger accent */
+      --emg-line: rgba(224, 242, 241, 0.08); /* EMG standard divider line */
+      --emg-glow-cyan: 0 0 20px rgba(0, 255, 242, 0.15); /* mg Standard glow */
+
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 48px 32px 80px;
+      color: var(--emg-text);
+      background:
+        radial-gradient(circle at top left, rgba(0, 255, 242, 0.12), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(255, 204, 0, 0.08), transparent 35%),
+        var(--emg-bg);
+      font-family: 'Lexend', system-ui, -apple-system, sans-serif;
+      line-height: 1.75;
+      border-radius: 24px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    }
+
+    .ecash-article.chronology-analysis * {
+      box-sizing: border-box;
+    }
+
+    .chronology-analysis-kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 16px;
+      margin-bottom: 24px;
+      border: 1px solid var(--emg-cyan-dim);
+      border-radius: 999px;
+      color: var(--emg-cyan);
+      background: rgba(0, 255, 242, 0.06);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .chronology-analysis-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--emg-cyan);
+      border-radius: 50%;
+      box-shadow: var(--emg-glow-cyan);
+    }
+
+    .ecash-article.chronology-analysis h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    .chronology-analysis-subtitle {
+      max-width: 800px;
+      margin: 0 0 32px;
+      color: var(--emg-muted);
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    .chronology-analysis-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 40px;
+      color: var(--emg-muted);
+      font-size: .94rem;
+    }
+
+    .chronology-analysis-meta span {
+      padding: 7px 12px;
+      border: 1px solid var(--emg-line);
+      border-radius: 999px;
+      background: var(--emg-bg-alt);
+    }
+
+    .chronology-analysis-hero {
+      margin: 26px 0 34px;
+      padding: 32px;
+      border: 1px solid var(--emg-line);
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(0, 255, 242, 0.1), rgba(255, 204, 0, 0.05));
+      box-shadow: var(--emg-glow-cyan);
+    }
+
+    .chronology-analysis-hero strong {
+      color: var(--emg-gold);
+    }
+
+    .chronology-analysis-quote {
+      margin: 34px 0;
+      padding: 26px 30px;
+      border-left: 5px solid var(--emg-cyan);
+      border-radius: 4px 20px 20px 4px;
+      background: rgba(0, 255, 242, 0.06);
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .ecash-article.chronology-analysis h2 {
+      margin: 54px 0 16px;
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      line-height: 1.16;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      color: var(--emg-cyan);
+      border-bottom: 2px solid var(--emg-line);
+      padding-bottom: 12px;
+    }
+
+    .ecash-article.chronology-analysis h3 {
+      margin: 30px 0 12px;
+      color: var(--emg-gold);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .ecash-article.chronology-analysis p {
+      margin: 0 0 20px;
+    }
+
+    .ecash-article.chronology-analysis a {
+      color: var(--emg-cyan);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid rgba(0, 255, 242, 0.45);
+    }
+
+    .ecash-article.chronology-analysis a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    .chronology-analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .chronology-analysis-card {
+      padding: 24px;
+      border: 1px solid var(--emg-line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .chronology-analysis-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .chronology-analysis-card b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--emg-cyan);
+      font-size: .95rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+    }
+
+    .chronology-analysis-data {
+      margin: 40px 0;
+      padding: 30px;
+      border: 1px solid var(--emg-line);
+      border-radius: 22px;
+      background: var(--emg-bg-alt);
+    }
+
+    .chronology-analysis-data dl {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 16px 24px;
+      margin: 0;
+    }
+
+    .chronology-analysis-data dt {
+      color: var(--emg-gold);
+      font-weight: 800;
+    }
+
+    .chronology-analysis-data dd {
+      margin: 0;
+      color: var(--emg-text);
+      font-weight: 300;
+    }
+
+    .chronology-analysis-data dd a {
+      font-family: 'Space Mono', ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    .chronology-analysis-warning {
+      margin: 34px 0;
+      padding: 24px;
+      border: 1px solid rgba(255, 82, 82, 0.3);
+      border-radius: 18px;
+      background: rgba(255, 82, 82, 0.08);
+      color: #ffcccc;
+    }
+
+    .chronology-analysis-warning strong {
+      color: var(--emg-danger);
+    }
+
+    .chronology-analysis-cta {
+      margin-top: 48px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid var(--emg-cyan-dim);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(0, 255, 242, 0.1), rgba(255, 204, 0, 0.05));
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .chronology-analysis-cta h2 {
+      margin-top: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .chronology-analysis-button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--emg-cyan);
+      color: #030a08 !important;
+      font-weight: 900;
+      border-bottom: none !important;
+      transition: all 0.2s ease;
+    }
+
+    .chronology-analysis-button:hover {
+      box-shadow: 0 0 30px rgba(0, 255, 242, 0.5);
+      background: #ffffff;
+    }
+
+    .chronology-analysis-social {
+      margin-top: 40px;
+      padding: 24px;
+      border: 1px dashed var(--emg-cyan-dim);
+      border-radius: 18px;
+      background: rgba(0, 255, 242, 0.03);
+      white-space: pre-wrap;
+      color: var(--emg-muted);
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .98rem;
+      line-height: 1.6;
+    }
+
+    /* EMG Bold text styling (Gold) */
+    .ecash-article.chronology-analysis strong {
+      color: var(--emg-gold);
+      font-weight: 700;
+    }
+
+    /* MG standard emphasis (EMG dim) */
+    .ecash-article.chronology-analysis em {
+      color: var(--emg-muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 800px) {
+      .ecash-article.chronology-analysis {
+        padding: 32px 20px 60px;
+        margin: 1rem auto;
+      }
+
+      .chronology-analysis-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chronology-analysis-data dl {
+        grid-template-columns: 1fr;
+      }
+
+      .chronology-analysis-data dt {
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+
+  <header>
+    <div class="chronology-analysis-kicker">[Crónica-Análisis] · MG Infraestructura</div>
+
+    <h1>Teyolia 2.0: Liquidez Soberana XEC en THORChain</h1>
+
+    <p class="chronology-analysis-subtitle">
+      xolosArmy Network activa una nueva campaña comunitaria para preparar la primera fase de liquidez nativa XEC/RUNE en THORChain. No es un dev grant. Es un liquidity bootstrap: una iniciativa para convertir el avance técnico de eCash en infraestructura de mercado abierta, no custodial y sin wrappers.
+    </p>
+
+    <div class="chronology-analysis-meta">
+      <span>eCash Magazine México</span>
+      <span>17 de junio de 2026</span>
+      <span>Infraestructura · MG Liquidez · eCash</span>
+    </div>
+  </header>
+
+  <section class="chronology-analysis-hero">
+    <p>
+      <strong>Teyolia 2.0</strong> es la nueva campaña de financiamiento comunitario impulsada por xolosArmy Network para preparar <strong>Liquidez Soberana XEC</strong> en THORChain.
+    </p>
+
+    <p>
+      La meta es reunir <strong>4,500,000,000 XEC</strong> para apoyar una primera fase de infraestructura y liquidez comunitaria orientada a una futura posición XEC/RUNE.
+    </p>
+
+    <p>
+      La campaña no promete rendimiento financiero. Su objetivo es apoyar infraestructura pública para eCash: liquidez nativa, herramientas operativas y una reserva de riesgo.
+    </p>
+
+    <p class="chronology-analysis-quote">
+      Native liquidity. No wrappers. No custody. Just freedom.
+    </p>
+  </section>
+
+  <section>
+    <h2>De código a liquidez</h2>
+
+    <p>
+      La integración de <strong>eCash (XEC) nativo en THORChain</strong> ya no es solamente una conversación técnica. El camino está activo mediante un Draft MR público, revisión técnica y trabajo comunitario alrededor de la infraestructura necesaria para que XEC pueda tener presencia nativa en un protocolo de liquidez cross-chain.
+    </p>
+
+    <p>
+      Pero el código es solo una parte de la historia.
+    </p>
+
+    <p>
+      Para que una integración nativa tenga utilidad real, necesita liquidez. Sin liquidez, una integración es una puerta abierta hacia un mercado vacío. Por eso xolosArmy Network activó <strong>Teyolia 2.0: Sovereign Native XEC Liquidity on THORChain</strong>, una campaña comunitaria enfocada en preparar la primera fase de liquidez soberana para eCash.
+    </p>
+
+    <p>
+      El objetivo no es financiar salarios ni vender una promesa de desarrollo. La tesis central de Teyolia 2.0 es distinta: <strong>capitalizar infraestructura comunitaria</strong>. La campaña propone un cambio de modelo: pasar de los grants tradicionales hacia <strong>Community-Owned Liquidity</strong>, es decir, liquidez propiedad de la comunidad.
+    </p>
+  </section>
+
+  <section>
+    <h2>No es un dev grant</h2>
+
+    <p>
+      Teyolia 2.0 no debe entenderse como un “dev grant”.
+    </p>
+
+    <p>
+      Un grant tradicional suele financiar desarrollo, operación o salarios. En cambio, Teyolia 2.0 se presenta como un <strong>liquidity bootstrap</strong>: una campaña para reunir capital comunitario destinado a preparar una futura posición XEC/RUNE, infraestructura operativa ligera, monitoreo y una reserva de riesgo.
+    </p>
+
+    <p>
+      La campaña tiene una meta de:
+    </p>
+
+    <p class="chronology-analysis-quote">
+      4,500,000,000 XEC
+    </p>
+
+    <p>
+      Ese monto está pensado como una primera fase de arranque, no como el final de la estrategia. El objetivo es abrir el camino hacia una posición comunitaria de liquidez nativa que pueda acompañar la integración de XEC en THORChain una vez que el proceso técnico avance.
+    </p>
+
+    <p>
+      La diferencia importa:
+    </p>
+
+    <div class="chronology-analysis-grid">
+      <div class="chronology-analysis-card">
+        <b>Dev grant</b>
+        Financia desarrollo, operación o salarios.
+      </div>
+
+      <div class="chronology-analysis-card">
+        <b>Liquidity bootstrap</b>
+        Prepara mercado, liquidez e infraestructura operativa.
+      </div>
+
+      <div class="chronology-analysis-card">
+        <b>Teyolia 2.0</b>
+        Busca capitalizar infraestructura pública comunitaria.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>¿Por qué THORChain?</h2>
+
+    <p>
+      THORChain permite intercambios nativos entre activos de distintas cadenas sin depender de wrapped tokens ni de puentes custodiales. Para eCash, esto representa una ruta natural hacia liquidez soberana.
+    </p>
+
+    <p>
+      La tesis de xolosArmy es simple:
+    </p>
+
+    <p class="chronology-analysis-quote">
+      El dinero nativo necesita liquidez nativa.
+    </p>
+
+    <p>
+      Wrapped tokens pueden ser útiles en ciertos contextos, pero siempre introducen una capa adicional de confianza: un contrato, un custodio, una multisig o una representación sintética del activo original.
+    </p>
+
+    <p>
+      Teyolia 2.0 parte de otra idea: <strong>XEC no necesita convertirse en un IOU para entrar a DeFi. XEC debe poder moverse como activo nativo.</strong>
+    </p>
+
+    <p>
+      Esa postura rechaza wrappers, puentes custodiales y dependencias centralizadas, defendiendo la ruta de swaps nativos L1 a L1 como una alternativa más alineada con la soberanía del usuario.
+    </p>
+  </section>
+
+  <section>
+    <h2>¿Qué busca financiar Teyolia 2.0?</h2>
+
+    <div class="chronology-analysis-grid">
+      <div class="chronology-analysis-card">
+        <b>1. Liquidez estratégica</b>
+        Capital destinado a preparar una posición inicial simétrica XEC/RUNE cuando la integración nativa esté lista para avanzar.
+      </div>
+
+      <div class="chronology-analysis-card">
+        <b>2. Operación ligera</b>
+        Herramientas, monitoreo, reportes, soporte técnico y operación necesaria para acompañar la estrategia de liquidez.
+      </div>
+
+      <div class="chronology-analysis-card">
+        <b>3. Reserva de riesgo</b>
+        Fondo para volatilidad, comisiones L1, ajustes técnicos, condiciones de mercado y contingencias.
+      </div>
+    </div>
+
+    <p>
+      Esta estructura evita presentar la campaña como una inversión financiera. La finalidad es infraestructura pública, no promesa de rendimiento.
+    </p>
+  </section>
+
+  <section>
+    <h2>Teyolia como primitiva de financiamiento</h2>
+
+    <p>
+      Teyolia es una herramienta de financiamiento comunitario no custodial construida alrededor de eCash.
+    </p>
+
+    <p>
+      Su función es permitir que una comunidad coordine recursos para infraestructura sin depender de un custodio central ni de un comité cerrado. Si la campaña no alcanza su objetivo, la estructura de Teyolia evita consolidar los fondos como una recaudación exitosa.
+    </p>
+
+    <p>
+      En términos políticos y tecnológicos, Teyolia representa una tesis fuerte:
+    </p>
+
+    <p class="chronology-analysis-quote">
+      Si eCash es un protocolo abierto, su financiamiento también debe poder organizarse de forma abierta.
+    </p>
+
+    <p>
+      Teyolia funciona como una primitiva de coordinación: permite a builders soberanos organizar capital directamente desde la comunidad, sin depender de fundaciones, capital de riesgo o comités centralizados.
+    </p>
+  </section>
+
+  <section>
+    <h2>xolosArmy: construir sobre un protocolo abierto</h2>
+
+    <p>
+      xolosArmy Network no se presenta como representante oficial de eCash, Bitcoin ABC, GNC ni ninguna fundación. Su postura es la de un builder independiente construyendo infraestructura sobre un protocolo abierto.
+    </p>
+
+    <p>
+      La filosofía es directa:
+    </p>
+
+    <p class="chronology-analysis-quote">
+      No competimos. Construimos.
+    </p>
+
+    <p>
+      eCash, como protocolo abierto, permite que múltiples equipos, comunidades y herramientas nazcan alrededor de su red. Esa es precisamente la fuerza de un sistema permissionless: nadie necesita pedir permiso para construir infraestructura útil.
+    </p>
+
+    <p>
+      En esa lectura, xolosArmy actúa como un <strong>Sovereign Builder</strong>: una red que despliega herramientas verificables, públicas y no custodiales sobre una infraestructura abierta.
+    </p>
+  </section>
+
+  <section>
+    <h2>Teyolia 2.0 y el futuro de XEC</h2>
+
+    <p>
+      Teyolia 2.0 no es el final de la historia. Es una primera fase.
+    </p>
+
+    <p>
+      El objetivo de fondo es que eCash pueda contar con liquidez nativa, acceso cross-chain, menor dependencia de exchanges centralizados, herramientas no custodiales, financiamiento comunitario, una capa de usuario mediante Tonalli Wallet y una narrativa soberana construida desde México.
+    </p>
+
+    <p>
+      En esa visión, <strong>THORChain es la ruta de liquidez</strong>, <strong>Teyolia es la ruta de financiamiento</strong>, <strong>Tonalli Wallet es la interfaz del usuario</strong> y <strong>xolosArmy es la red comunitaria que conecta estas piezas</strong>.
+    </p>
+
+    <p class="chronology-analysis-quote">
+      Native liquidity. No wrappers. No custody. Just freedom.
+    </p>
+  </section>
+
+  <section class="chronology-analysis-data">
+    <h2>Datos rápidos de la campaña</h2>
+
+    <dl>
+      <dt>Nombre</dt>
+      <dd>Sovereign Native XEC Liquidity on THORChain</dd>
+
+      <dt>Campaña</dt>
+      <dd>Teyolia 2.0</dd>
+
+      <dt>Meta</dt>
+      <dd>4,500,000,000 XEC</dd>
+
+      <dt>Objetivo</dt>
+      <dd>Preparar la primera fase de liquidez comunitaria XEC/RUNE e infraestructura operativa para native XEC on THORChain.</dd>
+
+      <dt>No es</dt>
+      <dd>Un dev grant, una inversión financiera o una promesa de yield.</dd>
+
+      <dt>Sí es</dt>
+      <dd>Un liquidity bootstrap comunitario para apoyar infraestructura pública de eCash.</dd>
+
+      <dt>Campaña</dt>
+      <dd>
+        <a href="https://www.teyolia.cash/campaigns/campaign-1781543483654" target="_blank" rel="noopener noreferrer">
+          teyolia.cash/campaigns/campaign-1781543483654
+        </a>
+      </dd>
+    </dl>
+  </section>
+
+  <section class="chronology-analysis-warning">
+    <strong>Nota editorial:</strong>
+    Esta publicación no constituye asesoría financiera. Teyolia 2.0 no promete rendimiento, yield, retorno de inversión ni apreciación del precio de XEC. La campaña se presenta como una iniciativa comunitaria de infraestructura y liquidez, sujeta al avance técnico de la integración nativa de XEC en THORChain y a las condiciones de mercado.
+  </section>
+
+  <section class="chronology-analysis-cta">
+    <h2>Participa en Teyolia 2.0</h2>
+    <p>
+      La liquidez soberana no aparece sola. Se coordina, se financia y se construye.
+    </p>
+    <a class="chronology-analysis-button" href="https://www.teyolia.cash/campaigns/campaign-1781543483654" target="_blank" rel="noopener noreferrer">
+      Ver campaña
+    </a>
+  </section>
+
+  <section>
+    <h2>Copy corto para redes</h2>
+
+    <div class="chronology-analysis-social">Teyolia 2.0 está activa.
+
+Sovereign Native XEC Liquidity on THORChain.
+
+No es un dev grant.
+Es un liquidity bootstrap comunitario para preparar liquidez XEC/RUNE e infraestructura operativa.
+
+No wrappers.
+No custody.
+No permission.
+
+https://www.teyolia.cash/campaigns/campaign-1781543483654</div>
+  </section>
+</article>
