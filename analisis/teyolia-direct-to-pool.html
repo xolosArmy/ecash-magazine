@@ -805,18 +805,29 @@
       El quinto riesgo es económico: un bootstrap asimétrico en un pool nuevo o poco profundo puede generar slip elevado y arbitraje inmediato. THORChain reconoce que los depósitos asimétricos tienen impacto por slip y que los LPs suelen ser incentivados a depositar simétricamente cuando buscan un arranque más equilibrado.
     </p>
 
-    <h2>Preguntas abiertas para THORChain</h2>
+    <h2>Estado de validación con THORChain</h2>
     <p>
-      Antes de pasar de especificación a implementación, conviene validar seis puntos con el equipo técnico de THORChain:
+      La conversación técnica con el equipo de THORChain permitió cerrar una de las preguntas más importantes del diseño: la ruta de retorno Layer 1. En un flujo LP dual-sided, la dirección THOR puede iniciar el retiro, pero el lado XEC vuelve al paired L1 address que THORChain considere sender del ADD inicial. Por eso, Teyolia 2.1 no puede tratar un covenant efímero como propietario seguro de una LP gestionable.
     </p>
-    
+    <p>
+      A partir de esta aclaración, algunas preguntas dejan de ser abiertas y se convierten en decisiones de arquitectura:
+    </p>
+
     <ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
-      <li>¿Cuál será el estado real de XEC en THORNode/Bifrost y qué criterios de aceptación tendrá para mainnet?</li>
-      <li>¿El parser de memos largos para rutas BCH-style funcionará igual para XEC, o el único path seguro será memo corto de 80 caracteres?</li>
-      <li>En un ADD originado desde un covenant/script de eCash, ¿qué identidad exacta queda registrada como depositante original de la posición LP?</li>
-      <li>En ADDLP, ¿el affiliate fee de 1% queda siempre como posición LP del affiliate o existe alguna ruta de distribución líquida comparable a swaps?</li>
-      <li>¿Cuáles serán los parámetros finales de <code>dust_threshold</code>, output ordering, max outputs y formatos de address para el chain client XEC?</li>
-      <li>¿Existirá quote o estimate oficial para añadir liquidez en XEC desde el primer día?</li>
+      <li><strong>Memo largo:</strong> se descarta como dependencia de producción. Teyolia 2.1 debe usar memos cortos compatibles con la ruta UTXO estándar de THORChain.</li>
+      <li><strong>Ownership:</strong> queda separado en dos partes: la dirección THOR puede iniciar withdrawal, pero el XEC debe retornar a una dirección L1 duradera y recuperable.</li>
+      <li><strong>Output ordering:</strong> debe seguir el patrón UTXO de THORChain: VOUT0 inbound vault, cambio a VIN0, OP_RETURN con memo, y outputs adicionales sólo si no rompen límites ni failure modes.</li>
+    </ol>
+
+    <p>
+      Sin embargo, todavía quedan puntos que deben validarse antes de una implementación productiva:
+    </p>
+
+    <ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
+      <li>Confirmación final del soporte XEC en THORNode/Bifrost mainnet.</li>
+      <li>Valores productivos de <code>dust_threshold</code>, <code>gas_rate</code>, formatos de dirección y estado <code>halted</code> para XEC en <code>inbound_addresses</code>.</li>
+      <li>Semántica exacta del affiliate fee en ADDLP para XEC.</li>
+      <li>Disponibilidad de quote o estimate oficial para añadir liquidez XEC desde el primer día.</li>
     </ol>
 
     <div class="chronology-analysis-cta">
