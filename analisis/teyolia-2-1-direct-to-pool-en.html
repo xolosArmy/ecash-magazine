@@ -1,98 +1,853 @@
-<h2>The Layer 1 Return Path Rule</h2>
+<article class="ecash-article chronology-analysis emg-premium">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
 
-<p>
-  Based on the THORChain-side clarification, the ownership question for Teyolia 2.1 is no longer a vague hypothesis. It becomes a concrete architectural rule: <strong>the THOR-side owner and the XEC-side return path are not the same thing.</strong>
-</p>
+    /* PRESET DESIGN VARIABLES - eCash Magazine México style */
+    .ecash-article.chronology-analysis {
+      --emg-bg: #030a08;
+      --emg-bg-alt: #071110;
+      --emg-text: #e0f2f1;
+      --emg-muted: #94b2af;
+      --emg-soft: #c7fffb;
+      --emg-cyan: #00fff2;
+      --emg-cyan-dim: #00a8a0;
+      --emg-gold: #ffcc00;
+      --emg-gold-dim: #b89300;
+      --emg-danger: #ff5252;
+      --emg-line: rgba(224, 242, 241, 0.08);
+      --emg-glow-cyan: 0 0 20px rgba(0, 255, 242, 0.15);
 
-<p>
-  In a dual-sided LP flow, the THOR address used as <code>PAIREDADDR</code> can initiate the withdrawal, but the XEC side is still paid back to the paired Layer 1 address — that is, whatever THORChain considers the sender of the initial XEC <code>ADD</code> transaction.
-</p>
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0;
+      color: var(--emg-text);
+      background: #000;
+      font-family: 'Lexend', system-ui, -apple-system, sans-serif;
+      line-height: 1.75;
+      border-radius: 24px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      box-sizing: border-box;
+    }
 
-<p>
-  Therefore, <code>+:XEC.XEC:&lt;thor-community-owner&gt;</code> helps with THOR/RUNE-side pairing and withdrawal authority, but it does <strong>not</strong> remove the need for a durable, recoverable XEC-side paired L1 address.
-</p>
+    .ecash-article.chronology-analysis * {
+      box-sizing: border-box;
+    }
 
-<div style="border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px; margin: 24px 0; background: rgba(255,255,255,0.03);">
-  <p style="margin-top: 0;">
-    <strong>Final architecture rule:</strong>
-  </p>
-  <p style="margin-bottom: 0;">
-    Teyolia 2.1 Direct-to-Pool must not treat an ephemeral covenant as the secure owner of a manageable LP position unless that covenant/script is explicitly designed as a durable and recoverable XEC return address with a valid future spend path.
-  </p>
-</div>
+    .ecash-article.chronology-analysis em {
+      color: var(--emg-muted);
+      font-style: italic;
+    }
 
-<p>
-  The architecture must strictly separate three elements:
-</p>
+    .emg-header-verification {
+      padding: 32px;
+      background: var(--emg-bg);
+      border-bottom: 1px solid var(--emg-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-<ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
-  <li>
-    <strong>The Withdrawal Initiator:</strong>
-    The governance-controlled THOR address used as <code>PAIREDADDR</code>. This address can initiate the LP withdrawal on the THOR/RUNE side.
-  </li>
-  <li>
-    <strong>The Physical XEC Return Path:</strong>
-    A durable and recoverable eCash Layer 1 address or script. This is the address to which THORChain would return the XEC side during refunds or withdrawals.
-  </li>
-  <li>
-    <strong>The Finalization Rules:</strong>
-    The Teyolia covenant must enforce strict finalize rules: late-bound inbound vault, valid memo policy, correct output ordering, dust safety, fee policy, and a recoverable XEC return path.
-  </li>
-</ol>
+    .logo-mg-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-<p>
-  This changes the safe architecture from a direct ephemeral covenant payout into a staged, recoverable design:
-</p>
+    .brand-mg-header {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.05em;
+    }
 
-<pre style="white-space: pre-wrap; color: var(--emg-muted); background: rgba(0,0,0,0.28); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px; overflow-x: auto;"><code>Recommended:
+    .brand-mg-header span {
+      color: var(--emg-cyan);
+    }
 
-Teyolia covenant
-→ verifiable finalize rules
-→ durable XEC return address / script
-→ THORChain inbound vault
-→ paired THOR owner for withdrawal authority</code></pre>
+    .brand-mg-subheader {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--emg-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
 
-<p>
-  The unsafe version is:
-</p>
+    .emg-kicker-verification {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 16px;
+      border: 1px solid var(--emg-cyan-dim);
+      border-radius: 999px;
+      color: var(--emg-cyan);
+      background: rgba(0, 255, 242, 0.06);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
-<pre style="white-space: pre-wrap; color: var(--emg-muted); background: rgba(0,0,0,0.28); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px; overflow-x: auto;"><code>Not recommended for manageable LP:
+    .emg-kicker-verification::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--emg-cyan);
+      border-radius: 50%;
+      box-shadow: var(--emg-glow-cyan);
+    }
 
-ephemeral covenant
-→ THORChain inbound vault</code></pre>
+    .emg-language-switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--emg-cyan);
+      background: transparent;
+      color: var(--emg-cyan);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none !important;
+    }
 
-<p>
-  This means Teyolia 2.1 should be classified into three distinct finalize modes:
-</p>
+    .emg-language-switch:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 242, 0.4);
+      background: rgba(0, 255, 242, 0.05);
+      color: #fff;
+    }
 
-<ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
-  <li>
-    <strong>Teyolia 2.1-A — XEC-only Direct Add:</strong>
-    Experimental only. Not recommended for manageable community LP unless the XEC sender is a durable and recoverable return address.
-  </li>
-  <li>
-    <strong>Teyolia 2.1-B — Dual-Sided / Paired LP:</strong>
-    Recommended path for community-managed liquidity. The THOR owner can initiate withdrawal, while the XEC side returns to a durable governance-controlled XEC address or script.
-  </li>
-  <li>
-    <strong>Teyolia 2.1-C — DONATE / Irreversible POL:</strong>
-    Possible only if the community explicitly accepts non-withdrawable liquidity. This must be presented as a donation-style flow, not as community-owned LP.
-  </li>
-</ol>
+    .chronology-analysis-hero {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-image: url("image_387.png");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+    }
 
-<p>
-  The decisive conclusion is that <strong>Direct-to-Pool remains viable</strong>, but not as a naive one-step covenant-to-vault payout. The production-grade design requires:
-</p>
+    .chronology-analysis-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+      pointer-events: none;
+    }
 
-<ul style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
-  <li>late-bound inbound vaults fetched immediately before broadcast,</li>
-  <li>short THORChain-compatible <code>ADD</code> memos,</li>
-  <li>strict UTXO output ordering,</li>
-  <li>a durable XEC paired return address,</li>
-  <li>a governance-controlled THOR withdrawal address,</li>
-  <li>and covenant finalize rules that make all of the above verifiable.</li>
-</ul>
+    .chronology-analysis-hero strong {
+      color: var(--emg-gold);
+    }
 
-<p>
-  In short: Teyolia 2.1 should separate <strong>who can initiate withdrawal</strong> from <strong>where the XEC physically returns</strong>. That separation is the key architectural upgrade from a narrative of direct liquidity into a verifiable L1-to-THORChain design.
-</p>
+    .emg-sumsarios-structure-hero {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+      padding-top: 40px;
+    }
+
+    .emg-sumario-hero-card {
+      padding: 20px;
+      border: 1px solid var(--emg-line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .emg-sumario-hero-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .emg-sumario-hero-card b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--emg-cyan);
+      font-size: .88rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+    }
+
+    .emg-sumario-hero-card span {
+      display: block;
+      color: var(--emg-muted);
+      font-size: .85rem;
+      line-height: 1.5;
+    }
+
+    .emg-video-embed-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--emg-line);
+      margin: 40px 0;
+      box-shadow: var(--emg-glow-cyan);
+    }
+
+    .emg-video-embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .emg-article-main-verification {
+      padding: 48px 32px 80px;
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(180deg, var(--emg-bg) 0%, var(--emg-bg-alt) 100%);
+    }
+
+    .chronology-analysis-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 40px;
+      color: var(--emg-muted);
+      font-size: .94rem;
+    }
+
+    .chronology-analysis-meta span {
+      padding: 7px 12px;
+      border: 1px solid var(--emg-line);
+      border-radius: 999px;
+      background: var(--emg-bg-alt);
+    }
+
+    .ecash-article.chronology-analysis h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    .chronology-analysis-subtitle {
+      max-width: 800px;
+      margin: 0 0 32px;
+      color: var(--emg-muted);
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    .ecash-article.chronology-analysis h2 {
+      margin: 54px 0 16px;
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      line-height: 1.16;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      color: var(--emg-cyan);
+      border-bottom: 2px solid var(--emg-line);
+      padding-bottom: 12px;
+    }
+
+    .ecash-article.chronology-analysis h3 {
+      margin: 30px 0 12px;
+      color: var(--emg-gold);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .ecash-article.chronology-analysis p {
+      margin: 0 0 20px;
+    }
+
+    .chronology-analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .chronology-analysis-card {
+      padding: 24px;
+      border: 1px solid var(--emg-line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .chronology-analysis-card b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--emg-cyan);
+      font-size: .95rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+    }
+
+    .ecash-article.chronology-analysis strong {
+      color: var(--emg-gold);
+      font-weight: 700;
+    }
+
+    .chronology-analysis-quote {
+      margin: 34px 0;
+      padding: 26px 30px;
+      border-left: 5px solid var(--emg-cyan);
+      border-radius: 4px 20px 20px 4px;
+      background: rgba(0, 255, 242, 0.06);
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .ecash-article.chronology-analysis code {
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, monospace;
+      color: var(--emg-soft);
+      background: rgba(224, 242, 241, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .chronology-analysis-data {
+      margin: 40px 0;
+      padding: 30px;
+      border: 1px solid var(--emg-line);
+      border-radius: 22px;
+      background: var(--emg-bg-alt);
+    }
+
+    .chronology-analysis-data dl {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 16px 24px;
+      margin: 0;
+    }
+
+    .chronology-analysis-data dt {
+      color: var(--emg-gold);
+      font-weight: 800;
+    }
+
+    .chronology-analysis-data dd {
+      margin: 0;
+      color: var(--emg-text);
+      font-weight: 300;
+    }
+
+    .chronology-analysis-warning {
+      margin: 34px 0;
+      padding: 24px;
+      border: 1px solid rgba(255, 82, 82, 0.3);
+      border-radius: 18px;
+      background: rgba(255, 82, 82, 0.08);
+      color: #ffcccc;
+    }
+
+    .chronology-analysis-warning strong {
+      color: var(--emg-danger);
+    }
+
+    .ecash-article.chronology-analysis a {
+      color: var(--emg-cyan);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid rgba(0, 255, 242, 0.45);
+    }
+
+    .ecash-article.chronology-analysis a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    .chronology-analysis-cta {
+      margin-top: 48px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid var(--emg-cyan-dim);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(0, 255, 242, 0.1), rgba(255, 204, 0, 0.05));
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .chronology-analysis-cta h2 {
+      margin-top: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .chronology-analysis-button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--emg-cyan);
+      color: #030a08 !important;
+      font-weight: 900;
+      border-bottom: none !important;
+      transition: all 0.2s ease;
+    }
+
+    .chronology-analysis-button:hover {
+      box-shadow: 0 0 30px rgba(0, 255, 242, 0.5);
+      background: #ffffff;
+    }
+
+    .chronology-analysis-social {
+      margin-top: 40px;
+      padding: 24px;
+      border: 1px dashed var(--emg-cyan-dim);
+      border-radius: 18px;
+      background: rgba(0, 255, 242, 0.03);
+      white-space: pre-wrap;
+      color: var(--emg-muted);
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .98rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 800px) {
+      .ecash-article.chronology-analysis h1 {
+        font-size: 2.2rem;
+      }
+      
+      .chronology-analysis-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .emg-sumsarios-structure-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .chronology-analysis-data dl {
+        grid-template-columns: 1fr;
+      }
+
+      .emg-header-verification {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      
+      .chronology-analysis-hero {
+        padding: 20px;
+        aspect-ratio: auto;
+      }
+    }
+  </style>
+
+  <header class="emg-header-verification">
+    <div class="logo-mg-container">
+      <h2 class="brand-mg-header">eCASH<span>Magazine</span></h2>
+      <span class="brand-mg-subheader">Mexico · Technical Analysis</span>
+    </div>
+    
+    <div class="emg-kicker-verification">Technical RFC</div>
+    
+    <a href="teyolia-direct-to-pool.html" class="emg-language-switch">
+      Switch to SPANISH [ES]
+    </a>
+  </header>
+
+  <section class="chronology-analysis-hero">
+    <div class="emg-sumsarios-structure-hero">
+      <div class="emg-sumario-hero-card">
+        <b>Direct-to-Pool Finality</b>
+        <span>Campaign settlement directly into native liquidity, without custody.</span>
+      </div>
+      
+      <div class="emg-sumario-hero-card">
+        <b>L1 Return Path</b>
+        <span>XEC must return to a durable, recoverable L1 address.</span>
+      </div>
+      
+      <div class="emg-sumario-hero-card">
+        <b>Late Vault Binding</b>
+        <span>The inbound vault is fetched just-in-time, not hardcoded.</span>
+      </div>
+      
+      <div class="emg-sumario-hero-card">
+        <b>Short ADD Memo</b>
+        <span>Use compact THORChain ADD memos compatible with UTXO rules.</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="emg-article-main-verification">
+    <h1>Teyolia 2.1 Direct-to-Pool: a trust-minimized path for bringing XEC into native THORChain liquidity</h1>
+    
+    <p class="chronology-analysis-subtitle">
+      Teyolia 2.1 Direct-to-Pool is technically viable as an architecture, but not as a minor parameter change to Teyolia 2.0. It requires a new finalize path, late binding for THORChain vaults, explicit LP ownership rules, and a durable XEC Layer 1 return path.
+    </p>
+
+    <div class="chronology-analysis-meta">
+      <span>MG Technical Team</span>
+      <span>June 2026</span>
+      <span>Teyolia · THORChain · eCash</span>
+    </div>
+
+    <div class="emg-video-embed-container">
+      <iframe src="https://www.youtube.com/embed/4eO4hWRv4x0" title="THORChain Podcast #210" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <p>
+      The core idea behind Teyolia 2.1 Direct-to-Pool is simple to express but delicate to implement: allow a community campaign on eCash to accumulate XEC and, once the goal is reached, settle directly into the native XEC/RUNE pool on THORChain without passing through an intermediate custodian.
+    </p>
+
+    <p>
+      The technical conclusion is clear: the concept is worth advancing, but only as a new architecture. Direct-to-Pool must not mean “replace the beneficiary with a THORChain address.” It must mean a verifiable finalize path, live THORChain preflight, strict UTXO output ordering, local wallet signing, and explicit rules for who controls the resulting LP position.
+    </p>
+
+    <p>
+      The external precondition remains fundamental: XEC must first be officially supported by THORNode/Bifrost and exposed through <code>inbound_addresses</code> with production parameters. Until XEC appears as a supported inbound chain with final <code>dust_threshold</code>, <code>gas_rate</code>, <code>halted</code> status and address format rules, Teyolia 2.1 remains an architectural specification rather than an immediately executable mainnet route.
+    </p>
+
+    <h2>Precondition 0: XEC must exist on THORChain mainnet first</h2>
+    <p>
+      The design has to separate two planes: feasibility and operational readiness.
+    </p>
+    <p>
+      At the design level, Teyolia 2.1 is viable in principle. eCash can build UTXO transactions, carry a short memo and allow local wallet signing. THORChain already has a known model for UTXO inbound transactions: send the principal to the current Asgard vault, return change to the VIN0 address, include the memo in <code>OP_RETURN</code>, and let THORNodes observe and process the transaction.
+    </p>
+    <p>
+      At the operational level, however, Teyolia 2.1 cannot be used in production until XEC is merged, deployed, and exposed as a supported chain by THORChain. The Direct-to-Pool path depends on live network data, not on a static address or a hardcoded assumption.
+    </p>
+
+    <p class="chronology-analysis-quote">
+      Teyolia 2.1 Direct-to-Pool is ready as an architecture for implementation once the required THORChain infrastructure preconditions are met.
+    </p>
+
+    <h2>What changes from Teyolia 2.0</h2>
+    <p>
+      Teyolia 2.0 already improves on a classic custodial crowdfunding model: the campaign exists on eCash, users sign from their wallets, and the backend acts as a transaction-construction helper rather than as the natural owner of the funds.
+    </p>
+    <p>
+      Teyolia 2.1 pushes this further. The difference is not only where the XEC goes. The difference is who controls the final hop.
+    </p>
+    <p>
+      In Teyolia 2.0, the final settlement path can still depend on operators or backend policy. In Teyolia 2.1, the contract must constrain the shape of the transaction that is allowed to close the campaign. The contract should no longer say only “pay the beneficiary.” It should say: “finalization is valid only if the transaction has a THORChain-compatible form.”
+    </p>
+    <p>
+      That requires a contract version bump. It is not a configuration change. It is a new semantic layer.
+    </p>
+
+    <h2>The correct architecture: eCash accumulation, just-in-time THORChain settlement</h2>
+    <p>
+      The recommended architecture has two planes.
+    </p>
+    <p>
+      The first plane is eCash. Users contribute XEC into a campaign with explicit rules: goal, expiry, refund policy, finalize mode, fee policy and contract version.
+    </p>
+    <p>
+      The second plane is THORChain. That plane should activate only at settlement time.
+    </p>
+    <p>
+      The reason is critical: THORChain inbound vault addresses must not be treated as persistent destinations. They change through churn and operational network conditions. A campaign must not lock an inbound vault address at creation time.
+    </p>
+    <p>
+      The correct settlement pattern is:
+    </p>
+
+    <div class="chronology-analysis-grid">
+      <div class="chronology-analysis-card">
+        <b>1. Goal reached</b>
+        The campaign reaches its XEC target.
+      </div>
+      
+      <div class="chronology-analysis-card">
+        <b>2. Live preflight</b>
+        The builder fetches current XEC <code>inbound_addresses</code>.
+      </div>
+      
+      <div class="chronology-analysis-card">
+        <b>3. Network checks</b>
+        The builder checks halted state, LP pause status, gas rate and dust threshold.
+      </div>
+      
+      <div class="chronology-analysis-card">
+        <b>4. Build finalize v2.1</b>
+        The unsigned transaction is constructed with THORChain-compatible outputs.
+      </div>
+      
+      <div class="chronology-analysis-card">
+        <b>5. Local signing</b>
+        The wallet signs locally, preserving non-custodial execution.
+      </div>
+      
+      <div class="chronology-analysis-card">
+        <b>6. Immediate broadcast</b>
+        The transaction is broadcast immediately; stale attempts must be rebuilt.
+      </div>
+    </div>
+
+    <p class="chronology-analysis-quote">
+      The campaign must not commit to a THORChain vault at creation time. It must commit to a valid finalization rule.
+    </p>
+
+    <h2>The transaction shape THORChain needs</h2>
+    <p>
+      For UTXO chains, THORChain requires a specific transaction shape. The principal must be sent to the current Asgard vault as <code>VOUT0</code>. Change must return to the input address, <code>VIN0</code>, because THORChain identifies the user by <code>VIN0</code> for refunds. The memo must be placed in <code>OP_RETURN</code>, typically as <code>VOUT2</code>. The transaction must not randomize output ordering and must remain within THORChain output limits.
+    </p>
+    <p>
+      Translated into Teyolia 2.1, a Direct-to-Pool finalize transaction should look like this:
+    </p>
+
+    <div class="chronology-analysis-data">
+      <dl>
+        <dt>VOUT0</dt>
+        <dd>XEC principal sent to the current THORChain inbound vault.</dd>
+        <dt>VOUT1</dt>
+        <dd>Change returned to VIN0, if required.</dd>
+        <dt>VOUT2</dt>
+        <dd><code>OP_RETURN</code> containing the THORChain ADD memo.</dd>
+        <dt>VOUT3+</dt>
+        <dd>Optional outputs only if they do not break THORChain parsing, output limits or failure-mode policy.</dd>
+      </dl>
+    </div>
+
+    <p>
+      The liquidity memo uses the form:
+    </p>
+    <p>
+      <code>ADD:POOL:PAIREDADDR:AFFILIATE:FEE</code>
+    </p>
+    <p>
+      THORChain also allows the short alias <code>+</code>. The <code>PAIREDADDR</code> parameter links the other side of a dual-sided liquidity position. If no paired address is provided, the action becomes single-sided or pending depending on context.
+    </p>
+
+    <div class="chronology-analysis-data">
+      <dl>
+        <dt>Minimal test</dt>
+        <dd><code>+:XEC.XEC</code></dd>
+        <dt>Community owner</dt>
+        <dd><code>+:XEC.XEC:&lt;thor-community-owner&gt;</code></dd>
+        <dt>Affiliate LP fee</dt>
+        <dd><code>+:XEC.XEC:&lt;thor-community-owner&gt;:&lt;affiliate-thorname&gt;:100</code></dd>
+      </dl>
+    </div>
+
+    <p>
+      The minimal memo is useful for integration testing. The community-owner memo is the relevant profile for managed liquidity. The affiliate-fee variant should only be used after THORChain confirms the exact ADDLP affiliate semantics for XEC.
+    </p>
+
+    <h3>Short memo or nothing</h3>
+    <p>
+      One of the most important constraints is not the maximum payload eCash can carry. It is what THORChain will process safely.
+    </p>
+    <p>
+      BCH/eCash-style chains can support larger data outputs than Bitcoin Core policy in some contexts. But Direct-to-Pool must be designed for the THORChain UTXO path. The safe production rule is conservative:
+    </p>
+
+    <p class="chronology-analysis-quote">
+      Every production memo should fit the short THORChain UTXO path.
+    </p>
+
+    <p>
+      Teyolia 2.1 does not need a long memo to prove sovereignty. It needs a correct memo, a valid transaction object and a recoverable return path.
+    </p>
+
+    <h2>The central issue: who owns the LP position?</h2>
+    <p>
+      The most delicate question is not whether XEC can be sent to THORChain. It is who will be able to withdraw or manage the resulting liquidity later.
+    </p>
+    <p>
+      THORChain liquidity is permissionless and non-custodial, but liquidity ownership has chain-specific implications. For UTXO inbounds, the L1 sender context matters. In dual-sided liquidity, a THOR address can initiate withdrawal, but the external asset side returns to the paired L1 address associated with the original add.
+    </p>
+    <p>
+      This means that <code>PAIREDADDR</code> is not enough by itself to make the THOR address the full owner of both sides. It anchors the THOR/RUNE side and the withdrawal authority, but the XEC return path remains tied to the L1 sender that THORChain considers paired with the initial ADD.
+    </p>
+    <p>
+      For Teyolia, that creates a strict design constraint: a covenant-originated ADD is only safe for managed liquidity if the covenant/script address is intentionally designed as a durable, recoverable XEC return address with a valid spend path for refunds or withdrawals.
+    </p>
+
+    <h2>The Layer 1 Return Path Rule</h2>
+    <p>
+      The THORChain-side clarification closes the central ownership question for the Teyolia 2.1 design. The result is not merely a memo rule. It is a Layer 1 return-path rule.
+    </p>
+    <p>
+      Teyolia 2.1 Direct-to-Pool cannot treat an ephemeral covenant as a secure LP owner for managed funds. The architecture must strictly separate three elements:
+    </p>
+    <ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
+      <li><strong>The Withdrawal Initiator:</strong> the governance-controlled THOR address, used as <code>PAIREDADDR</code>, with authority to initiate the withdrawal command.</li>
+      <li><strong>The Physical Destination — XEC Paired L1:</strong> a durable and recoverable eCash Layer 1 address or script, such as a community-controlled multi-signature or policy script, to which THORChain can return the XEC side.</li>
+      <li><strong>The Finalization Rules:</strong> the Teyolia covenant must either finalize through a durable recoverable XEC return address, or itself be programmed with an advanced future spend path capable of recovering returned funds.</li>
+    </ol>
+    <p>
+      Therefore, the memo:
+    </p>
+    <p>
+      <code>+:XEC.XEC:&lt;thor-community-owner&gt;</code>
+    </p>
+    <p>
+      helps with dual-sided pairing and withdrawal authority, but it does not remove the need for a recoverable XEC-side paired L1 address.
+    </p>
+
+    <p class="chronology-analysis-quote">
+      The safe managed-LP route is not covenant → THORChain vault. It is covenant finalize rules → durable XEC return address/script → THORChain inbound vault → paired THOR owner.
+    </p>
+
+    <h2>Three Teyolia 2.1 settlement profiles</h2>
+    <p>
+      Direct-to-Pool should not be treated as one feature. It should be treated as a family of settlement profiles, each with different ownership and failure-mode implications.
+    </p>
+
+    <div class="chronology-analysis-grid">
+      <div class="chronology-analysis-card">
+        <b>Teyolia 2.1-A</b>
+        XEC-only asymmetric direct add. Useful for testing or non-managed liquidity, but unsafe for managed LP if the XEC sender is an ephemeral covenant.
+      </div>
+      
+      <div class="chronology-analysis-card">
+        <b>Teyolia 2.1-B</b>
+        Dual-sided or pending dual-sided XEC + RUNE. Recommended for community-managed LP, provided the XEC return address is durable and recoverable.
+      </div>
+
+      <div class="chronology-analysis-card">
+        <b>Teyolia 2.1-C</b>
+        Donation-style or POL-style route. Possible only if the community accepts non-recoverable liquidity or protocol donation semantics.
+      </div>
+    </div>
+
+    <p>
+      The recommended architecture for managed community liquidity is Teyolia 2.1-B. It separates the XEC return address, the THOR withdrawal initiator and the covenant finalization rules.
+    </p>
+
+    <h2>The 1% fee: two paths, two philosophies</h2>
+    <p>
+      The 1% infrastructure fee must not be treated as an administrative detail. It must be part of the verifiable settlement design.
+    </p>
+
+    <h3>1% as protocol LP</h3>
+    <p>
+      The first route is to use THORChain’s native affiliate fee in the ADD memo. In this model, the affiliate is added to the pool as an LP, and the fee is expressed inside THORChain’s own semantics.
+    </p>
+    <p>
+      <strong>Advantage:</strong> it is elegant, atomic and aligned with THORChain. The fee only exists if THORChain processes the ADD correctly.
+    </p>
+    <p>
+      <strong>Disadvantage:</strong> it should not be assumed to function as immediate liquid XEC treasury. It may become a THORChain-side LP position instead.
+    </p>
+
+    <h3>1% as liquid XEC treasury</h3>
+    <p>
+      The second route is a Layer 1 split:
+    </p>
+
+    <div class="chronology-analysis-data">
+      <dl>
+        <dt>VOUT0</dt>
+        <dd>99% or net XEC principal sent to the inbound vault.</dd>
+        <dt>VOUT1</dt>
+        <dd>Change returned to VIN0, if required.</dd>
+        <dt>VOUT2</dt>
+        <dd><code>OP_RETURN</code> with the ADD memo.</dd>
+        <dt>VOUT3</dt>
+        <dd>1% sent to the XEC infrastructure treasury.</dd>
+      </dl>
+    </div>
+
+    <p>
+      <strong>Advantage:</strong> it is transparent on eCash, easy to audit and useful for day-to-day operations.
+    </p>
+    <p>
+      <strong>Critical risk:</strong> if THORChain rejects, delays or refunds the <code>VOUT0</code> deposit, the <code>VOUT3</code> fee has already been delivered irreversibly.
+    </p>
+    <p>
+      For that reason, if Teyolia uses an L1 split, the failure mode must be designed into the contract. It must not be an extra output added casually.
+    </p>
+
+    <h2>Risks and mitigations</h2>
+    <p>
+      The first risk is external: XEC must reach official THORNode/Bifrost support. Without XEC in <code>inbound_addresses</code>, there is no operational target.
+    </p>
+    <p>
+      The second risk is contractual: the current finalize path must not be reused as if it were equivalent. Direct-to-Pool needs <code>contractVersion = 2.1</code>, unit tests, reconstruction tests and explicit output rules.
+    </p>
+    <p>
+      The third risk is LP ownership. If the LP is associated with the wrong L1 identity, liquidity can become difficult or impossible to manage safely.
+    </p>
+    <p>
+      The fourth risk is operational: vault addresses churn, LP actions can be paused, chains can be halted, and stale settlement attempts can become unsafe.
+    </p>
+    <p>
+      The fifth risk is economic: asymmetric bootstrap into a new or shallow pool can create high slip and invite immediate arbitrage. A dual-sided or pending dual-sided model is more complex but can produce cleaner ownership and price discovery.
+    </p>
+
+    <h2>Open questions for THORChain</h2>
+    <p>
+      Before moving from specification to implementation, six points should still be validated with the THORChain technical team:
+    </p>
+    
+    <ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
+      <li>What are the final acceptance criteria for XEC in THORNode/Bifrost mainnet?</li>
+      <li>Will the BCH-style long-memo reconstruction path be supported for XEC, or should production XEC flows assume short memos only?</li>
+      <li>What exact L1 identity will THORChain record as the external paired address for an XEC ADD produced from a covenant/script?</li>
+      <li>For ADDLP, does the affiliate fee always become LP attribution for the affiliate, or are there liquid distribution paths comparable to swaps?</li>
+      <li>What final <code>dust_threshold</code>, max-output, address-format and output-ordering rules will apply to XEC?</li>
+      <li>Will an official quote or estimate endpoint for XEC add-liquidity be available from day one?</li>
+    </ol>
+
+    <h2>Implementation sketch: Teyolia Finalize v2.1 Builder</h2>
+    <p>
+      The next technical deliverable should not be a complex production contract immediately. It should be a strict builder/preflight specification.
+    </p>
+
+    <div class="chronology-analysis-data">
+      <dl>
+        <dt>Inputs</dt>
+        <dd><code>campaignId</code>, covenant UTXO, durable XEC return address/script, THOR paired owner address, pool asset <code>XEC.XEC</code>, fee policy, live <code>inbound_addresses</code>, dust threshold, gas rate and halted/paused status.</dd>
+        <dt>Outputs</dt>
+        <dd>An unsigned eCash transaction with <code>VOUT0</code> as the current XEC inbound vault, <code>VOUT1</code> as change to VIN0 if required, <code>VOUT2</code> as the ADD memo, and optional fee outputs only if policy allows them.</dd>
+        <dt>Security rule</dt>
+        <dd>The builder is not an authority. It is a helper. The contract and wallet must reject invalid finalize shapes.</dd>
+      </dl>
+    </div>
+
+    <h2>Primary references</h2>
+    <p>
+      This RFC is based on public THORChain documentation and the ongoing technical discussion around native XEC support:
+    </p>
+    <ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
+      <li><a href="https://dev.thorchain.org/concepts/sending-transactions.html" target="_blank" rel="noopener">THORChain Dev Docs — Sending Transactions</a></li>
+      <li><a href="https://dev.thorchain.org/concepts/memos.html" target="_blank" rel="noopener">THORChain Dev Docs — Transaction Memos</a></li>
+      <li><a href="https://dev.thorchain.org/concepts/memos.html#add-liquidity" target="_blank" rel="noopener">THORChain Dev Docs — ADD Liquidity Memo</a></li>
+      <li><a href="https://gitlab.com/XolosRMZ/thornode/-/merge_requests/2" target="_blank" rel="noopener">Draft MR — Initial eCash (XEC) chain support via shared UTXO client</a></li>
+    </ol>
+
+    <div class="chronology-analysis-cta">
+      <h2>Implementing Sovereignty</h2>
+      <p>
+        Teyolia 2.1 Direct-to-Pool can become a structural improvement over Teyolia 2.0, but only if it is treated as a new settlement architecture.
+      </p>
+      <p>
+        The goal is not merely to send funds “to a THORChain address.” The goal is to encode the final hop correctly: which outputs are valid, which memo is allowed, when the live vault is fetched, how fees are handled, who can initiate withdrawal, where XEC returns, and what happens if THORChain is not ready to process the deposit.
+      </p>
+      <p class="chronology-analysis-quote" style="margin-top: 20px;">
+        Direct-to-Pool must not hardcode a vault. It must hardcode a sovereignty rule.
+      </p>
+      <p>
+        Teyolia 2.1 will not be more trust-minimized because it promises that funds go directly into a pool. It will be more trust-minimized if the contract prevents them from going anywhere else, if the builder only assists, if the wallet signs locally, and if the final state can be verified from chain data.
+      </p>
+      <p style="font-weight: 800; color: #fff;">
+        XEC is the money.<br>
+        Liquidity must be native.<br>
+        And the final hop cannot depend on trust: it must be written into the contract.
+      </p>
+    </div>
+
+  </main>
+</article>
