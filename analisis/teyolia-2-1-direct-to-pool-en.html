@@ -314,6 +314,56 @@
       font-weight: 700;
     }
 
+
+    .feature-card {
+      list-style: none;
+      margin-bottom: 14px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(0, 255, 170, 0.08), rgba(0, 120, 255, 0.06));
+      border: 1px solid rgba(0, 255, 170, 0.28);
+      border-left: 4px solid #00e6a8;
+      border-radius: 14px;
+      box-shadow: 0 0 18px rgba(0, 255, 170, 0.08);
+    }
+
+    .feature-icon {
+      color: #00e6a8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      flex-shrink: 0;
+    }
+
+    .feature-content {
+      color: #e8fdf7;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .feature-content strong {
+      color: #00e6a8;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .feature-content span {
+      color: #d7e7e3;
+    }
+
+    .feature-content a {
+      color: #00e6ff;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 230, 255, 0.45);
+    }
+
+    .feature-content a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
     .chronology-analysis-quote {
       margin: 34px 0;
       padding: 26px 30px;
@@ -542,7 +592,13 @@
       <ol style="color: var(--emg-text); padding-left: 20px; margin-bottom: 20px;">
         <li style="margin-bottom: 10px;"><strong>Trustless Coordination:</strong> Teyolia coordinates pledges, refund rules, and finalization conditions on-chain.</li>
         <li style="margin-bottom: 10px;"><strong>Durable Settlement:</strong> If the campaign succeeds, the principal settles to a durable, recoverable <strong>Tonalli Wallet Governance Multisig</strong> (P2SH) address.</li>
-        <li style="margin-bottom: 10px;"><strong>Transparent Fee:</strong> The 1% Teyolia infrastructure fee is paid transparently on-chain in the same transaction.</li>
+        <li class="feature-card">
+          <div class="feature-icon">◆</div>
+          <div class="feature-content">
+            <strong>Transparent Fee:</strong>
+            <span>The 1% Teyolia infrastructure fee is paid transparently on-chain in the same transaction.</span>
+          </div>
+        </li>
         <li style="margin-bottom: 10px;"><strong>Governance Execution:</strong> The Tonalli governance multisig includes xolosArmy as one signer/coordinator, together with other agreed governance participants (such as ABC/GNC or relevant ecosystem actors). This committee then safely coordinates the final manual <code>ADDLP</code> execution with THORChain, using the correct live vault, memo, RUNE-side pairing, and a refund-safe XEC return path.</li>
       </ol>
       <p style="font-size: 0.9em; color: var(--emg-muted); font-style: italic;">
