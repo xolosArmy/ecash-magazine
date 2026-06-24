@@ -1,856 +1,349 @@
-<article class="ecash-article chronology-analysis emg-premium">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCash Magazine México: El Salto a THORChain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
 
-    /* VARIABLES DE DISEÑO PRE ESTABLECIDAS - Estilo eCash Magazine México */
-    .ecash-article.chronology-analysis {
-      --emg-bg: #030a08; /* Fondo oscuro, verde/cian profundo */
-      --emg-bg-alt: #071110; /* Panel oscuro ligeramente más claro */
-      --emg-text: #e0f2f1; /* Texto principal (cian muy claro) */
-      --emg-muted: #94b2af; /* Texto secundario silenciado */
-      --emg-cyan: #00fff2; /* Acento MG Primario (Cian vibrante eCash) */
-      --emg-cyan-dim: #00a8a0; /* Bordes, texto atenuado */
-      --emg-gold: #ffcc00; /* Acento MG Secundario (Oro Xolos reference) */
-      --emg-gold-dim: #b89300;
-      --emg-soft: #d7fffb;
-      --emg-danger: #ff5252; /* EMG Danger accent */
-      --emg-line: rgba(224, 242, 241, 0.08); /* EMG standard divider line */
-      --emg-glow-cyan: 0 0 20px rgba(0, 255, 242, 0.15); /* mg Standard glow */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
 
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0; /* Limpiado para el hero */
-      color: var(--emg-text);
-      background: #000; /* Fondo base para el hero */
-      font-family: 'Lexend', system-ui, -apple-system, sans-serif;
-      line-height: 1.75;
-      border-radius: 24px;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
-      box-sizing: border-box;
-    }
+        .gradient-border {
+            background: linear-gradient(90deg, #00abe7, #00d4ff);
+            height: 4px;
+            width: 100%;
+        }
 
-    .ecash-article.chronology-analysis * {
-      box-sizing: border-box;
-    }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: transform 0.2s ease;
+        }
 
-    /* MG standard emphasis (EMG dim) */
-    .ecash-article.chronology-analysis em {
-      color: var(--emg-muted);
-      font-style: italic;
-    }
+        .step-active {
+            border-left: 4px solid #00abe7;
+            background: #f1f5f9;
+        }
 
-    /* SECCIÓN DE ENCABEZADO Y VERIFICACIÓN (VERSIÓN EN INGLÉS) */
-    .emg-header-verification {
-      padding: 32px;
-      background: var(--emg-bg);
-      border-bottom: 1px solid var(--emg-line);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .tab-btn.active {
+            border-bottom: 2px solid #00abe7;
+            color: #00abe7;
+        }
+    </style>
+</head>
+<body>
 
-    .logo-mg-container {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+<!-- Chosen Palette: "Ethereal Tech" - Base neutra (Slate-50/100), acentos en azul eCash (#00abe7) y verde esmeralda para éxito/crecimiento. -->
 
-    .brand-mg-header {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: #fff;
-      margin: 0;
-      letter-spacing: -0.05em;
-    }
+<!-- Application Structure Plan: 
+    1. Hero Section: Título visionario y resumen del impacto.
+    2. Sección "El Hito": Presentación de la Multifirma Tonalli con explicación visual de P2SH.
+    3. Sección "El Pivot": Comparativa interactiva entre el plan original vs Teyolia 2.1-G (Dashboard format).
+    4. Flujo de Gobernanza: Diagrama interactivo paso a paso del viaje de los fondos.
+    5. Transparencia y Futuro: Gráficos de comisiones y llamado a la acción. 
+    Elegí esta estructura para transformar un reporte técnico en una narrativa visual donde el usuario decide qué profundidad de detalle explorar. -->
 
-    .brand-mg-header span {
-      color: var(--emg-cyan);
-    }
+<!-- Visualization & Content Choices: 
+    - Report Info -> Goal: Comparar arquitecturas -> Method: Tabs y Tarjetas comparativas -> Interaction: Toggle de versión -> Justification: Facilita entender el porqué del cambio técnico.
+    - Report Info -> Goal: Mostrar flujo de fondos -> Method: Lista interactiva con estados -> Interaction: Clic en pasos -> Justification: Desmitifica la complejidad de la integración THORChain.
+    - Report Info -> Goal: Explicar Multifirma -> Method: Visualización de Quórum (2-de-3) -> Justification: Refuerza la seguridad percibida.
+    - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Charts via Canvas/Chart.js. -->
 
-    .brand-mg-subheader {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--emg-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-
-    .emg-kicker-verification {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      padding: 8px 16px;
-      border: 1px solid var(--emg-cyan-dim);
-      border-radius: 999px;
-      color: var(--emg-cyan);
-      background: rgba(0, 255, 242, 0.06);
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .emg-kicker-verification::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      background: var(--emg-cyan);
-      border-radius: 50%;
-      box-shadow: var(--emg-glow-cyan);
-    }
-
-    /* BOTÓN PREMIUM DE SWITCH DE IDIOMA */
-    .emg-language-switch {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--emg-cyan);
-      background: transparent;
-      color: var(--emg-cyan);
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none !important;
-    }
-
-    .emg-language-switch:hover {
-      box-shadow: 0 0 15px rgba(0, 255, 242, 0.4);
-      background: rgba(0, 255, 242, 0.05);
-      color: #fff;
-    }
-
-    /* SECCIÓN HERO (IMAGEN GENERADA) */
-    .chronology-analysis-hero {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9; /* Mantiene la relación de aspecto de la imagen original */
-      background-image: url("image_387.png"); /* Imagen Hero Integrada */
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: flex-end; /* Alinea los sumarios al final */
-      padding: 40px;
-    }
-
-    /* Superposición para legibilidad premium EMG */
-    .chronology-analysis-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
-      pointer-events: none;
-    }
-
-    /* Título MG Bold (Oro) */
-    .chronology-analysis-hero strong {
-      color: var(--emg-gold);
-    }
-
-    /* Reestructuración de sumarios (structure sumarios structure structure) */
-    .emg-sumsarios-structure-hero {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      width: 100%;
-      padding-top: 40px;
-    }
-
-    .emg-sumario-hero-card {
-      padding: 20px;
-      border: 1px solid var(--emg-line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.02);
-      transition: all 0.2s ease;
-    }
-
-    .emg-sumario-hero-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      transform: translateY(-2px);
-    }
-
-    .emg-sumario-hero-card b {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--emg-cyan);
-      font-size: .88rem;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      font-weight: 700;
-    }
-
-    .emg-sumario-hero-card span {
-      display: block;
-      color: var(--emg-muted);
-      font-size: .85rem;
-      line-height: 1.5;
-    }
-
-    /* Estilo de video incrustado EMG */
-    .emg-video-embed-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid var(--emg-line);
-      margin: 40px 0;
-      box-shadow: var(--emg-glow-cyan);
-    }
-
-    .emg-video-embed-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Estilos de contenido principal */
-    .emg-article-main-verification {
-      padding: 48px 32px 80px;
-      position: relative;
-      z-index: 2;
-      background: linear-gradient(180deg, var(--emg-bg) 0%, var(--emg-bg-alt) 100%);
-    }
-
-    .chronology-analysis-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 0 0 40px;
-      color: var(--emg-muted);
-      font-size: .94rem;
-    }
-
-    .chronology-analysis-meta span {
-      padding: 7px 12px;
-      border: 1px solid var(--emg-line);
-      border-radius: 999px;
-      background: var(--emg-bg-alt);
-    }
-
-    .ecash-article.chronology-analysis h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-      font-weight: 900;
-      color: #ffffff;
-      text-wrap: balance;
-    }
-
-    .chronology-analysis-subtitle {
-      max-width: 800px;
-      margin: 0 0 32px;
-      color: var(--emg-muted);
-      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-      line-height: 1.55;
-      font-weight: 300;
-    }
-
-    .ecash-article.chronology-analysis h2 {
-      margin: 54px 0 16px;
-      font-size: clamp(1.7rem, 4vw, 2.3rem);
-      line-height: 1.16;
-      letter-spacing: -0.04em;
-      font-weight: 800;
-      color: var(--emg-cyan);
-      border-bottom: 2px solid var(--emg-line);
-      padding-bottom: 12px;
-    }
-
-    .ecash-article.chronology-analysis h3 {
-      margin: 30px 0 12px;
-      color: var(--emg-gold);
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    .ecash-article.chronology-analysis p {
-      margin: 0 0 20px;
-    }
-
-    .chronology-analysis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin: 32px 0;
-    }
-
-    .chronology-analysis-card {
-      padding: 24px;
-      border: 1px solid var(--emg-line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.02);
-      transition: all 0.2s ease;
-    }
-
-    .chronology-analysis-card b {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--emg-cyan);
-      font-size: .95rem;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      font-weight: 700;
-    }
-
-    /* EMG Bold text styling (Gold) */
-    .ecash-article.chronology-analysis strong {
-      color: var(--emg-gold);
-      font-weight: 700;
-    }
-
-    /* EMG standard quote/pullquote */
-    .chronology-analysis-quote {
-      margin: 34px 0;
-      padding: 26px 30px;
-      border-left: 5px solid var(--emg-cyan);
-      border-radius: 4px 20px 20px 4px;
-      background: rgba(0, 255, 242, 0.06);
-      color: #ffffff;
-      font-size: 1.3rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    /* EMG standard code elements */
-    .ecash-article.chronology-analysis code {
-      font-family: 'Space Mono', ui-monospace, SFMono-Regular, monospace;
-      color: var(--emg-soft);
-      background: rgba(224, 242, 241, 0.04);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-
-    /* EMG data table/grid */
-    .chronology-analysis-data {
-      margin: 40px 0;
-      padding: 30px;
-      border: 1px solid var(--emg-line);
-      border-radius: 22px;
-      background: var(--emg-bg-alt);
-    }
-
-    .chronology-analysis-data dl {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 16px 24px;
-      margin: 0;
-    }
-
-    .chronology-analysis-data dt {
-      color: var(--emg-gold);
-      font-weight: 800;
-    }
-
-    .chronology-analysis-data dd {
-      margin: 0;
-      color: var(--emg-text);
-      font-weight: 300;
-    }
-
-    /* EMG warning section */
-    .chronology-analysis-warning {
-      margin: 34px 0;
-      padding: 24px;
-      border: 1px solid rgba(255, 82, 82, 0.3);
-      border-radius: 18px;
-      background: rgba(255, 82, 82, 0.08);
-      color: #ffcccc;
-    }
-
-    .chronology-analysis-warning strong {
-      color: var(--emg-danger);
-    }
-
-    /* EMG standard link (MG Cian) */
-    .ecash-article.chronology-analysis a {
-      color: var(--emg-cyan);
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border-bottom: 1px solid rgba(0, 255, 242, 0.45);
-    }
-
-    .ecash-article.chronology-analysis a:hover {
-      color: #ffffff;
-      border-bottom-color: #ffffff;
-    }
-
-    /* EMG standard CTA */
-    .chronology-analysis-cta {
-      margin-top: 48px;
-      padding: 32px;
-      text-align: center;
-      border: 1px solid var(--emg-cyan-dim);
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(0, 255, 242, 0.1), rgba(255, 204, 0, 0.05));
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .chronology-analysis-cta h2 {
-      margin-top: 0;
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .chronology-analysis-button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 14px 28px;
-      border-radius: 999px;
-      background: var(--emg-cyan);
-      color: #030a08 !important;
-      font-weight: 900;
-      border-bottom: none !important;
-      transition: all 0.2s ease;
-    }
-
-    .chronology-analysis-button:hover {
-      box-shadow: 0 0 30px rgba(0, 255, 242, 0.5);
-      background: #ffffff;
-    }
-
-    /* EMG standard social copy box */
-    .chronology-analysis-social {
-      margin-top: 40px;
-      padding: 24px;
-      border: 1px dashed var(--emg-cyan-dim);
-      border-radius: 18px;
-      background: rgba(0, 255, 242, 0.03);
-      white-space: pre-wrap;
-      color: var(--emg-muted);
-      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: .98rem;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 800px) {
-      .ecash-article.chronology-analysis h1 {
-        font-size: 2.2rem;
-      }
-      
-      .chronology-analysis-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .emg-sumsarios-structure-hero {
-        grid-template-columns: 1fr;
-      }
-
-      .chronology-analysis-data dl {
-        grid-template-columns: 1fr;
-      }
-
-      .emg-header-verification {
-        flex-direction: column;
-        gap: 16px;
-        align-items: flex-start;
-      }
-      
-      .chronology-analysis-hero {
-        padding: 20px;
-        aspect-ratio: auto; /* Mantiene responsividad */
-      }
-    }
-  </style>
-
-  <!-- ENCABEZADO EMG Y VERIFICACIÓN -->
-  <header class="emg-header-verification">
-    <div class="logo-mg-container">
-      <h2 class="brand-mg-header">eCASH<span>Magazine</span></h2>
-      <span class="brand-mg-subheader">México · Análisis Técnico</span>
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white font-bold">e</div>
+            <span class="font-bold text-xl tracking-tight">eCash <span class="text-sky-600">Magazine</span></span>
+        </div>
+        <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+            <a href="#hito" class="hover:text-sky-600 transition">Hito Técnico</a>
+            <a href="#solucion" class="hover:text-sky-600 transition">Teyolia 2.1-G</a>
+            <a href="#flujo" class="hover:text-sky-600 transition">Gobernanza</a>
+            <a href="#futuro" class="hover:text-sky-600 transition">Futuro</a>
+        </div>
     </div>
-    
-    <div class="emg-kicker-verification">[cite: Género sugerido: Análisis técnico]</div>
-    
-    <!-- MODIFICACIÓN: Switch de Idioma a Inglés -->
-    <a href="https://magazine.ecash.mx/analisis/teyolia-2-1-direct-to-pool-en.html" class="emg-language-switch">
-      Switch to ENGLISH [EN]
-    </a>
-  </header>
+    <div class="gradient-border"></div>
+</nav>
 
-  <!-- SECCIÓN HERO (IMAGEN INTEGRADA Y SUMARIOS) -->
-  <section class="chronology-analysis-hero">
-    <!-- Superposición structure sumarios structure structure structure structure structure -->
-    <div class="emg-sumsarios-structure-hero">
-      <div class="emg-sumario-hero-card">
-        <b>Finalidad Direct-to-Pool</b>
-        <span>Cierre de campaña directo al pool de liquidez, sin custody.</span>
-      </div>
-      
-      <div class="emg-sumario-hero-card">
-        <b>Ownership Operativo</b>
-        <span>LP gestionada por multisig o identidad comunitaria verificable.</span>
-      </div>
-      
-      <div class="emg-sumario-hero-card">
-        <b>Late Vault Binding</b>
-        <span>Consulta de bóveda en tiempo real ( churn resistant ).</span>
-      </div>
-      
-      <div class="emg-sumario-hero-card">
-        <b>Memo v2.1</b>
-        <span>Formato ADD optimizado y verificado por StarSquid.</span>
-      </div>
+<header class="relative py-20 bg-white overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center">
+        <span class="inline-block px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-bold uppercase tracking-widest mb-4">Especial: Infraestructura XEC</span>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
+            Soberanía Digital: La Multifirma de Tonalli <br> <span class="text-sky-600 underline decoration-sky-200">abre el camino</span> a THORChain
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain.
+        </p>
     </div>
-  </section>
+</header>
 
-  <!-- CUERPO PRINCIPAL DEL ANÁLISIS TÉCNICO -->
-  <main class="emg-article-main-verification">
-    <h1>Teyolia 2.1 Direct-to-Pool: la ruta trustless para llevar XEC directo a liquidez nativa en THORChain</h1>
-    
-    <p class="chronology-analysis-subtitle">
-      Teyolia 2.1 Direct-to-Pool es técnicamente viable como arquitectura, pero no como un simple ajuste de Teyolia 2.0. Para funcionar correctamente necesita una nueva versión del contrato de finalización, una política estricta de late binding para las bóvedas de THORChain y una definición explícitamente sobre quién será dueño de la posición LP resultante.
-    </p>
+<main class="max-w-6xl mx-auto px-4 py-12">
 
-    <div class="chronology-analysis-meta">
-      <span>MG Technical Team</span>
-      <span>Junio 2026</span>
-      <span>Teyolia · THORChain · eCash</span>
+    <!-- Sección 1: El Hito de Tonalli -->
+    <section id="hito" class="mb-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 italic">El amanecer de la custodia segura</h2>
+                <p class="text-slate-600 mb-6">
+                    Tonalli Wallet ha marcado un antes y un después en la historia de eCash. Con el exitoso lanzamiento del MVP de <strong>bóvedas multifirma nativas (P2SH 2-de-3)</strong> en Mainnet, la red adquiere una capacidad de grado institucional para la protección de activos.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-4 glass-card rounded-xl">
+                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-green-600 font-bold shrink-0">✓</div>
+                        <div>
+                            <h4 class="font-bold">Seguridad Distribuida</h4>
+                            <p class="text-sm text-slate-500">Ningún actor individual puede mover los fondos. Se requieren 2 de 3 firmas para cualquier transacción.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 glass-card rounded-xl">
+                        <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 font-bold shrink-0">⚛</div>
+                        <div>
+                            <h4 class="font-bold">Nativo en eCash</h4>
+                            <p class="text-sm text-slate-500">Implementado mediante scripts P2SH, garantizando compatibilidad total con el protocolo Bitcoin ABC.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-900 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-8xl font-bold">2/3</div>
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="w-3 h-3 bg-green-400 rounded-full"></span> Estado de la Bóveda Mainnet
+                </h3>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                        <span>Firma A (xolosArmy)</span>
+                        <span class="text-green-400 font-mono">[LISTA]</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                        <span>Firma B (GNC/ABC)</span>
+                        <span class="text-green-400 font-mono">[LISTA]</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                        <span>Firma C (Whale/Comunidad)</span>
+                        <span class="text-amber-400 font-mono">[RESPALDO]</span>
+                    </div>
+                    <div class="mt-8 p-4 bg-slate-800 rounded-lg">
+                        <p class="text-xs text-slate-400 mb-2 uppercase tracking-widest">Script Hash (P2SH)</p>
+                        <p class="text-xs font-mono break-all text-sky-300">ecash:pp0m93...x7v4q2n8l0m5z9</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: El Desafío y la Solución -->
+    <section id="solucion" class="mb-24 py-16 bg-slate-100 rounded-[3rem] px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">De Teyolia 2.1 a 2.1-G</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">
+                La madurez técnica implica saber pivotar cuando la seguridad de la red está en juego. Analizamos la transición del modelo de recaudación directa al modelo de Puente de Gobernanza.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="p-6 bg-white rounded-2xl border border-slate-200">
+                <h3 class="text-red-600 font-bold mb-4 flex items-center gap-2">
+                    ⚠ Riesgos Detectados (Modelo Original)
+                </h3>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex gap-2"><span>•</span> <strong>Vault Churn:</strong> Los cambios rápidos de bóvedas en THORChain podrían dejar fondos en el limbo.</li>
+                    <li class="flex gap-2"><span>•</span> <strong>Pause States:</strong> Si la red entra en pausa, el script automático podría fallar.</li>
+                    <li class="flex gap-2"><span>•</span> <strong>Pérdida de LP:</strong> Riesgo de que la propiedad del proveedor de liquidez quedara en un script irrecuperable.</li>
+                </ul>
+            </div>
+            <div class="p-6 bg-white rounded-2xl border-2 border-sky-500 relative">
+                <div class="absolute -top-3 right-4 bg-sky-500 text-white text-[10px] px-2 py-1 rounded font-bold uppercase">Solución Pragmática</div>
+                <h3 class="text-sky-600 font-bold mb-4 flex items-center gap-2">
+                    🛡 Teyolia 2.1-G (Governance)
+                </h3>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex gap-2"><span>•</span> <strong>Recaudación Trustless:</strong> Los fondos solo se mueven si se alcanza la meta.</li>
+                    <li class="flex gap-2"><span>•</span> <strong>Reembolsos Automáticos:</strong> Si la campaña falla, los donantes recuperan su XEC sin intermediarios.</li>
+                    <li class="flex gap-2"><span>•</span> <strong>Aterrizaje en Multifirma:</strong> Los fondos se custodian en la bóveda Tonalli antes de inyectarse.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <h4 class="text-center font-bold text-slate-800 mb-8 uppercase tracking-widest">Distribución de Transparencia (1% Infraestructura)</h4>
+            <div class="chart-container">
+                <canvas id="transparencyChart"></canvas>
+            </div>
+            <p class="text-center text-xs text-slate-400 mt-6 italic">Visualización dinámica de la tasa de infraestructura recolectada de forma transparente on-chain.</p>
+        </div>
+    </section>
+
+    <!-- Sección 3: Flujo Interactivo -->
+    <section id="flujo" class="mb-24">
+        <h2 class="text-3xl font-bold text-center mb-12">El Viaje de los Fondos</h2>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3 space-y-4" id="step-controls">
+                <button onclick="updateStep(0)" class="w-full text-left p-6 rounded-2xl transition glass-card step-btn step-active" data-step="0">
+                    <h5 class="font-bold mb-1">1. Campaña Teyolia</h5>
+                    <p class="text-xs text-slate-500">Recaudación descentralizada bajo contrato inteligente.</p>
+                </button>
+                <button onclick="updateStep(1)" class="w-full text-left p-6 rounded-2xl transition glass-card step-btn" data-step="1">
+                    <h5 class="font-bold mb-1">2. Éxito y Custodia</h5>
+                    <p class="text-xs text-slate-500">Traspaso a la Bóveda Multifirma de Tonalli (2/3).</p>
+                </button>
+                <button onclick="updateStep(2)" class="w-full text-left p-6 rounded-2xl transition glass-card step-btn" data-step="2">
+                    <h5 class="font-bold mb-1">3. Inyección a Pool</h5>
+                    <p class="text-xs text-slate-500">xolosArmy coordina con gobernanza la liquidez final.</p>
+                </button>
+            </div>
+            <div class="md:w-2/3 bg-white border border-slate-200 rounded-3xl p-8 min-h-[300px] flex flex-col justify-center items-center text-center">
+                <div id="step-content-icon" class="mb-6 text-6xl">🚀</div>
+                <h3 id="step-content-title" class="text-2xl font-bold mb-4 text-slate-800">Campaña Teyolia</h3>
+                <p id="step-content-desc" class="text-slate-600 max-w-md">
+                    La dApp Teyolia funciona como un Flipstarter evolucionado. Los fondos no son custodiados por humanos hasta que la meta se cumple, garantizando la seguridad del donante.
+                </p>
+                <div id="step-content-badge" class="mt-8 px-4 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">ESTADO: TRUSTLESS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Final: Futuro y Comunidad -->
+    <section id="futuro" class="mb-12 py-16 text-center bg-sky-900 rounded-[3rem] text-white">
+        <h2 class="text-4xl font-bold mb-6">Hacia las grandes ligas de DeFi</h2>
+        <p class="text-sky-100 max-w-2xl mx-auto mb-10 px-4">
+            Este modelo de "Puente de Gobernanza" no es solo para THORChain. Es la base para que el Global Network Council (GNC) y otros fondos de desarrollo puedan financiar infraestructura de forma descentralizada y profesional.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 px-4">
+            <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+                <div class="text-3xl font-bold text-sky-400 mb-1">Ready</div>
+                <div class="text-xs uppercase tracking-widest text-sky-200">Código THORChain</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+                <div class="text-3xl font-bold text-sky-400 mb-1">100%</div>
+                <div class="text-xs uppercase tracking-widest text-sky-200">Transparencia</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+                <div class="text-3xl font-bold text-sky-400 mb-1">xolos</div>
+                <div class="text-xs uppercase tracking-widest text-sky-200">Liderazgo Técnico</div>
+            </div>
+        </div>
+        <div class="mt-12">
+            <button class="bg-sky-500 hover:bg-sky-400 text-white font-bold py-4 px-10 rounded-full shadow-lg transition transform hover:-translate-y-1">
+                Apoyar a xolosArmy
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-slate-50 border-t border-slate-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-slate-400 text-sm">
+            © 2024 eCash Magazine México. Reportaje por el ecosistema XEC.
+        </div>
+        <div class="flex gap-4 text-xs font-bold text-slate-500">
+            <span>BITCOIN ABC</span>
+            <span>GNC</span>
+            <span>THORCHAIN</span>
+            <span>TONALLI</span>
+        </div>
     </div>
+</footer>
 
-    <!-- SECCIÓN DE VIDEO INCRUSTADO EMG -->
-    <div class="emg-video-embed-container">
-      <iframe src="https://www.youtube.com/embed/4eO4hWRv4x0" title="THORChain Podcast #210" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+<script>
+    // Datos del flujo
+    const steps = [
+        {
+            icon: "🚀",
+            title: "Campaña Teyolia",
+            desc: "La dApp Teyolia funciona como un Flipstarter evolucionado. Los fondos no son custodiados por humanos hasta que la meta se cumple, garantizando la seguridad del donante.",
+            badge: "ESTADO: TRUSTLESS",
+            badgeColor: "bg-green-100 text-green-700"
+        },
+        {
+            icon: "🔐",
+            title: "Éxito y Custodia",
+            desc: "Al completarse la meta, los fondos viajan a la bóveda Tonalli. Aquí, el GNC, Bitcoin ABC o holders clave actúan como guardianes junto a xolosArmy.",
+            badge: "ESTADO: MULTIFIRMA 2/3",
+            badgeColor: "bg-sky-100 text-sky-700"
+        },
+        {
+            icon: "⚡",
+            title: "Inyección a Pool",
+            desc: "Finalmente, los fondos se mueven a THORChain para activar el pool XEC. Este paso manual previene riesgos de red y asegura la propiedad del LP.",
+            badge: "ESTADO: DEFI ACTIVO",
+            badgeColor: "bg-amber-100 text-amber-700"
+        }
+    ];
 
-    <p>
-      La idea central de Teyolia 2.1 Direct-to-Pool es sencilla de decir, pero delicada de implementar: permitir que una campaña comunitaria en eCash acumule XEC y, al alcanzar su meta, envíe los fondos directamente al pool nativo XEC/RUNE en THORChain, sin pasar por custodia intermedia.
-    </p>
+    function updateStep(index) {
+        // Actualizar contenido
+        document.getElementById('step-content-icon').innerText = steps[index].icon;
+        document.getElementById('step-content-title').innerText = steps[index].title;
+        document.getElementById('step-content-desc').innerText = steps[index].desc;
+        document.getElementById('step-content-badge').innerText = steps[index].badge;
+        document.getElementById('step-content-badge').className = `mt-8 px-4 py-1 ${steps[index].badgeColor} text-xs font-bold rounded-full`;
 
-    <p>
-      La conclusión técnica es clara: sí conviene avanzar, pero sólo como una arquitectura nueva. Direct-to-Pool no debe ser “cambiar el beneficiario por una dirección de THORChain”. Debe ser una nueva ruta de finalización con reglas verificables, preflight en tiempo real y compatibilidad estricta con la forma en que THORChain procesa transacciones UTXO.
-    </p>
+        // Actualizar botones
+        document.querySelectorAll('.step-btn').forEach((btn, i) => {
+            if(i === index) {
+                btn.classList.add('step-active');
+                btn.classList.remove('opacity-60');
+            } else {
+                btn.classList.remove('step-active');
+                btn.classList.add('opacity-60');
+            }
+        });
+    }
 
-    <p>
-      La condición cero sigue siendo externa: XEC debe estar oficialmente soportado por THORNode/Bifrost y aparecer en <code>inbound_addresses</code> con parámetros productivos. En la lista pública de cadenas soportadas por THORChain todavía no aparece eCash/XEC, y el endpoint público de <code>inbound_addresses</code> consultado muestra chains como BTC, BCH, DOGE, LTC, ETH, AVAX, BASE, SOL, TRON y XRP, pero no XEC.
-    </p>
+    // Inicializar Gráfico
+    function initCharts() {
+        const ctx = document.getElementById('transparencyChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Liquidez para THORChain', 'Infraestructura xolosArmy (1%)'],
+                datasets: [{
+                    data: [99, 1],
+                    backgroundColor: ['#0ea5e9', '#f59e0b'],
+                    hoverOffset: 10,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            font: { size: 12, family: 'Inter' }
+                        }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+    }
 
-    <h2>Precondición 0: XEC primero debe existir en THORChain mainnet</h2>
-    <p>
-      Antes de hablar de producción, hay que separar dos planos.
-    </p>
-    <p>
-      En el plano de diseño, Teyolia 2.1 Direct-to-Pool es viable en principio. eCash puede construir transacciones UTXO, transportar un memo corto y firmar localmente desde wallet. THORChain, por su parte, ya tiene una semántica conocida para depósitos UTXO: enviar a una bóveda entrante, incluir un memo y dejar que los nodos observen la transacción.
-    </p>
-    <p>
-      Pero en el plano operativo, Teyolia 2.1 no puede funcionar hasta que XEC esté fusionado, desplegado y expuesto públicamente como chain soportada por THORChain. La propia documentación de THORChain indica que las transacciones inbound deben tomar la bóveda activa desde el endpoint de <code>inbound_addresses</code>, revisar halted y usar el <code>gas_rate</code> recomendado antes de enviar fondos.
-    </p>
-    <p>
-      Por eso, la versión correcta de esta tesis no es “Teyolia 2.1 está lista para producción”, sino:
-    </p>
+    window.onload = initCharts;
+</script>
 
-    <p class="chronology-analysis-quote">
-      Teyolia 2.1 Direct-to-Pool está preparada como especificación arquitectónica para implementación una vez cumplidas las precondiciones de infraestructura.
-    </p>
-
-    <h2>Qué cambia frente a Teyolia 2.0</h2>
-    <p>
-      Teyolia 2.0 ya plantea una mejora importante frente a un esquema custodial clásico: la campaña existe en eCash, el usuario firma desde su wallet y el backend opera como constructor o coordinador, no como dueño natural de los fondos.
-    </p>
-    <p>
-      Teyolia 2.1 empuja esa lógica más lejos.
-    </p>
-    <p>
-      La diferencia no está sólo en el destino de los XEC. La diferencia está en quién controla el último salto.
-    </p>
-    <p>
-      En Teyolia 2.0, el flujo puede depender todavía de operadores o backend para completar la salida hacia el objetivo final. En Teyolia 2.1, la idea es que el propio contrato de finalización limite qué tipo de transacción puede cerrar la campaña. Eso significa que el contrato ya no debe decir simplemente “paga al beneficiario”, sino “sólo permite finalizar si la transacción tiene forma compatible con THORChain”.
-    </p>
-    <p>
-      Ese cambio exige un contract version bump. No es un parámetro de configuración. Es una nueva semántica.
-    </p>
-
-    <h2>La arquitectura correcta: acumulación en eCash, finalización just-in-time</h2>
-    <p>
-      La arquitectura recomendada tiene dos planos.
-    </p>
-    <p>
-      El primero es eCash. Ahí los usuarios aportan XEC a una campaña con reglas claras: meta, expiración, modo de finalización, política de refund y versión de contrato.
-    </p>
-    <p>
-      El segundo es THORChain. Ese plano sólo debe activarse al momento de cerrar la campaña. No antes.
-    </p>
-    <p>
-      La razón es crítica: las <code>inbound vault addresses</code> de THORChain no son direcciones permanentes. La documentación advierte explícitamente que no deben cachearse porque cambian con el churn, y que las transacciones inbound no deben retrasarse para evitar enviar fondos a una dirección obsoleta o inalcanzable.
-    </p>
-    <p>
-      El patrón correcto sería:
-    </p>
-
-    <div class="chronology-analysis-grid">
-      <div class="chronology-analysis-card">
-        <b>1. Meta</b>
-        La campaña alcanza su meta en eCash.
-      </div>
-      
-      <div class="chronology-analysis-card">
-        <b>2. Preflight</b>
-        Builder consulta inbound_addresses vigente para XEC.
-      </div>
-      
-      <div class="chronology-analysis-card">
-        <b>3. Verifica Mimir</b>
-        Verifica halted, paused, gas_rate y dust.
-      </div>
-      
-      <div class="chronology-analysis-card">
-        <b>4. Build v2.1</b>
-        Construye la transacción finalize compatible con THORChain.
-      </div>
-      
-      <div class="chronology-analysis-card">
-        <b>5. Sign Local</b>
-        La wallet firma localmente (non-custodial).
-      </div>
-      
-      <div class="chronology-analysis-card">
-        <b>6. Transmit Just-in-Time</b>
-        La transacción se transmite inmediatamente.
-      </div>
-    </div>
-
-    <p>
-      Si no entra en una ventana razonable, se reconstruye con datos frescos. La regla de oro es esta:
-    </p>
-
-    <p class="chronology-analysis-quote">
-      La campaña no debe comprometer una bóveda de THORChain al momento de crearse. Debe comprometer una forma válida de finalización.
-    </p>
-
-    <h2>El shape de transacción que necesita THORChain</h2>
-    <p>
-      Para cadenas UTXO, THORChain exige una estructura específica. La documentación indica que el monto debe ir a la bóveda Asgard como <code>VOUT0</code>, el cambio debe regresar a la dirección de <code>VIN0</code>, el memo debe ir en <code>OP_RETURN</code>, normalmente como <code>VOUT2</code>, y la transacción no debe exceder 10 outputs.
-    </p>
-    <p>
-      Traducido a Teyolia 2.1, una finalización Direct-to-Pool tendría que parecerse a esto:
-    </p>
-
-    <div class="chronology-analysis-data">
-      <dl>
-        <dt>VOUT0</dt>
-        <dd>XEC hacia inbound vault vigente de THORChain.</dd>
-        <dt>VOUT1</dt>
-        <dd>Change hacia VIN0, si aplica.</dd>
-        <dt>VOUT2</dt>
-        <dd>OP_RETURN con memo ADD.</dd>
-        <dt>VOUT3+</dt>
-        <dd>Fragmentos adicionales o tesorería de infraestructura.</dd>
-      </dl>
-    </div>
-
-    <p>
-      El memo para añadir liquidez en THORChain usa la forma:
-    </p>
-    <p>
-      <code>ADD:POOL:PAIREDADDR:AFFILIATE:FEE</code>
-    </p>
-    <p>
-      También puede usarse el alias corto <code>+</code>. THORChain documenta que <code>PAIREDADDR</code> es opcional, que permite vincular la otra dirección del depósito, y que si no se especifica se crea una acción de liquidez single-sided.
-    </p>
-    <p>
-      Para Teyolia, los perfiles de memo más seguros serían:
-    </p>
-    <p>
-      <code>+:XEC.XEC</code>
-    </p>
-    <p>
-      para una prueba mínima, o:
-    </p>
-    <p>
-      <code>+:XEC.XEC:&lt;thor-address-owner&gt;</code>
-    </p>
-    <p>
-      si se quiere definir explícitamente el propietario operativo de la posición LP. Un memo con fee protocolario podría verse así:
-    </p>
-    <p>
-      <code>+:XEC.XEC:&lt;thor-address-owner&gt;:&lt;affiliate-thorname&gt;:100</code>
-    </p>
-    <p>
-      Pero esa opción sólo debe usarse si THORChain confirma la semántica exacta del affiliate fee para ADDLP en el caso XEC.
-    </p>
-
-    <h3>Memo corto o nada</h3>
-    <p>
-      Uno de los puntos más importantes es no confundir dos límites distintos.
-    </p>
-    <p>
-      Por el lado BCH/eCash, la familia de scripts tipo Bitcoin Cash permite outputs de datos más amplios que Bitcoin Core. La referencia técnica de Bitcoin Cash describe un OP_RETURN estándar con longitud máxima de 223 bytes, y eCash mantiene una unidad base con dos decimales, equivalente a 100 satoshis por XEC.
-    </p>
-    <p>
-      Pero para Direct-to-Pool lo que importa no es sólo lo que eCash puede transportar. Importa lo que THORChain va a procesar con seguridad.
-    </p>
-    <p>
-      La ruta UTXO estándar de THORChain trabaja con memos de hasta 80 caracteres en OP_RETURN. Aunque existe una estrategia para memos más largos mediante outputs adicionales, el diseño seguro para Teyolia 2.1 debe ser conservador:
-    </p>
-
-    <p class="chronology-analysis-quote">
-      Todo memo de producción debe caber en la ruta corta de THORChain.
-    </p>
-
-    <p>
-      Eso significa evitar diseños que dependan de reconstrucción avanzada de memo, direcciones largas innecesarias o metadatos excesivos. Teyolia 2.1 no necesita un memo largo para probar soberanía. Necesita un memo correcto.
-    </p>
-
-    <h2>El problema central: quién será dueño de la posición LP</h2>
-    <p>
-      La cuestión más delicada no es técnica sino arquitectónica: ¿quién podrá retirar o gestionar la liquidez después?
-    </p>
-    <p>
-      THORChain explica que la provisión de liquidez es permissionless y non-custodial, pero también que sólo el depositante original puede retirar su participación del pool. Además, distingue entre depósitos simétricos y asimétricos; en los asimétricos, el sistema termina exponiendo al LP tanto a RUNE como al activo externo, con slip dependiente de la profundidad del pool.
-    </p>
-    <p>
-      Esto crea una decisión crítica para Teyolia:
-    </p>
-    <p>
-      Si el modo es XEC-only asimétrico, la UX es más simple: la campaña junta XEC y lo manda directo al pool. Pero la posición puede quedar asociada al origen de la transacción de cierre y no necesariamente a una identidad comunitaria fácil de gestionar.
-    </p>
-    <p>
-      Si el modo es dual-sided o pending dual-sided, el memo puede vincular el depósito XEC con una dirección THOR controlada por una entidad comunitaria, multisig o esquema de gobernanza. Después, un segundo leg en RUNE completa el bootstrap. Es más complejo, pero resuelve mejor la propiedad futura de la LP.
-    </p>
-    <p>
-      Por eso, Direct-to-Pool no debería ser una sola feature. Debería tener al menos dos perfiles:
-    </p>
-
-    <div class="chronology-analysis-grid">
-      <div class="chronology-analysis-card">
-        <b>Teyolia 2.1-A</b>
-        <br>
-        Direct-to-Pool asimétrico XEC-only.
-      </div>
-      
-      <div class="chronology-analysis-card">
-        <b>Teyolia 2.1-B</b>
-        <br>
-        Direct-to-Pool pending dual-sided XEC + RUNE.
-      </div>
-    </div>
-
-    <p>
-      La primera variante sirve para demostrar flujo y liquidez protocolaria. La segunda sirve para una posición gestionable, más limpia desde el punto de vista de gobernanza.
-    </p>
-
-    <h2>El fee del 1%: dos caminos, dos filosofías</h2>
-    <p>
-      El fee del 1% no debe tratarse como un detalle administrativo. Debe formar parte del diseño verificable.
-    </p>
-    <p>
-      Hay dos rutas principales.
-    </p>
-
-    <h3>1% como LP protocolario</h3>
-    <p>
-      La primera es usar el affiliate fee nativo de THORChain en el memo. La guía de affiliate fees explica que 100 bps equivalen a 1%, que se requiere un THORName válido para recolectar fees, y que cuando el affiliate se agrega a una transacción ADDLP, el affiliate queda incluido como LP.
-    </p>
-    <p>
-      <strong>Ventaja:</strong> es elegante, atómico y alineado con THORChain. El fee sólo existe si el protocolo procesa correctamente el ADD.
-    </p>
-    <p>
-      <strong>Desventaja:</strong> no funciona necesariamente como caja líquida inmediata en XEC. Puede quedar expresado como posición o flujo dentro de THORChain.
-    </p>
-
-    <h3>1% como tesorería líquida en XEC</h3>
-    <p>
-      La segunda ruta es hacer un split L1:
-    </p>
-    <div class="chronology-analysis-data">
-      <dl>
-        <dt>VOUT0</dt>
-        <dd>99% hacia inbound vault.</dd>
-        <dt>VOUT1</dt>
-        <dd>Change a VIN0.</dd>
-        <dt>VOUT2</dt>
-        <dd>OP_RETURN con memo.</dd>
-        <dt>VOUT3</dt>
-        <dd>1% hacia tesorería XEC.</dd>
-      </dl>
-    </div>
-    <p>
-      <strong>Ventaja:</strong> es transparente en eCash, fácil de auditar y útil para operación diaria.
-    </p>
-    <p>
-      <strong>Riesgo:</strong> si THORChain rechaza, retrasa o reembolsa el depósito de VOUT0, el VOUT3 ya entregó el fee de forma irreversible.
-    </p>
-    <p>
-      Por eso, si Teyolia usa split L1, el failure mode debe estar diseñado desde el contrato. No puede ser una salida adicional “porque sí”.
-    </p>
-
-    <h2>Riesgos y mitigaciones</h2>
-    <p>
-      El primer riesgo es externo: XEC todavía debe alcanzar soporte oficial en THORNode/Bifrost. Sin <code>inbound_addresses</code> para XEC, sin dust_threshold, sin gas_rate y sin formatos de dirección finales, no hay target operativo real.
-    </p>
-    <p>
-      El segundo riesgo es contractual: el finalize actual no debe reutilizarse como si fuera equivalente. Direct-to-Pool necesita contractVersion = 2.1, pruebas unitarias, pruebas de reconstrucción y reglas explícitas de outputs.
-    </p>
-    <p>
-      El tercer riesgo es de ownership. Si la LP queda asociada a una identidad equivocada, la liquidez puede volverse difícil de gestionar o prácticamente irrecuperable.
-    </p>
-    <p>
-      El cuarto riesgo es operacional: las bóvedas cambian, la red puede pausar acciones LP y los estados halted o <code>chain_lp_actions_paused</code> deben respetarse. La documentación de THORChain advierte que, si la red está halted, no se deben enviar fondos, y que las interfaces deben observar los controles de Mimir para evitar acciones no soportadas.
-    </p>
-    <p>
-      El quinto riesgo es económico: un bootstrap asimétrico en un pool nuevo o poco profundo puede generar slip elevado y arbitraje inmediato. THORChain reconoce que los depósitos asimétricos tienen impacto por slip y que los LPs suelen ser incentivados a depositar simétricamente cuando buscan un arranque más equilibrado.
-    </p>
-
-    <h2>Estado de validación con THORChain</h2>
-    <p>
-      La conversación técnica con el equipo de THORChain permitió cerrar una de las preguntas más importantes del diseño: la ruta de retorno Layer 1. En un flujo LP dual-sided, la dirección THOR puede iniciar el retiro, pero el lado XEC vuelve al paired L1 address que THORChain considere sender del ADD inicial. Por eso, Teyolia 2.1 no puede tratar un covenant efímero como propietario seguro de una LP gestionable.
-    </p>
-    <p>
-      A partir de esta aclaración, algunas preguntas dejan de ser abiertas y se convierten en decisiones de arquitectura:
-    </p>
-
-    <ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
-      <li><strong>Memo largo:</strong> se descarta como dependencia de producción. Teyolia 2.1 debe usar memos cortos compatibles con la ruta UTXO estándar de THORChain.</li>
-      <li><strong>Ownership:</strong> queda separado en dos partes: la dirección THOR puede iniciar withdrawal, pero el XEC debe retornar a una dirección L1 duradera y recuperable.</li>
-      <li><strong>Output ordering:</strong> debe seguir el patrón UTXO de THORChain: VOUT0 inbound vault, cambio a VIN0, OP_RETURN con memo, y outputs adicionales sólo si no rompen límites ni failure modes.</li>
-    </ol>
-
-    <p>
-      Sin embargo, todavía quedan puntos que deben validarse antes de una implementación productiva:
-    </p>
-
-    <ol style="color: var(--emg-muted); padding-left: 20px; margin-bottom: 20px;">
-      <li>Confirmación final del soporte XEC en THORNode/Bifrost mainnet.</li>
-      <li>Valores productivos de <code>dust_threshold</code>, <code>gas_rate</code>, formatos de dirección y estado <code>halted</code> para XEC en <code>inbound_addresses</code>.</li>
-      <li>Semántica exacta del affiliate fee en ADDLP para XEC.</li>
-      <li>Disponibilidad de quote o estimate oficial para añadir liquidez XEC desde el primer día.</li>
-    </ol>
-
-    <div class="chronology-analysis-cta">
-      <h2>Implementando la Soberanía</h2>
-      <p>
-        Teyolia 2.1 Direct-to-Pool puede ser una mejora estructural sobre Teyolia 2.0, pero sólo si se formula como una nueva arquitectura de finalización.
-      </p>
-      <p>
-        No se trata de mandar fondos “a una dirección de THORChain”. Se trata de codificar correctamente el último salto: qué outputs son válidos, qué memo se permite, cuándo se consulta la bóveda vigente, cómo se maneja el fee, quién será dueño de la LP y qué ocurre si THORChain no está listo para procesar el depósito.
-      </p>
-      <p class="chronology-analysis-quote" style="margin-top: 20px;">
-        Direct-to-Pool no debe hardcodear una vault. Debe hardcodear una regla de soberanía.
-      </p>
-      <p>
-        Teyolia 2.1 no será más trustless por prometer que los fondos van directo al pool. Será más trustless si el contrato impide que vayan a cualquier otro lugar, si el builder sólo actúa como asistente, si la wallet firma localmente y si el estado final puede verificarse desde la cadena.
-      </p>
-      <p style="font-weight: 800; color: #fff;">
-        XEC es el dinero.<br>
-        La liquidez debe ser nativa.<br>
-        Y el último salto no puede depender de confianza: debe quedar escrito en el contrato.
-      </p>
-    </div>
-
-  </main>
-
-</article>
+</body>
+</html>
