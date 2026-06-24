@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Technical Analysis] eCash DeFi Dawn: Tonalli Multisig & THORChain Governance Bridge | eCash Magazine México</title>
+  <meta name="description" content="An in-depth technical breakdown of Tonalli Wallet's P2SH mainnet deployment, the architectural pivot to Teyolia 2.1-G, and cross-chain vault churn security metrics." />
+  <meta property="og:title" content="eCash DeFi Dawn: The Arrival of Tonalli Multisig and the New THORChain Governance Bridge" />
+  <meta property="og:type" content="article" />
+  <meta name="theme-color" content="#00abe7" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --bg: #040806;
+      --panel: #09120e;
+      --panel-light: #111e1a;
+      --text: #e2f4f0;
+      --muted: #8fa39e;
+      --soft: #526661;
+      --cyan: #00fff2;
+      --cyan-2: #38bdf8;
+      --gold: #ffcc00;
+      --danger: #ef4444;
+      --line: rgba(255, 255, 255, 0.06);
+      --cyan-line: rgba(0, 255, 242, 0.2);
+      --shadow: 0 45px 100px rgba(0, 0, 0, 0.7);
+      --radius: 24px;
+    }
+
+    html { scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at 15% 0%, rgba(0, 255, 242, 0.12), transparent 35%),
+                  radial-gradient(circle at 85% 10%, rgba(255, 204, 0, 0.06), transparent 30%),
+                  linear-gradient(180deg, #020504 0%, var(--bg) 50%, #010302 100%);
+      color: var(--text);
+      font-family: "Lexend", system-ui, sans-serif;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      z-index: 0;
+    }
+
+    .scanline {
+      position: fixed; left: 0; width: 100%; height: 120px; top: -130px;
+      z-index: 1; pointer-events: none; opacity: .2;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,255,242,.05) 50%, transparent 100%);
+      animation: scan 14s linear infinite;
+    }
+    @keyframes scan { 0% { transform: translateY(-130px); } 100% { transform: translateY(calc(100vh + 260px)); } }
+
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: "Space Mono", monospace; }
+
+    .site-shell {
+      width: min(1160px, calc(100% - 24px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* PREMIUM TOPBAR & INTERACTIVE LANGUAGE SWITCH */
+    .topbar {
+      margin-top: 16px; 
+      border: 1px solid var(--line);
+      background: rgba(4, 8, 6, 0.85); 
+      backdrop-filter: blur(20px);
+      border-radius: 20px 20px 0 0; 
+      box-shadow: 0 15px 40px rgba(0,0,0,.4);
+    }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 20px 28px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 42px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.15), transparent 30%), linear-gradient(135deg, rgba(0,255,242,.2), rgba(255,204,0,.08));
+      border: 1px solid var(--cyan-line); box-shadow: 0 0 24px rgba(0,255,242,0.12); font-size: 20px; color: var(--cyan);
+    }
+    .brand-title { font-weight: 900; letter-spacing: -0.05em; font-size: 1.35rem; color: #fff; }
+    .brand-title span { color: var(--cyan); }
+    .brand-sub { color: var(--muted); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; margin-top: 2px; }
+
+    .lang-switcher-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--cyan); color: var(--cyan);
+      background: rgba(0, 255, 242, 0.03); padding: 8px 16px; border-radius: 999px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      transition: all .25s ease-in-out; cursor: pointer;
+    }
+    .lang-switcher-btn:hover {
+      background: var(--cyan); color: #040806;
+      box-shadow: 0 0 18px rgba(0,255,242,0.4);
+    }
+
+    /* COOPERATIVE ARTICLE STRUCTURE */
+    .article {
+      background: linear-gradient(180deg, rgba(9, 18, 14, .95) 0%, rgba(6, 12, 9, .98) 100%);
+      border: 1px solid var(--line); border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow);
+    }
+
+    /* CIBER-AZTEC COVER / PORTADA */
+    .hero {
+      position: relative; padding: clamp(40px, 8vw, 90px) clamp(24px, 6vw, 80px) 40px;
+      border-bottom: 1px solid var(--line); min-height: 580px; display: grid; align-items: end;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(4,8,6,0) 0%, rgba(4,8,6,0.7) 45%, #09120e 100%),
+                  url("https://i.imgur.com/GaCfRIp.jpeg") center/cover no-repeat;
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 960px; }
+    
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--cyan); border: 1px solid var(--cyan-line);
+      background: rgba(0,255,242,.06); border-radius: 999px; padding: 6px 14px; font-size: .76rem; font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: .08em;
+    }
+    .kicker::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+
+    h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); line-height: 1.05; letter-spacing: -0.05em; margin: 0 0 20px; color: white; font-weight: 900; text-wrap: balance; }
+    .deck { color: #cbd5e1; font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 400; line-height: 1.6; margin: 0; text-wrap: balance; }
+
+    /* CONTENT DISPLAY GRID */
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; padding: 50px clamp(24px, 6vw, 80px); }
+    
+    .lede-card {
+      border: 1px solid rgba(0,255,242,0.25); background: linear-gradient(135deg, rgba(0,255,242,0.04), transparent), rgba(13, 27, 23, 0.6);
+      border-radius: 20px; padding: 28px; margin-bottom: 36px; box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .lede-label { color: var(--gold); font-size: .76rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; letter-spacing: .12em; }
+    .lede-card p { margin: 0; color: #e2e8f0; font-size: 1.08rem; line-height: 1.65; font-style: italic; }
+
+    article p { color: #cbd5e1; font-size: 1.06rem; margin: 0 0 1.5rem; text-align: justify; }
+    article strong { color: white; font-weight: 700; }
+    article ul { margin: 0 0 1.5rem 1.5rem; color: #cbd5e1; }
+    article li { margin-bottom: 0.5rem; font-size: 1.04rem; }
+
+    h2 { color: white; font-size: 1.85rem; margin: 48px 0 20px; border-bottom: 2px solid var(--line); padding-bottom: 12px; font-weight: 800; letter-spacing: -0.03em; }
+    h2 .num { color: var(--cyan); font-size: .9em; margin-right: 8px; font-family: "Space Mono", monospace; }
+    h3 { color: var(--gold); font-size: 1.28rem; margin: 32px 0 14px; font-weight: 700; }
+
+    .pullquote {
+      margin: 40px 0; padding: 28px 32px; border-left: 4px solid var(--cyan);
+      background: linear-gradient(90deg, rgba(0,255,242,.04), transparent); border-radius: 0 16px 16px 0;
+      color: white; font-size: 1.35rem; font-weight: 700; line-height: 1.5; text-align: left;
+    }
+    .pullquote .author-label { display: block; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; margin-top: 12px; letter-spacing: 0.1em; font-weight: 400; }
+
+    .code-chip {
+      display: inline-block; font-family: "Space Mono", monospace; color: var(--cyan);
+      background: #030705; border: 1px solid rgba(0,255,242,.2);
+      padding: 1px 7px; border-radius: 6px; font-size: .88rem;
+    }
+
+    pre {
+      background: #020403; border: 1px solid var(--line);
+      padding: 20px; border-radius: 14px; overflow-x: auto;
+      margin: 24px 0; box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+    }
+    code { font-family: "Space Mono", monospace; color: var(--green); font-size: 0.92rem; }
+    .code-comment { color: var(--soft); }
+
+    /* CRITICAL METRIC TABLES */
+    .emg-table-wrapper { width: 100%; overflow-x: auto; margin: 32px 0; border-radius: 14px; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; background: rgba(3,6,5,0.3); font-size: 0.95rem; }
+    th { background: var(--panel); color: white; text-align: left; padding: 14px 18px; font-weight: 700; border-bottom: 2px solid var(--line); text-transform: uppercase; font-size: 0.76rem; letter-spacing: 0.05em; }
+    td { padding: 14px 18px; border-bottom: 1px solid var(--line); color: #cbd5e1; vertical-align: top; }
+    tr:last-child td { border-bottom: 0; }
+    tr:hover td { background: rgba(255,255,255,0.01); }
+
+    .risk-tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; font-family: "Space Mono", monospace; }
+    .risk-high { background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+    .risk-mid { background: rgba(245,158,11,0.12); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+
+    /* REUSABLE MAP / STEPS */
+    .flow-box { background: #030705; border: 1px solid var(--cyan-line); border-radius: 16px; padding: 24px; margin: 32px 0; }
+    .flow-box .mono { color: var(--gold); font-size: 0.88rem; margin-bottom: 16px; display: block; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flow-step { margin-bottom: 18px; padding-left: 18px; border-left: 2px solid var(--cyan); color: #cbd5e1; }
+    .flow-step:last-child { margin-bottom: 0; }
+    .flow-step strong { color: white; display: block; margin-bottom: 2px; }
+
+    /* EDITORIAL CALLOUT BOX */
+    .editorial-callout {
+      background: linear-gradient(135deg, rgba(255,204,0,0.03), transparent);
+      border: 1px solid rgba(255,204,0,0.25); border-radius: 16px; padding: 24px; margin: 36px 0;
+    }
+    .editorial-callout h4 { margin: 0 0 8px 0; color: var(--gold); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+    .editorial-callout p { margin: 0; font-size: 1rem; color: #cbd5e1; }
+
+    /* INTERACTIVE PODCAST COMPONENT */
+    .podcast-embed {
+      background: #020504; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin: 32px 0;
+      display: flex; align-items: center; gap: 20px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .podcast-icon { width: 54px; height: 54px; border-radius: 12px; background: rgba(0,255,242,0.08); border: 1px solid var(--cyan-line); display: grid; place-items: center; font-size: 24px; color: var(--cyan); }
+    .podcast-details { flex: 1; min-width: 0; }
+    .podcast-title { font-weight: 700; color: white; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 1.05rem; }
+    .podcast-subtitle { font-size: 0.82rem; color: var(--muted); font-family: "Space Mono", monospace; }
+
+    /* SIDEBAR MATRIX */
+    .sidebar .sticky { position: sticky; top: 24px; display: grid; gap: 20px; }
+    .side-card { border: 1px solid var(--line); background: rgba(9, 18, 14, 0.6); border-radius: 20px; padding: 24px; backdrop-filter: blur(10px); }
+    .side-title { color: var(--gold); font-size: .76rem; text-transform: uppercase; font-weight: 800; margin-bottom: 14px; letter-spacing: .12em; }
+    .side-card p, .side-card li { color: #cbd5e1; font-size: .92rem; margin-bottom: 10px; line-height: 1.6;}
+    .side-card ul { padding-left: 18px; margin: 0; }
+
+    .footer { border-top: 1px solid var(--line); padding: 32px clamp(24px, 6vw, 80px); color: var(--soft); font-size: .72rem; text-transform: uppercase; background: rgba(2,4,3,.4); text-align: center; letter-spacing: 0.15em; }
+
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { order: -1; } .sidebar .sticky { position: static; } }
+  </style>
+</head>
+
+<body>
+  <div class="scanline"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <div>
+            <div class="brand-title mono">eCash<span>Magazine</span></div>
+            <div class="brand-sub mono">México · Infrastructure · DeFi</div>
+          </div>
+        </div>
+        <button class="lang-switcher-btn mono" onclick="window.location.href='https://magazine.ecash.mx/analisis/teyolia-direct-to-pool.html'">
+          <i class="fa-solid fa-language"></i> Leer en Español
+        </button>
+      </div>
+    </header>
+
+    <main class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="kicker mono">[Technical Analysis] · xolosArmy Network</div>
+          <h1>eCash DeFi Dawn: The Arrival of Tonalli Multisig and the New THORChain Governance Bridge</h1>
+          <p class="deck">How a major mainnet P2SH deployment, asynchronous vault churn matrices, and the architectural evolution of Teyolia 2.1-G are establishing non-custodial capital sovereignty from Mexico.</p>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="main">
+          
+          <div class="lede-card">
+            <div class="lede-label mono">Thesis Statement</div>
+            <p>
+              Infrastructure evolution in decentralized networks rarely follows a straight line. True qualitative leaps happen when technical ambition collides with the harsh operational realities of multi-chain ecosystems. In June 2026, the eCash (XEC) network achieved a milestone: the successful mainnet launch of the first 2-of-3 P2SH native multisig vaults on Tonalli Wallet, pivoting the cross-chain DeFi landscape from automated smart contract execution toward resilient institutional governance.
+            </p>
+          </div>
+
+          <p>
+            This technical breakthrough, far from being an isolated occurrence or a mere user interface update, is part of a monumental effort to integrate eCash natively into <strong>THORChain</strong>—the global cryptocurrency market's premier decentralized, non-custodial Layer 1 cross-chain liquidity network. 
+          </p>
+          
+          <p>
+            What began months ago as a rigid automated design for direct liquidity injection has matured into a sophisticated <strong>"Governance-Bridge" (Teyolia 2.1-G)</strong> architecture. Peer review with THORChain core developers revealed critical mainnet constraints: vault churn dynamics, protocol-level halts, and unrecoverable Liquidity Provider (LP) script ownership. Rather than a retreat, this pivot stands as an undeniable proof of technical maturity, proactive security, and long-term vision from the <strong>xolosArmy Network</strong> engineering team.
+          </p>
+
+          <h2><span class="num">01</span>The Institutional Context: From eCash to THORChain</h2>
+          <p>
+            To appreciate the scale of this deployment, one must understand the underlying primitives of the network. eCash is an infrastructure-focused Layer 1 network designed to inherit the absolute scarcity and predictable emission profile of Bitcoin while achieving instant transaction finality through its revolutionary hybrid consensus mechanism—combining Proof-of-Work (PoW) with a post-mining <strong>Avalanche pre-consensus layer</strong>.
+          </p>
+          
+          <p>
+            While highly optimized for low-fee sub-cent settlements, eCash traditionally faced an adoption barrier: deep connectivity with cross-chain decentralized capital markets. Users could perfectly store assets in non-custodial wallets like <em>Electrum ABC</em> (advanced hardware handling), <em>Cashtab</em> (light browser extension), or <em>Marlin Wallet</em> (minimalist interface). However, to trade or provide liquidity against base assets like Bitcoin (BTC), Ethereum (ETH), or stablecoins, the community was bottlenecked by Centralized Exchanges (CEXs), exposing themselves to third-party counterparty risk, geographic asset freezes, and intrusive KYC protocols.
+          </p>
+
+          <p>
+            THORChain bypasses this entirely via its <strong>Continuous Liquidity Pool (CLP)</strong> mechanism powered by RUNE. Native integration allows XEC to be exchanged trustlessly against other Layer 1 assets directly from self-custody. This milestone took center stage on June 20, 2026, during THORChain's official <em>Ecosystem & Community Spotlight</em> podcast (Episode #210), where core maintainers Kenton Ralph Toews and Patriotsounds reviewed the eCash chain client alongside Fernando, representative of xolosArmy Network, establishing the foundations for native liquidity onboarding.
+          </p>
+
+          <div class="podcast-embed">
+            <div class="podcast-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <div class="podcast-details">
+              <div class="podcast-title">THORChain Podcast Episode #210</div>
+              <div class="podcast-subtitle">Featuring xolosArmy Network & Tonalli Wallet</div>
+            </div>
+          </div>
+
+          <h2><span class="num">02</span>The Anatomy of On-Chain Crowdfunding: Teyolia</h2>
+          <p>
+            To coordinate this liquidity bootstrap, xolosArmy engineered <strong>Teyolia</strong>, a framework heavily inspired by the non-custodial crowdfunding mechanics of <em>Flipstarter</em> but adapted for modern Web3 enterprise compliance. Operating out of the open-source <code>ecash-flipstarter</code> repository, the platform segregates logic into distinct, highly specialized modules:
+          </p>
+          <ul>
+            <li><strong>Interactive Frontend (React/TypeScript):</strong> Manages the dynamic assembly of transaction pledge inputs, verifying node network targets before requesting signatures.</li>
+            <li><strong>Structured Backend:</strong> Dictates asynchronous campaign processing. Teyolia migrated its source of truth from flat JSON structures to a robust SQLite architecture (<span class="code-chip">backend/data/campaigns.db</span>), managing safely controlled database migrations via initialization tags like <span class="code-chip">MIGRATE_ON_START=true</span>.</li>
+            <li><strong>UTXO Covenants:</strong> Restrictive scripts on the eCash blockchain ensuring funds cannot be spent unless strict, cryptographically verified milestone conditions are met.</li>
+          </ul>
+
+          <p>
+            The interface binds with Tonalli Wallet via <strong>WalletConnect v2</strong> using explicit cloud project references (<span class="code-chip">VITE_WC_PROJECT_ID</span>). The protocol enforces rigorous namespace filters before asking for a signature, explicitly checking for the <span class="code-chip">ecash</span> namespace, the specific chain identifier <span class="code-chip">ecash:1</span>, and the mandatory method <span class="code-chip">ecash_signAndBroadcastTransaction</span>. Any structural variance automatically drops the session, eliminating cross-chain signature poisoning exploits.
+          </p>
+
+          <div class="editorial-callout">
+            <h4>The Original Logic (Teyolia 2.1 Direct-to-Pool)</h4>
+            <p>The early blueprint dictated that upon campaign success, the covenant would automatically forward 100% of accumulated XEC inputs straight to the THORChain inbound vault address. While elegant on paper, this "blind contract execution" posed catastrophic systemic failure vectors when exposed to an active multi-chain network.</p>
+          </div>
+
+          <h2><span class="num">03</span>The Architectural Clash: Mutable Vaults vs. Blind Contracts</h2>
+          <p>
+            When xolosArmy engineers began code-level deep dives with THORChain core developers, the inmutable, blind execution model of a standard UTXO covenant ran directly into THORChain's dynamic security framework: <strong>the Vault Churn</strong>.
+          </p>
+          <p>
+            THORChain does not secure assets in static addresses. To mitigate validator collusions, smart contract exploits, and node-level key thefts, the network completely rotates its entire exogenous custody every few days. This process begins with an asynchronous, multi-party computation (MPC) routine known as <strong>KeyVerify</strong>, which mathematically validates that every new valnode keyshare is intact before moving millions of dollars.
+          </p>
+          <p>
+            As confirmed by protocol update specifications in mid-June 2026, a vault churn can span anywhere from hours to days depending on consensus overhead. Furthermore, THORChain uses a proactive risk mechanism called <strong>Mimir</strong> to alter network parameters instantly—triggering sudden "Pause States" that can halt inbound observations, outbound signing, or pool trading to safeguard network solvency.
+          </p>
+
+          <div class="emg-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Direct-to-Pool Vector</th>
+                  <th>Covenant Failure Mechanism</th>
+                  <th>Systemic Risk to eCash Capital</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="risk-tag risk-high">Vault Churn</span></td>
+                  <td>The blind script releases XEC funds to an Asgard address that is being decommissioned or has already lost validator consensus quorum.</td>
+                  <td>Permanent loss of community capital. Funds land in an unmonitored, obsolete vault out-of-bounds for the chain client indexer.</td>
+                </tr>
+                <tr>
+                  <td><span class="risk-tag risk-high">Pause States</span></td>
+                  <td>The campaign finalizes and broadcasts the deposit precisely while THORChain has halted inbound chain observation via Mimir.</td>
+                  <td>Transactions become permanently stuck in the mempool or rejected, causing severe reconciliation drops in the global solvency queue.</td>
+                </tr>
+                <tr>
+                  <td><span class="risk-tag risk-mid">Script LP Ownership</span></td>
+                  <td>The automated UTXO output sets the transaction input script origin (the P2SH covenant) as the legal owner of the resulting LP position.</td>
+                  <td>Irrecuperable yield and principal. The static eCash script lacks the internal state logic to sign a cross-chain outbound withdrawal request.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2><span class="num">04</span>Historical Context: Address Poisoning Exploits</h2>
+          <p>
+            The technical resistance from THORChain maintainers stems from hard historical precedents. In May 2026, the cross-chain ecosystem suffered a severe exploit where a malicious actor successfully targeted THORChain’s vault churn mechanics via sophisticated address poisoning methods. Registered in DeFi security indexes as a <strong>"Protocol Logic & Vault Churn Address Poisoning"</strong> exploit, the attack drained an estimated $10M to $10.8M across several base layers, forcing a temporary RUNE trading halt and severe market corrections.
+          </p>
+          <p>
+            Consequently, a newly onboarded asset like eCash must interface through strict, real-time node polling interfaces: calculating exact gas thresholds via <span class="code-chip">GetGasRate()</span>, establishing transaction overhead ceilings through <span class="code-chip">GetMaxGas()</span>, and computing active fee ratios via <span class="code-chip">GetFee()</span>. These data feeds stream into the <span class="code-chip">globalSolvencyQueue</span>. If an asset's vault balance deviates beyond a predefined threshold—known as the <strong>PermittedSolvencyGap</strong>—node operators immediately halt the entire chain state.
+          </p>
+          <p>
+            An automated, static covenant is fundamentally blind to these live, stateful constraints. Hardcoding a destination address inside an eCash script without active runtime network context would have been architectural negligence.
+          </p>
+
+          <h2><span class="num">05</span>The Solution: Teyolia 2.1-G and the Governance Bridge</h2>
+          <p>
+            In response to these constraints, xolosArmy executed a radical, highly responsible pivot to their dApp architecture: <strong>Teyolia 2.1-G (Governance-Bridge)</strong>. This framework splits the capital lifecycle into two decoupled, fully isolated phases, separating the non-custodial capital aggregation from the state-aware cross-chain deployment.
+          </p>
+
+          <div class="flow-box">
+            <span class="mono">Teyolia 2.1-G Operational Flow</span>
+            <div class="flow-step">
+              <strong>Phase 1: Non-Custodial Capital Aggregation</strong><br>
+              Pledges are compiled trustlessly on-chain. If the target is not reached, eCash scripts enforce automatic, permissionless refunds to user wallets. Zero human risk.
+            </div>
+            <div class="flow-step">
+              <strong>Phase 2: Mainnet Multi-Sig Settlement</strong><br>
+              Upon successful campaign completion, the contract settles funds directly into Tonalli Wallet's newly deployed 2-of-3 P2SH multisig vault, acting as a secure L1 staging ground.
+            </div>
+            <div class="flow-step">
+              <strong>Phase 3: State-Aware Protocol Injection</strong><br>
+              The multi-sig committee reviews live THORChain health matrices (Vault churn status, Gas rates, Mimir flags) before manually executing a secure, perfectly calibrated injection.
+            </div>
+          </div>
+
+          <h2><span class="num">06</span>The Layer 1 Return Path Rule</h2>
+          <p>
+            With the validation of this architecture by THORChain core engineers, the design specification establishes an unyielding security mandate for all future UTXO capital bridges: <strong>The Layer 1 Return Path Rule</strong>. 
+          </p>
+          <p>
+            Because an ephemeral crowdfunding script cannot act as a dynamic signer to withdraw capital or claim pool rewards, the Teyolia 2.1-G bridge mathematically decouples three independent vectors:
+          </p>
+          <ul>
+            <li><strong>The Withdrawal Initiator:</strong> A designated community-controlled THORChain address (<span class="code-chip">PAIREDADDR</span>) authorized to issue outbound pool commands.</li>
+            <li><strong>The Physical Destination (XEC Paired L1):</strong> A permanent, cold-storage multi-sig address on the eCash mainnet explicitly specified in the injection memo to receive returned capital.</li>
+            <li><strong>The Settlement Constraints:</strong> The L1 covenant enforces that funds can only leave the aggregation tier if their destination is the verified governance vault, locking out any arbitrary intervention.</li>
+          </ul>
+
+          <p>
+            This deployment successfully closes the project's most complex cross-chain security audit. By pairing automated on-chain collection with a state-aware, multi-signature committee, eCash is not merely chasing market hypes—it is establishing production-ready institutional primitives.
+          </p>
+
+        </article>
+
+        <aside class="sidebar">
+          <div class="sticky">
+            
+            <div class="side-card" style="border-color: var(--cyan); background: rgba(0, 255, 242, 0.02);">
+              <div class="side-title mono">Deployment Metrics</div>
+              <p><strong>Wallet Standard:</strong> Tonalli MVP</p>
+              <p><strong>Script Type:</strong> P2SH (Pay-to-Script-Hash)</p>
+              <p><strong>Quorum Matrix:</strong> 2-of-3 Multisig</p>
+              <p><strong>Mainnet Status:</strong> Live & Operational</p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">THORChain Node Specs</div>
+              <p><strong>Chain Client:</strong> Verified (ABC 0.31.x)</p>
+              <p><strong>State Parameter:</strong> Asynchronous</p>
+              <p><strong>Solvency Check:</strong> globalSolvencyQueue</p>
+              <p><strong>Audit Metric:</strong> PermittedSolvencyGap</p>
+            </div>
+
+            <div class="side-card" style="border-color: var(--gold);">
+              <div class="side-title mono">The Sovereign Mantra</div>
+              <p class="mono" style="font-weight:700; color:white; font-size:1rem; line-height:1.4;">
+                XEC IS THE MONEY.<br>
+                RMZ IS THE KEY.<br>
+                CULTURE IS THE NETWORK.
+              </p>
+              <p style="font-size: 0.8rem; margin-top: 12px; color: var(--muted); font-style: italic;">
+                "And code is the ultimate form of unyielding verification."
+              </p>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer mono">
+        eCash Magazine México · Technical Analysis Section · June 2026
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
