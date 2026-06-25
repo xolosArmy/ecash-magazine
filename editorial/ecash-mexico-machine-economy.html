@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teyolia 2.1-G y Tonalli Multisig: infraestructura XEC para la economía máquina | eCash Magazine México</title>
+  <style>
+    /* STYLESHEET: eCash Magazine México - Estilo de Publicación */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f6;
+    }
+
+    .ecash-article {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 28px 18px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #101820;
+      line-height: 1.72;
+      background-color: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .article-hero {
+      border-left: 6px solid #00a6a6;
+      padding: 24px 24px 28px;
+      margin-bottom: 34px;
+      background: linear-gradient(135deg, #f2ffff 0%, #ffffff 55%, #f7f7f7 100%);
+      border-radius: 18px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      margin: 0 0 12px;
+      padding: 6px 12px;
+      background: #101820;
+      color: #ffffff;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .article-hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: #072f3f;
+    }
+
+    .subtitle {
+      margin-top: 18px;
+      font-size: 1.18rem;
+      color: #5c6b73;
+    }
+
+    .byline {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      color: #5c6b73;
+      font-weight: 600;
+    }
+
+    .article-body h2 {
+      margin-top: 42px;
+      margin-bottom: 14px;
+      font-size: 1.65rem;
+      line-height: 1.18;
+      color: #072f3f;
+    }
+
+    .article-body h3 {
+      margin-top: 0;
+      color: #072f3f;
+    }
+
+    .article-body p {
+      margin: 0 0 18px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin: 0 0 22px 22px;
+      padding: 0;
+    }
+
+    .article-body li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box,
+    .concept-box {
+      margin: 28px 0;
+      padding: 22px;
+      border-radius: 16px;
+    }
+
+    .highlight-box {
+      background: #101820;
+      color: #ffffff;
+      border: 1px solid #25323a;
+    }
+
+    .concept-box {
+      background: #f3fbfb;
+      border: 1px solid #bdecec;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 26px 0 34px;
+      border-radius: 16px;
+      border: 1px solid #d7e1e5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.3);
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: #0d1f19;
+      color: white;
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      padding: 2px 7px;
+      border-radius: 8px;
+      color: #07110f;
+      background: #00e0a4;
+      font-weight: 700;
+      font-size: 0.9em;
+    }
+
+    .closing-line {
+      font-size: 1.25rem;
+      color: #03110d;
+      text-align: center;
+      margin-top: 32px;
+      border-top: 1px dashed rgba(7, 18, 15, 0.15);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 760px) {
+      .ecash-article {
+        padding: 24px 12px 48px;
+        border-radius: 0;
+      }
+
+      .chronology-analysis-data dl {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <article class="ecash-article chronology-analysis">
+    <header>
+      <div class="teyolia-kicker">[Análisis técnico] · eCash México</div>
+
+      <h1>Teyolia 2.1 Direct-to-Pool: la ruta trustless para llevar XEC directo a liquidez nativa en THORChain</h1>
+
+      <p class="chronology-analysis-subtitle">
+        Teyolia 2.1 Direct-to-Pool es técnicamente viable como arquitectura, pero no como un simple ajuste de Teyolia 2.0. Para funcionar correctamente necesita una nueva versión del contrato de finalización, una política estricta de late binding para las bóvedas de THORChain y una definición explícita sobre quién será dueño de la posición LP resultante.
+      </p>
+
+      <div class="chronology-analysis-meta">
+        <span>Por eCash Magazine México</span>
+        <span>17 de junio de 2026</span>
+        <span>Infraestructura · Liquidez · eCash</span>
+      </div>
+    </header>
+
+    <section class="highlight-box" style="background: linear-gradient(135deg, rgba(0,224,164,.12), rgba(255,209,102,.08)); color: inherit;">
+      <p>
+        <strong>Teyolia 2.0</strong> es la nueva campaña de financiamiento comunitario impulsada por xolosArmy Network para preparar <strong>Liquidez Soberana XEC</strong> en THORChain.
+      </p>
+
+      <p>
+        La meta es reunir <strong>4,500,000,000 XEC</strong> para apoyar una primera fase de infraestructura y liquidez comunitaria orientada a una futura posición XEC/RUNE.
+      </p>
+
+      <p>
+        La campaña no promete rendimiento financiero. Su objetivo es apoyar infraestructura pública para eCash: liquidez nativa, herramientas operativas y una reserva de riesgo.
+      </p>
+
+      <p class="chronology-analysis-quote" style="margin: 18px 0 0; padding: 12px 18px; border-left: 4px solid #00a6a6; background: rgba(0,166,166,.06); font-weight: 700; color: #072f3f;">
+        Native liquidity. No wrappers. No custody. Just freedom.
+      </p>
+    </section>
+
+    <section class="article-body">
+      <h2>De código a liquidez</h2>
+
+      <p>
+        La integración de <strong>eCash (XEC) nativo en THORChain</strong> ya no es solamente una conversación técnica. El camino está activo mediante un Draft MR público, revisión técnica y trabajo comunitario alrededor de la infraestructura necesaria para que XEC pueda tener presencia nativa en un protocolo de liquidez cross-chain.
+      </p>
+
+      <p>
+        Pero el código es solo una parte de la historia.
+      </p>
+
+      <p>
+        Para que una integración nativa tenga utilidad real, necesita liquidez. Sin liquidez, una integración es una puerta abierta hacia un mercado vacío. Por eso xolosArmy Network activó <strong>Teyolia 2.1
+        Direct-to-Pool</strong>, una campaña enfocada en reunir <strong>4.5 billones de XEC</strong> para impulsar una posición comunitaria de liquidez soberana en el futuro pool XEC/RUNE.
+      </p>
+
+      <p>
+        En otras palabras, Teyolia 2.1 intenta convertir atención, convicción y comunidad en una posición de infraestructura. No solo hablar de soberanía financiera, sino poner XEC donde la soberanía necesita estar: en liquidez utilizable.
+      </p>
+
+      <h2>1. El problema: las máquinas también necesitan tesorería</h2>
+
+      <p>
+        Un agente autónomo puede analizar datos, ejecutar tareas, generar propuestas y coordinar flujos digitales. Pero cuando entra dinero real, aparece el problema crítico: ¿quién custodia los fondos?
+      </p>
+
+      <p>
+        Si el agente controla directamente una llave privada, el sistema queda expuesto a errores de software, ataques, bugs, prompts maliciosos o decisiones no autorizadas. Si los fondos se entregan a un custodio centralizado, se pierde soberanía. Si se usan puentes o tokens envueltos, se agrega una capa adicional de riesgo.
+      </p>
+
+      <p>
+        La arquitectura Tonalli propone otro camino: una <strong>bóveda P2SH multisig nativa en eCash</strong>, donde el agente no necesita tener control absoluto. Puede participar en la coordinación, generar propuestas o activar flujos, pero el movimiento final de fondos requiere validación multisig.
+      </p>
+
+      <h2>2. Tesorería autónoma para agentes y DAOs</h2>
+
+      <p>
+        El caso de uso más inmediato es la tesorería. Una DAO, un protocolo o incluso un agente de inteligencia artificial puede operar con una bóveda Tonalli de tipo <strong>2-de-3</strong> o <strong>3-de-5</strong>.
+      </p>
+
+      <p>
+        En un modelo básico, los firmantes podrían ser:
+      </p>
+
+      <ul>
+        <li>un sistema automatizado o agente operativo;</li>
+        <li>un firmante humano de gobernanza;</li>
+        <li>un segundo firmante humano, comunitario o institucional;</li>
+        <li>un oráculo o sistema de verificación externo;</li>
+        <li>una multisig superior encargada de supervisión.</li>
+      </ul>
+
+      <p>
+        La ventaja es clara: el agente puede preparar una propuesta de gasto, pero no puede vaciar la tesorería por sí solo. Esto permite un modelo de <strong>gobernanza ligera</strong>, donde la máquina acelera la coordinación y los humanos conservan el control crítico.
+      </p>
+
+      <div class="concept-box">
+        <h3>Idea clave</h3>
+        <p>
+          En lugar de confiar ciegamente en una máquina, el sistema permite que la máquina proponga y que la gobernanza apruebe.
+        </p>
+      </div>
+
+      <h2>3. Teyolia 2.1-G: liquidez programable, pero recuperable</h2>
+
+      <p>
+        La evolución de Teyolia hacia el modelo <strong>2.1-G Governance-Bridge</strong> es importante porque cambia la lógica de ejecución. En lugar de depender únicamente de un flujo automático directo hacia una operación compleja, los fondos pueden pasar primero a una bóveda de gobernanza Tonalli.
+      </p>
+
+      <p>
+        Este cambio tiene una consecuencia técnica y política: la liquidez puede ser programable sin dejar de ser recuperable.
+      </p>
+
+      <p>
+        Un flujo conceptual podría verse así:
+      </p>
+
+      <ol>
+        <li>Una campaña Teyolia recauda XEC para una finalidad específica.</li>
+        <li>Al completarse, los fondos se liquidan hacia una bóveda Tonalli P2SH multisig.</li>
+        <li>La gobernanza revisa el estado técnico y de mercado.</li>
+        <li>Se prepara una operación posterior, como un <code>ADDLP</code> hacia THORChain.</li>
+        <li>Los firmantes aprueban la transacción cuando se cumplen las condiciones.</li>
+      </ol>
+
+      <p>
+        Para la economía máquina, este patrón es poderoso porque evita una de las fallas más comunes de la automatización financiera: ejecutar demasiado pronto, sin margen de recuperación. Aquí la automatización puede coordinar, monitorear y proponer, pero los fondos siguen estando en una dirección XEC real bajo control multisig.
+      </p>
+
+      <h2>4. Límites y riesgos de la integración</h2>
+
+      <p>
+        La ruta UTXO estándar de THORChain trabaja con memos de hasta 80 caracteres en <code>OP_RETURN</code>. Aunque existe una estrategia para memos más largos mediante outputs adicionales, el diseño seguro para Teyolia 2.1 debe ser conservador: todo memo de producción debe caber en la ruta corta de THORChain.
+      </p>
+
+      <p>
+        Eso significa evitar diseños que dependan de reconstrucción avanzada de memo, direcciones largas innecesarias o metadatos excesivos. Teyolia 2.1 no necesita un memo largo para probar soberanía. Necesita un memo correcto.
+      </p>
+
+      <h2>5. El problema central: quién será dueño de la posición LP</h2>
+
+      <p>
+        La provisión de liquidez es permissionless y non-custodial, pero también sólo el depositante original puede retirar su participación del pool. Además, THORChain distingue entre depósitos simétricos y asimétricos; en los asimétricos, el sistema termina exponiendo al LP tanto a RUNE como al activo externo, con slip dependiente de la profundidad del pool.
+      </p>
+
+      <p>
+        Esto crea una decisión crítica para Teyolia:
+      </p>
+
+      <ul>
+        <li>Si el modo es XEC-only asimétrico, la UX es más simple: la campaña junta XEC y lo manda directo al pool. Pero la posición puede quedar asociada al origen de la transacción de cierre y no necesariamente a una identidad comunitaria fácil de gestionar.</li>
+        <li>Si el modo es dual-sided o pending dual-sided, el memo puede vincular el depósito XEC con una dirección THOR controlada por una entidad comunitaria, multisig o esquema de gobernanza.</li>
+      </ul>
+
+      <h2>6. Casos de uso potenciales</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Caso de uso</th>
+              <th>Cómo lo aprovecharía la máquina</th>
+              <th>Madurez actual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agente de Treasury DAO</td>
+              <td>Gestiona propuestas de gasto desde bóvedas Tonalli multisig.</td>
+              <td>Alta</td>
+            </tr>
+            <tr>
+              <td>Liquidity Provider automático</td>
+              <td>Prepara entradas y salidas de pools en THORChain bajo aprobación multisig.</td>
+              <td>Media</td>
+            </tr>
+            <tr>
+              <td>Cross-chain Payment Agent</td>
+              <td>Usa XEC como settlement y coordina pagos con gobernanza.</td>
+              <td>Media</td>
+            </tr>
+            <tr>
+              <td>Agente de reaseguro o colateral</td>
+              <td>Mantiene reservas en bóvedas recuperables con reglas de liberación.</td>
+              <td>Media</td>
+            </tr>
+            <tr>
+              <td>Máquina como firmante</td>
+              <td>Participa directamente en multisigs con políticas programáticas.</td>
+              <td>Baja</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>7. Beneficios reales para la economía máquina</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Beneficio</th>
+              <th>Impacto</th>
+              <th>Explicación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Recuperabilidad de fondos</td>
+              <td>Alto</td>
+              <td>Los fondos no quedan atrapados en un flujo efímero sin ruta clara de rescate.</td>
+            </tr>
+            <tr>
+              <td>Gobernanza programable</td>
+              <td>Alto</td>
+              <td>Permite modelos donde máquinas proponen y humanos o multisigs aprueban.</td>
+            </tr>
+            <tr>
+              <td>Liquidez soberana</td>
+              <td>Medio-alto</td>
+              <td>Reduce dependencia de wrapped tokens, custodios y puentes centralizados.</td>
+            </tr>
+            <tr>
+              <td>Seguridad para agentes</td>
+              <td>Alto</td>
+              <td>El agente puede operar sin tener control total de la tesorería.</td>
+            </tr>
+            <tr>
+              <td>Transparencia on-chain</td>
+              <td>Alto</td>
+              <td>Las propuestas, movimientos y memos pueden quedar registrados y auditables.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>8. Límites y riesgos estructurales</h2>
+
+      <p>
+        Aunque el potencial es importante, conviene evitar el exceso de hype. La economía máquina sobre eCash todavía requiere más desarrollo en varias áreas: interfaces más claras para agentes autónomos, políticas de firma programática mejor definidas, auditoría de flujos multisig complejos e integración estable con infraestructura cross-chain.
+      </p>
+
+      <p>
+        También existe una tensión importante: mientras más autonomía se entrega a una máquina, mayor debe ser la calidad de sus límites. Un agente financiero no debe ser medido solo por lo que puede hacer, sino por lo que no se le permite hacer.
+      </p>
+
+      <h2>Conclusión: máquinas con reglas, no máquinas con fe ciega</h2>
+
+      <p>
+        La combinación de <strong>Teyolia 2.1-G</strong> y <strong>Tonalli Multisig P2SH nativo</strong> aporta una pieza relevante para el futuro de la economía máquina: una forma de coordinar valor en XEC con recuperación, transparencia y gobernanza.
+      </p>
+
+      <p>
+        Su valor no está en prometer automatización absoluta. Está en algo más sobrio y posiblemente más importante: permitir que agentes, DAOs y protocolos trabajen con dinero real sin exigir confianza total en una sola llave, una sola persona, un puente centralizado o una máquina sin frenos.
+      </p>
+
+      <p class="closing-line">
+        XEC es el dinero. RMZ es la llave. La cultura es la red. Y la próxima frontera puede ser la máquina aprendiendo a respetar la multisig.
+      </p>
+    </section>
+  </article>
+
+</body>
+</html>
