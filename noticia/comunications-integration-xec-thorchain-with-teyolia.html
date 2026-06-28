@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[News] xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G | eCash Magazine Mexico</title>
+  <meta name="description" content="xolosArmy Network confirms approaches with Nate Novosel and the review of the native liquidity proposal by the Global Network Council." />
+  <meta property="og:title" content="xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G liquidity" />
+  <meta property="og:type" content="article" />
+  <meta name="theme-color" content="#00abe7" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    /* CORE STYLES ECASH MAGAZINE MEXICO */
+    :root {
+      --bg: #030a08; 
+      --panel: #071110; 
+      --text: #e0f2f1; 
+      --muted: #94b2af; 
+      --soft: #c9fffb; 
+      --cyan: #00fff2; 
+      --cyan-dim: #00a8a0; 
+      --gold: #ffcc00; 
+      --line: rgba(224, 242, 241, 0.08); 
+      --cyan-line: rgba(0, 255, 242, 0.2); 
+      --shadow: 0 45px 100px rgba(0, 0, 0, 0.7);
+      --radius: 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at 15% 0%, rgba(0, 255, 242, 0.12), transparent 35%),
+                  radial-gradient(circle at 85% 10%, rgba(255, 204, 0, 0.06), transparent 30%),
+                  linear-gradient(180deg, #020504 0%, var(--bg) 50%, #010302 100%);
+      color: var(--text);
+      font-family: "Lexend", system-ui, sans-serif;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      z-index: 0;
+    }
+
+    /* SCANLINE EFFECT */
+    .scanline {
+      position: fixed; left: 0; width: 100%; height: 120px; top: -130px;
+      z-index: 1; pointer-events: none; opacity: .2;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,255,242,.05) 50%, transparent 100%);
+      animation: scan 14s linear infinite;
+    }
+    @keyframes scan { 0% { transform: translateY(-130px); } 100% { transform: translateY(calc(100vh + 260px)); } }
+
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: "Space Mono", monospace; }
+
+    .site-shell {
+      width: min(1160px, calc(100% - 24px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      margin-top: 16px; 
+      border: 1px solid var(--line);
+      background: rgba(4, 8, 6, 0.85); 
+      backdrop-filter: blur(20px);
+      border-radius: 20px 20px 0 0; 
+      box-shadow: 0 15px 40px rgba(0,0,0,.4);
+    }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 20px 28px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 42px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.15), transparent 30%), linear-gradient(135deg, rgba(0,255,242,.2), rgba(255,204,0,.08));
+      border: 1px solid var(--cyan-line); box-shadow: 0 0 24px rgba(0,255,242,0.12); font-size: 20px; color: var(--cyan);
+    }
+    .brand-title { font-weight: 900; letter-spacing: -0.05em; font-size: 1.35rem; color: #fff; }
+    .brand-title span { color: var(--cyan); }
+    .brand-sub { color: var(--muted); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; margin-top: 2px; }
+
+    /* ARTICLE STRUCTURE */
+    .article {
+      background: linear-gradient(180deg, rgba(9, 18, 14, .95) 0%, rgba(6, 12, 9, .98) 100%);
+      border: 1px solid var(--line); border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow);
+    }
+
+    /* HERO / COVER */
+    .hero {
+      position: relative; padding: clamp(40px, 8vw, 90px) clamp(24px, 6vw, 80px) 40px;
+      border-bottom: 1px solid var(--line); min-height: 480px; display: grid; align-items: end;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(4,8,6,0) 0%, rgba(4,8,6,0.75) 45%, #09120e 100%),
+                  url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      z-index: 1; opacity: 0.7;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 960px; }
+    
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--cyan); border: 1px solid var(--cyan-line);
+      background: rgba(0,255,242,.06); border-radius: 999px; padding: 6px 14px; font-size: .76rem; font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: .08em;
+    }
+    .kicker::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+
+    h1 { font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.1; letter-spacing: -0.05em; margin: 0 0 20px; color: white; font-weight: 900; text-wrap: balance; }
+    .deck { color: #cbd5e1; font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 400; line-height: 1.6; margin: 0; text-wrap: balance; }
+
+    /* MAIN BODY */
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; padding: 50px clamp(24px, 6vw, 80px); }
+    
+    .lede-card {
+      border: 1px solid rgba(0,255,242,0.25); background: linear-gradient(135deg, rgba(0,255,242,0.04), transparent), rgba(13, 27, 23, 0.6);
+      border-radius: 20px; padding: 28px; margin-bottom: 36px; box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .lede-label { color: var(--gold); font-size: .76rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; letter-spacing: .12em; }
+    .lede-card p { margin: 0; color: #e2e8f0; font-size: 1.08rem; line-height: 1.65; font-weight: 600;}
+
+    article p { color: #cbd5e1; font-size: 1.06rem; margin: 0 0 1.5rem; text-align: justify; }
+    article strong { color: white; font-weight: 700; }
+    article ul, article ol { margin: 0 0 1.5rem 1.5rem; color: #cbd5e1; }
+    article li { margin-bottom: 0.5rem; font-size: 1.04rem; }
+
+    h2 { color: white; font-size: 1.85rem; margin: 48px 0 20px; border-bottom: 2px solid var(--line); padding-bottom: 12px; font-weight: 800; letter-spacing: -0.03em; }
+
+    /* QUOTES AND CALLOUTS */
+    .pullquote {
+      margin: 40px 0; padding: 28px 32px; border-left: 4px solid var(--cyan);
+      background: linear-gradient(90deg, rgba(0,255,242,.04), transparent); border-radius: 0 16px 16px 0;
+      color: white; font-size: 1.25rem; font-weight: 700; line-height: 1.5; text-align: left; font-style: italic;
+    }
+
+    .code-chip {
+      display: inline-block; font-family: "Space Mono", monospace; color: var(--cyan);
+      background: #030705; border: 1px solid rgba(0,255,242,.2);
+      padding: 1px 7px; border-radius: 6px; font-size: .88rem; font-weight: bold;
+    }
+
+    /* SIDEBAR */
+    .sidebar .sticky { position: sticky; top: 24px; display: grid; gap: 20px; }
+    .side-card { border: 1px solid var(--line); background: rgba(9, 18, 14, 0.6); border-radius: 20px; padding: 24px; backdrop-filter: blur(10px); }
+    .side-title { color: var(--gold); font-size: .76rem; text-transform: uppercase; font-weight: 800; margin-bottom: 14px; letter-spacing: .12em; }
+    .side-card p, .side-card li { color: #cbd5e1; font-size: .92rem; margin-bottom: 10px; line-height: 1.6;}
+    .side-card ul { padding-left: 18px; margin: 0; }
+
+    /* FOOTER */
+    .footer { border-top: 1px solid var(--line); padding: 32px clamp(24px, 6vw, 80px); color: var(--soft); font-size: .72rem; text-transform: uppercase; background: rgba(2,4,3,.4); text-align: center; letter-spacing: 0.15em; }
+
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { order: -1; } .sidebar .sticky { position: static; } }
+  </style>
+</head>
+
+<body>
+  <div class="scanline"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <div>
+            <div class="brand-title mono">eCash<span>Magazine</span></div>
+            <div class="brand-sub mono">Mexico · News · Ecosystem</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="article">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="kicker mono">[News]</div>
+          <h1>xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G</h1>
+          <p class="deck">
+            The infrastructure proposal to natively integrate eCash (XEC) into THORChain enters an institutional review phase. The development team confirms approaches with key ecosystem figures.
+          </p>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="main">
+          
+          <div class="lede-card">
+            <div class="lede-label mono">Lead</div>
+            <p>Representatives of xolosArmy Network have officially confirmed the initiation of talks with eCash stakeholders and the formal presentation of the native liquidity project to the Global Network Council (GNC).</p>
+          </div>
+
+          <p>
+            <strong>MEXICO CITY</strong> — The development of <strong>Teyolia 2.1-G (Governance-Bridge)</strong> is no longer exclusively a technical debate; it has entered the sphere of institutional coordination within the eCash ecosystem. Over the past week, key movements have indicated that the proposal to establish a native liquidity bridge to THORChain is being evaluated by the network's governance bodies.
+          </p>
+
+          <h2>Approach with Nate Novosel</h2>
+          <p>
+            In a primary development, <strong>Nate Novosel</strong>, a recognized stakeholder and developer within the eCash ecosystem, responded positively to an invitation extended by the xolosArmy team to participate in a structured analysis roundtable on the project.
+          </p>
+
+          <p>
+            Novosel confirmed his willingness to engage in conversation after the July 4th holiday in the United States. According to internal communications made public by the development team, the proposed dynamic will not require the stakeholder to act as the model's presenter, but rather to assume the role of a critical and analytical voice to evaluate the technical scope of the multisig architecture and the proposed governance model.
+          </p>
+
+          <p>
+            The projected format will address topics such as the integration of native XEC into THORChain without the use of <em>wrapped tokens</em>, the need for an initial liquidity bootstrap, and the functioning of the <strong>Tonalli Multisig P2SH</strong> vault as a governed custodian of community funds.
+          </p>
+
+          <h2>The proposal before the Global Network Council</h2>
+          <p>
+            In parallel, it has been confirmed that the infrastructure project was formally submitted to the <strong>Global Network Council (GNC)</strong>, the body responsible for funding the development of the eCash ecosystem.
+          </p>
+
+          <p>
+            Through community forums and channels, several users (including active figures like Mohamed.xec) have begun requesting visibility on the GNC's response times. As of press time, the proposal has been under review for several days without an official resolution or formal rejection from the council.
+          </p>
+
+          <div class="pullquote">
+            "xolosArmy has put the infrastructure on the table; the ecosystem must now decide whether to advance toward native liquidity."
+          </div>
+
+          <h2>The background of Teyolia 2.1-G</h2>
+          <p>
+            The project under evaluation, dubbed <span class="code-chip">Teyolia 2.1-G Governance-Bridge</span>, represents an architectural evolution designed after consultations with THORChain Core Devs. 
+          </p>
+          <p>
+            The initiative seeks to coordinate social capital through smart contracts on eCash to fund a XEC/RUNE liquidity pool. To mitigate network risks and prevent the loss of Liquidity Provider (LP) tokens, the system directs the raised funds into a multi-signature wallet (developed by Tonalli), allowing the final injection into THORChain to be executed through a governance consensus rather than a blind script.
+          </p>
+
+          <p>
+            The openness to dialogue by institutional figures and the anticipation generated within the community reflect that the initiative has moved past the technical design phase and into the political coordination phase. July is expected to be a decisive month in determining the backing for this new infrastructure layer for eCash.
+          </p>
+
+        </article>
+
+        <aside class="sidebar">
+          <div class="sticky">
+            
+            <div class="side-card" style="border-color: var(--cyan); background: rgba(0, 255, 242, 0.02);">
+              <div class="side-title mono">Key Data</div>
+              <ul>
+                <li><strong>Proposal:</strong> Teyolia 2.1-G</li>
+                <li><strong>Objective:</strong> Native XEC liquidity on THORChain</li>
+                <li><strong>Status:</strong> Under review by the GNC</li>
+                <li><strong>Next steps:</strong> Analysis roundtable with stakeholders (Post-July 4th)</li>
+              </ul>
+            </div>
+
+            <div class="side-card" style="border-color: var(--line);">
+              <div class="side-title mono">Editorial Line</div>
+              <p class="mono" style="font-weight:700; color:white; font-size:0.85rem; line-height:1.5;">
+                XEC IS THE MONEY.<br>
+                RMZ IS THE KEY.<br>
+                CULTURE IS THE NETWORK.
+              </p>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+
+      <footer class="footer mono">
+        eCash Magazine Mexico · News Section · 2026
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
