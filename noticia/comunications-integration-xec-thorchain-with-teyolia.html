@@ -96,6 +96,19 @@
     .brand-title span { color: var(--cyan); }
     .brand-sub { color: var(--muted); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; margin-top: 2px; }
 
+    .lang-switcher-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--cyan); color: var(--cyan);
+      background: rgba(0, 255, 242, 0.03); padding: 8px 16px; border-radius: 999px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      transition: all .25s ease-in-out; cursor: pointer;
+    }
+    .lang-switcher-btn:hover, .lang-switcher-btn:focus-visible {
+      background: var(--cyan); color: #040806;
+      box-shadow: 0 0 18px rgba(0,255,242,0.4);
+      outline: none;
+    }
+
     /* ARTICLE STRUCTURE */
     .article {
       background: linear-gradient(180deg, rgba(9, 18, 14, .95) 0%, rgba(6, 12, 9, .98) 100%);
@@ -182,6 +195,9 @@
             <div class="brand-sub mono">Mexico · News · Ecosystem</div>
           </div>
         </div>
+        <button class="lang-switcher-btn mono" type="button" onclick="window.location.href='https://magazine.ecash.mx/noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html'" aria-label="Leer en Español">
+          🌐 Leer en Español
+        </button>
       </div>
     </header>
 
