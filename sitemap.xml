@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://magazine.ecash.mx/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-07-06</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
@@ -46,6 +46,16 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://magazine.ecash.mx/editorial/ecash-mexico-machine-economy.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://magazine.ecash.mx/reseñas/como-comprar-etoken-cultural-xolos-rmz.html</loc>
     <lastmod>2026-06-07</lastmod>
     <priority>0.80</priority>
@@ -53,6 +63,11 @@
   <url>
     <loc>https://magazine.ecash.mx/reportajes/tonalli-faucet-ecash-mexico.html</loc>
     <lastmod>2026-06-07</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html</loc>
+    <lastmod>2026-07-06</lastmod>
     <priority>0.80</priority>
   </url>
 </urlset>
