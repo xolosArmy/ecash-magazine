@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Is the GNC Losing Relevance During Crypto Winter?</title>
+
+  <meta
+    name="description"
+    content="The GNC declined funding for the XEC/RUNE liquidity bootstrap and redirected governance participation toward individuals. What does this say about institutional relevance during crypto winter?"
+  />
+
+  <style>
+    :root {
+      --bg: #070b10;
+      --panel: #0f1720;
+      --panel-soft: #121d29;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --gold: #d9a441;
+      --xec: #00d084;
+      --red: #d94b4b;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: rgba(0, 0, 0, 0.45);
+      --max-width: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 208, 132, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(217, 164, 65, 0.13), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--xec);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 208, 132, 0.35);
+    }
+
+    a:hover {
+      color: var(--gold);
+      border-bottom-color: rgba(217, 164, 65, 0.65);
+    }
+
+    .page {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+      padding: 32px 18px 64px;
+    }
+
+    .article-card {
+      background: linear-gradient(180deg, rgba(15, 23, 32, 0.96), rgba(7, 11, 16, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px var(--shadow);
+    }
+
+    .hero {
+      padding: 48px 34px 36px;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(0, 208, 132, 0.12), transparent 45%),
+        linear-gradient(315deg, rgba(217, 164, 65, 0.16), transparent 40%),
+        var(--panel);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border: 1px solid rgba(217, 164, 65, 0.45);
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(217, 164, 65, 0.08);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.2rem, 7vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .subtitle {
+      margin: 24px 0 0;
+      max-width: 790px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+      line-height: 1.55;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .meta span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .content {
+      padding: 34px;
+    }
+
+    .notice {
+      margin: 0 0 30px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--gold);
+      border-radius: 14px;
+      background: rgba(217, 164, 65, 0.08);
+      color: #f2dfba;
+    }
+
+    .notice strong {
+      color: var(--gold);
+    }
+
+    h2 {
+      margin: 48px 0 14px;
+      font-size: clamp(1.55rem, 3.4vw, 2.25rem);
+      line-height: 1.14;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+    }
+
+    p {
+      margin: 0 0 20px;
+      font-size: 1.05rem;
+    }
+
+    .lead {
+      font-size: 1.22rem;
+      color: #f4f7fa;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 26px;
+      border-radius: 22px;
+      border: 1px solid rgba(0, 208, 132, 0.28);
+      background:
+        linear-gradient(135deg, rgba(0, 208, 132, 0.10), transparent 55%),
+        var(--panel-soft);
+      font-size: clamp(1.25rem, 3vw, 1.8rem);
+      line-height: 1.28;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+    }
+
+    .pullquote em {
+      color: var(--xec);
+      font-style: normal;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 28px 0 34px;
+    }
+
+    .status-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--border);
+    }
+
+    .status-card .label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .status-card .value {
+      display: block;
+      color: #ffffff;
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .quote-block {
+      margin: 26px 0;
+      padding: 22px;
+      border-radius: 18px;
+      border-left: 4px solid var(--xec);
+      background: rgba(0, 208, 132, 0.075);
+      color: #dff8ed;
+      font-size: 1.08rem;
+    }
+
+    .question-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .question-list li {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--border);
+    }
+
+    .question-list li::before {
+      content: "→";
+      color: var(--gold);
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 44px 0;
+      background: linear-gradient(90deg, transparent, rgba(217, 164, 65, 0.6), transparent);
+    }
+
+    .closing {
+      margin-top: 44px;
+      padding: 28px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(217, 164, 65, 0.12), transparent 58%),
+        rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(217, 164, 65, 0.25);
+    }
+
+    .closing p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+    }
+
+    @media (max-width: 720px) {
+      .hero,
+      .content {
+        padding: 28px 20px;
+      }
+
+      .status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <article class="article-card">
+      <header class="hero">
+        <div class="kicker">Opinion · Governance · eCash</div>
+
+        <h1>Is the GNC Losing Relevance During Crypto Winter?</h1>
+
+        <p class="subtitle">
+          The refusal to fund native XEC–THORChain liquidity, the absence of a formal institutional governance path,
+          and the recommendation to seek private individuals raise legitimate questions about the council’s ability
+          to protect strategic infrastructure when the market no longer does.
+        </p>
+
+        <div class="meta">
+          <span>By eCash Magazine México</span>
+          <span>Analysis Column</span>
+          <span>xolosArmy Network</span>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="notice">
+          <strong>Editorial note:</strong>
+          This column does not allege corruption. It analyzes documented institutional decisions, public infrastructure
+          needs, governance gaps and the question of relevance during a crypto winter.
+        </div>
+
+        <p class="lead">
+          In a bull market, an institution can hide its limitations behind abundant private capital, speculative
+          enthusiasm and price momentum. During a crypto winter, however, its usefulness becomes easier to measure:
+          it must prioritize infrastructure, coordinate scarce resources, preserve access routes to the ecosystem
+          and explain its decisions publicly.
+        </p>
+
+        <p>
+          eCash currently faces a concrete challenge. Some community members, especially in Europe, have reported
+          increasing friction when trying to access XEC through centralized exchanges. Under growing regulatory and
+          commercial pressure, relying on a limited number of third-party platforms becomes a fragile strategy.
+        </p>
+
+        <p>
+          Native decentralized liquidity — such as a crypto-to-crypto route through THORChain — does not replace
+          fiat on-ramps and does not remove all risk. But it can provide an important alternative: a route for moving
+          value between native assets without depending exclusively on centralized exchanges.
+        </p>
+
+        <p>
+          In that sense, native XEC/RUNE liquidity should increasingly be understood not as an optional DeFi experiment,
+          but as defensive infrastructure for the resilience of the eCash ecosystem.
+        </p>
+
+        <h2>The Cost of Public Goods</h2>
+
+        <p>
+          Building this infrastructure requires two elements: technical development and bootstrap capital.
+        </p>
+
+        <p>
+          xolosArmy Network has worked on the first component: a public technical path for native eCash support in
+          THORNode, together with governance tools such as Tonalli Multisig and Teyolia 2.1-G, designed to coordinate
+          community funds in a transparent and verifiable way.
+        </p>
+
+        <p>
+          But the second component — initial capital for an XEC/RUNE pool — has a difficult economic reality.
+        </p>
+
+        <p>
+          Funding a liquidity pool should not be presented as a guaranteed profit opportunity. Initial volume may be
+          low, XEC/RUNE exposure carries financial risk, impermanent loss exists, and private returns may not be
+          sufficient to motivate individual holders to lock meaningful capital.
+        </p>
+
+        <div class="pullquote">
+          Native XEC liquidity is <em>public infrastructure with financial risk</em>, not a guaranteed investment opportunity.
+        </div>
+
+        <p>
+          It produces potential benefits for the whole ecosystem: access, liquidity, native routing, lower dependence
+          on centralized exchanges and stronger connectivity with other assets. But the direct cost and risk fall on
+          those who provide the capital.
+        </p>
+
+        <p>
+          That is precisely the type of imbalance that an ecosystem treasury should be able to evaluate seriously.
+        </p>
+
+        <h2>The GNC Response</h2>
+
+        <p>
+          The proposal was presented to the Global Network Council with two distinct dimensions: funding and governance.
+        </p>
+
+        <p>
+          First, the GNC responded that it had decided not to fund the project at this time due to its limited budget,
+          and suggested continuing to seek partnerships with other members of the community.
+        </p>
+
+        <p>
+          That decision may be legitimate within its budgetary authority. No treasury has infinite resources. However,
+          a budgetary refusal should ideally be accompanied by clearer context regarding priorities, evaluation criteria,
+          existing commitments and possible alternative routes.
+        </p>
+
+        <p>
+          After that, xolosArmy explicitly separated the financial question from the operational question: if the GNC
+          could not provide capital, could it at least participate in a non-financial governance, review or observation role?
+        </p>
+
+        <div class="quote-block">
+          “It’s best to reach out to individuals who can commit to helping on the governance side.”
+        </div>
+
+        <p>
+          The sentence matters. It did not offer a formal GNC signer, observer, reviewer or representative. Instead,
+          it redirected governance coordination toward private individuals who could personally commit to helping.
+        </p>
+
+        <div class="status-grid">
+          <div class="status-card">
+            <span class="label">Funding</span>
+            <span class="value">Declined due to limited budget.</span>
+          </div>
+
+          <div class="status-card">
+            <span class="label">Governance</span>
+            <span class="value">Redirected toward individuals.</span>
+          </div>
+
+          <div class="status-card">
+            <span class="label">Formal GNC Role</span>
+            <span class="value">No signer, observer or reviewer offered in the thread.</span>
+          </div>
+        </div>
+
+        <h2>The Institutional Problem</h2>
+
+        <p>
+          When infrastructure produces collective benefits but its private return is uncertain, transferring the full
+          cost and responsibility to individual holders does not solve the problem. It merely displaces it.
+        </p>
+
+        <p>
+          The community can, of course, organize independently. In fact, Teyolia 2.1-G and Tonalli were designed
+          precisely to allow verifiable community coordination. But if an ecosystem-funded institution does not provide
+          capital, does not offer a formal governance function and does not provide a concrete path toward responsible
+          participants, the institutional question becomes unavoidable:
+        </p>
+
+        <div class="pullquote">
+          What role does the GNC play during a crypto winter?
+        </div>
+
+        <p>
+          The current GNC crisis does not need to be explained through accusations of corruption. The lack of transparent
+          audited accountability makes it difficult to publicly evaluate whether conflicts, favoritism or poorly justified
+          decisions exist.
+        </p>
+
+        <p>
+          But that same opacity allows a more immediate issue to be identified: a possible deterioration of institutional
+          efficiency.
+        </p>
+
+        <p>
+          An institution does not become irrelevant because critics call it irrelevant. It becomes irrelevant when strategic
+          problems advance and it cannot fund them, coordinate around them, or clearly explain why it chose not to.
+        </p>
+
+        <h2>The Question of Relevance</h2>
+
+        <p>
+          The point is not to demand that the GNC fund everything. The point is to demand clarity about what it considers
+          a priority, how it evaluates public goods, which projects receive resources, what measurable results they produce
+          and what alternatives it offers when it rejects a strategic proposal.
+        </p>
+
+        <ul class="question-list">
+          <li>If native XEC/RUNE liquidity does not deserve funding, what infrastructure does?</li>
+          <li>If the bootstrap must be left to private individuals, who are they, how are they coordinated and under what governance rules?</li>
+          <li>If the GNC participates neither with capital nor with formal supervision, what is its practical function in protecting strategic infrastructure?</li>
+        </ul>
+
+        <p>
+          During a bull market, these questions may appear theoretical. During a crypto winter, they become urgent.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="closing">
+          <p>
+            The issue is not merely how much money the GNC still holds.
+          </p>
+
+          <p>
+            The issue is whether it still has the transparency, efficiency and coordination capacity required to remain
+            relevant when the ecosystem most needs defensive infrastructure.
+          </p>
+
+          <p>
+            Native XEC liquidity is not guaranteed profit. It is infrastructure that requires technical review, transparent
+            governance, coordinated capital and shared responsibility.
+          </p>
+        </div>
+
+        <p class="footer-note">
+          This article is an opinion and governance analysis column. It should be read as institutional criticism based
+          on documented decisions and correspondence, not as an allegation of unlawful conduct.
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
