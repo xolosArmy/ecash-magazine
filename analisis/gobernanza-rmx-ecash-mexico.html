@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gobernanza con RMZ: identidad, reputación y voto verificable para el ecosistema eCash | eCash Magazine México</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="xolosArmy desarrolla un modelo experimental de gobernanza para eCash que conecta alias .xec, RMZ, votaciones firmadas y reputación basada en evidencia pública.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://magazine.ecash.mx/analisis/gobernanza-rmz-asamblea-ecash-xolosarmy">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://magazine.ecash.mx/analisis/gobernanza-rmz-asamblea-ecash-xolosarmy">
+    <meta property="og:title" content="Gobernanza con RMZ: identidad, reputación y voto verificable para eCash">
+    <meta property="og:description" content="Análisis técnico del modelo experimental de gobernanza de xolosArmy basado en RMZ y alias .xec.">
+    <meta property="og:image" content="https://magazine.ecash.mx/assets/img/og-gobernanza-rmz.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://magazine.ecash.mx/analisis/gobernanza-rmz-asamblea-ecash-xolosarmy">
+    <meta property="twitter:title" content="Gobernanza con RMZ: identidad, reputación y voto verificable para eCash">
+    <meta property="twitter:description" content="Análisis técnico del modelo experimental de gobernanza de xolosArmy basado en RMZ y alias .xec.">
+    <meta property="twitter:image" content="https://magazine.ecash.mx/assets/img/og-gobernanza-rmz.jpg">
+
+    <style>
+        /* CSS Reset y Estilos Base estilo eCash Magazine */
+        :root {
+            --ecash-dark: #101820;
+            --ecash-gray: #25323A;
+            --ecash-light-gray: #A0AAB5;
+            --ecash-white: #F4F7F6;
+            --ecash-cyan: #00E0A4; /* Color de acento Cyan */
+            --ecash-cyan-dim: rgba(0, 224, 164, 0.1);
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        body {
+            background-color: var(--ecash-dark);
+            color: var(--ecash-white);
+            font-family: var(--font-main);
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Cabecera del Artículo */
+        header.article-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--ecash-gray);
+            padding-bottom: 20px;
+        }
+
+        .kicker {
+            font-family: var(--font-mono);
+            color: var(--ecash-cyan);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        h1.article-title {
+            font-size: 42px;
+            line-height: 1.2;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            color: var(--ecash-white);
+        }
+
+        .bajada {
+            font-size: 22px;
+            color: var(--ecash-light-gray);
+            line-height: 1.4;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        /* Contenido del Artículo */
+        article p {
+            margin-bottom: 25px;
+        }
+
+        article h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--ecash-cyan);
+            border-bottom: 1px solid var(--ecash-cyan-dim);
+            padding-bottom: 10px;
+        }
+
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: var(--ecash-white);
+        }
+
+        article ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        article ul li {
+            position: relative;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        article ul li::before {
+            content: "•";
+            color: var(--ecash-cyan);
+            position: absolute;
+            left: -15px;
+        }
+        
+        /* Lista de checks para validación */
+        .check-list li::before {
+            content: "✓";
+            color: var(--ecash-cyan);
+        }
+
+        /* Estilo para las máximas/citas destacadas */
+        .maxima-box {
+            background-color: var(--ecash-gray);
+            border-left: 4px solid var(--ecash-cyan);
+            padding: 20px 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .maxima-box p {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--ecash-white);
+            margin: 0;
+            font-style: italic;
+        }
+        
+        /* Estilos para el bloque de código/mensajes */
+        .message-block {
+            background-color: #0d1117;
+            border-radius: 6px;
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: #c9d1d9;
+            overflow-x: auto;
+            margin-bottom: 25px;
+            border: 1px solid var(--ecash-gray);
+        }
+        
+        .code-tag {
+            background-color: var(--ecash-gray);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 90%;
+            color: var(--ecash-cyan);
+        }
+
+        /* Estilos para badges de reputación */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--ecash-gray) 0%, #1a242c 100%);
+            border: 1px solid rgba(0, 224, 164, 0.3);
+            color: var(--ecash-white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Recuadro Editorial */
+        .editorial-box {
+            background-color: #161b22;
+            border: 1px solid rgba(0, 224, 164, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        .editorial-box h3 {
+            color: var(--ecash-cyan);
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+
+        .editorial-box ul {
+            margin-bottom: 0;
+        }
+
+        .editorial-box ul li strong {
+            color: var(--ecash-white);
+        }
+
+        /* Footer */
+        footer.article-footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--ecash-light-gray);
+            border-top: 1px solid var(--ecash-gray);
+            padding-top: 20px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 600px) {
+            h1.article-title {
+                font-size: 32px;
+            }
+            .bajada {
+                font-size: 18px;
+            }
+            body {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="article-header">
+            <span class="kicker">[Análisis técnico]</span>
+            <h1 class="article-title">Gobernanza con RMZ: identidad, reputación y voto verificable para el ecosistema eCash</h1>
+            <p class="bajada">
+                xolosArmy desarrolla un modelo experimental de gobernanza para eCash que conecta alias .xec, posesión de RMZ, votaciones firmadas y reputación basada en evidencia pública. La propuesta evita que el poder electoral aumente automáticamente con el balance de tokens, pero continúa en fase MVP y deberá resolver desafíos relacionados con identidades múltiples, persistencia de datos, operación independiente y legitimidad comunitaria.
+            </p>
+        </header>
+
+        <article>
+            <p>La gobernanza de una comunidad descentralizada no consiste únicamente en determinar quién puede votar.</p>
+            
+            <p>También debe responder preguntas más difíciles: ¿cómo se demuestra una identidad sin entregar documentos personales?, ¿cómo se evita que una gran fortuna compre toda la influencia?, ¿quién puede crear propuestas?, ¿cómo se auditan los resultados? y ¿cómo se conserva un historial verificable de participación?</p>
+            
+            <p>Con estas preguntas como punto de partida, xolosArmy está desarrollando una arquitectura comunitaria alrededor de RMZ, el protocolo de alias de eCash, Chronik y una serie de servicios públicos de código abierto.</p>
+            
+            <p>La tesis del proyecto puede resumirse mediante una de sus máximas:</p>
+
+            <div class="maxima-box">
+                <p>XEC es el dinero. RMZ es la llave. La cultura es la red.</p>
+            </div>
+
+            <p>RMZ no busca sustituir a XEC como moneda del ecosistema. Dentro de este modelo, funciona como una credencial mínima de pertenencia y como puerta de acceso a determinados mecanismos comunitarios.</p>
+            
+            <p>La diferencia es importante: una cosa es el dinero utilizado para transferir valor y otra la credencial empleada para participar en una institución.</p>
+
+            <h2>¿Qué es la Asamblea RMZ?</h2>
+            <p>La RMZ Assembly API es un backend desarrollado con TypeScript y Express para gestionar votaciones fuera de la cadena cuya elegibilidad se deriva de información verificable en eCash.</p>
+            
+            <p>La regla básica del MVP establece que una persona participante necesita controlar una wallet, poseer al menos un átomo de RMZ y utilizar un alias .xec confirmado que apunte a la misma dirección.</p>
+            
+            <p>El diseño también permite votar nuevamente mientras la propuesta permanezca abierta. Cuando se realiza el conteo, solamente se considera el voto válido más reciente relacionado con cada alias normalizado.</p>
+            
+            <p>Esto permite corregir una decisión sin generar votos efectivos duplicados. Los registros anteriores permanecen como parte del historial, pero son sustituidos electoralmente por la última elección válida.</p>
+            
+            <p>La regla puede expresarse así:</p>
+
+            <div class="maxima-box">
+                <p>Un alias .xec confirmado equivale a un voto efectivo.</p>
+            </div>
+
+            <p>La API expone rutas públicas para consultar propuestas, resultados, votos y archivos de auditoría. También cuenta con procesos separados para comprobar elegibilidad, preparar un desafío de firma y presentar el voto.</p>
+
+            <h2>No es “un token, un voto”</h2>
+            <p>Una diferencia fundamental frente a muchas organizaciones autónomas descentralizadas es que el peso electoral no aumenta con la cantidad de RMZ acumulada.</p>
+            
+            <p>La primera propuesta configurada en el repositorio exigía:</p>
+            <ul>
+                <li>posesión de RMZ;</li>
+                <li>un mínimo de un átomo;</li>
+                <li>alias confirmado;</li>
+                <li>un voto por alias.</li>
+            </ul>
+            
+            <p>Su configuración establece explícitamente que la unidad de voto es el alias, que cada alias dispone de un voto y que solamente se considera la última elección válida antes del cierre.</p>
+            
+            <p>Una wallet con un millón de unidades de RMZ no recibe, por ese solo hecho, un millón de veces más poder que otra que cumpla el requisito mínimo.</p>
+            
+            <p>La cantidad de RMZ funciona como condición de acceso, no como multiplicador automático de influencia.</p>
+            
+            <p>El modelo intenta separar dos conceptos que frecuentemente aparecen mezclados:</p>
+            <ul>
+                <li><strong>Propiedad económica:</strong> cuánto capital o cuántos tokens controla una dirección.</li>
+                <li><strong>Participación política:</strong> qué capacidad tiene una identidad para intervenir en una decisión comunitaria.</li>
+            </ul>
+            
+            <p>Sin embargo, esta separación no elimina todos los problemas. Un alias .xec no equivale necesariamente a una persona única. Un mismo individuo podría controlar varias wallets, adquirir RMZ en cada una y registrar diferentes alias.</p>
+            
+            <p>El sistema reduce la plutocracia basada directamente en balances, pero todavía no ofrece una prueba de humanidad ni una defensa completa contra ataques Sybil.</p>
+
+            <h2>Tres capas: identidad, participación y reputación</h2>
+            <p>La Gobernanza RMZ está organizada alrededor de tres componentes relacionados, pero independientes.</p>
+
+            <h3>1. Identidad soberana mediante alias .xec</h3>
+            <p>El participante no necesita publicar su nombre legal. Puede utilizar una identidad legible asociada con una wallet, por ejemplo:</p>
+
+            <div class="message-block">
+                xolosarmy.xec
+            </div>
+
+            <p>El servicio <span class="code-tag">alias-proxy-api</span> indexa los alias registrados en eCash y permite comprobar qué dirección está vinculada con cada nombre.</p>
+            
+            <p>Su función no se limita a consultar Chronik en tiempo real. El servicio conserva un snapshot local del índice de alias confirmados. Al iniciarse, intenta cargar ese archivo para responder inmediatamente, incluso antes de completar una nueva exploración de la blockchain.</p>
+            
+            <p>Las actualizaciones están diseñadas para fallar de manera segura: el índice activo solamente se sustituye después de que una exploración completa termina y el nuevo snapshot se escribe correctamente. Si Chronik queda temporalmente fuera de servicio, la caché anterior se conserva.</p>
+            
+            <p>Esta decisión añade continuidad operativa. Una interrupción del endpoint no debería borrar repentinamente las identidades que ya habían sido verificadas.</p>
+            
+            <p>No significa que el servicio pueda permanecer indefinidamente desconectado. Significa que una falla temporal no destruye inmediatamente el último estado válido conocido.</p>
+
+            <h3>2. Participación mediante votos firmados</h3>
+            <p>La Asamblea utiliza un flujo de desafío y respuesta.</p>
+            
+            <p>Primero, el participante solicita preparar el voto. El servidor genera un identificador, un desafío, un nonce y un mensaje con vigencia de diez minutos.</p>
+            
+            <p>Ese mensaje incluye:</p>
+            <ul>
+                <li>dominio y aplicación;</li>
+                <li>red de eCash;</li>
+                <li>identificador y hash de la propuesta;</li>
+                <li>alias;</li>
+                <li>wallet;</li>
+                <li>opción elegida;</li>
+                <li>identificadores del voto y del desafío;</li>
+                <li>nonce;</li>
+                <li>fecha de emisión y expiración.</li>
+            </ul>
+            
+            <p>La inclusión del hash de la propuesta busca vincular la firma con una versión concreta del documento, mientras el nonce y la expiración reducen la posibilidad de reutilizar indefinidamente el mismo mensaje.</p>
+            
+            <p>Después de recibir la firma, el servidor vuelve a verificar que:</p>
+            
+            <ul class="check-list">
+                <li>el desafío exista, no haya expirado y no haya sido utilizado;</li>
+                <li>el mensaje coincida exactamente con el preparado;</li>
+                <li>la propuesta exista y continúe abierta;</li>
+                <li>la opción seleccionada sea válida;</li>
+                <li>el alias corresponda con la wallet;</li>
+                <li>la wallet posea RMZ;</li>
+                <li>la firma sea válida;</li>
+                <li>la llave pública derive en la dirección presentada.</li>
+            </ul>
+            
+            <p>Cuando las comprobaciones se completan, el voto y su evidencia de elegibilidad se añaden al registro electoral y al archivo de auditoría.</p>
+            
+            <p><strong>Este punto modifica el estado descrito en la documentación inicial: la verificación criptográfica ya aparece implementada en el código actual.</strong> La firma no convierte automáticamente al sistema en seguro o descentralizado, pero sí elimina una de las carencias más importantes de la primera versión.</p>
+
+            <h3>3. Reputación basada en evidencia</h3>
+            <p>La <span class="code-tag">rmz-reputation-api</span> combina información procedente de tres fuentes:</p>
+            <ul>
+                <li>el servicio de alias;</li>
+                <li>la Asamblea RMZ;</li>
+                <li>el Chronik utilizado para consultar la posesión del token.</li>
+            </ul>
+            
+            <p>La respuesta no se limita a mostrar una puntuación abstracta. Incluye las fuentes consultadas, el registro del alias, la evidencia de posesión de RMZ y la participación encontrada en la Asamblea.</p>
+            
+            <p>A partir de esos datos genera distintivos públicos como:</p>
+            
+            <div class="badge-list">
+                <span class="badge">Alias Verificado</span>
+                <span class="badge">Guardián Fundador</span>
+                <span class="badge">Identidad Soberana</span>
+                <span class="badge">Primer Votante RMZ</span>
+                <span class="badge">Asamblea B3 Ratificada</span>
+                <span class="badge">Ciudadano xolosArmy</span>
+            </div>
+
+            <p>Cada medalla tiene condiciones específicas. “Primer Votante RMZ”, por ejemplo, exige la existencia de un voto efectivo. “Ciudadano xolosArmy” requiere simultáneamente identidad confirmada, posesión de RMZ y participación electoral.</p>
+            
+            <p>La reputación no se asigna únicamente mediante la decisión subjetiva de un administrador. Se deriva de acciones que los servicios pueden consultar y documentar.</p>
+            
+            <p>Tampoco aumenta actualmente el peso del voto. Acumular más badges no concede automáticamente más poder electoral. La reputación describe una trayectoria verificable, mientras la regla de conteo continúa siendo un alias y un voto.</p>
+            
+            <p>Esta separación evita que la reputación se transforme inmediatamente en una aristocracia digital, aunque en el futuro la comunidad deberá decidir si algunos roles operativos requieren historial, antigüedad o niveles adicionales de responsabilidad.</p>
+
+            <h2>Una interfaz para conectar identidad y wallet</h2>
+            <p>El repositorio de eCash México integra estos componentes dentro de un panel de identidad RMZ.</p>
+            
+            <p>La interfaz utiliza WalletConnect, solicita direcciones de eCash, declara compatibilidad con firma de mensajes y consulta tanto la API de reputación como los resultados y votos de la Asamblea.</p>
+            
+            <p>El panel puede mostrar las medallas obtenidas y la evidencia que las respalda: transacción del alias, altura de bloque, cantidad de átomos de RMZ y datos del voto efectivo. También comprueba que la reputación consultada corresponda con la wallet conectada, en lugar de mostrar indiscriminadamente la identidad de otra dirección.</p>
+            
+            <p>La experiencia propuesta puede resumirse así:</p>
+            <ul>
+                <li>conectar Tonalli u otra wallet compatible;</li>
+                <li>obtener la dirección de eCash;</li>
+                <li>comprobar el alias .xec;</li>
+                <li>verificar la posesión de RMZ;</li>
+                <li>consultar la reputación;</li>
+                <li>preparar un voto;</li>
+                <li>firmar el mensaje;</li>
+                <li>enviar la firma;</li>
+                <li>revisar resultados y auditoría.</li>
+            </ul>
+            
+            <p>La meta no es pedir al usuario que confíe ciegamente en una etiqueta dentro de una base de datos, sino mostrarle la evidencia utilizada para determinar su identidad, acceso y participación.</p>
+
+            <h2>La primera propuesta: ratificar el MVP</h2>
+            <p>La primera propuesta incluida en el repositorio fue:</p>
+            
+            <div class="message-block">
+                Adopt Phase B3 RMZ Assembly MVP
+            </div>
+            
+            <p>Su finalidad era aprobar la dirección de la fase B3: votaciones firmadas fuera de la cadena, resultados públicos y registros accesibles para auditoría.</p>
+            
+            <p>La consulta fue configurada del 5 de junio al 5 de julio de 2026 con tres opciones: sí, no y abstención. La definición también especificaba que los votos no constituirían transacciones on-chain.</p>
+            
+            <p>La fecha de cierre ya pasó. Sin embargo, la configuración de una propuesta no debe confundirse con la publicación de un resultado ratificado. Para afirmar un desenlace sería necesario consultar el archivo operativo completo de votos y reproducir el conteo.</    p>
+            
+            <p>Este enfoque evita que cada participación requiera una transacción, una comisión y espacio permanente en la blockchain. eCash se utiliza para demostrar la identidad vinculada, la posesión de RMZ y la existencia del alias; la capa de Asamblea administra el proceso electoral.</p>
+
+            <h2>Gobernanza verificable no significa gobernanza completamente on-chain</h2>
+            <p>El modelo utiliza evidencia on-chain para comprobar:</p>
+            <ul>
+                <li>dirección de la wallet;</li>
+                <li>propiedad de RMZ;</li>
+                <li>registro y estado del alias;</li>
+                <li>transacción y bloque de confirmación.</li>
+            </ul>
+            
+            <p>Pero los votos se almacenan y cuentan fuera de la cadena.</p>
+            
+            <p>Esto puede ofrecer una experiencia más económica, rápida y flexible. También facilita corregir un voto antes del cierre sin publicar varias transacciones permanentes.</p>
+            
+            <p>A cambio, introduce responsabilidades para los operadores:</p>
+            <ul>
+                <li>mantener el servidor disponible;</li>
+                <li>proteger la integridad de los archivos;</li>
+                <li>evitar la supresión selectiva de votos;</li>
+                <li>conservar los registros;</li>
+                <li>publicar la auditoría completa;</li>
+                <li>permitir que terceros reproduzcan los resultados.</li>
+            </ul>
+            
+            <p>La transparencia del código es necesaria, pero no suficiente. Un repositorio abierto permite revisar las reglas; no demuestra por sí mismo que la instancia operativa está ejecutando exactamente ese código ni que publicó todos los registros recibidos.</
+            
+            <p>Por esa razón, una gobernanza verificable requiere algo más que software abierto: necesita exportaciones firmadas, hashes, copias independientes y observadores capaces de reproducir el conteo.</p>
+
+            <h2>Estado actual: más que un esqueleto, menos que una institución terminada</h2>
+            <p>La arquitectura ya contiene componentes funcionales:</p>
+            
+            <ul class="check-list">
+                <li>verificación de elegibilidad;</li>
+                <li>generación de desafíos;</li>
+                <li>mensajes vinculados con la propuesta;</li>
+                <li>verificación de firmas;</li>
+                <li>recepción de votos;</li>
+                <li>sustitución mediante voto posterior;</li>
+                <li>resultados públicos;</li>
+                <li>auditoría en formato JSONL;</li>
+                <li>cálculo de reputación;</li>
+                <li>continuidad del índice de alias mediante snapshots.</li>
+            </ul>
+            
+            <p>No obstante, continúa siendo un MVP.</p>
+            
+            <p>Las propuestas se cargan desde archivos JSON y los votos se añaden a archivos JSONL. El conteo vuelve a leer esos registros y selecciona el voto válido más reciente de cada alias.</p>
+            
+            <p>Los desafíos de firma permanecen en memoria. Si el proceso se reinicia, los desafíos pendientes desaparecen y deben prepararse nuevamente.</p>
+            
+            <p>No se observa todavía una base de datos transaccional, un protocolo de replicación entre operadores, una red de testigos independientes ni una solución completa contra identidades múltiples.</p>
+            
+            <p>La conclusión correcta no es que el sistema esté vacío, pero tampoco que esté listo para administrar tesorerías, fondos públicos o decisiones irreversibles.</p>
+            
+            <p>Actualmente debe entenderse como un laboratorio funcional de gobernanza comunitaria.</p>
+
+            <h2>Los desafíos que deberá resolver</h2>
+            <h3>Resistencia frente a identidades múltiples</h3>
+            <p>Un alias por voto evita que el balance determine directamente la influencia, pero no impide que una persona registre varios alias.</p>
+            
+            <p>La comunidad deberá decidir si desea introducir costos de registro, antigüedad mínima, reputación histórica, invitaciones, avales o alguna forma adicional de prueba de unicidad.</    p>
+            
+            <p>Cada solución implica concesiones. Una verificación demasiado débil facilita ataques Sybil; una demasiado invasiva puede destruir la privacidad y excluir participantes legítimos.</p>
+
+            <h3>Persistencia y reproducción independiente</h3>
+            <p>Los archivos JSONL son fáciles de inspeccionar y exportar, pero una operación sensible necesita garantías adicionales.</p>
+            
+            <p>Cada propuesta debería producir un paquete auditable que contenga:</p>
+            <ul>
+                <li>definición y hash de la propuesta;</li>
+                <li>votos recibidos;</li>
+                <li>firmas;</li>
+                <li>evidencia de elegibilidad;</li>
+                <li>orden temporal;</li>
+                <li>votos sustituidos;</li>
+                <li>resultado calculado;</li>
+                <li>hash final del conjunto.</li>
+            </ul>
+            
+            <p>Un tercero debería poder descargar ese paquete, ejecutar un verificador independiente y obtener exactamente el mismo resultado.</p>
+
+            <h3>Endurecimiento criptográfico</h3>
+            <p>La firma ya se encuentra implementada, pero deberá someterse a revisión independiente.</p>
+            
+            <p>Será necesario comprobar compatibilidad entre wallets, tratamiento de direcciones, protección contra replay, expiración de desafíos, normalización de alias, cambios de propietario del alias y comportamiento ante reorganizaciones o inconsistencias en los servicios de evidencia.</p>
+            
+            <p>Una prueba funcional de firma no equivale a una auditoría de seguridad.</p>
+
+            <h3>Gobernanza de las propias reglas</h3>
+            <p>También debe existir un mecanismo para decidir quién puede:</p>
+            <ul>
+                <li>crear propuestas;</li>
+                <li>modificar requisitos;</li>
+                <li>definir quórums;</li>
+                <li>cancelar una consulta;</li>
+                <li>resolver una impugnación;</li>
+                <li>actualizar el software;</li>
+                <li>administrar los dominios y servicios.</li>
+            </ul>
+            
+            <p>Un sistema no se vuelve descentralizado únicamente porque sus participantes usan wallets. También importa quién controla la agenda, el servidor, los repositorios, los registros y las reglas electorales.</p>
+
+            <h3>Continuidad operativa</h3>
+            <p>Los servicios de alias, reputación, Asamblea y Chronik deberían poder desplegarse por operadores independientes.</p>
+            
+            <p>El código abierto permite hacerlo en teoría, pero la descentralización operativa necesita documentación reproducible, backups, imágenes de despliegue, variables claramente definidas y procedimientos de recuperación.</p>
+            
+            <p>La redundancia no existe hasta que otra persona puede levantar el sistema sin depender de instrucciones privadas.</p>
+
+            <h3>Privacidad y auditoría</h3>
+            <p>Los votos y registros del MVP están diseñados para ser públicos. La propia documentación advierte que no deben enviarse datos privados que posteriormente aparezcan en archivos JSON o JSONL.</p>
+            
+            <p>La transparencia debe limitarse a la evidencia necesaria. Una auditoría pública no requiere exponer nombres legales, ubicaciones, correos o información que permita acosar a los participantes.</p>
+
+            <h2>¿Qué aporta este modelo a eCash?</h2>
+            <p>La Gobernanza RMZ no pretende reemplazar el consenso de eCash, modificar las reglas del nodo Bitcoin ABC ni gobernar directamente el protocolo.</p>
+            
+            <p>Su ámbito inicial es comunitario:</p>
+            <ul>
+                <li>ratificar etapas de desarrollo;</li>
+                <li>reconocer participación;</li>
+                <li>coordinar ciudadanos y guardianes;</li>
+                <li>documentar decisiones;</li>
+                <li>construir reputación;</li>
+                <li>establecer mecanismos de rendición de cuentas.</li>
+            </ul>
+            
+            <p>Sin embargo, también funciona como laboratorio para problemas relevantes en todo el ecosistema:</p>
+            <ul>
+                <li>identidad soberana;</li>
+                <li>representación sin plutocracia directa;</li>
+                <li>reputación portable;</li>
+                <li>auditoría pública;</li>
+                <li>continuidad de infraestructura;</li>
+                <li>transparencia institucional.</li>
+            </ul>
+            
+            <p>En un contexto donde la comunidad discute financiamiento, dependencia de actores centrales y ausencia de información verificable, RMZ propone una respuesta práctica: convertir identidad, pertenencia y participación en evidencia que otros puedan consultar.</p>
+            
+            <p>No soluciona por sí mismo los problemas de gobernanza de eCash. Pero demuestra que es posible experimentar con instituciones comunitarias sin reducirlas a una encuesta en redes sociales, una base de datos privada o una votación proporcional al tamaño de la fortuna.</p>
+
+            <h2>Una gobernanza que deberá ganarse su legitimidad</h2>
+            <p>Publicar código no convierte automáticamente a un proyecto en legítimo.</p>
+            
+            <p>Tampoco un token, un alias, una firma o una votación garantizan una comunidad democrática.</p>
+            
+            <p>La legitimidad deberá construirse mediante reglas claras, participación plural, resultados reproducibles, límites conocidos, operación transparente y capacidad para corregir errores públicamente.</p>
+            
+            <p>RMZ plantea una dirección relevante: que la identidad no dependa de una plataforma centralizada, que la reputación no dependa exclusivamente de un moderador y que el voto no dependa automáticamente del tamaño de una fortuna.</p>
+            
+            <p>El código actual demuestra avances concretos, especialmente en elegibilidad, firmas y auditoría. Los desafíos pendientes se encuentran ahora en un nivel más difícil: unicidad, replicación, seguridad operativa y legitimidad social.</p>
+            
+            <p>La arquitectura establece una tesis verificable:</p>
+
+            <div class="maxima-box">
+                <p>La gobernanza soberana no consiste en pedir confianza. Consiste en diseñar sistemas donde identidad, participación y resultados puedan comprobarse.</p>
+            </div>
+
+            <aside class="editorial-box">
+                <h3>Recuadro editorial</h3>
+                <h3>Principios de la Gobernanza RMZ</h3>
+                <ul>
+                    <li><strong>XEC es el dinero.</strong> La moneda principal del ecosistema continúa siendo eCash.</li>
+                    <li><strong>RMZ es la llave.</strong> El token funciona como credencial mínima de pertenencia y acceso.</li>
+                    <li><strong>El alias .xec es la identidad.</strong> La participación se organiza mediante nombres legibles vinculados con wallets.</li>
+                    <li><strong>Un alias representa un voto.</strong> El balance de RMZ no aumenta automáticamente el poder electoral.</li>
+                    <li><strong>Los votos deben estar firmados.</strong> La wallet elegible firma un mensaje vinculado con la propuesta, opción y desafío.</li>
+                    <li><strong>La reputación se obtiene mediante acciones verificables.</strong> Identidad, posesión y participación generan evidencia pública.</li>
+                    <li><strong>La auditoría debe ser reproducible.</strong> No basta con mostrar un resultado; terceros deben poder volver a calcularlo.</li>
+                    <li><strong>El modelo continúa siendo un MVP.</strong> Las firmas ya están implementadas, pero la persistencia, replicación y resistencia Sybil necesitan mayor desarrollo.</li>
+                </ul>
+            </aside>
+        </article>
+
+        <footer class="article-footer">
+            <p>eCash Magazine México — Sección: Análisis Técnico — 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
