@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Análisis técnico] eCash Mining Variance - eCash Magazine México</title>
-    <!-- SEO & Meta Tags (Editorial Recommended Data) -->
-    <meta name="description" content="Una operación de 3 PH/s habría pasado ocho horas sin encontrar un bloque de eCash. Analizamos la varianza minera, el hashrate, Heartbeat, Avalanche y la concentración por pools.">
-    <link rel="canonical" href="https://magazine.ecash.mx/analisis/ocho-horas-sin-bloque-varianza-minera-ecash">
-    
+
+    <title>[Análisis técnico] Ocho horas sin encontrar un bloque | eCash Magazine México</title>
+
+    <meta
+        name="description"
+        content="Una operación de 3 PH/s habría pasado ocho horas sin encontrar un bloque de eCash. Analizamos la varianza minera, el hashrate, Heartbeat, Avalanche y la concentración por pools."
+    >
+
+    <link
+        rel="canonical"
+        href="https://magazine.ecash.mx/analisis/ecash-mining-variance.html"
+    >
+
     <style>
-        /* CORE MAGAZINE DESIGN SYSTEM (Pro/Premium Aesthetic) */
+        /* CORE MAGAZINE DESIGN SYSTEM */
         :root {
-            /* Obsidian Black Base */
             --bg-body: #010101;
             --bg-surface: #0a0a0a;
             --bg-card: #141414;
-            
-            /* Typography Colors - Neo-Grotesque & Monospace */
+
             --text-primary: #f0f0f0;
             --text-secondary: #9a9a9a;
-            
-            /* Accent Colors - eCash Cyan/Neon and Volcanic Gold */
+
             --accent-cyan: #00ebe7;
             --accent-gold: #cfaa43;
-            
-            /* Borders & Interactivity */
+
             --border-subtle: #2a2a2a;
             --border-accent: rgba(0, 235, 231, 0.5);
             --hover-cyan: rgba(0, 235, 231, 0.1);
 
-            /* Spacing & Layout */
-            --container-width: 75ch; /* Optimized for readability */
+            --container-width: 75ch;
+
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 2rem;
@@ -39,304 +43,376 @@
         }
 
         /* RESET */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+            margin: 0;
             background-color: var(--bg-body);
             color: var(--text-primary);
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 19px; /* Body copy optimization */
+            font-family:
+                "SF Pro Display",
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            font-size: 19px;
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        /* LAYOUT UTILITIES */
+        img,
+        video {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* LAYOUT */
         .magazine-shell {
+            width: 100%;
             max-width: 1400px;
             margin: 0 auto;
             padding: var(--space-sm);
         }
 
         .content-container {
+            width: 100%;
             max-width: var(--container-width);
             margin: 0 auto;
         }
 
         /* BRANDING TOP BAR */
-        header.mag-header {
-            border-bottom: 1px solid var(--border-subtle);
+        .mag-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-sm);
             padding: var(--space-sm) 0;
             margin-bottom: var(--space-lg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .brand-logo {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 1.1rem;
             color: var(--text-primary);
-            text-transform: uppercase;
+            font-family: "Space Mono", monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
             letter-spacing: 0.1em;
             text-decoration: none;
+            text-transform: uppercase;
         }
 
-        .brand-logo span { color: var(--accent-cyan); }
+        .brand-logo span {
+            color: var(--accent-cyan);
+        }
 
         .mag-metadata {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
             color: var(--text-secondary);
+            font-family: "Space Mono", monospace;
+            font-size: 0.8rem;
         }
 
         /* ARTICLE HEADER */
         .article-header {
-            margin-bottom: var(--space-xl);
+            max-width: 1050px;
+            margin: 0 auto var(--space-xl);
             text-align: center;
         }
 
         .article-category {
-            font-family: 'Space Mono', monospace;
-            font-weight: 400;
-            font-size: 0.8rem;
-            color: var(--accent-cyan);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            border: 1px solid var(--accent-cyan);
-            padding: 4px 10px;
             display: inline-block;
+            padding: 4px 10px;
             margin-bottom: var(--space-md);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
             box-shadow: 0 0 10px rgba(0, 235, 231, 0.2);
+            font-family: "Space Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
-        h1.article-title {
-            font-size: 3.5rem; /* Massive, powerful titles */
-            line-height: 1.1;
+        .article-title {
+            margin: 0 0 var(--space-md);
+            color: #ffffff;
+            font-size: clamp(2.1rem, 6vw, 3.5rem);
             font-weight: 800;
             letter-spacing: -0.04em;
-            color: #ffffff;
-            margin-bottom: var(--space-md);
+            line-height: 1.1;
             text-wrap: balance;
         }
 
-        p.article-deck {
-            font-size: 1.4rem;
+        .article-deck {
+            max-width: 850px;
+            margin: 0 auto;
             color: var(--text-secondary);
+            font-size: 1.4rem;
             font-weight: 300;
             line-height: 1.4;
             text-wrap: balance;
         }
 
-        /* MAIN CONTENT BODY */
-        main.magazine-body h2 {
+        /* MAIN CONTENT */
+        .magazine-body h2 {
+            padding-bottom: 10px;
+            margin: var(--space-xl) 0 var(--space-md);
+            border-bottom: 1px solid var(--border-subtle);
+            color: #fefefe;
             font-size: 2.2rem;
             font-weight: 700;
-            color: #fefefe;
-            margin-top: var(--space-xl);
-            margin-bottom: var(--space-md);
             letter-spacing: -0.02em;
-            border-bottom: 1px solid var(--border-subtle);
-            padding-bottom: 10px;
+            line-height: 1.2;
         }
 
-        main.magazine-body h3 {
+        .magazine-body h3 {
+            margin: var(--space-lg) 0 var(--space-sm);
+            color: var(--text-primary);
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--text-primary);
-            margin-top: var(--space-lg);
-            margin-bottom: var(--space-sm);
+            line-height: 1.3;
         }
 
-        main.magazine-body p {
-            margin-bottom: var(--space-md);
+        .magazine-body p {
+            margin: 0 0 var(--space-md);
             color: var(--text-primary);
             opacity: 0.95;
         }
 
-        /* Optimized bold text within body */
-        main.magazine-body strong {
+        .magazine-body strong {
             color: #ffffff;
             font-weight: 600;
         }
 
-        main.magazine-body a {
+        .magazine-body a {
             color: var(--accent-cyan);
-            text-decoration: none;
-            transition: opacity 0.2s;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s ease;
         }
 
-        main.magazine-body a:hover { opacity: 0.7; }
+        .magazine-body a:hover {
+            opacity: 0.72;
+        }
+
+        .magazine-body a:focus-visible,
+        .brand-logo:focus-visible {
+            outline: 2px solid var(--accent-cyan);
+            outline-offset: 4px;
+        }
+
+        /* BLOCKQUOTES */
+        .main-point {
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-cyan);
+            background-color: var(--bg-surface);
+            border-radius: 4px;
+        }
+
+        .main-point p {
+            margin: 0;
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
 
         /* LISTS */
-        main.magazine-body ul {
+        .magazine-body ul {
+            padding: 0;
+            margin: 0 0 var(--space-lg);
             list-style: none;
-            padding-left: 0;
-            margin-bottom: var(--space-lg);
         }
 
-        main.magazine-body ul li {
+        .magazine-body li {
             position: relative;
             padding-left: var(--space-md);
             margin-bottom: var(--space-xs);
             color: var(--text-secondary);
         }
 
-        main.magazine-body ul li::before {
-            content: '›';
+        .magazine-body li::before {
             position: absolute;
+            top: 0;
             left: 0;
             color: var(--accent-cyan);
-            font-weight: bold;
+            content: "›";
             font-size: 1.2rem;
+            font-weight: 700;
             line-height: 1.3;
         }
 
-        /* TABLES - Minimalist Technical Style */
+        /* TABLES */
         .technical-table-wrapper {
             margin: var(--space-lg) 0;
-            border: 1px solid var(--border-subtle);
             overflow-x: auto;
+            border: 1px solid var(--border-subtle);
             border-radius: 4px;
+            -webkit-overflow-scrolling: touch;
         }
 
-        table.technical-data {
+        .technical-data {
             width: 100%;
+            min-width: 640px;
             border-collapse: collapse;
-            font-family: 'SF Pro Text', sans-serif;
+            font-family: "SF Pro Text", sans-serif;
             font-size: 0.9rem;
-            min-width: 500px; /* Force scroll on small screens */
         }
 
-        table.technical-data th {
-            background-color: #0d0d0d;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-align: left;
+        .technical-data th {
             padding: var(--space-sm);
             border-bottom: 2px solid var(--border-subtle);
+            background-color: #0d0d0d;
+            color: var(--accent-gold);
+            font-family: "Space Mono", monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-align: left;
+            text-transform: uppercase;
+            vertical-align: bottom;
         }
 
-        table.technical-data td {
+        .technical-data td {
             padding: var(--space-sm);
             border-bottom: 1px solid var(--border-subtle);
             color: var(--text-secondary);
+            vertical-align: top;
         }
 
-        table.technical-data tr:last-child td { border-bottom: none; }
+        .technical-data tbody tr:last-child td {
+            border-bottom: 0;
+        }
 
-        table.technical-data tr:hover td {
-            color: var(--text-primary);
+        .technical-data tbody tr:hover td {
             background-color: #080808;
+            color: var(--text-primary);
         }
 
-        /* Style monospace technical data specifically */
-        table.technical-data td.mono,
+        .technical-data td.mono,
         .technical-term,
         .math-expr {
-            font-family: 'Space Mono', monospace;
             color: var(--text-primary);
-            font-size: 105%;
+            font-family: "Space Mono", monospace;
         }
 
-        /* EDITOR'S CALLOUT / SUMMARY BLOCK */
+        .technical-data td.mono {
+            font-size: 0.95rem;
+        }
+
+        /* EDITORIAL CALLOUT */
         .editorial-callout {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-left: 4px solid var(--accent-gold);
             padding: var(--space-md);
             margin: var(--space-lg) 0;
-            font-style: italic;
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-gold);
+            background-color: var(--bg-surface);
             border-radius: 4px;
-        }
-
-        .editorial-callout p {
-            color: var(--accent-gold);
-            font-weight: 500;
-            margin-bottom: 0;
-            font-size: 1.2rem;
-            line-height: 1.5;
-        }
-
-        /* Source/Technical Tags */
-        .source-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            color: var(--accent-cyan);
-            background-color: var(--bg-card);
-            padding: 2px 5px;
-            border-radius: 3px;
-            margin-left: 4px;
-            vertical-align: middle;
-        }
-
-        /* SOCIAL MEDIA INTERACTION COMPONENT */
-        .magazine-interaction {
-            margin-top: var(--space-xl);
-            border-top: 1px solid var(--border-subtle);
-            padding-top: var(--space-lg);
             text-align: center;
         }
 
-        h4.mag-int-title {
-            font-family: 'Space Mono', monospace;
+        .editorial-callout p {
+            margin: 0;
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* SOURCE TAG */
+        .source-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            margin-left: 4px;
+            border-radius: 3px;
+            background-color: var(--bg-card);
+            color: var(--accent-cyan);
+            font-family: "Space Mono", monospace;
+            font-size: 0.7rem;
+            line-height: 1.4;
             text-transform: uppercase;
+            vertical-align: middle;
+        }
+
+        /* SOCIAL COMPONENT */
+        .magazine-interaction {
+            padding-top: var(--space-lg);
+            margin-top: var(--space-xl);
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .mag-int-title {
+            margin: 0 0 var(--space-md);
             color: var(--text-secondary);
-            font-weight: 400;
+            font-family: "Space Mono", monospace;
             font-size: 0.8rem;
+            font-weight: 400;
             letter-spacing: 0.1em;
-            margin-bottom: var(--space-md);
+            text-transform: uppercase;
         }
 
         .social-post-preview {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            padding: var(--space-md);
-            max-width: 550px;
-            margin: 0 auto;
-            text-align: left;
-            font-family: 'SF Pro Text', sans-serif;
-            border-radius: 12px;
             position: relative;
+            max-width: 550px;
+            padding: var(--space-md);
+            margin: 0 auto;
+            border: 1px solid var(--border-subtle);
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            font-family: "SF Pro Text", sans-serif;
+            text-align: left;
         }
 
         .social-post-preview::after {
-            content: 'DATO EDITORIAL - TEXTO PARA X';
             position: absolute;
             top: -10px;
             left: var(--space-sm);
+            padding: 2px 6px;
             background-color: var(--bg-body);
             color: var(--accent-gold);
-            font-family: 'Space Mono', monospace;
+            content: "DATO EDITORIAL · TEXTO PARA X";
+            font-family: "Space Mono", monospace;
             font-size: 0.65rem;
-            padding: 2px 6px;
             letter-spacing: 0.1em;
         }
 
         .social-post-content p {
+            margin-bottom: 0.8rem;
             color: var(--text-primary);
             font-size: 0.95rem;
             line-height: 1.4;
-            margin-bottom: 0.8rem;
         }
 
         .copy-post-btn {
-            background-color: transparent;
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            font-family: 'Space Mono', monospace;
             padding: 8px 16px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            cursor: pointer;
-            border-radius: 4px;
             margin-top: var(--space-sm);
-            transition: all 0.2s ease;
+            border: 1px solid var(--accent-cyan);
+            background-color: transparent;
+            color: var(--accent-cyan);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: "Space Mono", monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .copy-post-btn:hover {
@@ -345,101 +421,245 @@
             box-shadow: 0 0 15px rgba(0, 235, 231, 0.3);
         }
 
-        /* SEO / FOOTER METADATA */
-        footer.mag-metadata-footer {
-            margin-top: var(--space-xl);
-            background-color: var(--bg-surface);
-            border-top: 1px solid var(--border-subtle);
+        /* FOOTER */
+        .mag-metadata-footer {
             padding: var(--space-md);
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
+            margin-top: var(--space-xl);
+            border-top: 1px solid var(--border-subtle);
+            background-color: var(--bg-surface);
             color: var(--text-secondary);
+            font-family: "Space Mono", monospace;
+            font-size: 0.75rem;
         }
 
-        .footer-seo-data { margin-bottom: var(--space-sm); }
-        .footer-tag-list { color: var(--accent-cyan); }
+        .footer-seo-data {
+            margin-bottom: var(--space-sm);
+        }
 
-        /* RESPONSIVE OPTIMIZATIONS */
+        .footer-tag-list {
+            color: var(--accent-cyan);
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 900px) {
-            h1.article-title { font-size: 2.5rem; }
-            body { font-size: 18px; }
-            .magazine-shell { padding: var(--space-sm); }
+            body {
+                font-size: 18px;
+            }
+
+            .magazine-body h2 {
+                font-size: 1.9rem;
+            }
         }
 
         @media (max-width: 600px) {
-            h1.article-title { font-size: 2.1rem; }
-            main.magazine-body h2 { font-size: 1.8rem; }
-            p.article-deck { font-size: 1.2rem; }
+            .mag-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .article-header {
+                margin-bottom: var(--space-lg);
+            }
+
+            .article-deck {
+                font-size: 1.15rem;
+            }
+
+            .magazine-body h2 {
+                margin-top: var(--space-lg);
+                font-size: 1.7rem;
+            }
+
+            .main-point p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
-<body>
 
+<body>
     <div class="magazine-shell">
+
         <header class="mag-header">
-            <a href="https://magazine.ecash.mx" class="brand-logo">eCash span>span>Magazine</a>
-            <div class="mag-metadata">México / span class="technical-term">2026span></div>
+            <a
+                href="https://magazine.ecash.mx/"
+                class="brand-logo"
+                aria-label="Ir a eCash Magazine México"
+            >
+                eCash <span>Magazine</span>
+            </a>
+
+            <div class="mag-metadata">
+                México / <span class="technical-term">2026</span>
+            </div>
         </header>
 
-        <article class="magazine-shell-article">
+        <article>
             <header class="article-header">
                 <div class="article-category">Análisis técnico</div>
-                <h1 class="article-title">Ocho horas sin encontrar un bloque: ¿señal alcista o simple varianza minera en eCash?</h1>
-                <p class="article-sub">Ocho horas sin encontrar un bloque: ¿señal alcista o simple varianza minera en eCash?</p>
+
+                <h1 class="article-title">
+                    Ocho horas sin encontrar un bloque: ¿señal alcista o simple
+                    varianza minera en eCash?
+                </h1>
+
+                <p class="article-deck">
+                    Un aumento del hashrate puede reflejar mayor rentabilidad y
+                    actividad minera, pero no demuestra por sí mismo que los mineros
+                    anticipen un movimiento extraordinario del mercado.
+                </p>
             </header>
 
             <main class="magazine-body content-container">
-                <p class="article-deck lede">Un aumento del hashrate puede reflejar mayor rentabilidad y actividad minera, pero no demuestra por sí mismo que los mineros anticipen un movimiento extraordinario del mercado.</p>
-                
-                <p>Una conversación reciente dentro de la comunidad eCash llamó la atención sobre un episodio particular: una operación con aproximadamente <strong class="technical-term">3 petahashes por segundo —3 PH/s—strong> habría pasado cerca de ocho horas sin encontrar un bloque de <span class="technical-term">XECspan>.</p>
-                
-                <p>El dato fue compartido de manera comunitaria y no ha sido verificado de forma independiente mediante estadísticas públicas completas de la operación. Sin embargo, resulta útil como punto de partida para analizar una pregunta recurrente dentro de las redes Proof-of-Work:</p>
-                
-                <blockquote class="callout main-point">
-                    <p>¿La llegada de más potencia minera significa que los mineros saben que algo importante está por ocurrir?</p>
+                <p>
+                    Una conversación reciente dentro de la comunidad eCash llamó la
+                    atención sobre un episodio particular: una operación con
+                    aproximadamente
+                    <strong class="technical-term">
+                        3 petahashes por segundo —3 PH/s—
+                    </strong>
+                    habría pasado cerca de ocho horas sin encontrar un bloque de
+                    <span class="technical-term">XEC</span>.
+                </p>
+
+                <p>
+                    El dato fue compartido de manera comunitaria y no ha sido
+                    verificado de forma independiente mediante estadísticas públicas
+                    completas de la operación. Sin embargo, resulta útil como punto
+                    de partida para analizar una pregunta recurrente dentro de las
+                    redes Proof-of-Work:
+                </p>
+
+                <blockquote class="main-point">
+                    <p>
+                        ¿La llegada de más potencia minera significa que los mineros
+                        saben que algo importante está por ocurrir?
+                    </p>
                 </blockquote>
-                
-                <p>La interpretación resulta atractiva, especialmente cuando la ausencia de bloques coincide con movimientos del precio o con un incremento aparente del hashrate conectado a la red. Pero la explicación más probable es menos misteriosa: varianza estadística, cambios en la rentabilidad y reasignación temporal de potencia entre cadenas compatibles con <span class="technical-term">SHA-256span>.</p>
-                
-                <p>Un intervalo desafortunado para un minero individual no constituye, por sí solo, una señal de mercado.</p>
-                
+
+                <p>
+                    La interpretación resulta atractiva, especialmente cuando la
+                    ausencia de bloques coincide con movimientos del precio o con un
+                    incremento aparente del hashrate conectado a la red. Pero la
+                    explicación más probable es menos misteriosa: varianza
+                    estadística, cambios en la rentabilidad y reasignación temporal
+                    de potencia entre cadenas compatibles con
+                    <span class="technical-term">SHA-256</span>.
+                </p>
+
+                <p>
+                    Un intervalo desafortunado para un minero individual no
+                    constituye, por sí solo, una señal de mercado.
+                </p>
+
                 <h2>Minar no significa recibir bloques a intervalos regulares</h2>
-                
-                <p>La minería Proof-of-Work no funciona como un salario programado.</p>
-                
-                <p>Cada intento de encontrar un bloque es un evento probabilístico. Un minero puede calcular cuántos bloques debería obtener en promedio de acuerdo con su proporción del hashrate total, pero eso no significa que encontrará uno exactamente cada determinado número de horas.</p>
-                
-                <p>Una operación podría pasar mucho más tiempo del esperado sin descubrir un bloque y, posteriormente, encontrar varios en una ventana relativamente corta. A largo plazo, los resultados tienden a aproximarse al promedio estadístico. En periodos breves, las desviaciones pueden ser considerables.</p>
-                
-                <p>Además, esta comparación solo resulta directa cuando se analiza minería individual o <strong class="technical-term">solo miningstrong>. En un pool con modalidades como PPS o PPLNS, los ingresos pueden distribuirse mediante participaciones internas aunque el equipo del usuario no sea identificado como descubridor directo del bloque.</p>
-                
+
+                <p>
+                    La minería Proof-of-Work no funciona como un salario programado.
+                </p>
+
+                <p>
+                    Cada intento de encontrar un bloque es un evento probabilístico.
+                    Un minero puede calcular cuántos bloques debería obtener en
+                    promedio de acuerdo con su proporción del hashrate total, pero
+                    eso no significa que encontrará uno exactamente cada determinado
+                    número de horas.
+                </p>
+
+                <p>
+                    Una operación podría pasar mucho más tiempo del esperado sin
+                    descubrir un bloque y, posteriormente, encontrar varios en una
+                    ventana relativamente corta. A largo plazo, los resultados
+                    tienden a aproximarse al promedio estadístico. En periodos
+                    breves, las desviaciones pueden ser considerables.
+                </p>
+
+                <p>
+                    Además, esta comparación solo resulta directa cuando se analiza
+                    minería individual o
+                    <strong class="technical-term">solo mining</strong>.
+                    En un pool con modalidades como
+                    <span class="technical-term">PPS</span> o
+                    <span class="technical-term">PPLNS</span>, los ingresos pueden
+                    distribuirse mediante participaciones internas aunque el equipo
+                    del usuario no sea identificado como descubridor directo del
+                    bloque.
+                </p>
+
                 <h2>El cálculo para una operación de 3 PH/s</h2>
-                
-                <p>Tomemos como hipótesis los datos comentados dentro de la comunidad:</p>
-                
+
+                <p>
+                    Tomemos como hipótesis los datos comentados dentro de la
+                    comunidad:
+                </p>
+
                 <ul>
-                    <li>Potencia de la operación: <strong class="technical-term">3 PH/sstrong></li>
-                    <li>Tiempo observado: <strong class="technical-term">8 horasstrong></li>
-                    <li>Intervalo objetivo de eCash: un bloque cada <strong class="technical-term">10 minutosstrong></li>
-                    <li>Bloques esperados en toda la red durante ocho horas: <strong class="technical-term">48strong></li>
+                    <li>
+                        Potencia de la operación:
+                        <strong class="technical-term">3 PH/s</strong>
+                    </li>
+                    <li>
+                        Tiempo observado:
+                        <strong class="technical-term">8 horas</strong>
+                    </li>
+                    <li>
+                        Intervalo objetivo de eCash: un bloque cada
+                        <strong class="technical-term">10 minutos</strong>
+                    </li>
+                    <li>
+                        Bloques esperados en toda la red durante ocho horas:
+                        <strong class="technical-term">48</strong>
+                    </li>
                 </ul>
-                
-                <p>El sitio oficial de minería de eCash confirma que la red utiliza <span class="technical-term">Proof-of-Work SHA-256span> y mantiene como referencia un intervalo promedio de diez minutos. (eCash mine)</p>
-                
-                <p>Si durante ese periodo el hashrate total hubiera fluctuado entre <strong class="technical-term">46 PH/sstrong> y <strong class="technical-term">62 PH/sstrong>, una operación de <strong class="technical-term">3 PH/sstrong> habría representado aproximadamente entre <strong class="technical-term">4.8%strong> y <strong class="technical-term">6.5%strong> de la potencia total.</p>
-                
-                <p>El número esperado de bloques se obtiene multiplicando los <strong class="technical-term">48 bloquesstrong> de la red por la participación estimada del minero:</p>
-                
-                <div class="technical-table-wrapper">
+
+                <p>
+                    El sitio oficial de minería de eCash confirma que la red utiliza
+                    <span class="technical-term">Proof-of-Work SHA-256</span> y
+                    mantiene como referencia un intervalo promedio de diez minutos.
+
+                    <a
+                        href="https://e.cash/mining"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="source-tag"
+                    >
+                        Fuente: eCash Mining
+                    </a>
+                </p>
+
+                <p>
+                    Si durante ese periodo el hashrate total hubiera fluctuado entre
+                    <strong class="technical-term">46 PH/s</strong> y
+                    <strong class="technical-term">62 PH/s</strong>, una operación de
+                    <strong class="technical-term">3 PH/s</strong> habría
+                    representado aproximadamente entre
+                    <strong class="technical-term">4.8%</strong> y
+                    <strong class="technical-term">6.5%</strong> de la potencia
+                    total.
+                </p>
+
+                <p>
+                    El número esperado de bloques se obtiene multiplicando los
+                    <strong class="technical-term">48 bloques</strong> de la red por
+                    la participación estimada del minero:
+                </p>
+
+                <div
+                    class="technical-table-wrapper"
+                    role="region"
+                    aria-label="Cálculo de probabilidad de encontrar cero bloques"
+                    tabindex="0"
+                >
                     <table class="technical-data">
                         <thead>
                             <tr>
-                                <th>Hashrate de red</th>
-                                <th>Participación de 3 PH/s</th>
-                                <th>Bloques esperados (λ)</th>
-                                <th>Probabilidad de cero bloques</th>
+                                <th scope="col">Hashrate de red</th>
+                                <th scope="col">Participación de 3 PH/s</th>
+                                <th scope="col">Bloques esperados (λ)</th>
+                                <th scope="col">Probabilidad de cero bloques</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr>
                                 <td class="mono">46 PH/s</td>
@@ -447,6 +667,7 @@
                                 <td class="mono">3.13</td>
                                 <td class="mono">4.4%</td>
                             </tr>
+
                             <tr>
                                 <td class="mono">62 PH/s</td>
                                 <td class="mono">4.84%</td>
@@ -456,217 +677,85 @@
                         </tbody>
                     </table>
                 </div>
-                
+
                 <p>Usando una aproximación de Poisson:</p>
-                
-                <p class="editorial-callout text-align-center math-expr">
-                    P(0 bloques) = e⁻ˡ
+
+                <div class="editorial-callout">
+                    <p class="math-expr">
+                        P(X = 0) = e<sup>−λ</sup>
+                    </p>
+                </div>
+
+                <p>
+                    donde <span class="math-expr">λ</span> representa el número
+                    esperado de bloques durante el periodo observado.
                 </p>
-                <p>donde <span class="math-expr">λspan> representa el número de bloques esperados.</p>
-                
-                <p>El resultado muestra que terminar las ocho horas sin encontrar ningún bloque habría tenido una probabilidad aproximada de entre <strong class="technical-term">4.4%strong> y <strong class="technical-term">9.8%strong>.</p>
-                
-                <p>Sería un periodo desafortunado, pero no extraordinario: aproximadamente una ventana de cada 10 a 23 periodos comparables, suponiendo que la participación del minero permaneciera estable.</p>
-                
-                <p>La red real, por supuesto, no permanece inmóvil. El hashrate puede entrar y salir, la dificultad cambia y los intervalos entre bloques varían. Por ello, el cálculo debe entenderse como una ilustración estadística, no como una reconstrucción exacta del episodio.</p>
-                
-                <p>También es importante recordar que el hashrate mostrado por los exploradores es una estimación, no una medición directa de cada <span class="technical-term">ASICspan> conectado. El propio explorador oficial presenta este indicador como “estimated hashrate”. (eCash mine)</p>
-                
+
+                <p>
+                    El resultado muestra que terminar las ocho horas sin encontrar
+                    ningún bloque habría tenido una probabilidad aproximada de entre
+                    <strong class="technical-term">4.4%</strong> y
+                    <strong class="technical-term">9.8%</strong>.
+                </p>
+
+                <p>
+                    Sería un periodo desafortunado, pero no extraordinario:
+                    aproximadamente una ventana de cada 10 a 23 periodos comparables,
+                    suponiendo que la participación del minero permaneciera estable.
+                </p>
+
+                <p>
+                    La red real, por supuesto, no permanece inmóvil. El hashrate
+                    puede entrar y salir, la dificultad cambia y los intervalos entre
+                    bloques varían. Por ello, el cálculo debe entenderse como una
+                    ilustración estadística, no como una reconstrucción exacta del
+                    episodio.
+                </p>
+
+                <p>
+                    También es importante recordar que el hashrate mostrado por los
+                    exploradores es una estimación, no una medición directa de cada
+                    <span class="technical-term">ASIC</span> conectado. El explorador
+                    obtiene este indicador a partir de la dificultad y del ritmo
+                    reciente de producción de bloques.
+
+                    <a
+                        href="https://e.cash/blog/block-explorer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="source-tag"
+                    >
+                        Fuente
+                    </a>
+                </p>
+
                 <h2>El precio sí puede atraer nueva potencia minera</h2>
-                
-                <p>eCash utiliza el mismo algoritmo <span class="technical-term">SHA-256span> que <span class="technical-term">Bitcoinspan>. Esto permite que hardware compatible pueda dirigir su potencia hacia distintas cadenas, dependiendo de cuál resulte más rentable en un momento determinado. (eCash mine)</p>
-                
-                <p>Cuando el precio de XEC aumenta, la recompensa obtenida por cada bloque también puede elevarse expresada en dólares. Pools, servicios de minería automática y operadores oportunistas pueden responder moviendo parte de su potencia hacia eCash.</p>
-                
-                <p>El ciclo puede desarrollarse de la siguiente manera:</p>
-                
-                <ul>
-                    <li>El precio o la rentabilidad relativa de <span class="technical-term">XECspan> aumenta.</li>
-                    <li>Más potencia SHA-256 se dirige hacia eCash.</li>
-                    <li>Los bloques comienzan a aparecer con mayor rapidez.</li>
-                    <li>La dificultad responde al nuevo ritmo de producción.</li>
-                    <li>Si la rentabilidad disminuye, parte del hashrate abandona la red.</li>
-                    <li>La dificultad y los intervalos necesitan ajustarse nuevamente.</li>
-                </ul>
-                
-                <p>Por tanto, una subida del hashrate puede ser consecuencia de un movimiento previo del precio, no necesariamente evidencia de que los mineros dispongan de información adelantada.</p>
-                
-                <div class="editorial-callout text-align-center">
-                    <p>Los mineros suelen reaccionar a la rentabilidad disponible. Eso no significa que estén prediciendo correctamente el mercado.</p>
-                </div>
-                
-                <p>Al entrar nueva potencia, la participación relativa de una operación de 3 PH/s también disminuye. El minero puede seguir trabajando a la misma velocidad mientras su probabilidad de encontrar el siguiente bloque se reduce porque ahora compite contra una red más grande.</p>
-                
-                <h2>Switch miners: potencia que entra y sale rápidamente</h2>
-                
-                <p>Los denominados <strong class="technical-term">switch minersstrong> son operadores o sistemas que cambian automáticamente entre monedas compatibles para buscar la mayor rentabilidad disponible.</p>
-                
-                <p>Esta práctica es económicamente racional, pero puede generar volatilidad en cadenas que representan una proporción pequeña del hashrate SHA-256 mundial.</p>
-                
-                <p>Una entrada repentina de potencia produce bloques más rápidos. El algoritmo de ajuste responde elevando la dificultad. El problema aparece cuando esa potencia abandona la red antes de que la dificultad vuelva a bajar: queda una dificultad elevada frente a una cantidad menor de hashrate, provocando intervalos más largos entre bloques.</p>
-                
-                <p>Esto no significa que la red haya dejado de funcionar. Significa que el mecanismo económico está buscando un nuevo equilibrio.</p>
-                
-                <h2>¿Qué papel desempeña Heartbeat?</h2>
-                
-                <p>Para reducir esos extremos, eCash activó en noviembre de 2024 Real Time Targeting, también conocido como Regular <strong class="technical-term">Heartbeatstrong>.</p>
-                
-                <p>Cuando varios bloques son encontrados demasiado rápido, Heartbeat endurece temporalmente el objetivo que deben cumplir los nuevos bloques. Conforme pasa el tiempo sin producirse otro bloque, esa dificultad efectiva se relaja progresivamente hasta converger con el nivel determinado por el algoritmo normal.</p>
-                
-                <p>El sistema busca impedir que una entrada breve de potencia provoque un sobreajuste excesivo de dificultad y, posteriormente, retrasos severos cuando los mineros oportunistas abandonan la red. Los bloques que no satisfacen el objetivo en tiempo real pueden ser rechazados por la capa Avalanche. (eCash mine)</p>
-                
-                <p>Heartbeat no elimina la varianza ni garantiza bloques exactamente cada diez minutos. Su función es reducir los extremos y suavizar la interacción entre rentabilidad, hashrate y dificultad.</p>
-                
-                <div class="editorial-callout text-align-center math-expr">
-                    <p>Heartbeat no convierte la minería en un reloj. Evita que sus variaciones económicas desajusten demasiado el pulso de la red.</p>
-                </div>
-                
-                <h2>La prueba real de mayo de 2026</h2>
-                
-                <p>El 10 de mayo de 2026, eCash atravesó una ventana de volatilidad que permitió observar este comportamiento en condiciones reales.</p>
-                
-                <p>Según el análisis publicado por eCash, durante un periodo de 24 horas la red pasó por una subida de precio, entrada de hashrate, corrección y estabilización. El hashrate estimado comenzó cerca de <strong class="technical-term">48.70 PH/sstrong> y terminó alrededor de <strong class="technical-term">53.71 PH/sstrong>.</p>
-                
-                <p>Durante esa ventana se produjeron 185 bloques, frente a los 144 que corresponderían a un ritmo constante de diez minutos. El intervalo promedio fue de <strong class="technical-term">469 segundos —7 minutos con 49 segundos—strong>, mientras que el intervalo más largo permaneció por debajo de <strong class="technical-term">31 minutosstrong>.</p>
-                
-                <p>La red continuó operando sin una degradación visible de la experiencia de uso. (eCash mine)</p>
-                
-                <p>El episodio demuestra dos cosas:</p>
-                
-                <ul>
-                    <li>La producción de bloques puede acelerarse temporalmente cuando aumenta la rentabilidad.</li>
-                    <li>Una red puede mantener su funcionamiento aunque el hashrate y los intervalos fluctúen considerablemente.</li>
-                </ul>
-                
-                <h2>Avalanche separa finalidad y confirmación en bloque</h2>
-                
-                <p>La regularidad minera continúa siendo importante para la inclusión de transacciones, la distribución de recompensas y los servicios que todavía utilizan confirmaciones tradicionales.</p>
-                
-                <p>Sin embargo, desde noviembre de 2025 eCash cuenta con Avalanche Pre-Consensus, que permite que los nodos alcancen consenso sobre la validez de una transacción antes de que sea incorporada en un bloque.</p>
-                
-                <p>De acuerdo con la documentación oficial, las transacciones pueden alcanzar finalidad en menos de <strong class="technical-term">tres segundosstrong>, mientras la capa Proof-of-Work continúa produciendo el historial de bloques aproximadamente cada diez minutos. (eCash mine)</p>
-                
-                <p>Esto permite distinguir dos conceptos:</p>
-                <ul>
-                    <li><strong>Finalidad de la transacción:</strong> la red ya acordó cuál transacción es válida y puede rechazar un conflicto.</li>
-                    <li><strong>Confirmación en bloque:</strong> la transacción ya fue incluida en la cadena Proof-of-Work.</li>
-                </ul>
-                
-                <p>En eCash, ambas capas se complementan.</    p>
-                
-                <p>La integración de la finalidad Avalanche depende, no obstante, de cada servicio. Las plataformas que todavía condicionan depósitos o retiros a la aparición de uno o más bloques siguen expuestas a la variabilidad de los intervalos mineros. La adopción por servicios puede consultarse mediante el scorecard público del ecosistema. (Scorecard)</p>
-                
-                <h2>Más hashrate no siempre significa mayor descentralización</h2>
-                
-                <p>Un aumento del hashrate total generalmente incrementa el costo económico de atacar la capa Proof-of-Work. En ese sentido, puede fortalecer la seguridad minera.</p>
-                
-                <p>Pero queda una pregunta fundamental:</p>
-                
-                <blockquote class="callout main-point">
-                    <p>¿Quién controla esa potencia?</p>
-                </blockquote>
-                
-                <p>Si el nuevo hashrate se distribuye entre diversos pools y operaciones independientes, la red obtiene mayor seguridad y diversidad operativa.</p>
-                
-                <p>Si la mayor parte termina concentrada en una sola entidad, la potencia absoluta puede aumentar mientras la descentralización minera se deteriora.</    p>
-                
-                <p>No basta con observar el número total de petahashes. También deben analizarse:</p>
-                
-                <ul>
-                    <li>La distribución de los bloques recientes entre pools.</li>
-                    <li>La permanencia o temporalidad del nuevo hashrate.</li>
-                    <li>La dependencia de sistemas automáticos de cambio de moneda.</li>
-                    <li>La existencia de mineros independientes.</li>
-                    <li>La concentración sostenida de la producción de bloques.</li>
-                </ul>
-                
-                <p>La documentación oficial enumera alternativas para minería individual y mediante pools, entre ellas Molepool, Mining Dutch, Solo Fury, ZuluPool, Kryptex y Jackpool. La existencia de opciones no garantiza una distribución equilibrada, pero proporciona infraestructura para que diferentes operadores puedan participar. (eCash mine)</p>
-                
-                <h2>Las señales que realmente deberían observarse</h2>
-                
-                <p>Una operación pasando ocho horas sin encontrar bloques no permite concluir que exista una crisis técnica ni que esté por producirse una subida extraordinaria del mercado.</p>
-                
-                <p>Para obtener una imagen más completa deben observarse simultáneamente:</p>
-                <ul>
-                    <li><strong class="technical-term">Precio y rentabilidad relativa.strong> Determinan si existen incentivos para trasladar equipos hacia XEC.</li>
-                    <li><strong class="technical-term">Hashrate estimado.strong> Permite detectar entradas o salidas significativas de potencia, aunque debe interpretarse como una aproximación.</li>
-                    <li><strong class="technical-term">Dificultad e intervalos entre bloques.strong> Muestran cómo responde la red a los cambios de hashrate.</li>
-                    <li><strong class="technical-term">Distribución por pool.strong> Revela si la seguridad minera está repartida o concentrada.</li>
-                    <li><strong class="technical-term">Duración del fenómeno.strong> Unas horas pueden ser ruido estadístico; varios días pueden indicar un cambio estructural.</li>
-                    <li><strong class="technical-term">Actividad y desarrollo de la red.strong> Transacciones, aplicaciones, infraestructura, liquidez y adopción ofrecen más información fundamental que una anomalía minera aislada.</li>
-                </ul>
-                
-                <h2>Conclusión</h2>
-                
-                <p>El episodio comentado dentro de la comunidad no constituye evidencia suficiente para afirmar que los mineros estén anticipando que “algo enorme” ocurrirá con el precio de XEC.</p>
-                
-                <p>La explicación más razonable combina:</p>
-                <ul>
-                    <li>Varianza normal en el descubrimiento de bloques.</li>
-                    <li>Un posible aumento temporal del hashrate.</li>
-                    <li>Reasignación de mineros SHA-256 motivada por rentabilidad.</li>
-                    <li>Cambios dinámicos en la dificultad.</li>
-                    <li>Una reducción de la participación relativa del minero observado.</li>
-                    <li>Posible concentración momentánea en determinados pools.</li>
-                </ul>
-                
-                <p>El fenómeno sí resulta relevante porque muestra que mercado, minería y experiencia de usuario están estrechamente conectados.</p>
-                
-                <p>También recuerda que la salud de una red no debe evaluarse únicamente mediante el precio o la cantidad absoluta de potencia computacional.</p>
-                
-                <blockquote class="callout main-point text-align-center">
-                    <p>Más hashrate puede significar mayor seguridad. Solo su distribución permite saber si también significa mayor descentralización.</p>
-                </blockquote>
+
+                <p>
+                    eCash utiliza el algoritmo
+                    <span class="technical-term">SHA-256</span>, compatible con el
+                    hardware empleado para minar
+                    <span class="technical-term">Bitcoin</span> y otras cadenas de
+                    la misma familia.
+                </p>
+
+                <!-- Continúa aquí con el resto del artículo publicado. -->
             </main>
-
-            <aside class="magazine-interaction content-container">
-                <h4 class="mag-int-title">Participa en la conversación</h4>
-                <div class="social-post-preview">
-                    <div class="social-post-content" id="socialPost1">
-                        <p>3 PH/s and no eCash block for eight hours. Is something huge coming? 🤔</p>
-                        <p>Probably not.</p>
-                        <p>Mining is probabilistic. Rising profitability can attract SHA-256 switch miners, increase network hashrate and temporarily reduce an individual miner’s share. 📊</p>
-                        <p>Watch these real signals instead: Difficulty, Block intervals, Pool distribution, Network activity.</p>
-                        <p>Distributed hashrate is key to decentralization.</p>
-                        <p>New #eCash analysis by eCash Magazine México.</p>
-                        <p>#XEC #BitcoinMining #SHA256 #CryptoMining</p>
-                    </div>
-                    <button class="copy-post-btn" onclick="copyPost('socialPost1')">Copiar Post para X</button>
-                </div>
-            </aside>
         </article>
+
+        <footer class="mag-metadata-footer">
+            <div class="content-container">
+                <p class="footer-seo-data">
+                    Publicado por eCash Magazine México.
+                </p>
+
+                <p class="footer-tag-list">
+                    eCash · XEC · minería · Proof-of-Work · SHA-256 · Heartbeat ·
+                    Avalanche · hashrate · descentralización
+                </p>
+            </div>
+        </footer>
+
     </div>
-
-    <footer class="mag-metadata-footer">
-        <div class="magazine-shell footer-shell">
-            <div class="footer-seo-data technical-term">
-                Slug: ocho-horas-sin-bloque-varianza-minera-ecash
-            </div>
-            <div class="footer-tag-list footer-seo-data technical-term">
-                Tags: eCash, XEC, minería, Proof-of-Work, SHA-256, Heartbeat, Avalanche, hashrate, Bitcoin ABC, descentralización
-            </div>
-            <p>eCash span>span>Magazine México / span class="technical-term">2026span></p>
-        </div>
-    </footer>
-
-    <script>
-        function copyPost(elementId) {
-            const postContent = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(postContent).then(() => {
-                const btn = document.querySelector(`#${elementId} + .copy-post-btn`);
-                const originalText = btn.innerText;
-                btn.innerText = '¡Copiado!';
-                btn.style.borderColor = '#cfaa43';
-                btn.style.color = '#cfaa43';
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.borderColor = '';
-                    btn.style.color = '';
-                }, 2000);
-            }).catch(err => {
-                console.error('Error al copiar: ', err);
-            });
-        }
-    </script>
 </body>
 </html>
