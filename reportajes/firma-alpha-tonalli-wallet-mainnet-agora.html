@@ -3,122 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Firma Alpha entra a Tonalli Wallet: código en producción, Agora mainnet y un canario pendiente</title>
-  <meta name="description" content="Tonalli Wallet cerró dos fases de integración de Firma Alpha: mercado XEC↔FIRMA vía Agora, envío HD-aware, 391 pruebas y una primera operación real de 0.01 FIRMA todavía pendiente de autorización.">
+  <title>Firma Alpha en Tonalli Wallet: de la integración al dinero en movimiento sobre eCash</title>
+  <meta name="description" content="Auditoría técnica de Firma Alpha en Tonalli Wallet: Agora permissionless, ALP, firma HD, compra y envío soberanos probados en mainnet, riesgos y evaluación arquitectónica.">
   <link rel="canonical" href="https://magazine.ecash.mx/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
-
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="eCash Magazine México">
-  <meta property="og:title" content="Firma Alpha entra a Tonalli Wallet: código en producción, Agora mainnet y un canario pendiente">
-  <meta property="og:description" content="La integración FIRMA ya está en producción a nivel de código. El mercado descubierto es mainnet real; la primera operación con fondos reales todavía no ocurre.">
+  <meta property="og:title" content="Firma Alpha en Tonalli Wallet: de la integración al dinero en movimiento sobre eCash">
+  <meta property="og:description" content="Dos transacciones mainnet cambian la conclusión: Tonalli ya no sólo integra FIRMA; compró y envió el activo con autocustodia sobre eCash.">
   <meta property="og:url" content="https://magazine.ecash.mx/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html">
-
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Firma Alpha entra a Tonalli Wallet">
-  <meta name="twitter:description" content="Agora mainnet, envío HD-aware, 391 pruebas y un canario de 0.01 FIRMA todavía pendiente.">
-
+  <meta name="twitter:title" content="Firma Alpha en Tonalli Wallet: auditoría mainnet">
+  <meta name="twitter:description" content="Agora, ALP, HD, dos TXIDs reales y una evaluación de seguridad, descentralización y madurez económica.">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Firma Alpha entra a Tonalli Wallet: código en producción, Agora mainnet y un canario pendiente",
-    "description": "Tonalli Wallet cerró dos fases de integración de Firma Alpha: mercado XEC↔FIRMA vía Agora, envío HD-aware, 391 pruebas y una primera operación real de 0.01 FIRMA todavía pendiente de autorización.",
-    "datePublished": "2026-08-10",
-    "dateModified": "2026-08-10",
-    "inLanguage": "es-MX",
-    "articleSection": "Reportajes",
-    "mainEntityOfPage": "https://magazine.ecash.mx/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
-    "publisher": {"@type":"NewsMediaOrganization","name":"eCash Magazine México","url":"https://magazine.ecash.mx/"},
-    "keywords": ["Firma Alpha","FIRMA","Tonalli Wallet","eCash","XEC","Agora","ALP","Chronik","HD wallet"]
+    "@context":"https://schema.org",
+    "@type":"TechArticle",
+    "headline":"Firma Alpha en Tonalli Wallet: de la integración al dinero en movimiento sobre eCash",
+    "description":"Auditoría técnica de Firma Alpha en Tonalli Wallet: Agora permissionless, ALP, firma HD, compra y envío soberanos probados en mainnet, riesgos y evaluación arquitectónica.",
+    "datePublished":"2026-08-10",
+    "dateModified":"2026-08-12",
+    "inLanguage":"es-MX",
+    "articleSection":"Reportajes",
+    "mainEntityOfPage":"https://magazine.ecash.mx/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+    "publisher":{"@type":"NewsMediaOrganization","name":"eCash Magazine México","url":"https://magazine.ecash.mx/"},
+    "keywords":["Firma Alpha","FIRMA","Tonalli Wallet","eCash","XEC","Agora","ALP","Chronik","autocustodia","mainnet"]
   }
   </script>
-
   <style>
     :root{color-scheme:dark;--bg:#030506;--surface:#0a0f12;--card:#10171b;--text:#edf4f6;--muted:#a5b1b7;--cyan:#00abe7;--green:#50d890;--gold:#d7b45b;--orange:#ff8a3d;--line:#243038;--measure:80ch}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:18px;line-height:1.72;-webkit-font-smoothing:antialiased}a{color:#4fd8ff;text-underline-offset:3px}a:hover{color:#fff}.shell{width:min(1400px,100%);margin:0 auto;padding:0 20px}.site-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.brand{color:#fff;font-family:ui-monospace,monospace;font-weight:800;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}.brand span{color:var(--cyan)}.edition{color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}
-    .hero{position:relative;width:min(1280px,100%);margin:34px auto 0;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#05090c}.hero-art{min-height:560px;padding:52px;display:grid;place-items:center;background:radial-gradient(circle at 18% 25%,rgba(0,171,231,.22),transparent 35%),radial-gradient(circle at 82% 34%,rgba(80,216,144,.14),transparent 30%),linear-gradient(135deg,#05090c,#0b1217 55%,#050607)}.flow{width:min(900px,100%);display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:18px;font-family:ui-monospace,monospace}.node{padding:22px;border:1px solid var(--line);border-radius:10px;background:rgba(8,14,18,.85);text-align:center}.node strong{display:block;margin-bottom:7px;color:#fff}.node.rmz{border-color:rgba(215,180,91,.55)}.node.xec{border-color:rgba(0,171,231,.55)}.node.firma{border-color:rgba(80,216,144,.55)}.arrow{color:var(--cyan);font-size:1.7rem}.hero::after{position:absolute;inset:0;content:"";background:linear-gradient(180deg,rgba(0,0,0,.04) 30%,rgba(3,5,6,.97) 100%)}.hero-copy{position:absolute;z-index:1;right:clamp(20px,5vw,72px);bottom:clamp(22px,5vw,62px);left:clamp(20px,5vw,72px);max-width:1000px}.kicker{color:var(--gold);font-family:ui-monospace,monospace;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{max-width:20ch;margin:12px 0 10px;color:#fff;font-size:clamp(2.2rem,5.8vw,4.9rem);line-height:1.02;letter-spacing:-.055em;text-wrap:balance}.dek{max-width:850px;margin:0;color:#d9e2e5;font-size:clamp(1rem,2vw,1.25rem);line-height:1.5}
-    article{width:min(var(--measure),calc(100% - 32px));margin:0 auto;padding:52px 0 80px}.standfirst{padding:24px 26px;border:1px solid var(--line);border-left:4px solid var(--cyan);border-radius:6px;background:var(--surface);color:#dbe5e8;font-size:1.16rem}.dateline{margin:22px 0 46px;color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}h2{margin:64px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line);color:#fff;font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2;letter-spacing:-.025em;text-wrap:balance}h3{margin:38px 0 12px;color:#fff;font-size:1.28rem}p{margin:0 0 24px}strong{color:#fff}code{padding:.1em .3em;border-radius:4px;background:var(--card);color:#f2f6f7;font-family:ui-monospace,monospace;font-size:.88em;overflow-wrap:anywhere}blockquote{margin:36px 0;padding:20px 24px;border-left:4px solid var(--gold);background:#0f1110;color:#f3e8c6;font-size:1.18rem;font-weight:650}ul,ol{margin:0 0 30px;padding-left:25px}li{margin-bottom:9px;color:#d2dcdf}.table-wrap{margin:34px 0;overflow-x:auto;border:1px solid var(--line);border-radius:8px}table{width:100%;min-width:760px;border-collapse:collapse;background:var(--surface);font-size:.9rem}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:#fff;background:#10171b;font-family:ui-monospace,monospace;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}td:first-child{color:var(--muted);font-weight:700}tr:last-child td{border-bottom:0}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0}.metric{padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.metric b{display:block;color:#fff;font-size:1.35rem}.metric span{color:var(--muted);font-size:.84rem}.status{margin:38px 0;padding:24px;border:1px solid rgba(80,216,144,.35);border-radius:8px;background:linear-gradient(135deg,rgba(80,216,144,.09),rgba(0,171,231,.05))}.warning{margin:38px 0;padding:24px;border:1px solid rgba(255,138,61,.42);border-radius:8px;background:rgba(255,138,61,.07)}.source-note{color:var(--muted);font-size:.9rem}.verdict{margin:52px 0;padding:26px;border:1px solid rgba(0,171,231,.45);border-radius:8px;background:linear-gradient(135deg,rgba(0,171,231,.12),rgba(80,216,144,.05))}.verdict h2{margin-top:0}.verdict p:last-child{margin-bottom:0}footer{padding:28px 20px;border-top:1px solid var(--line);color:var(--muted);font-family:ui-monospace,monospace;font-size:.75rem;text-align:center}@media(max-width:760px){body{font-size:17px}.site-header{align-items:flex-start;flex-direction:column}.hero{margin-top:20px;border-radius:8px}.hero-art{min-height:520px;padding:25px}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}article{width:min(100% - 18px,var(--measure));padding-top:34px}.standfirst{padding:18px}.metric-grid{grid-template-columns:1fr}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:18px;line-height:1.72;-webkit-font-smoothing:antialiased}a{color:#4fd8ff;text-underline-offset:3px}.shell{width:min(1400px,100%);margin:0 auto;padding:0 20px}.site-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.brand{color:#fff;font-family:ui-monospace,monospace;font-weight:800;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}.brand span{color:var(--cyan)}.edition{color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}.hero{width:min(1280px,calc(100% - 24px));margin:34px auto 0;padding:clamp(32px,7vw,88px);border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle at 18% 20%,rgba(0,171,231,.24),transparent 35%),radial-gradient(circle at 82% 30%,rgba(80,216,144,.15),transparent 32%),linear-gradient(135deg,#05090c,#0b1217 55%,#050607)}.kicker{color:var(--gold);font-family:ui-monospace,monospace;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{max-width:18ch;margin:14px 0;color:#fff;font-size:clamp(2.35rem,6vw,5rem);line-height:1.02;letter-spacing:-.055em}.dek{max-width:850px;margin:0;color:#d9e2e5;font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.5}.flow{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}.pill{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(5,9,12,.75);font-family:ui-monospace,monospace;font-size:.78rem;color:#d8e3e6}.pill strong{color:#fff}article{width:min(var(--measure),calc(100% - 32px));margin:0 auto;padding:52px 0 80px}.standfirst{padding:24px 26px;border:1px solid var(--line);border-left:4px solid var(--cyan);border-radius:6px;background:var(--surface);font-size:1.16rem}.dateline{margin:22px 0 46px;color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}h2{margin:62px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line);color:#fff;font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2;letter-spacing:-.025em}p{margin:0 0 24px}strong{color:#fff}code{padding:.1em .3em;border-radius:4px;background:var(--card);color:#f2f6f7;font-family:ui-monospace,monospace;font-size:.88em;overflow-wrap:anywhere}blockquote{margin:36px 0;padding:20px 24px;border-left:4px solid var(--gold);background:#0f1110;color:#f3e8c6;font-size:1.18rem;font-weight:650}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0}.metric{padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.metric b{display:block;color:#fff;font-size:1.35rem}.metric span{color:var(--muted);font-size:.84rem}.table-wrap{margin:34px 0;overflow-x:auto;border:1px solid var(--line);border-radius:8px}table{width:100%;min-width:720px;border-collapse:collapse;background:var(--surface);font-size:.9rem}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:#fff;background:#10171b;font-family:ui-monospace,monospace;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}.warning,.status,.verdict{margin:38px 0;padding:24px;border-radius:8px}.warning{border:1px solid rgba(255,138,61,.42);background:rgba(255,138,61,.07)}.status{border:1px solid rgba(80,216,144,.35);background:linear-gradient(135deg,rgba(80,216,144,.09),rgba(0,171,231,.05))}.verdict{border:1px solid rgba(0,171,231,.45);background:linear-gradient(135deg,rgba(0,171,231,.12),rgba(80,216,144,.05))}.source-note{color:var(--muted);font-size:.9rem}footer{padding:28px 20px;border-top:1px solid var(--line);color:var(--muted);font-family:ui-monospace,monospace;font-size:.75rem;text-align:center}@media(max-width:760px){body{font-size:17px}.site-header{align-items:flex-start;flex-direction:column}.metrics{grid-template-columns:1fr}.hero{margin-top:18px}article{width:min(100% - 18px,var(--measure))}}
   </style>
 </head>
 <body>
-  <div class="shell"><header class="site-header"><a class="brand" href="https://magazine.ecash.mx/">eCash <span>Magazine</span></a><div class="edition">México · Reportaje técnico · 10 agosto 2026</div></header></div>
-
-  <header class="hero" aria-label="Portada del reportaje">
-    <div class="hero-art" aria-hidden="true"><div class="flow"><div class="node rmz"><strong>RMZ</strong>identidad</div><div class="arrow">→</div><div class="node xec"><strong>XEC</strong>dinero + fees</div><div class="arrow">→</div><div class="node firma"><strong>FIRMA</strong>activo interoperable</div></div></div>
-    <div class="hero-copy"><div class="kicker">Infraestructura de wallet</div><h1>Firma Alpha entra a Tonalli Wallet</h1><p class="dek">Código en producción, un orderbook Agora mainnet observado y una frontera clara: todavía no se ha transmitido la primera operación real.</p></div>
+  <div class="shell"><header class="site-header"><a class="brand" href="https://magazine.ecash.mx/">eCash <span>Magazine</span></a><div class="edition">México · Investigación técnica · actualización 12 agosto 2026</div></header></div>
+  <header class="hero">
+    <div class="kicker">Auditoría de infraestructura financiera</div>
+    <h1>Firma Alpha ya se mueve dentro de Tonalli</h1>
+    <p class="dek">La integración pasó de código y pruebas a evidencia on-chain: Tonalli compró FIRMA mediante Agora y realizó un envío soberano a un alias <code>.xec</code>, manteniendo la autocustodia sobre eCash.</p>
+    <div class="flow"><span class="pill"><strong>RMZ</strong> · identidad</span><span class="pill"><strong>XEC</strong> · liquidación y fees</span><span class="pill"><strong>FIRMA</strong> · activo económico interoperable</span><span class="pill"><strong>Agora</strong> · mercado UTXO</span></div>
   </header>
-
   <main><article>
-    <p class="standfirst"><strong>Tonalli Wallet cerró el 10 de agosto de 2026 dos fases de integración de Firma Alpha.</strong> El PR #45 incorporó el mercado XEC ↔ FIRMA sobre Agora y el PR #46 convirtió FIRMA en un activo utilizable dentro de la wallet, con saldo, envío dedicado y selección de inputs consciente de las rutas HD. Ambos cambios terminaron fusionados en <code>main</code>. La siguiente frontera ya no es de código: es operacional.</p>
-    <p class="dateline">Ciudad de México · Corte técnico: 10 de agosto de 2026</p>
+    <p class="standfirst"><strong>La conclusión del reportaje publicado el 10 de agosto cambió.</strong> Entonces, la integración Firma Alpha ↔ Tonalli estaba fusionada y auditada, pero faltaba cruzar la frontera operacional. La investigación posterior documenta dos transacciones aceptadas por la red principal: una compra parcial de FIRMA vía Agora y un envío soberano hacia una dirección resuelta mediante alias <code>.xec</code>. El código ya no sólo promete el flujo: la red lo ejecutó.</p>
+    <p class="dateline">Ciudad de México · Corte técnico actualizado: 12 de agosto de 2026</p>
 
-    <div class="metric-grid">
-      <div class="metric"><b>6,022.2061 FIRMA</b><span>liquidez observada en el orderbook durante la auditoría</span></div>
-      <div class="metric"><b>391 pruebas</b><span>387 Vitest + 4 Mint Pass reportadas en el cierre del PR #46</span></div>
-      <div class="metric"><b>0 broadcasts</b><span>ninguna compra, venta, redención o envío FIRMA/XEC real ejecutado</span></div>
+    <div class="metrics">
+      <div class="metric"><b>2 TXIDs</b><span>compra y envío FIRMA documentados en mainnet</span></div>
+      <div class="metric"><b>10/10</b><span>seguridad self-custodial en la evaluación de la auditoría</span></div>
+      <div class="metric"><b>8.5/10</b><span>readiness estimado para uso cotidiano</span></div>
     </div>
 
-    <h2>Primera fase: integrar FIRMA con Agora sin convertir el mercado en una lista blanca</h2>
-    <p>El primer cierre fue el PR <a href="https://github.com/xolosArmy/RMZWallet/pull/45">#45 de RMZWallet</a>, fusionado como <a href="https://github.com/xolosArmy/RMZWallet/commit/d51022321a83b2ccc593e9eadfe2694f8881b6bf"><code>d51022321a83b2ccc593e9eadfe2694f8881b6bf</code></a>. Su objetivo no fue simplemente “mostrar FIRMA”, sino construir una ruta de mercado que identificara el activo por parámetros canónicos y tratara a los makers de forma permissionless.</p>
-    <p>La identidad de FIRMA quedó anclada al Token ID canónico, protocolo ALP estándar tipo 0 y sus parámetros on-chain. La <code>genesisAuthPubkeyHex</code> se conserva para verificar la génesis, pero <strong>no funciona como permiso para comerciar</strong>. La pubkey del maker pertenece al covenant concreto y no determina si una oferta es admitida por Tonalli.</p>
-    <blockquote>El diseño importante no es “aceptar a Firma Operations”. Es aceptar cualquier oferta canónica de FIRMA que cumpla las reglas del covenant.</blockquote>
+    <h2>No es un ticker nuevo: es un motor de liquidación</h2>
+    <p>La actualización de Tonalli incorporó dos capas complementarias. El PR #45 integró el intercambio XEC ↔ FIRMA mediante Agora; el PR #46 habilitó el envío soberano del activo con soporte para UTXOs distribuidos entre rutas HD. La arquitectura mantiene una jerarquía explícita: RMZ conserva su papel de identidad y gobernanza; XEC sigue siendo la moneda nativa que paga la infraestructura; FIRMA entra como instrumento económico interoperable.</p>
+    <p>FIRMA está anclado en Tonalli por el Token ID canónico <code>0387947fd575db4fb19a3e322f635dec37fd192b5941625b66bc4b2c3008cbf0</code>, usa ALP y opera con cuatro decimales. La pubkey que autorizó la génesis no funciona como una lista blanca de vendedores: cualquier poseedor puede crear liquidez compatible en Agora.</p>
 
-    <h2>Un orderbook observado como mainnet real</h2>
-    <p>Durante la auditoría operativa del 10 de agosto, Tonalli mostró seis ofertas clasificadas como <code>real-open</code>: cinco confirmadas y una todavía en mempool. La suma observada fue de <strong>6,022.2061 FIRMA</strong>. Tres endpoints Chronik con Agora consultados de forma independiente devolvieron el mismo conjunto de ofertas.</p>
-    <p>Ese resultado fue relevante por dos razones. Primero, la ruta productiva FIRMA no dependía de fixtures, Offer IDs históricos ni un fallback sintético. Segundo, el mercado observado no estaba concentrado en un solo actor: <strong>cinco de las seis ofertas correspondían a makers diferentes</strong>. Una oferta de 5,000 FIRMA utilizaba la misma pubkey registrada como autoridad de génesis, pero Tonalli sólo la etiqueta como información; no le concede prioridad.</p>
-    <div class="warning"><strong>Precisión editorial:</strong> esta verificación describe lo observado durante la auditoría del 10 de agosto. Un orderbook es dinámico: cantidades, makers, confirmaciones y mempool pueden cambiar posteriormente.</div>
+    <h2>Agora: órdenes limitadas en lugar de un pool</h2>
+    <p>Agora no funciona como un AMM de Ethereum. Un maker bloquea tokens en un covenant P2SH bajo reglas que exigen el pago correcto en XEC. Si un taker acepta sólo una parte, la misma transacción paga la porción correspondiente y recrea el remanente bajo el covenant original.</p>
+    <blockquote>La atomicidad no depende de que Tonalli “se porte bien”: el covenant obliga a que pago y transferencia ocurran en la misma transacción válida.</blockquote>
+    <p>Para compras parciales, Tonalli calcula el precio efectivo con aritmética entera <code>BigInt</code>, descarta remanentes inválidos y vuelve a validar la oferta antes de firmar. La selección de makers permanece permissionless a nivel del protocolo.</p>
 
-    <h2>Comprar una cantidad parcial exige mirar el precio efectivo</h2>
-    <p>Agora permite ofertas parciales, y eso introduce un problema que no aparece en un exchange tradicional: el precio indicado para aceptar una oferta completa puede no ser el mejor precio para una cantidad concreta después del redondeo del covenant.</p>
-    <p>Tonalli corrige esto ejecutando <code>prepareAcceptedAtoms(requestedAtoms)</code> para cada oferta, descartando cantidades no representables o remainders inválidos y comparando racionalmente <code>askedSats / acceptedAtoms</code> mediante productos cruzados con <code>bigint</code>. El orderbook visible puede ordenarse por precio indicativo, pero <strong>la selección automática se decide con el precio efectivo de la compra solicitada</strong>.</p>
-    <p>La construcción y la revalidación del covenant utilizan <code>Agora.selectParams()</code>, y la wallet vuelve a comprobar que la oferta siga disponible antes de firmar. También se unificó la selección de UTXOs de combustible entre preview y confirmación para impedir que una vista previa valide un plan diferente al finalmente firmado.</p>
+    <h2>La primera compra real</h2>
+    <p>La transacción <code>088c39e6d9913fa31a253a8d8c1415358650ca208a39817b8c5a28c1a2f7e738</code> documenta una adquisición real de Firma Alpha desde Tonalli. Según la reconstrucción de la auditoría, consumió un UTXO XEC del comprador y un UTXO P2SH de Agora; pagó al maker, transfirió 1,000 átomos de FIRMA al comprador y recreó correctamente el remanente de la oferta.</p>
+    <p>Ese detalle importa: prueba una aceptación parcial end-to-end en condiciones reales. El Offer ID anterior deja de existir al gastarse el UTXO y el nuevo remanente pasa a tener otro <code>txid:vout</code>.</p>
 
-    <h2>La frontera criptográfica: previsualizar no significa tocar una llave</h2>
-    <p>Una parte central de ambos PR fue separar estrictamente las operaciones públicas —descubrir, cotizar, construir y previsualizar— del momento en que se materializan claves privadas.</p>
-    <p>En el flujo de envío FIRMA, el preview usa <code>DUMMY_KEYPAIR</code> y <code>EccDummy</code>. No llama <code>getSignatory</code>, <code>withPrivateKey</code>, <code>signTxBuilder</code> ni broadcast. La confirmación vuelve a escanear los UTXOs, reconstruye el plan, compara inputs, cantidades, propietarios HD, outputs y comisión; <strong>sólo después de comprobar que el plan es idéntico deriva el signatory correspondiente a cada input</strong>.</p>
-    <p>La suite agregó además una prueba con claves exclusivamente de test para verificar que la serialización con dummy ECC coincide con una firma Schnorr real en tamaño, fee, inputs, outputs, Token ID, cantidades ALP, destino y cambios.</p>
+    <h2>El primer envío soberano</h2>
+    <p>La transacción <code>4eed622286f24477e9bc6993c7178508aa9a6fd0bdff83962833a95fdeae7a3c</code> documenta el envío de FIRMA hacia una dirección resuelta mediante alias <code>.xec</code>. La auditoría describe un <code>OP_RETURN</code> ALP SEND correctamente estructurado y un input auxiliar compuesto sólo de XEC para cubrir la comisión.</p>
+    <p>La importancia de ese input puro es defensiva: el motor evita tomar UTXOs que contengan RMZ, NFTs, otros tokens o mint batons para pagar fees. Eso reduce el riesgo de una quema accidental de activos ajenos a la operación.</p>
 
-    <h2>Segunda fase: FIRMA deja de ser sólo mercado y se vuelve activo utilizable</h2>
-    <p>El PR <a href="https://github.com/xolosArmy/RMZWallet/pull/46">#46</a>, fusionado como <a href="https://github.com/xolosArmy/RMZWallet/commit/24ab1eab43d6ea751eed6483e4ea784a6cf20f67"><code>24ab1eab43d6ea751eed6483e4ea784a6cf20f67</code></a>, resolvió la experiencia de wallet. La decisión de producto fue explícita: <strong>RMZ sigue siendo el activo identitario principal; XEC continúa siendo el dinero nativo y la infraestructura de fees; FIRMA entra como activo económico interoperable.</strong></p>
-    <p>En Inicio, RMZ y XEC conservan sus tarjetas principales. FIRMA aparece debajo, dentro del bloque secundario <strong>“Activos compatibles”</strong>, con saldo y accesos a Enviar y Mercado. En el menú de envío, el orden quedó <code>Xolos RMZ → eCash XEC → Firma Alpha → NFT → QR</code>.</p>
-    <p>La nueva ruta <code>/send-firma</code> acepta una dirección eCash o alias <code>.xec</code>, restringe el monto a cuatro decimales, exige preview y requiere confirmación explícita antes de firmar.</p>
+    <h2>HD: saldo agregado sin sacrificar la propiedad de cada input</h2>
+    <p>Tonalli puede sumar FIRMA disperso entre varias direcciones derivadas bajo <code>m/44'/899'/0'</code>. Cada UTXO conserva su rama, índice y ruta; cuando llega la firma, se deriva el signatory específico del input correspondiente.</p>
+    <p>La política de cambio actual concentra remanentes FIRMA y XEC en <code>m/44'/899'/0'/0/0</code>. Esto simplifica recuperación y escaneo, pero la propia auditoría identifica un costo: reutilizar esa dirección facilita correlacionar actividad on-chain y reduce privacidad.</p>
 
-    <h2>Un builder dedicado para no mezclar tokens</h2>
-    <p>El envío FIRMA no reutiliza una función genérica de “cualquier token”. El builder fija el Token ID canónico, ALP estándar tipo 0 y aritmética <code>bigint</code>. La selección sólo admite UTXOs FIRMA canónicos y excluye RMZ, NFT, otros tokens y mint batons.</p>
-    <p>El ALP SEND conserva el cambio FIRMA y, para dust y comisión, utiliza XEC puro. La política de cambio quedó también fijada: tanto FIRMA como XEC regresan a <code>m/44'/899'/0'/0/0</code>, es decir, <code>receive/0</code>.</p>
+    <h2>Preview sin claves y defensa contra TOCTOU</h2>
+    <p>La previsualización emplea <code>DUMMY_KEYPAIR</code> y <code>EccDummy</code>; la semilla real permanece fuera del flujo hasta la confirmación. Después, Tonalli reconstruye y compara el plan —outpoints, cantidades, destinos, fees y cambio— antes de instanciar los signatories reales.</p>
+    <p>Ese patrón de huella digital protege contra discrepancias entre lo que el usuario aprobó y lo que finalmente se firma. La auditoría además relaciona la equivalencia de tamaños entre firmas dummy y Schnorr con estimaciones de fee deterministas.</p>
 
-    <h2>El bug HD que podía confundir saldo visible con saldo gastable</h2>
-    <p>La revisión encontró un problema arquitectónico importante. El Dashboard ya podía sumar FIRMA existente en varias rutas HD de la wallet, pero la primera implementación de <code>/send-firma</code> sólo podía gastar desde la dirección activa. En otras palabras: la interfaz podía mostrar un saldo que el envío no era capaz de consolidar.</p>
-    <p>La corrección hizo que los inputs FIRMA y XEC puedan provenir de las ramas <code>receive/change</code> controladas por la misma wallet. Cada UTXO conserva dirección, rama, índice, ruta HD y pubkey propietaria. Una dirección externa no puede entrar al plan.</p>
-    <p>Esto permite, por ejemplo, combinar <strong>0.0040 FIRMA</strong> en una dirección y <strong>0.0060 FIRMA</strong> en otra para enviar <strong>0.0100 FIRMA</strong>. Cada input se firma con la clave derivada de su propia ruta.</p>
-
-    <h2>Qué significan realmente las 391 pruebas</h2>
-    <p>El cierre del PR #46 reportó <strong>387 de 387 pruebas Vitest</strong> y <strong>4 de 4 Mint Pass</strong>, además de lint, typecheck, build PWA, <code>git diff --check</code> y escaneo de secretos.</p>
-    <p>La cifra no significa que cada línea o escenario económico esté formalmente verificado, pero sí cubre las regresiones que más importaban para esta fase: identidad canónica, exclusión de tokens ajenos, precisión de cuatro decimales, selección HD, consolidación entre rutas, exclusión de direcciones externas, signatory por input, cambio a <code>receive/0</code>, ausencia de claves durante preview, aborto si cambian UTXOs y paridad dummy/Schnorr.</p>
-
-    <section class="table-wrap" aria-label="Estado de la integración Firma Alpha" tabindex="0"><table><thead><tr><th>Capa</th><th>Estado al 10 de agosto</th></tr></thead><tbody>
-      <tr><td>Código de mercado</td><td>Fusionado en <code>main</code> mediante PR #45.</td></tr>
-      <tr><td>Orderbook</td><td>Ofertas Agora mainnet observadas; sin fixtures en la ruta productiva FIRMA.</td></tr>
-      <tr><td>Permissionless makers</td><td>La pubkey de génesis no funciona como autorización de makers.</td></tr>
-      <tr><td>Saldo FIRMA</td><td>Visible dentro de Activos compatibles.</td></tr>
-      <tr><td>Envío FIRMA</td><td>Ruta dedicada, HD-aware y con preview obligatorio.</td></tr>
-      <tr><td>Firma real</td><td>Diseñada y probada con claves de test; no ejecutada con fondos reales.</td></tr>
-      <tr><td>Operación canaria</td><td>Pendiente de autorización separada: aproximadamente <code>0.01 FIRMA</code>.</td></tr>
+    <h2>El threat model no desaparece</h2>
+    <section class="table-wrap"><table><thead><tr><th>Capa</th><th>Riesgo principal</th><th>Efecto</th></tr></thead><tbody>
+      <tr><td>Wallet local</td><td>Malware o exposición de la semilla.</td><td>Puede comprometer fondos.</td></tr>
+      <tr><td>Hosting web</td><td>Supply-chain sobre JavaScript desplegado.</td><td>Puede alterar la interfaz o intentar redirigir operaciones.</td></tr>
+      <tr><td>Chronik</td><td>Estados obsoletos, eclipse o filtrado de ofertas.</td><td>Puede censurar o degradar la experiencia, no falsificar firmas.</td></tr>
+      <tr><td>Alias .xec</td><td>Resolución incorrecta del nombre.</td><td>Puede inducir un destino erróneo; el fingerprint reduce cambios posteriores.</td></tr>
+      <tr><td>Liquidez/redención FIRMA</td><td>Downtime, iliquidez o fallas externas.</td><td>Puede cerrar vías de salida aunque Agora P2P permanezca.</td></tr>
     </tbody></table></section>
 
-    <h2>Lo que todavía no ocurrió</h2>
-    <p>La diferencia entre “producción” y “operación real” es el dato más importante del cierre. <strong>No se compró FIRMA, no se vendió, no se redimió, no se creó una oferta Agora, no se envió FIRMA y no se transmitió una transacción FIRMA/XEC mainnet desde estos nuevos flujos.</strong></p>
-    <p>Los dos PR fueron deliberadamente cerrados antes de cruzar esa frontera. El siguiente paso previsto es una primera prueba canaria controlada de aproximadamente <code>0.01 FIRMA</code>, que debe recibir autorización separada y generar evidencia on-chain independiente del proceso de desarrollo.</p>
+    <h2>Qué está probado y qué todavía no</h2>
+    <p>Las pruebas automatizadas cubren transformaciones locales, selección de inputs, precisión ALP, paridad de preview y firma, y múltiples regresiones de seguridad. Los dos TXIDs elevan la evidencia: prueban que la red aceptó los scripts producidos por Tonalli para una compra Agora y un envío FIRMA.</p>
+    <div class="warning"><strong>Lo no probado:</strong> la investigación deja abierta la agregación de muchas ofertas diminutas bajo estrés, los límites prácticos de tamaño de transacción y la resiliencia del frontend durante caídas severas o intermitentes de Chronik.</div>
 
-    <div class="status"><strong>Estado al cierre del 10 de agosto:</strong> Firma Alpha ya está integrada en Tonalli Wallet a nivel de código; el mercado que la wallet descubre fue observado como Agora mainnet real; el saldo puede visualizarse y enviarse mediante inputs distribuidos en varias rutas HD; la primera operación real continúa pendiente.</div>
+    <h2>Evaluación de la auditoría</h2>
+    <section class="table-wrap"><table><thead><tr><th>Dimensión</th><th>Puntuación</th><th>Lectura</th></tr></thead><tbody>
+      <tr><td>Seguridad self-custodial</td><td>10/10</td><td>Separación estricta entre preview y material de firma.</td></tr>
+      <tr><td>Atomicidad</td><td>10/10</td><td>Covenants P2SH y validación on-chain simultánea.</td></tr>
+      <tr><td>Descentralización</td><td>7/10</td><td>Mercado P2P, pero dependencia operativa de hosting e indexación.</td></tr>
+      <tr><td>Permissionlessness</td><td>9/10</td><td>Sin whitelist de makers a nivel de mercado.</td></tr>
+      <tr><td>Robustez HD</td><td>9/10</td><td>Inputs distribuidos con signatory por ruta.</td></tr>
+      <tr><td>Protección contra token burn</td><td>10/10</td><td>Filtros de UTXOs tokenizados para fees.</td></tr>
+      <tr><td>Madurez económica</td><td>7/10</td><td>La ingeniería no garantiza liquidez, solvencia ni estabilidad externa.</td></tr>
+      <tr><td>Readiness cotidiano</td><td>8.5/10</td><td>Flujos funcionales y baratos, con dependencias todavía emergentes.</td></tr>
+    </tbody></table></section>
 
-    <div class="verdict"><h2>Conclusión</h2><p>La integración de Firma Alpha marca una expansión deliberadamente contenida de Tonalli. La wallet no cambia su jerarquía para convertirse en una “Firma Wallet”: RMZ conserva el papel identitario, XEC sigue siendo la capa monetaria y de fees, y FIRMA entra como un activo compatible con mercado y transferencia propios.</p><p>La parte más significativa del trabajo no es la aparición de un nuevo ticker en pantalla. Es la disciplina de ingeniería alrededor de él: mercado permissionless, identidad canónica, precio efectivo para parciales, preview sin claves, revalidación antes de firma, coin selection HD-aware y ausencia explícita de broadcasts reales durante la fase de integración.</p><p>El código ya cruzó la frontera de producción. <strong>Los fondos todavía no.</strong> Esa será la prueba que sigue.</p></div>
+    <h2>El límite económico: Tonalli no puede garantizar el valor de FIRMA</h2>
+    <p>La integración abre una vía para cotizar y liquidar bienes o servicios en un activo pensado para operar con referencia fiduciaria, mientras XEC absorbe silenciosamente el costo de red. Técnicamente, eso puede reducir fricción para microeconomías y tesorerías operativas.</p>
+    <p>Pero la auditoría hace una distinción esencial: la estabilidad económica de Firma Alpha depende de factores externos a Tonalli —liquidez, redención y actores que sostienen el mecanismo económico—. La wallet puede garantizar autocustodia y correcta construcción de transacciones; no puede garantizar solvencia, profundidad de mercado ni paridad futura.</p>
+
+    <div class="status"><strong>Estado actualizado:</strong> Firma Alpha ya fue comprado y enviado desde Tonalli en mainnet. Agora proporciona el mecanismo de mercado, XEC paga la infraestructura y las claves permanecen en la wallet. La siguiente etapa de madurez no es demostrar que el flujo existe, sino reducir dependencias operativas y probarlo bajo estrés.</div>
+
+    <div class="verdict"><h2>Conclusión</h2><p>La integración de Firma Alpha convierte a Tonalli en algo más amplio que una interfaz de balances: un cliente autocustodiado capaz de descubrir órdenes, ejecutar compras parciales, construir ALP SEND y firmar inputs distribuidos entre rutas HD.</p><p>La evidencia mainnet es la pieza que faltaba. El mercado no quedó encerrado en una simulación y el envío no quedó limitado a una prueba unitaria. Al mismo tiempo, la auditoría evita confundir seguridad transaccional con seguridad económica: <strong>Tonalli puede mover FIRMA correctamente; no puede prometer qué valdrá FIRMA mañana.</strong></p></div>
 
     <h2>Fuentes y metodología</h2>
-    <p>La pieza se construyó con los PR públicos <a href="https://github.com/xolosArmy/RMZWallet/pull/45">#45</a> y <a href="https://github.com/xolosArmy/RMZWallet/pull/46">#46</a> de <code>xolosArmy/RMZWallet</code>, sus commits de merge y sus descripciones de seguridad, pruebas y límites operativos. La observación del orderbook —seis ofertas, 6,022.2061 FIRMA y cinco makers distintos— corresponde al registro de auditoría realizado el 10 de agosto de 2026 y debe entenderse como una fotografía temporal del mercado.</p>
-    <p class="source-note">Nota editorial: Firma Alpha es un proyecto de terceros dentro del ecosistema eCash. La integración en una wallet no constituye garantía de valor, liquidez, solvencia, redención ni ausencia de riesgo. Este reportaje documenta ingeniería y pruebas; no es asesoría financiera.</p>
+    <p>Esta actualización editorial se basa en la investigación técnica entregada a eCash Magazine México sobre la evolución de Tonalli Wallet, los commits <code>d51022321a83b2ccc593e9eadfe2694f8881b6bf</code> y <code>24ab1eab43d6ea751eed6483e4ea784a6cf20f67</code>, la reconstrucción de los dos TXIDs mainnet, la lógica Agora/ALP, la arquitectura HD, el threat model y la evaluación cuantitativa contenida en esa auditoría.</p>
+    <p class="source-note">Nota editorial: Firma Alpha es infraestructura de terceros dentro del ecosistema eCash. Este reportaje documenta arquitectura y evidencia técnica; no constituye recomendación de inversión ni garantía de valor, liquidez o redención.</p>
   </article></main>
   <footer>eCash Magazine México · Ideas, cultura e infraestructura para la economía eCash</footer>
 </body>
