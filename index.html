@@ -2,401 +2,91 @@
 <html lang="es">
 <head>
 <!-- Google tag (gtag.js) -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-
-  gtag("config", "G-3HX6VT60WB");
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eCash Magazine México | Primera Plana</title>
-    <link rel="canonical" href="https://magazine.ecash.mx/">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
-        body { background-color: #05070a; color: #e2e8f0; font-family: 'Lexend', sans-serif; overflow-x: hidden; }
-        .space-mono { font-family: 'Space Mono', monospace; }
-        
-        .neon-glow { 
-            box-shadow: 0 0 30px rgba(0, 171, 231, 0.15); 
-            border: 1px solid rgba(0, 171, 231, 0.25); 
-        }
-        .magazine-card:hover .card-img {
-            transform: scale(1.03);
-        }
-        
-        /* Efecto cinemático de escaneo de red */
-        .scanline {
-            width: 100%; height: 100px; z-index: 99; position: absolute; bottom: 100%;
-            background: linear-gradient(0deg, rgba(0, 171, 231, 0) 0%, rgba(0, 171, 231, 0.02) 50%, rgba(0, 171, 231, 0) 100%);
-            animation: scanline 12s linear infinite; pointer-events: none; opacity: 0.4;
-        }
-        @keyframes scanline { 0% { bottom: 100%; } 100% { bottom: -100%; } }
-    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-3HX6VT60WB");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eCash Magazine México | Primera Plana</title>
+<meta name="description" content="Investigación, cultura e infraestructura para la economía eCash desde México.">
+<link rel="canonical" href="https://magazine.ecash.mx/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+body{background:#05070a;color:#e2e8f0;font-family:'Lexend',sans-serif;overflow-x:hidden}.space-mono{font-family:'Space Mono',monospace}.magazine-card:hover .card-img{transform:scale(1.03)}.scanline{width:100%;height:100px;z-index:99;position:absolute;bottom:100%;background:linear-gradient(0deg,rgba(0,171,231,0) 0%,rgba(0,171,231,.02) 50%,rgba(0,171,231,0) 100%);animation:scanline 12s linear infinite;pointer-events:none;opacity:.4}@keyframes scanline{0%{bottom:100%}100%{bottom:-100%}}.firma-grid{background-image:linear-gradient(rgba(0,171,231,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,171,231,.05) 1px,transparent 1px);background-size:36px 36px}.node{border:1px solid rgba(255,255,255,.12);background:rgba(4,9,12,.75);backdrop-filter:blur(8px)}
+</style>
 </head>
 <body>
-    <div class="scanline"></div>
+<div class="scanline"></div>
+<header class="border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
+    <a href="#" class="flex items-center gap-3 group"><img src="https://i.imgur.com/YZvGu8q.png" alt="Miniatura eCash Magazine" class="h-10 w-auto rounded-full bg-black border border-cyan-500/30"><div class="text-xl font-bold tracking-tighter italic space-mono"><span class="text-white">eCash</span><span class="text-[#00abe7]">Magazine</span></div></a>
+    <nav class="hidden md:flex space-x-8 text-[11px] uppercase font-bold tracking-widest space-mono text-gray-400"><a href="#portada" class="text-white border-b-2 border-cyan-400 pb-1">Primera Plana</a><a href="#destacados" class="hover:text-cyan-400 transition">Reportajes</a><a href="#en-vivo" class="hover:text-cyan-400 transition text-red-400 flex items-center gap-1"><i class="fas fa-circle text-[8px] animate-pulse"></i> En Vivo</a></nav>
+    <a href="https://ecash.mx" class="text-xs font-bold text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-sm hover:bg-cyan-500/10 transition space-mono tracking-wider">← PORTAL GENERAL</a>
+  </div>
+</header>
 
-    <header class="border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto p-5 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="https://i.imgur.com/YZvGu8q.png" alt="Miniatura eCash Magazine" class="h-10 w-auto rounded-full bg-black border border-cyan-500/30">
-                <div class="text-xl font-bold tracking-tighter italic space-mono">
-                    <span class="text-white">eCash</span><span class="text-[#00abe7]">Magazine</span>
-                </div>
-            </a>
-            <nav class="hidden md:flex space-x-8 text-[11px] uppercase font-bold tracking-widest space-mono text-gray-400">
-                <a href="#portada" class="hover:text-cyan-400 transition text-white border-b-2 border-cyan-400 pb-1">Primera Plana</a>
-                <a href="#destacados" class="hover:text-cyan-400 transition">Reportajes</a>
-                <a href="#en-vivo" class="hover:text-cyan-400 transition text-red-400 flex items-center gap-1"><i class="fas fa-circle text-[8px] animate-pulse"></i> En Vivo</a>
-            </nav>
-            <a href="https://ecash.mx" class="text-xs font-bold text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-sm hover:bg-cyan-500/10 transition space-mono tracking-wider">
-                ← PORTAL GENERAL
-            </a>
-        </div>
-    </header>
+<section id="portada" class="relative min-h-[76vh] flex items-center overflow-hidden border-b border-white/10 bg-[#030608] firma-grid">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(0,171,231,.24),transparent_32%),radial-gradient(circle_at_80%_30%,rgba(80,216,144,.18),transparent_28%),linear-gradient(to_top,#05070a_3%,transparent_60%)]"></div>
+  <div class="absolute right-[-4rem] top-20 hidden lg:grid grid-cols-2 gap-4 opacity-70 rotate-[-4deg]">
+    <div class="node rounded-xl p-7 w-52"><div class="text-cyan-400 text-[10px] uppercase tracking-[.25em] space-mono">Settlement</div><div class="text-4xl font-black text-white mt-2">XEC</div><div class="text-xs text-gray-400 mt-2">fees + liquidación</div></div>
+    <div class="node rounded-xl p-7 w-52 mt-16"><div class="text-emerald-400 text-[10px] uppercase tracking-[.25em] space-mono">Asset</div><div class="text-4xl font-black text-white mt-2">FIRMA</div><div class="text-xs text-gray-400 mt-2">ALP + Agora</div></div>
+    <div class="node rounded-xl p-7 w-52 ml-12"><div class="text-amber-400 text-[10px] uppercase tracking-[.25em] space-mono">Identity</div><div class="text-4xl font-black text-white mt-2">RMZ</div><div class="text-xs text-gray-400 mt-2">comunidad + acceso</div></div>
+    <div class="node rounded-xl p-7 w-52 mt-16"><div class="text-purple-400 text-[10px] uppercase tracking-[.25em] space-mono">Market</div><div class="text-4xl font-black text-white mt-2">P2SH</div><div class="text-xs text-gray-400 mt-2">covenants atómicos</div></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full grid lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-8 space-y-6">
+      <div class="inline-block space-mono text-xs font-bold text-[#50d890] bg-[#50d890]/10 border border-[#50d890]/30 px-3 py-1 rounded-sm tracking-[0.2em] uppercase">Investigación técnica · Mainnet</div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.02] italic tracking-tight text-balance">Firma Alpha ya se mueve dentro de Tonalli</h1>
+      <p class="text-gray-300 text-lg md:text-xl italic leading-relaxed text-pretty max-w-3xl">La auditoría posterior a la integración documenta dos TXIDs reales: una compra parcial mediante Agora y un envío soberano de FIRMA a un alias <code class="not-italic text-cyan-300">.xec</code>. Autocustodia, ALP, firma HD y los riesgos que todavía permanecen.</p>
+      <div class="flex flex-wrap gap-3 text-[11px] space-mono uppercase tracking-wider text-gray-300"><span class="border border-white/10 bg-black/40 px-3 py-2">2 TXIDs mainnet</span><span class="border border-white/10 bg-black/40 px-3 py-2">Self-custodial 10/10</span><span class="border border-white/10 bg-black/40 px-3 py-2">Readiness 8.5/10</span></div>
+      <div class="pt-3"><a href="reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html" class="bg-[#00abe7] hover:bg-[#00abe7]/90 text-black font-bold px-8 py-3.5 text-sm uppercase tracking-wider space-mono rounded-sm transition inline-flex items-center gap-2">Leer investigación completa <i class="fas fa-arrow-right"></i></a></div>
+    </div>
+  </div>
+</section>
 
-    <section id="portada" class="relative w-full bg-black border-b border-white/10 overflow-hidden min-h-[70vh] flex items-center">
-        <div class="absolute inset-0 z-0">
-            <img src="/assets/bip-110-bitcoin-cash-forks.webp" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" alt="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro." class="w-full h-full object-cover opacity-40 transition duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#05070a] via-[#05070a]/60 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-[#05070a] via-transparent to-transparent hidden lg:block"></div>
-        </div>
+<main class="max-w-7xl mx-auto px-6 py-16">
+  <div class="grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-8 space-y-12" id="destacados">
+      <div class="flex items-center gap-4"><h2 class="text-2xl font-bold italic tracking-tight uppercase text-white space-mono flex items-center gap-2"><i class="text-[#00abe7] fas fa-newspaper"></i> Grandes Reportajes</h2><div class="h-px bg-white/10 flex-grow"></div></div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="magazine-card group md:col-span-2 bg-slate-900/30 border border-cyan-500/20 rounded-xl overflow-hidden grid md:grid-cols-12 transition hover:border-cyan-400/50 shadow-xl">
+          <div class="md:col-span-5 min-h-[240px] firma-grid bg-[#071016] flex items-center justify-center p-8"><div class="text-center"><div class="text-5xl font-black text-white">XEC ↔ FIRMA</div><div class="mt-4 text-xs uppercase tracking-[.25em] text-emerald-400 space-mono">Agora · ALP · HD</div></div></div>
+          <div class="p-7 md:col-span-7 flex flex-col justify-between"><div><span class="text-[10px] bg-emerald-600 text-white uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Auditoría actualizada</span><h3 class="text-2xl font-bold text-white mt-4 mb-3 group-hover:text-cyan-400 transition italic">Firma Alpha en Tonalli: de la integración al dinero en movimiento</h3><p class="text-sm text-gray-400 leading-relaxed italic">Una reconstrucción técnica de Agora, selección de UTXOs, firma distribuida, protección contra token burn y dos transacciones aceptadas en mainnet.</p></div><a href="reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-5 block tracking-wider uppercase">Leer auditoría →</a></div>
+        </article>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full grid lg:grid-cols-12 gap-8">
-            <div class="lg:col-span-8 space-y-6">
-                <div class="inline-block space-mono text-xs font-bold text-[#ffcc00] bg-[#ffcc00]/10 border border-[#ffcc00]/30 px-3 py-1 rounded-sm tracking-[0.2em] uppercase">
-                    Investigación correlacional
-                </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight italic tracking-tight text-balance">
-                   BIP-110 y Bitcoin Cash: dos forks, dos destinos
-                </h1>
-                <p class="text-gray-300 text-lg md:text-xl italic leading-relaxed text-pretty max-w-3xl">
-                    Por qué Bitcoin Cash sobrevivió como red minoritaria y la rama BIP-110 quedó inmovilizada: consenso, dificultad, replay protection y economía propia.
-                </p>
-                <div class="pt-4 flex flex-wrap gap-4">
-                    <a href="reportajes/bip-110-bitcoin-cash-forks-consenso.html" class="bg-[#00abe7] hover:bg-[#00abe7]/90 text-black font-bold px-8 py-3.5 text-sm uppercase tracking-wider space-mono rounded-sm transition flex items-center gap-2">
-                        Leer reportaje completo <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <article class="magazine-card group bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden flex flex-col transition hover:border-cyan-500/30 shadow-xl">
+          <div class="overflow-hidden h-52"><img src="/assets/bip-110-bitcoin-cash-forks.webp" alt="Xoloitzcuintle ante dos ramas de una blockchain" class="card-img w-full h-full object-cover transition duration-500"></div>
+          <div class="p-6 flex-grow"><span class="text-[10px] bg-amber-600 text-white uppercase font-bold tracking-widest space-mono px-2.5 py-1">Consenso</span><h3 class="text-xl font-bold text-white my-3 group-hover:text-cyan-400 transition italic">BIP-110 y Bitcoin Cash: dos forks, dos destinos</h3><p class="text-sm text-gray-400 italic">Consenso, dificultad, replay protection y economía propia.</p><a href="reportajes/bip-110-bitcoin-cash-forks-consenso.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-5 block uppercase">Leer reportaje →</a></div>
+        </article>
 
-    <main class="max-w-7xl mx-auto px-6 py-16">
+        <article class="magazine-card group bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden flex flex-col transition hover:border-cyan-500/30 shadow-xl">
+          <div class="overflow-hidden h-52"><img src="https://i.imgur.com/eRiUhXC.jpeg" alt="Bóveda multifirma de Tonalli Wallet" class="card-img w-full h-full object-cover transition duration-500"></div>
+          <div class="p-6 flex-grow"><span class="text-[10px] bg-cyan-600 text-white uppercase font-bold tracking-widest space-mono px-2.5 py-1">Análisis técnico</span><h3 class="text-xl font-bold text-white my-3 group-hover:text-cyan-400 transition italic">Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3</h3><p class="text-sm text-gray-400 italic">Autoridad distribuida y una operación multifirma real sobre eCash.</p><a href="analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-5 block uppercase">Leer análisis →</a></div>
+        </article>
 
-        <div class="grid lg:grid-cols-12 gap-12">
+        <article class="magazine-card group md:col-span-2 bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden grid md:grid-cols-12 transition hover:border-cyan-500/30 shadow-xl">
+          <div class="overflow-hidden h-52 md:h-full min-h-[220px] md:col-span-5"><img src="https://i.imgur.com/ZZQSXZT.jpeg" alt="Integración XEC y THORChain" class="card-img w-full h-full object-cover transition duration-500"></div>
+          <div class="p-6 md:col-span-7"><span class="text-[10px] bg-purple-600 text-white uppercase font-bold tracking-widest space-mono px-2.5 py-1">THORChain</span><h3 class="text-2xl font-bold text-white my-3 group-hover:text-cyan-400 transition italic">eCash en THORChain: del código listo a la liquidez soberana</h3><p class="text-sm text-gray-400 italic">La integración nativa de XEC y la ruta hacia mercados cross-chain sin wrappers.</p><a href="cronica/xolosarmy-thorchain-podcast.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-5 block uppercase">Leer crónica →</a></div>
+        </article>
+      </div>
+    </div>
 
-            <div class="lg:col-span-8 space-y-12" id="destacados">
-                <div class="flex items-center gap-4 mb-6">
-                    <h2 class="text-2xl font-bold italic tracking-tight uppercase text-white space-mono flex items-center gap-2">
-                        <i class="text-[#00abe7] fas fa-newspaper"></i> Grandes Reportajes
-                    </h2>
-                    <div class="h-px bg-white/10 flex-grow"></div>
-                </div>
+    <aside class="lg:col-span-4 space-y-8">
+      <div class="flex items-center gap-4"><h2 class="text-xl font-bold italic tracking-tight uppercase text-white space-mono flex items-center gap-2"><i class="text-[#ffcc00] fas fa-list-ul"></i> Breves e Indexado</h2><div class="h-px bg-white/10 flex-grow"></div></div>
+      <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6"><div class="flex justify-between text-[10px] space-mono text-emerald-400 font-bold mb-2"><span>FIRMA / TONALLI</span><span>AGOSTO 2026</span></div><h4 class="text-white font-semibold text-sm italic">La auditoría eleva la evidencia de código a mainnet</h4><p class="text-xs text-gray-500 mt-2">Compra Agora y envío ALP soberano documentados, con evaluación de riesgos y madurez.</p><a href="reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block uppercase">Abrir →</a></div>
+      <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6"><div class="flex justify-between text-[10px] space-mono text-cyan-400 font-bold mb-2"><span>HISTORIA DEL CONSENSO</span><span>AGOSTO 2026</span></div><h4 class="text-white font-semibold text-sm italic">2011 ya imaginaba PoW + stake</h4><p class="text-xs text-gray-500 mt-2">Un antecedente conceptual para entender arquitecturas híbridas y el camino propio de eCash.</p><a href="analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block uppercase">Leer análisis →</a></div>
+      <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6"><div class="flex justify-between text-[10px] space-mono text-orange-400 font-bold mb-2"><span>CRÓNICA</span><span>JUNIO 2026</span></div><h4 class="text-white font-semibold text-sm italic">Tonalli activa la compra parcial de RMZ</h4><p class="text-xs text-gray-500 mt-2">Un antecedente directo del modelo de ofertas parciales que ahora también sostiene FIRMA.</p><a href="cronica/compra-parcial-rmz-tonalli-wallet.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block uppercase">Leer crónica →</a></div>
+      <div class="p-6 bg-gradient-to-br from-slate-900 via-black to-[#00abe7]/10 border border-white/10 rounded-xl"><h3 class="text-white space-mono font-bold text-xs uppercase tracking-widest mb-2">Línea Editorial</h3><p class="text-xs text-gray-400 italic leading-relaxed">“Ideas, cultura e infraestructura para la nueva economía eCash desde México.” Una bitácora independiente de soberanía técnica y pensamiento crítico.</p></div>
+    </aside>
+  </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-
-                    <div class="magazine-card group md:col-span-2 bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden grid md:grid-cols-12 transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 md:h-full min-h-[200px] md:col-span-5 relative">
-                            <img src="https://i.imgur.com/eRiUhXC.jpeg" width="1672" height="941" loading="lazy" decoding="async" alt="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash." class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-amber-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Análisis técnico</span>
-                        </div>
-                        <div class="p-6 md:col-span-7 flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash</h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic">Una bóveda multifirma distribuye la autoridad entre varios firmantes. Revisamos el código experimental, una operación 2-de-3 en mainnet, sus ventajas y sus límites.</p>
-                            </div>
-                            <a href="analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer análisis completo →</a>
-                        </div>
-                    </div>
-
-                    <div class="magazine-card group md:col-span-2 bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden grid md:grid-cols-12 transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 md:h-full min-h-[200px] md:col-span-5 relative">
-                            <img src="https://i.imgur.com/ZZQSXZT.jpeg" alt="Integración XEC-THORChain desde eCash México" class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-cyan-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Crónica // THORChain</span>
-                        </div>
-                        <div class="p-6 md:col-span-7 flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">eCash en THORChain: del código listo a la liquidez soberana</h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic">La conversación entre la comunidad de THORChain y Fernando, representante de xolosArmy, marcó un nuevo punto de madurez para la integración de eCash (XEC) en el ecosistema de liquidez cross-chain.</p>
-                            </div>
-                            <a href="cronica/xolosarmy-thorchain-podcast.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer crónica completa →</a>
-                        </div>
-                    </div>
-
-                    <div class="magazine-card group bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden flex flex-col justify-between transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 relative">
-                            <img src="https://i.imgur.com/BtB0Y9Y.jpeg" alt="Economia Maquina con eCash Mexico" class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-purple-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Editorial // 003</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">Teyolia 2.1-G y Tonalli Multisig: infraestructura XEC para la economía máquina</h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic">La combinación de campañas Teyolia, bóvedas P2SH multisig nativas en eCash y coordinación futura con THORChain abre una ruta para tesorerías autónomas, agentes de liquidez y gobernanza híbrida humano-máquina. </p>
-                            </div>
-                            <a href="editorial/ecash-mexico-machine-economy.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-6 block tracking-wider uppercase">Abrir Editorial / Analisis →</a>
-                        </div>
-                    </div>
-
-                    <div class="magazine-card group bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden flex flex-col justify-between transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 relative">
-                            <img src="https://i.imgur.com/CIEb2WN.jpeg" alt="alias en ecash mexico" class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-orange-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Identidad // 004</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">La noche en que xolosarmy.xec quedó vivo</h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic">Tonalli Wallet registró xolosarmy.xec, cobró 1600 RMZ, escribió el alias en la blockchain de eCash y permitió verificar la identidad desde ecash.mx/identidad. No fue solo una prueba técnica: fue el cierre de un circuito soberano.</p>
-                            </div>
-                            <a href="cronica/alias-ecash-mexico.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-6 block tracking-wider uppercase">Leer crónica →</a>
-                        </div>
-                    </div>
-
-                    <div class="magazine-card group bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden flex flex-col justify-between transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 relative">
-                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80" alt="Codigo verificable e inteligencia artificial" class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-cyan-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Opinión // IA</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">La IA va a castigar el código opaco</h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic">Por qué eCash México apuesta por infraestructura determinista, abierta y verificable frente a la opacidad de los contratos inteligentes y privacy coins.</p>
-                            </div>
-                            <a href="opinion/ia-y-codigo-verificable-en-cripto.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-6 block tracking-wider uppercase">Abrir opinión →</a>
-                        </div>
-                    </div>
-
-                    <div class="magazine-card group bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden flex flex-col justify-between transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 relative">
-                            <img src="https://i.imgur.com/uB3a1lC.jpeg" alt="Economia Agentica Tokenizada" class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Opinion // IA</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">El dinero no desaparecerá: solo dejará de verse</h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic">La proliferación de tokens y agentes de inteligencia artificial podría ocultar el acto de pagar al usuario común. Pero detrás de cada permiso, suscripción e intercambio seguirá siendo necesaria una unidad monetaria capaz de medir, coordinar y liquidar obligaciones. </p>
-                            </div>
-                            <a href="opinion/economia-agentica-tokenizada.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-6 block tracking-wider uppercase">LEER COLUMNA →</a>
-                        </div>
-                    </div>
-
-                    <div class="magazine-card group md:col-span-2 bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden grid md:grid-cols-12 transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 md:h-full min-h-[200px] md:col-span-5 relative">
-                            <img src="https://i.imgur.com/IiZPJ8Q.jpeg" alt="Infraestructura soberana" class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-cyan-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Infraestructura Soberana // 002</span>
-                        </div>
-                        <div class="p-6 md:col-span-7 flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">xolosArmy lleva su infraestructura soberana a NPM con @xolosarmy/tonalli-core </h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic">La librería @xolosarmy/tonalli-core@0.1.0 permite validar direcciones CashAddr, integrar adaptadores blockchain y construir primitivas de verificación para RMZ. Su publicación marca un nuevo paso en la estrategia técnica de xolosArmy Network sobre eCash, pasando de la narrativa cultural al despliegue de código público reutilizable. </p>
-                            </div>
-                            <a href="blog/npm-xolosarmy-tonalli-core-ecash-mexico.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Abrir Archivo de Tesis →</a>
-                        </div>
-                    </div>
-
-                    <div class="magazine-card group md:col-span-2 bg-slate-900/30 border border-white/5 rounded-xl overflow-hidden grid md:grid-cols-12 transition duration-300 hover:border-cyan-500/30 shadow-xl">
-                        <div class="overflow-hidden h-52 md:h-full min-h-[200px] md:col-span-5 relative">
-                            <img src="https://i.imgur.com/YBbW4xD.jpeg" alt="Teyolia Flipstarter" class="card-img w-full h-full object-cover transition duration-500">
-                            <span class="absolute top-4 left-4 bg-cyan-600 text-white text-[10px] uppercase font-bold tracking-widest space-mono px-2.5 py-1 rounded-sm">Teyolia Flipstarter // 002</span>
-                        </div>
-                        <div class="p-6 md:col-span-7 flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition italic">Teyolia 2.0: Liquidez Soberana XEC en THORChain</h3>
-                                <p class="text-sm text-gray-400 leading-relaxed italic"> xolosArmy Network activa una nueva campaña comunitaria para preparar la primera fase de liquidez nativa XEC/RUNE en THORChain. No es un dev grant. Es un liquidity bootstrap: una iniciativa para convertir el avance técnico de eCash en infraestructura de mercado abierta, no custodial y sin wrappers.  </p>
-                            </div>
-                            <a href="cronica/liquidez-soberana-ecash-xec-thorchain.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Ver aqui →</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <aside class="lg:col-span-4 space-y-8">
-                <div class="flex items-center gap-4">
-                    <h2 class="text-xl font-bold italic tracking-tight uppercase text-white space-mono flex items-center gap-2">
-                        <i class="text-[#ffcc00] fas fa-list-ul"></i> Breves e Indexado
-                    </h2>
-                    <div class="h-px bg-white/10 flex-grow"></div>
-                </div>
-
-
-                 <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-0 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-orange-400 font-bold mb-1">
-                            <span>NOTICIAS ECASH MEXICO</span>
-                            <span>JULIO 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">Ocho horas sin encontrar un bloque: ¿señal alcista o simple varianza minera en eCash?</h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">Un aumento del hashrate puede reflejar mayor rentabilidad y actividad minera, pero no demuestra por sí mismo que los mineros anticipen un movimiento extraordinario del mercado. </p>
-                        <a href="analisis/ecash-mining-variance.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                   </div>
-                 <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-0 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-orange-400 font-bold mb-1">
-                            <span>THORCHAIN XEC INTEGRATION</span>
-                            <span>JUNIO 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">Soberanía Digital: La Multifirma de Tonalli
-abre el camino a THORChain </h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain. </p>
-                        <a href="/analisis/teyolia-direct-to-pool.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                </div>
-
-                <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-0 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-cyan-400 font-bold mb-1">
-                            <span>HISTORIA DEL CONSENSO</span>
-                            <span>AGOSTO 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">2011 ya imaginaba PoW + stake: el antecedente conceptual del consenso híbrido de eCash</h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">Un hilo temprano de Bitcoin propuso voto por monedas, delegación y combinar stake con hashing. eCash llegó por otra ruta a una arquitectura Nakamoto PoW + Avalanche.</p>
-                        <a href="analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer análisis →</a>
-                    </div>
-                </div>
-
-                 <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-0 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-orange-400 font-bold mb-1">
-                            <span>XOLOSARMY WEEKLY UPDATE</span>
-                            <span>JUNIO 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">De código a producción: la actualización semanal que puso a XEC frente a THORChain</h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">En un Weekly Update de casi siete minutos, Fernando Ramírez confirmó que la integración nativa de eCash en THORChain avanza hacia una nueva etapa: código revisado, liquidez soberana y ecosistema L1 desde México.</p>
-                        <a href="/cronica/2026-06-16-xolosarmy-weekly-update.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                </div>
-                <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-0 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-orange-400 font-bold mb-1">
-                            <span>CRONICA Y ANÁLISIS</span>
-                            <span>JUNIO 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">Tonalli Wallet activa la compra parcial de RMZ: nace el mercado fraccional on-chain en eCash</h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">Una prueba real permitió comprar 1 RMZ desde una oferta mayor de 500 RMZ, dejando el remanente vivo en Agora para futuros compradores. </p>
-                        <a href="/cronica/compra-parcial-rmz-tonalli-wallet.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                </div>
-                <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-0 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-orange-400 font-bold mb-1">
-                            <span>NOTICIAS</span>
-                            <span>JUNIO 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">xolosArmy avanza diálogos con stakeholders y el GNC sobre Teyolia 2.1-G </h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">La propuesta de infraestructura para integrar eCash (XEC) de forma nativa en THORChain entra en fase de revisión institucional. El equipo desarrollador confirma acercamientos con figuras clave del ecosistema.  </p>
-                        <a href="noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                </div>
-
-                <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-0 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-cyan-400 font-bold mb-1">
-                            <span>INFRAESTRUCTURA</span>
-                            <span>MAY 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">Soberanía de Código: xolosArmy Despliega el Primer Bloque de su Stack Tecnológico Operativo</h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">El lanzamiento oficial de la librería modular tonalli-core (v0.1.0) y el despliegue público en la red del portal interactivo Guardianía RMZ.</p>
-                        <a href="blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                 </div>
-
-                    <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-4 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-purple-400 font-bold mb-1">
-                            <span>COMUNIDAD</span>
-                            <span>MAY 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">XEC es el dinero, RMZ es la llave</h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">En una transmisión comunitaria, eCash México presentó una nueva capa de autenticación basada en RMZ: una herramienta para distinguir miembros reales.</p>
-                        <a href="blog/2026-05-29-xolosarmy-weekly-update.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                 </div>
-
-                    <div class="bg-slate-950/50 border border-white/5 rounded-xl p-6 divide-y divide-white/10 space-y-4">
-                    <div class="pt-4 pb-4 group flex flex-col">
-                        <div class="flex justify-between text-[10px] space-mono text-orange-400 font-bold mb-1">
-                            <span>ETOKEN XOLOS RMZ</span>
-                            <span>JUNIO 2026</span>
-                        </div>
-                        <h4 class="text-white font-semibold text-sm group-hover:text-[#ffcc00] transition italic">Bitcoin ABC 0.33.6 corrige un fallo raro de Chronik: por qué importa para la infraestructura eCash
-
-</h4>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">La versión 0.33.6 de Bitcoin ABC incluye una corrección discreta pero importante para Chronik: evita un posible colapso del indexador bajo circunstancias poco comunes. Para operadores de nodos, exploradores y aplicaciones construidas sobre eCash, este tipo de actualización no es cosmética: es mantenimiento crítico de infraestructura. </p>
-                        <a href="analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html" class="text-xs font-bold text-[#ffcc00] hover:underline space-mono mt-4 block tracking-wider uppercase">Leer aquí →</a>
-                    </div>
-                </div>
-
-                <div class="p-6 bg-gradient-to-br from-slate-900 via-black to-[#00abe7]/10 border border-white/10 rounded-xl relative overflow-hidden">
-                    <h3 class="text-white space-mono font-bold text-xs uppercase tracking-widest mb-2">Línea Editorial</h3>
-                    <p class="text-xs text-gray-400 italic leading-relaxed">
-                        "Ideas, cultura e infraestructura para la nueva economía eCash desde México." Una bitácora de soberanía técnica y pensamiento crítico impulsada de manera independiente por builders de xolosArmy Network.
-                    </p>
-                </div>
-            </aside>
-        </div>
-
-        <section id="en-vivo" class="mt-20 pt-12 border-t border-white/10">
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-2xl font-bold italic tracking-tight uppercase text-white space-mono flex items-center gap-2">
-                    <span class="flex h-3 w-3 relative">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-                    </span>
-                    Transmisión en Vivo // Central Radio
-                </h2>
-                <div class="h-px bg-white/10 flex-grow"></div>
-            </div>
-
-            <div class="grid lg:grid-cols-12 gap-8 items-center bg-slate-950/40 p-6 md:p-8 border border-white/5 rounded-2xl shadow-2xl">
-                <div class="lg:col-span-8 w-full">
-                    <div class="relative w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl aspect-video bg-black">
-                        <iframe
-                            class="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/4eO4hWRv4x0?autoplay=1&mute=1&si=4eO4hWRv4x0"
-                            title="eCash Magazine Live Stream"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-4 space-y-4">
-                    <div class="inline-block space-mono text-[10px] font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded-sm uppercase tracking-widest">
-                        Broadcast Activo
-                    </div>
-                    <h3 class="text-2xl font-bold text-white italic tracking-tight leading-snug">Discusión Abierta sobre Sistemas Monetarios y Soberanía Técnica</h3>
-                    <p class="text-sm text-gray-400 italic leading-relaxed">
-                        Sintoniza el análisis continuo de infraestructura crítica. Debate abierto con desarrolladores, investigadores de redes y la comunidad global de la Xolos Army Network.
-                    </p>
-                    <div class="pt-2 border-t border-white/5 space-mono text-[11px] text-gray-500 flex flex-col gap-1">
-                        <div><i class="fas fa-signal text-cyan-400 mr-2"></i> Feed de audio: 320kbps AAC</div>
-                        <div><i class="fas fa-microprocessor text-cyan-400 mr-2"></i> Transmisión Descentralizada</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-black/80 py-12 px-6 border-t border-white/5 text-center text-[10px] text-gray-600 space-mono uppercase tracking-widest leading-loose">
-        eCash Magazine México es una publicación libre e independiente.<br>
-        Contenidos distribuidos bajo la soberanía del código abierto y la Licencia CC0. 2026.
-    </footer>
-
+  <section id="en-vivo" class="mt-20 pt-12 border-t border-white/10">
+    <div class="flex items-center gap-4 mb-8"><h2 class="text-2xl font-bold italic tracking-tight uppercase text-white space-mono flex items-center gap-2"><span class="flex h-3 w-3 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span></span> Transmisión en Vivo // Central Radio</h2><div class="h-px bg-white/10 flex-grow"></div></div>
+    <div class="grid lg:grid-cols-12 gap-8 items-center bg-slate-950/40 p-6 md:p-8 border border-white/5 rounded-2xl shadow-2xl"><div class="lg:col-span-8 w-full"><div class="relative w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl aspect-video bg-black"><iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/4eO4hWRv4x0?autoplay=1&mute=1&si=4eO4hWRv4x0" title="eCash Magazine Live Stream" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div><div class="lg:col-span-4 space-y-4"><div class="inline-block space-mono text-[10px] font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2.5 py-1 uppercase tracking-widest">Broadcast Activo</div><h3 class="text-2xl font-bold text-white italic">Discusión abierta sobre sistemas monetarios y soberanía técnica</h3><p class="text-sm text-gray-400 italic">Análisis continuo de infraestructura crítica y economía eCash.</p></div></div>
+  </section>
+</main>
+<footer class="bg-black/80 py-12 px-6 border-t border-white/5 text-center text-[10px] text-gray-600 space-mono uppercase tracking-widest leading-loose">eCash Magazine México es una publicación libre e independiente.<br>Contenidos distribuidos bajo la soberanía del código abierto y la Licencia CC0. 2026.</footer>
 </body>
 </html>
