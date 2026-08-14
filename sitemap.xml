@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://magazine.ecash.mx/</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://magazine.ecash.mx/reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html</loc>
@@ -12,7 +17,7 @@
   </url>
   <url>
     <loc>https://magazine.ecash.mx/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
