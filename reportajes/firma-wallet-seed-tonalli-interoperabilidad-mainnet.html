@@ -3,111 +3,148 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Una seed de Firma Wallet ya puede recuperar y gastar Firma Alpha en Tonalli</title>
-  <meta name="description" content="Prueba mainnet: una seed de 12 palabras de Firma Wallet fue importada en Tonalli, recuperó 15.2142 FIRMA bajo eCash/Cashtab 1899 y firmó un envío real sin transferir primero la custodia entre apps.">
+  <title>De pesos a XEC: Bitso, USDT Solana, Firma y Tonalli en un embudo mainnet completo</title>
+  <meta name="description" content="Prueba mainnet de punta a punta: MXN en Bitso, compra y envío de USDT sobre Solana a firma.cash, aparición de Firma Alpha bajo la seed eCash 1899, recuperación en Tonalli y redención FIRMA→XEC mediante Agora.">
   <link rel="canonical" href="https://magazine.ecash.mx/reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="eCash Magazine México">
-  <meta property="og:title" content="Firma Wallet → Tonalli: una misma seed, Firma Alpha recuperado y gastado en mainnet">
-  <meta property="og:description" content="Tonalli importó la seed de Firma Wallet, encontró 15.2142 FIRMA también visibles en Cashtab y completó un envío soberano en mainnet.">
+  <meta property="og:title" content="De pesos a XEC: el embudo Bitso → Firma → Tonalli ya fue probado en mainnet">
+  <meta property="og:description" content="USDT sobre Solana entró a firma.cash; Firma Alpha apareció bajo la seed eCash recuperada por Tonalli y terminó convertido a XEC mediante Agora.">
   <meta property="og:url" content="https://magazine.ecash.mx/reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Firma Wallet → Tonalli: interoperabilidad eCash probada">
-  <meta name="twitter:description" content="12 palabras, BIP44 1899, 15.2142 FIRMA recuperados y un broadcast mainnet firmado desde Tonalli.">
+  <meta name="twitter:title" content="MXN → USDT Solana → Firma → Tonalli → XEC">
+  <meta name="twitter:description" content="Un embudo fiat→eCash probado con fondos reales y dos redenciones FIRMA→XEC en mainnet.">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"TechArticle",
-    "headline":"Una seed de Firma Wallet ya puede recuperar y gastar Firma Alpha en Tonalli",
-    "description":"Prueba mainnet de interoperabilidad entre Firma Wallet, Cashtab y Tonalli mediante recuperación de seed, discovery eCash 1899 y gasto soberano de Firma Alpha.",
+    "headline":"De pesos a XEC: Bitso, USDT Solana, Firma y Tonalli en un embudo mainnet completo",
+    "description":"Prueba de punta a punta desde pesos mexicanos y USDT en Solana hasta Firma Alpha nativo de eCash y XEC autocustodiado en Tonalli mediante Agora.",
     "datePublished":"2026-08-14",
     "dateModified":"2026-08-14",
     "inLanguage":"es-MX",
     "articleSection":"Reportajes",
     "mainEntityOfPage":"https://magazine.ecash.mx/reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
     "publisher":{"@type":"NewsMediaOrganization","name":"eCash Magazine México","url":"https://magazine.ecash.mx/"},
-    "keywords":["Firma Wallet","Firma Alpha","Tonalli Wallet","Cashtab","eCash","XEC","BIP44","1899","autocustodia","mainnet","interoperabilidad"]
+    "keywords":["Bitso","USDT","Solana","Firma Wallet","Firma Alpha","Tonalli Wallet","Agora","eCash","XEC","BIP44","1899","autocustodia","mainnet","interoperabilidad"]
   }
   </script>
   <style>
-    :root{color-scheme:dark;--bg:#030506;--surface:#0a0f12;--card:#10171b;--text:#edf4f6;--muted:#a5b1b7;--cyan:#00abe7;--green:#50d890;--gold:#d7b45b;--orange:#ff8a3d;--line:#243038;--measure:80ch}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:18px;line-height:1.72;-webkit-font-smoothing:antialiased}a{color:#4fd8ff;text-underline-offset:3px}.shell{width:min(1400px,100%);margin:0 auto;padding:0 20px}.site-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.brand{color:#fff;font-family:ui-monospace,monospace;font-weight:800;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}.brand span{color:var(--cyan)}.edition{color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}.hero{width:min(1280px,calc(100% - 24px));margin:34px auto 0;padding:clamp(32px,7vw,88px);border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle at 18% 20%,rgba(0,171,231,.25),transparent 35%),radial-gradient(circle at 82% 30%,rgba(80,216,144,.18),transparent 32%),linear-gradient(135deg,#05090c,#0b1217 55%,#050607)}.kicker{color:var(--green);font-family:ui-monospace,monospace;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{max-width:18ch;margin:14px 0;color:#fff;font-size:clamp(2.35rem,6vw,5rem);line-height:1.02;letter-spacing:-.055em}.dek{max-width:900px;margin:0;color:#d9e2e5;font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.5}.flow{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}.pill{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(5,9,12,.75);font-family:ui-monospace,monospace;font-size:.78rem;color:#d8e3e6}.pill strong{color:#fff}article{width:min(var(--measure),calc(100% - 32px));margin:0 auto;padding:52px 0 80px}.standfirst{padding:24px 26px;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;background:var(--surface);font-size:1.16rem}.dateline{margin:22px 0 46px;color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}h2{margin:62px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line);color:#fff;font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2;letter-spacing:-.025em}p{margin:0 0 24px}strong{color:#fff}code{padding:.1em .3em;border-radius:4px;background:var(--card);color:#f2f6f7;font-family:ui-monospace,monospace;font-size:.88em;overflow-wrap:anywhere}blockquote{margin:36px 0;padding:20px 24px;border-left:4px solid var(--gold);background:#0f1110;color:#f3e8c6;font-size:1.18rem;font-weight:650}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0}.metric{padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.metric b{display:block;color:#fff;font-size:1.35rem}.metric span{color:var(--muted);font-size:.84rem}.table-wrap{margin:34px 0;overflow-x:auto;border:1px solid var(--line);border-radius:8px}table{width:100%;min-width:720px;border-collapse:collapse;background:var(--surface);font-size:.9rem}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:#fff;background:#10171b;font-family:ui-monospace,monospace;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}.warning,.status,.verdict{margin:38px 0;padding:24px;border-radius:8px}.warning{border:1px solid rgba(255,138,61,.42);background:rgba(255,138,61,.07)}.status{border:1px solid rgba(80,216,144,.35);background:linear-gradient(135deg,rgba(80,216,144,.09),rgba(0,171,231,.05))}.verdict{border:1px solid rgba(0,171,231,.45);background:linear-gradient(135deg,rgba(0,171,231,.12),rgba(80,216,144,.05))}.source-note{color:var(--muted);font-size:.9rem}.tx{display:block;margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:7px;background:#071016;color:#9ee8ff;font-family:ui-monospace,monospace;font-size:.82rem;overflow-wrap:anywhere}footer{padding:28px 20px;border-top:1px solid var(--line);color:var(--muted);font-family:ui-monospace,monospace;font-size:.75rem;text-align:center}@media(max-width:760px){body{font-size:17px}.site-header{align-items:flex-start;flex-direction:column}.metrics{grid-template-columns:1fr}.hero{margin-top:18px}article{width:min(100% - 18px,var(--measure))}}
+    :root{color-scheme:dark;--bg:#030506;--surface:#0a0f12;--card:#10171b;--text:#edf4f6;--muted:#a5b1b7;--cyan:#00abe7;--green:#50d890;--gold:#d7b45b;--orange:#ff8a3d;--line:#243038;--measure:82ch}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:18px;line-height:1.72;-webkit-font-smoothing:antialiased}a{color:#4fd8ff;text-underline-offset:3px}.shell{width:min(1400px,100%);margin:0 auto;padding:0 20px}.site-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.brand{color:#fff;font-family:ui-monospace,monospace;font-weight:800;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}.brand span{color:var(--cyan)}.edition{color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}.hero{width:min(1280px,calc(100% - 24px));margin:34px auto 0;padding:clamp(32px,7vw,88px);border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle at 15% 20%,rgba(0,171,231,.25),transparent 35%),radial-gradient(circle at 85% 24%,rgba(80,216,144,.18),transparent 30%),linear-gradient(135deg,#05090c,#0b1217 55%,#050607)}.kicker{color:var(--green);font-family:ui-monospace,monospace;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{max-width:20ch;margin:14px 0;color:#fff;font-size:clamp(2.35rem,6vw,5rem);line-height:1.02;letter-spacing:-.055em}.dek{max-width:960px;margin:0;color:#d9e2e5;font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.5}.flow{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}.pill{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(5,9,12,.75);font-family:ui-monospace,monospace;font-size:.78rem;color:#d8e3e6}.pill strong{color:#fff}article{width:min(var(--measure),calc(100% - 32px));margin:0 auto;padding:52px 0 80px}.standfirst{padding:24px 26px;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;background:var(--surface);font-size:1.16rem}.dateline{margin:22px 0 46px;color:var(--muted);font-family:ui-monospace,monospace;font-size:.78rem;text-transform:uppercase}h2{margin:62px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line);color:#fff;font-size:clamp(1.65rem,4vw,2.35rem);line-height:1.2;letter-spacing:-.025em}p{margin:0 0 24px}strong{color:#fff}code{padding:.1em .3em;border-radius:4px;background:var(--card);color:#f2f6f7;font-family:ui-monospace,monospace;font-size:.88em;overflow-wrap:anywhere}blockquote{margin:36px 0;padding:20px 24px;border-left:4px solid var(--gold);background:#0f1110;color:#f3e8c6;font-size:1.18rem;font-weight:650}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0}.metric{padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.metric b{display:block;color:#fff;font-size:1.28rem}.metric span{color:var(--muted);font-size:.84rem}.table-wrap{margin:34px 0;overflow-x:auto;border:1px solid var(--line);border-radius:8px}table{width:100%;min-width:720px;border-collapse:collapse;background:var(--surface);font-size:.9rem}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:#fff;background:#10171b;font-family:ui-monospace,monospace;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}.warning,.status,.verdict{margin:38px 0;padding:24px;border-radius:8px}.warning{border:1px solid rgba(255,138,61,.42);background:rgba(255,138,61,.07)}.status{border:1px solid rgba(80,216,144,.35);background:linear-gradient(135deg,rgba(80,216,144,.09),rgba(0,171,231,.05))}.verdict{border:1px solid rgba(0,171,231,.45);background:linear-gradient(135deg,rgba(0,171,231,.12),rgba(80,216,144,.05))}.source-note{color:var(--muted);font-size:.9rem}.tx{display:block;margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:7px;background:#071016;color:#9ee8ff;font-family:ui-monospace,monospace;font-size:.82rem;overflow-wrap:anywhere}.route{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:30px 0}.route div{padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-family:ui-monospace,monospace;font-size:.78rem}.route b{display:block;font-size:.95rem;margin-bottom:6px}footer{padding:28px 20px;border-top:1px solid var(--line);color:var(--muted);font-family:ui-monospace,monospace;font-size:.75rem;text-align:center}@media(max-width:760px){body{font-size:17px}.site-header{align-items:flex-start;flex-direction:column}.metrics,.route{grid-template-columns:1fr}.hero{margin-top:18px}article{width:min(100% - 18px,var(--measure))}}
   </style>
 </head>
 <body>
   <div class="shell"><header class="site-header"><a class="brand" href="https://magazine.ecash.mx/">eCash <span>Magazine</span></a><div class="edition">México · Prueba mainnet · 14 agosto 2026</div></header></div>
+
   <header class="hero">
-    <div class="kicker">Interoperabilidad por recuperación de llaves</div>
-    <h1>Una seed de Firma Wallet ya abre y gasta Firma Alpha en Tonalli</h1>
-    <p class="dek">La misma mnemonic de 12 palabras fue restaurada en Tonalli y Cashtab. Tonalli detectó el perfil eCash/Cashtab 1899, recuperó los mismos <strong>15.2142 FIRMA</strong> visibles en Cashtab y firmó su gasto en mainnet.</p>
-    <div class="flow"><span class="pill"><strong>Seed</strong> · 12 palabras</span><span class="pill"><strong>BIP44</strong> · 1899</span><span class="pill"><strong>FIRMA</strong> · 15.2142</span><span class="pill"><strong>Mainnet</strong> · broadcast válido</span></div>
+    <div class="kicker">Rampa fiat → eCash probada con fondos reales</div>
+    <h1>De pesos a XEC: Bitso, Solana, Firma y Tonalli en un solo embudo</h1>
+    <p class="dek">El experimento ya no termina en una seed compatible. Se compró USDT sobre Solana desde un exchange mexicano, se envió a firma.cash, Firma Alpha apareció bajo la seed eCash recuperada por Tonalli y terminó convertido a XEC mediante una oferta Agora aceptada en mainnet.</p>
+    <div class="flow">
+      <span class="pill"><strong>Entrada</strong> · MXN</span>
+      <span class="pill"><strong>Rail</strong> · USDT Solana</span>
+      <span class="pill"><strong>Activo</strong> · Firma Alpha / ALP</span>
+      <span class="pill"><strong>Salida</strong> · XEC autocustodiado</span>
+    </div>
   </header>
+
   <main><article>
-    <p class="standfirst"><strong>La prueba que faltaba ya ocurrió.</strong> El 14 de agosto de 2026 se importó en Tonalli Wallet la misma seed generada por Firma Wallet. Sin transferir previamente los tokens entre aplicaciones, Tonalli escaneó el árbol eCash correspondiente, encontró un saldo de <strong>15.2142 Firma Alpha</strong> que Cashtab mostraba para la misma seed y después construyó, firmó localmente y transmitió una transacción real que gastó ese saldo.</p>
-    <p class="dateline">Ciudad de México · Prueba controlada sobre eCash mainnet · 14 de agosto de 2026</p>
+    <p class="standfirst"><strong>El 14 de agosto de 2026 se cerró un embudo que llevaba días siendo una pregunta abierta.</strong> En una prueba con fondos reales se recorrió la ruta <strong>MXN → Bitso → USDT sobre Solana → firma.cash → Firma Alpha sobre eCash → Tonalli Wallet → Agora → XEC</strong>. La operación convirtió una hipótesis de interoperabilidad en una ruta funcional y reproducible.</p>
+    <p class="dateline">Ciudad de México · eCash mainnet · 14 de agosto de 2026</p>
 
     <div class="metrics">
-      <div class="metric"><b>15.2142 FIRMA</b><span>saldo descubierto tanto por Cashtab como por Tonalli</span></div>
-      <div class="metric"><b>2 inputs</b><span>seleccionados por Tonalli para el gasto mainnet</span></div>
-      <div class="metric"><b>5.06 XEC</b><span>comisión estimada mostrada antes de firmar</span></div>
+      <div class="metric"><b>243.328 FIRMA</b><span>redención grande transmitida desde Tonalli</span></div>
+      <div class="metric"><b>36,385,587.2 XEC</b><span>XEC estimados por el preview al completarse</span></div>
+      <div class="metric"><b>0.002 FIRMA</b><span>cambio FIRMA restante después de la oferta</span></div>
     </div>
 
-    <h2>La diferencia entre mover fondos y recuperar llaves</h2>
-    <p>La parte más relevante del experimento no fue una transferencia “Firma → Tonalli”. Fue exactamente lo contrario: <strong>no hubo que mover primero la custodia entre wallets</strong>. La seed se restauró en otra aplicación y Tonalli derivó las llaves necesarias para localizar los UTXOs que ya pertenecían a esa identidad eCash.</p>
-    <p>Ésta es una forma de interoperabilidad más básica y, al mismo tiempo, más fuerte: si dos wallets entienden la misma seed, el mismo esquema de derivación y el mismo protocolo on-chain, el usuario puede recuperar sus activos sin depender de una función propietaria de exportación entre aplicaciones.</p>
-    <blockquote>En la prueba documentada, Tonalli no “recibió” 15.2142 FIRMA desde Cashtab. Los descubrió porque la misma seed controlaba los UTXOs que ambas aplicaciones podían observar sobre eCash.</blockquote>
+    <h2>El embudo completo, paso por paso</h2>
+    <div class="route">
+      <div><b>1 · Fiat</b>Pesos mexicanos entran al exchange usado en la prueba.</div>
+      <div><b>2 · Solana</b>Se compra USDT y se retira por la red Solana.</div>
+      <div><b>3 · Firma</b>USDT se envía a firma.cash; el activo que después aparece bajo la seed eCash es Firma Alpha.</div>
+      <div><b>4 · eCash</b>Tonalli recupera la seed 1899, descubre FIRMA y lo redime por XEC mediante Agora.</div>
+    </div>
+    <p>La secuencia es importante porque separa dos conceptos que se habían mezclado durante la investigación. <strong>Solana fue el rail de entrada para USDT; Firma Alpha no “vivió” como un token Solana dentro de Tonalli.</strong> Lo que Tonalli encontró fue el token ALP nativo de eCash controlado por las llaves derivadas de la seed compatible con Cashtab.</p>
 
-    <h2>1899: el perfil interoperable con Cashtab</h2>
-    <p>Tonalli incorporó el perfil <code>ecash-standard-1899</code>, cuya identidad base sigue la ruta <code>m/44'/1899'/0'/0/0</code>. El soporte fue introducido mediante el PR <a href="https://github.com/xolosArmy/RMZWallet/pull/48">#48 de RMZWallet</a>, que añadió compatibilidad dual sin abandonar a las wallets Tonalli existentes.</p>
-    <p>La primera restauración real reveló inmediatamente una diferencia entre el derivador canónico de eCash y la dependencia histórica <code>minimal-xec-wallet@2.0.2</code>. El PR <a href="https://github.com/xolosArmy/RMZWallet/pull/49">#49</a> convirtió la identidad derivada por el registro de perfiles en la fuente canónica para Receive, WalletConnect, x402 y el cambio de FIRMA.</p>
+    <h2>Qué sabemos —y qué sigue siendo una caja negra</h2>
+    <p>El experimento demuestra funcionalmente los extremos de la conversión: USDT salió por Solana hacia Firma y después apareció Firma Alpha bajo la identidad eCash correspondiente. Eso permite afirmar que el recorrido funciona para el usuario.</p>
+    <p>Lo que la prueba <strong>no</strong> revela es la implementación interna de Firma entre esos dos extremos: wallets operativas, conciliación, custodia temporal del USDT, disparadores internos o lógica exacta de emisión/entrega. Firma había indicado previamente que estas operaciones se realizan internamente y que no existe documentación pública de esa infraestructura.</p>
+    <blockquote>La conclusión prudente no es “descubrimos un bridge público Solana↔eCash”. La conclusión comprobada es: USDT sobre Solana puede entrar por Firma y terminar como Firma Alpha controlado por una seed eCash que Tonalli puede recuperar.</blockquote>
 
-    <h2>La prueba también encontró una regresión legacy</h2>
-    <p>La compatibilidad no podía resolverse simplemente cambiando “899” por “1899”. La wallet histórica de Tonalli había sido creada con un algoritmo de derivación defectuoso de <code>minimal-xec-wallet@2.0.2</code>. Ese comportamiento forma parte de la identidad criptográfica de las wallets antiguas: conservar sólo el número de coin type no era suficiente.</p>
-    <p>El problema apareció en producción durante la misma prueba: una wallet legacy dejó de mostrar su saldo después del cambio de engine. El PR <a href="https://github.com/xolosArmy/RMZWallet/pull/50">#50</a> aisló un engine de compatibilidad histórica y separó tres dominios:</p>
-    <section class="table-wrap"><table><thead><tr><th>Perfil</th><th>Engine</th><th>Uso</th></tr></thead><tbody>
-      <tr><td><code>tonalli-legacy-899</code></td><td>compatibilidad <code>minimal-xec-wallet 2.0.2</code></td><td>Recuperar wallets Tonalli anteriores al cambio dual.</td></tr>
-      <tr><td><code>ecash-standard-899</code></td><td><code>ecash-lib</code> BIP32</td><td>Recuperación de la ventana transitoria creada durante el cambio.</td></tr>
-      <tr><td><code>ecash-standard-1899</code></td><td><code>ecash-lib</code> BIP32</td><td>Nuevas wallets e interoperabilidad Cashtab/Firma.</td></tr>
+    <h2>La seed convierte la integración en recuperación, no en transferencia</h2>
+    <p>Una vez que Firma Alpha está bajo las llaves eCash de la seed, el salto <strong>Firma Wallet → Tonalli</strong> no requiere bridge ni otra transacción. La misma mnemonic se restaura en Tonalli; el perfil <code>ecash-standard-1899</code> deriva el árbol compatible con Cashtab y el scanner encuentra los UTXOs correspondientes.</p>
+    <p>Esta distinción fue probada previamente con un saldo de <strong>15.2142 FIRMA</strong>, visible tanto en Cashtab como en Tonalli. Tonalli no “recibió” esos tokens desde Cashtab: ambas aplicaciones podían observar y gastar UTXOs controlados por la misma raíz criptográfica.</p>
+
+    <h2>1899 sin romper el pasado</h2>
+    <p>La interoperabilidad exigió separar correctamente las identidades criptográficas. El PR <a href="https://github.com/xolosArmy/RMZWallet/pull/48">#48</a> añadió soporte dual; el PR <a href="https://github.com/xolosArmy/RMZWallet/pull/49">#49</a> convirtió el derivador canónico en la fuente de identidad para el perfil estándar; y el PR <a href="https://github.com/xolosArmy/RMZWallet/pull/50">#50</a> restauró la semántica histórica de Tonalli Legacy 899 después de detectar que <code>minimal-xec-wallet@2.0.2</code> producía claves diferentes para el mismo path nominal.</p>
+    <section class="table-wrap"><table><thead><tr><th>Perfil</th><th>Engine</th><th>Finalidad</th></tr></thead><tbody>
+      <tr><td><code>tonalli-legacy-899</code></td><td>compatibilidad histórica</td><td>Recuperar wallets Tonalli anteriores al cambio.</td></tr>
+      <tr><td><code>ecash-standard-899</code></td><td><code>ecash-lib</code> BIP32</td><td>Recuperación de la ventana transitoria.</td></tr>
+      <tr><td><code>ecash-standard-1899</code></td><td><code>ecash-lib</code> BIP32</td><td>Cashtab/Firma y nuevas wallets interoperables.</td></tr>
     </tbody></table></section>
-    <p>Después del hotfix, la misma wallet histórica volvió a leer su saldo. El resultado es importante porque el soporte nuevo no se consiguió sacrificando el acceso a fondos antiguos.</p>
+    <p>La aceptación real confirmó ambos lados: la wallet legacy volvió a leer su saldo y la seed de Firma siguió encontrando y gastando Firma Alpha bajo 1899.</p>
 
-    <h2>Cashtab y Tonalli encontraron exactamente 15.2142 FIRMA</h2>
-    <p>Con la seed de Firma Wallet cargada, Cashtab mostró una operación que dejó <strong>15.2142 FIRMA</strong> bajo control de esa identidad. Tonalli, después de su escaneo HD, mostró la misma cantidad en el apartado “Activos compatibles”.</p>
-    <p>Ese punto convirtió el experimento en una prueba on-chain: ya no se trataba únicamente de que Tonalli aceptara una mnemonic BIP39 válida. El scanner había encontrado el mismo activo real. Firma Alpha está identificado en Tonalli por el Token ID canónico <code>0387947fd575db4fb19a3e322f635dec37fd192b5941625b66bc4b2c3008cbf0</code>, ALP, cuatro decimales.</p>
+    <h2>Firma Alpha: identidad on-chain verificada</h2>
+    <p>El activo usado en estas pruebas fue <strong>Firma Alpha</strong>, no un saldo genérico de la aplicación Firma. Tonalli lo identifica por su Token ID canónico:</p>
+    <span class="tx">0387947fd575db4fb19a3e322f635dec37fd192b5941625b66bc4b2c3008cbf0</span>
+    <p>Es un token ALP con cuatro decimales sobre eCash. Esta precisión importa porque Firma USD, fCHF y fEUR son productos distintos y no deben mezclarse editorialmente con Firma Alpha.</p>
 
-    <h2>Discovery no basta: había que gastar el UTXO</h2>
-    <p>Leer un saldo demuestra discovery; gastar demuestra control. La prueba final envió los <strong>15.2142 FIRMA</strong> hacia el alias <code>xolosramirez.xec</code>. Antes de firmar, Tonalli mostró saldo posterior de <code>0.0000 FIRMA</code>, comisión estimada de <strong>5.06 XEC</strong> y dos inputs seleccionados.</p>
-    <p>La transacción fue firmada localmente y aceptada por la red:</p>
+    <h2>Primer cierre: recovery y gasto real</h2>
+    <p>Después del discovery de los 15.2142 FIRMA, Tonalli completó un envío real firmado localmente. El TXID de aceptación fue:</p>
     <span class="tx">83dccd0c7e542f9397aba29be62f0ec4d7b41570aa155ed7ff50274b111b77f4</span>
-    <p>El broadcast exitoso valida toda la cadena operacional: seed → perfil 1899 → discovery de UTXOs → asociación de cada input con su ruta HD → derivación del signatory correcto → resolución del alias <code>.xec</code> → firma local → transmisión mainnet.</p>
+    <p>Ese broadcast validó discovery HD, selección de inputs, derivación de los signatories correctos y gasto del token recuperado desde una seed originada en Firma Wallet.</p>
 
-    <h2>Lo que esta prueba sí demuestra</h2>
+    <h2>Segundo cierre: FIRMA → XEC mediante Agora</h2>
+    <p>La redención requirió además resolver otro problema de infraestructura: Tonalli intentaba consultar un endpoint de bid obsoleto y el navegador lo bloqueaba por CORS. El PR <a href="https://github.com/xolosArmy/RMZWallet/pull/51">#51</a> movió esa lectura a un proxy server-side same-origin y alineó el upstream con el endpoint vigente utilizado por Cashtab.</p>
+    <p>Con la corrección desplegada, Tonalli pudo previsualizar y transmitir una oferta de redención. En una primera prueba se bloquearon <strong>15.2165 FIRMA</strong> para recibir aproximadamente <strong>2,278,169.6 XEC</strong> al completarse. La oferta fue transmitida con:</p>
+    <span class="tx">1d8a2bd65eed00638ae41d366164df017fecc2d7d69b09d10cd6ae3b4409472a:1</span>
+    <p>Después de la aceptación del sweeper, el saldo XEC de la wallet se actualizó.</p>
+
+    <h2>La prueba grande: 243.328 FIRMA</h2>
+    <p>Más tarde se repitió el embudo con un monto sustancialmente mayor proveniente del recorrido MXN → USDT Solana → firma.cash. Tonalli mostró en el preview:</p>
+    <section class="table-wrap"><table><thead><tr><th>Campo</th><th>Valor observado</th></tr></thead><tbody>
+      <tr><td>FIRMA bloqueado</td><td><strong>243.328 FIRMA</strong></td></tr>
+      <tr><td>XEC al completarse</td><td><strong>36,385,587.2 XEC</strong></td></tr>
+      <tr><td>Precio efectivo</td><td>149,533.08 XEC/FIRMA</td></tr>
+      <tr><td>Bid oficial</td><td>149,578.25 XEC/FIRMA</td></tr>
+      <tr><td>Comisión estimada</td><td>5.31 XEC</td></tr>
+      <tr><td>Cambio FIRMA</td><td>0.002 FIRMA</td></tr>
+      <tr><td>Capacidad sweeper</td><td>233,453,847.64 XEC</td></tr>
+    </tbody></table></section>
+    <p>La oferta fue transmitida con el siguiente TXID/Offer ID:</p>
+    <span class="tx">49dd6237df7c6574e60440e3709f6293a424c8ce3abd87ee7311ee31ff52e191:1</span>
+    <p>Tras la aceptación, Tonalli mostró <strong>0.0020 FIRMA</strong> como remanente y el saldo total XEC de la wallet se actualizó. Ese saldo total no debe confundirse con el payout aislado de la redención: la wallet ya poseía XEC antes de esta operación.</p>
+
+    <h2>Qué queda demostrado</h2>
     <section class="status">
-      <p><strong>1. Recuperación interoperable:</strong> una seed generada por Firma Wallet puede ser restaurada en Tonalli y usada para descubrir activos eCash bajo el perfil 1899.</p>
-      <p><strong>2. Coincidencia operacional:</strong> Cashtab y Tonalli mostraron el mismo saldo de 15.2142 Firma Alpha para la seed probada.</p>
-      <p><strong>3. Control de gasto:</strong> Tonalli pudo firmar y transmitir una transacción que gastó esos UTXOs en mainnet.</p>
-      <p><strong>4. Compatibilidad hacia atrás:</strong> la misma evolución preservó el acceso a wallets Tonalli legacy mediante un engine histórico separado.</p>
+      <p><strong>Fiat → stablecoin:</strong> pesos mexicanos pudieron convertirse en USDT y salir por Solana.</p>
+      <p><strong>Stablecoin → Firma:</strong> el USDT enviado a firma.cash terminó produciendo Firma Alpha bajo una identidad eCash controlada por seed.</p>
+      <p><strong>Firma → Tonalli:</strong> la misma seed fue recuperable en Tonalli con BIP44 1899; no hizo falta una transferencia entre wallets.</p>
+      <p><strong>FIRMA → XEC:</strong> Tonalli creó ofertas Agora de redención que fueron aceptadas y terminaron actualizando el saldo XEC.</p>
+      <p><strong>Compatibilidad:</strong> el soporte 1899 coexistió con la recuperación real de wallets Tonalli Legacy 899.</p>
     </section>
 
-    <h2>Lo que no debe concluirse de más</h2>
+    <h2>Qué no debe exagerarse</h2>
     <section class="warning">
-      <p><strong>Esta prueba documenta Firma Alpha.</strong> No debe confundirse automáticamente con Firma USD, fCHF o fEUR, que son productos distintos. Tampoco demuestra por sí sola la arquitectura completa de conversión entre rails externos —por ejemplo Solana— y todos los activos emitidos por Firma.</p>
-      <p>El experimento demuestra algo más concreto: <strong>para el saldo Firma Alpha probado, la seed de Firma Wallet permitió recuperar y gastar el activo desde una wallet eCash independiente.</strong></p>
+      <p>La prueba no demuestra que exista un bridge público, trustless y documentado entre Solana y eCash. Demuestra que <strong>el servicio de Firma realizó el tramo funcional</strong> entre un depósito de USDT sobre Solana y Firma Alpha controlado por la seed eCash del usuario.</p>
+      <p>Tampoco convierte a Tonalli en un banco ni en una rampa fiat regulada. Tonalli intervino después, como wallet autocustodiada y cliente Agora. Los requisitos de KYC, límites, comisiones y disponibilidad del rail externo pertenecen a los proveedores correspondientes y pueden cambiar.</p>
     </section>
 
-    <h2>Por qué importa para una wallet soberana</h2>
-    <p>La autocustodia se vuelve más útil cuando una seed no queda atrapada en una sola interfaz. Tonalli ahora distingue explícitamente entre compatibilidad histórica y estándares interoperables. La experiencia de esta semana mostró el valor de ese diseño: una prueba real descubrió dos bugs de identidad, llevó a corregirlos en código abierto y terminó con fondos recuperados y gastados correctamente.</p>
-    <p>También deja una lección de ingeniería: <strong>un derivation path no es sólo una cadena de texto</strong>. El engine que interpreta ese path forma parte de la identidad criptográfica. El PR #50 convirtió esa lección en una política de compatibilidad explícita.</p>
+    <h2>El resultado para un usuario mexicano</h2>
+    <p>La consecuencia práctica es simple: <strong>ya existe una ruta operacional desde pesos mexicanos hasta XEC autocustodiado sin que Tonalli tenga integración bancaria propia.</strong> El exchange resuelve la entrada fiat, Solana transporta USDT, Firma realiza la conversión hacia Firma Alpha sobre eCash, y Tonalli recupera esas mismas llaves para completar la salida hacia XEC mediante Agora.</p>
+    <p>El tutorial didáctico de principio a fin quedó publicado por Xolos Ramírez en <a href="https://xolosramirez.com/blog/tutorial-firma-wallet-tonalli-firma-xec.html">su guía práctica del embudo Firma → Tonalli → XEC</a>.</p>
 
     <section class="verdict">
       <h2 style="margin-top:0">Conclusión</h2>
-      <p>Tonalli ya había demostrado compras y envíos de Firma Alpha. El paso del 14 de agosto fue distinto: <strong>demostró recuperación real desde una seed originada en Firma Wallet y gasto posterior de los UTXOs encontrados</strong>.</p>
-      <p>La prueba cerró en mainnet con 15.2142 FIRMA enviados y un TXID verificable. La interoperabilidad dejó de ser una promesa de formato: se convirtió en una operación soberana completa.</p>
+      <p>La investigación comenzó preguntando dónde vivía el supuesto “bridge” entre Firma, Solana y eCash. La prueba real llevó a una respuesta más útil: <strong>para el usuario final, Solana funciona como rail de entrada y la custodia eCash puede continuar mediante una seed interoperable.</strong></p>
+      <p>El 14 de agosto de 2026 la ruta completa quedó probada con fondos reales: <strong>MXN → USDT Solana → firma.cash → Firma Alpha → Tonalli → Agora → XEC.</strong> No es una promesa de integración futura. Es una secuencia que ya produjo UTXOs, firmas y saldos verificables en mainnet.</p>
     </section>
 
-    <p class="source-note"><strong>Metodología:</strong> reconstrucción basada en la prueba manual documentada el 14 de agosto de 2026, capturas de Cashtab y Tonalli, TXID del broadcast mainnet y los PR públicos #48, #49 y #50 de <code>xolosArmy/RMZWallet</code>. No se publica ninguna seed ni material privado.</p>
+    <p class="source-note"><strong>Metodología:</strong> reconstrucción basada en pruebas manuales documentadas el 14 de agosto de 2026, capturas de Tonalli/Cashtab, TXIDs de ofertas y envíos mainnet, y los PR públicos #48, #49, #50 y #51 de <code>xolosArmy/RMZWallet</code>. No se publica ninguna seed ni material privado. Los precios, fees y capacidades citados son observaciones históricas de las pruebas, no cotizaciones actuales.</p>
   </article></main>
   <footer>eCash Magazine México · Investigación técnica independiente · CC0 · 2026</footer>
 </body>
