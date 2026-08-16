@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-3HX6VT60WB");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XEC en THORChain: la ruta técnica entra en fase de revisión | eCash Magazine México</title>
+<meta name="description" content="El branch xec-client de starsquid marca una nueva etapa para la integración nativa de eCash/XEC en THORChain: del fork de xolosArmy a una ruta upstream-friendly.">
+<link rel="canonical" href="https://magazine.ecash.mx/reportajes/xec-thorchain-starsquid-xec-client.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<style>
+:root{--ecash-cyan:#00abe7;--ecash-blue:#003366;--ecash-green:#50d890;--bg-dark:#07090d;--bg-panel:#10151d;--text-main:#e6edf3;--text-muted:#9aa8b5;--white:#fff;--gold:#ffcc00;--font-heading:'Helvetica Neue',Helvetica,Arial,sans-serif;--font-body:Georgia,Times,serif}*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(circle at 20% 0%,rgba(0,171,231,.16),transparent 30%),radial-gradient(circle at 80% 10%,rgba(80,216,144,.10),transparent 28%),var(--bg-dark);color:var(--text-main);font-family:var(--font-body);line-height:1.78;font-size:18px;padding-bottom:80px}.container{max-width:840px;margin:0 auto;padding:0 22px}.emg-header{padding:76px 0 44px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.04),transparent)}.kicker{font-family:var(--font-heading);font-weight:800;text-transform:uppercase;color:var(--ecash-cyan);letter-spacing:2.4px;font-size:13px;margin-bottom:14px;display:block}.title{font-family:var(--font-heading);font-size:clamp(36px,7vw,58px);font-weight:900;color:var(--white);line-height:1.02;letter-spacing:-1.8px;margin-bottom:22px}.bajada{font-family:var(--font-heading);font-size:21px;color:var(--text-muted);font-weight:300;line-height:1.42;max-width:760px;margin:0 auto 24px}.meta{font-family:var(--font-heading);font-size:12px;color:#6f7d88;text-transform:uppercase;letter-spacing:1.2px}.content{padding:56px 0}.summary{background:rgba(16,21,29,.88);border-left:4px solid var(--ecash-cyan);border-radius:8px;padding:26px 28px;margin-bottom:38px;font-family:var(--font-heading);font-size:16px;color:var(--text-main)}.summary p{margin-bottom:12px}.summary p:last-child{margin-bottom:0}p{margin-bottom:24px}h2{font-family:var(--font-heading);font-size:31px;line-height:1.2;color:var(--white);margin:48px 0 18px;letter-spacing:-.5px}h2::before{content:"";display:inline-block;width:30px;height:4px;background:var(--ecash-cyan);margin-right:14px;vertical-align:middle}h3{font-family:var(--font-heading);font-size:22px;color:var(--white);margin:32px 0 14px}a{color:var(--ecash-cyan);text-decoration:none}a:hover{text-decoration:underline}.pill-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}.pill{font-family:'Courier New',monospace;font-size:12px;border:1px solid rgba(255,255,255,.13);background:rgba(0,0,0,.28);border-radius:999px;padding:8px 12px;color:#c9d6e2}.panel{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:26px 28px;margin:34px 0}.panel ul{list-style:none;margin-top:12px}.panel li{font-family:var(--font-heading);font-size:16px;margin-bottom:12px;color:#dce6ee}.panel li::before{content:"✓";color:var(--ecash-green);font-weight:900;margin-right:10px}.warning{border-left:4px solid var(--gold);background:rgba(255,204,0,.07);padding:22px 24px;border-radius:8px;margin:34px 0;font-family:var(--font-heading);font-size:16px}.quote{font-family:var(--font-heading);font-size:25px;font-weight:800;color:var(--ecash-cyan);text-align:center;margin:48px auto;max-width:700px;line-height:1.32}.links{font-family:var(--font-heading);background:var(--bg-panel);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:24px;margin-top:44px}.links p{font-size:15px;margin-bottom:10px}.footer{text-align:center;border-top:1px solid rgba(255,255,255,.08);margin-top:50px;padding-top:28px;font-family:var(--font-heading);font-size:11px;color:#6f7d88;text-transform:uppercase;letter-spacing:1.4px}.mono{font-family:'Courier New',monospace;color:#d7f3ff}.back{display:inline-block;margin-top:26px;font-family:var(--font-heading);font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold)}
+</style>
+</head>
+<body>
+<header class="emg-header">
+  <div class="container">
+    <span class="kicker">Reportaje técnico · THORChain · XEC</span>
+    <h1 class="title">XEC en THORChain: el branch de starsquid cambia la partida</h1>
+    <p class="bajada">Después del Draft MR de xolosArmy y del feedback técnico de PiRK, un contribuidor del lado THORChain abrió una ruta propia <span class="mono">starsquid/xec-client</span>. No es una aceptación final, pero sí marca el paso de la tesis a una revisión técnica con camino upstream.</p>
+    <div class="meta">Por eCash Magazine México · 16 de agosto de 2026</div>
+    <div class="pill-row"><span class="pill">Draft MR !2</span><span class="pill">generic UTXO client</span><span class="pill">PiRK feedback</span><span class="pill">starsquid/xec-client</span><span class="pill">Tonalli path</span></div>
+  </div>
+</header>
+
+<main class="container content">
+  <section class="summary">
+    <p><strong>Resumen:</strong> La integración nativa de eCash (XEC) en THORChain ya no es solamente una propuesta de comunidad. El trabajo inicial de xolosArmy abrió un Draft MR público; PiRK, desde el lado eCash/Bitcoin ABC, aportó correcciones concretas; y starsquid apareció con una rama propia llamada <span class="mono">xec-client</span>.</p>
+    <p>La lectura prudente es clara: XEC todavía no está aceptado ni fusionado en THORChain, pero la conversación ya entró en una fase mucho más seria. El MR dejó de ser un pitch y se convirtió en un punto de coordinación técnica.</p>
+  </section>
+
+  <p>Durante semanas, el camino de XEC hacia THORChain vivió en una zona incómoda: demasiado técnico para ser entendido como campaña comunitaria, demasiado temprano para ser tratado como integración oficial. Ese periodo produjo una tensión sana. La comunidad preguntó si el trabajo era realmente complejo o si bastaba con copiar la integración de Bitcoin Cash. Los desarrolladores respondieron con matices: sí, la base UTXO compartida reduce el alcance; no, eso no elimina la responsabilidad de manejar correctamente unidades, prefijos de dirección, fees, validaciones y configuración por cadena.</p>
+
+  <p>En ese contexto, xolosArmy Network abrió un fork de THORNode y un Draft MR para añadir soporte inicial de eCash (XEC) usando el cliente UTXO compartido. Ese fork fue el primer artefacto público y revisable de la integración. A partir de ahí, el proyecto dejó de girar alrededor de una pregunta abstracta —“¿debería XEC estar en THORChain?”— y empezó a girar alrededor de una pregunta concreta: “¿cuál es el camino más limpio para que XEC sea revisable por upstream?”</p>
+
+  <h2>De fork comunitario a punto de coordinación</h2>
+  <p>El primer valor del Draft MR no fue prometer un merge. Su valor fue hacer visible el trabajo. En lugar de presentar una idea sin código, xolosArmy puso sobre la mesa una implementación inicial que permitió comentarios técnicos concretos. PiRK revisó el enfoque desde el lado eCash/Bitcoin ABC y señaló ajustes precisos: usar el mismo camino de <span class="mono">getblockstats</span> cuando aplique, generalizar el manejo de CashAddr, validar explícitamente los prefijos <span class="mono">ecash</span>, <span class="mono">ectest</span> y <span class="mono">ecregtest</span>, y remover supuestos obsoletos sobre límites de ancestros en mempool.</p>
+
+  <p>Ese tipo de feedback es más valioso que un like o una frase de apoyo. Reduce riesgo. Hace el MR más pequeño. Evita que la integración introduzca una biblioteca eCash dedicada antes de tiempo. Y, sobre todo, alinea la ruta de XEC con el principio más importante para entrar a un protocolo como THORChain: tocar lo menos posible, reutilizar lo que ya existe y hacer explícito únicamente lo que sea propio de la cadena.</p>
+
+  <div class="panel">
+    <h3>Qué cambió con el feedback de PiRK</h3>
+    <ul>
+      <li>XEC se mantiene cerca del cliente UTXO compartido y de las rutas BCH/BTC cuando el comportamiento es compatible.</li>
+      <li>El manejo de CashAddr se vuelve genérico, en lugar de tratar BCH y XEC como casos duplicados.</li>
+      <li>La validación de prefijos se vuelve consciente de red: <span class="mono">ecash</span>, <span class="mono">ectest</span> y <span class="mono">ecregtest</span>.</li>
+      <li>La configuración evita conservar supuestos antiguos que ya no aplican al comportamiento actual de eCash.</li>
+      <li>La superficie específica de XEC se reduce, haciendo el MR más fácil de revisar.</li>
+    </ul>
+  </div>
+
+  <h2>La señal de starsquid</h2>
+  <p>El nuevo dato importante es que starsquid, un contribuidor del lado THORChain que ya había recomendado mantener la integración lo más cerca posible del cliente UTXO genérico, compartió una rama de trabajo llamada <span class="mono">starsquid/xec-client</span> dentro del repositorio de THORNode.</p>
+
+  <p>La frase pública fue sencilla: había estado quieto por varias razones, pero no había olvidado el tema. Para cualquier lector externo, eso puede parecer un comentario casual. Para quien entiende cómo se mueven los proyectos de infraestructura, el significado es mayor: alguien del lado THORChain no solo miró la conversación, sino que preparó una rama con una posible ruta de implementación.</p>
+
+  <div class="warning">
+    <strong>Precisión editorial:</strong> esto no significa que THORChain haya aceptado XEC, ni que la integración esté aprobada, ni que exista un merge garantizado. Significa algo más acotado y más serio: ya existe una rama técnica del lado THORChain que puede servir como camino upstream-friendly para comparar, corregir y alinear el trabajo inicial.
+  </div>
+
+  <p>Ese matiz importa. En infraestructura abierta, los saltos reales no siempre son anuncios. A veces son ramas, commits, revisiones y pequeños cambios de dirección. La integración de XEC empieza a entrar en esa etapa: menos campaña, más código; menos narrativa, más comparación de diffs.</p>
+
+  <h2>El rol correcto de xolosArmy ahora</h2>
+  <p>El trabajo de xolosArmy no debería entenderse como competencia contra el branch de starsquid. Al contrario: el Draft MR inicial sirvió como proof of work y como disparador público. Si la rama de starsquid resulta más limpia o más cercana al estilo upstream, lo correcto es alinear el trabajo alrededor de ella.</p>
+
+  <p>El mérito técnico no desaparece porque otro contribuidor refine el camino. En proyectos abiertos, abrir la puerta también es contribución. El fork de xolosArmy convirtió una idea en objeto revisable. El feedback de PiRK corrigió supuestos específicos de eCash. La rama de starsquid puede convertir esa exploración en una ruta más aceptable para THORChain.</p>
+
+  <div class="quote">El siguiente hito no es defender un fork. Es encontrar el camino que tenga más probabilidades de ser revisado, probado y eventualmente aceptado.</div>
+
+  <h2>Teyolia, Tonalli y la siguiente fase</h2>
+  <p>La campaña Teyolia original funcionó menos como mecanismo inmediato de recaudación y más como mecanismo de coordinación pública. Sirvió para ordenar el objetivo, presentar el trabajo, justificar el outreach y demostrar que xolosArmy estaba dispuesto a construir antes de pedir financiamiento serio.</p>
+
+  <p>Si la campaña actual expira sin fondearse, el proyecto no desaparece. El MR, el feedback y las ramas públicas quedan. Lo razonable sería relanzar una Teyolia más pequeña y basada en hitos, enfocada en el sprint que realmente siga después de la revisión: documentación, pruebas, preparación MockNet, especificación para Tonalli Wallet y coordinación con el camino upstream.</p>
+
+  <p>Tonalli Wallet sigue siendo la capa de usuario de esta historia. THORChain puede abrir la ruta de liquidez; Tonalli puede convertir esa ruta en una experiencia usable para quienes tienen XEC. Entre ambas capas aparece el punto central: liquidez nativa, sin wrapped tokens, sin bridge custodial y sin depender por completo de exchanges centralizados.</p>
+
+  <h2>Qué observar a partir de ahora</h2>
+  <div class="panel">
+    <ul>
+      <li>Comparación entre el Draft MR de xolosArmy y <span class="mono">starsquid/xec-client</span>.</li>
+      <li>Incorporación final del feedback de PiRK en unidades, direcciones y comportamiento RPC.</li>
+      <li>Definición de la ruta upstream-friendly más pequeña posible.</li>
+      <li>Pruebas sobre runner más fuerte u oficiales para descartar límites locales de CI.</li>
+      <li>Plan de MockNet y documentación pública de próximos pasos.</li>
+      <li>Posible relanzamiento de Teyolia con una meta menor y por hitos.</li>
+    </ul>
+  </div>
+
+  <p>El balance de esta etapa es claro: eCash todavía no está en THORChain, pero XEC ya tiene una puerta técnica visible. Esa puerta comenzó con un fork comunitario y ahora está siendo examinada desde ambos lados. Eso no garantiza el destino, pero cambia la naturaleza del camino.</p>
+
+  <p>La integración dejó de ser un deseo. Ahora es una conversación de código.</p>
+
+  <section class="links">
+    <p><strong>Branch de starsquid:</strong> <a href="https://gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client">gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client</a></p>
+    <p><strong>Draft MR inicial de xolosArmy:</strong> <a href="https://gitlab.com/XolosRMZ/thornode/-/merge_requests/2">gitlab.com/XolosRMZ/thornode/-/merge_requests/2</a></p>
+    <p><strong>Teyolia:</strong> <a href="https://www.teyolia.cash/campaigns/campaign-1775831790436">teyolia.cash/campaigns/campaign-1775831790436</a></p>
+    <p><strong>Tonalli Wallet:</strong> <a href="https://tonalli.cash">tonalli.cash</a></p>
+    <a class="back" href="/">← Volver a primera plana</a>
+  </section>
+
+  <footer class="footer">eCash Magazine México · Infraestructura, cultura y soberanía técnica</footer>
+</main>
+</body>
+</html>
