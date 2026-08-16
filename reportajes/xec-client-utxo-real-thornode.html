@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-3HX6VT60WB");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qué encontramos dentro del branch xec-client | eCash Magazine México</title>
+<meta name="description" content="Revisión técnica del branch starsquid/xec-client: XEC entra como cadena UTXO real en THORNode, con signing, CashAddr, precisión 1 XEC = 100 base units y protección contra confusión BCH/XEC.">
+<link rel="canonical" href="https://magazine.ecash.mx/reportajes/xec-client-utxo-real-thornode.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<style>
+:root{--ecash-cyan:#00abe7;--ecash-green:#50d890;--bg:#06080c;--panel:#101722;--text:#e6edf3;--muted:#9fb0bf;--white:#fff;--gold:#ffcc00;--heading:'Helvetica Neue',Helvetica,Arial,sans-serif;--body:Georgia,Times,serif}*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(circle at 20% 0%,rgba(0,171,231,.18),transparent 34%),radial-gradient(circle at 85% 8%,rgba(80,216,144,.12),transparent 28%),var(--bg);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.78;padding-bottom:80px}.container{max-width:880px;margin:0 auto;padding:0 22px}.hero{padding:78px 0 48px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.04),transparent)}.kicker{font-family:var(--heading);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2.5px;color:var(--ecash-cyan);display:block;margin-bottom:14px}.title{font-family:var(--heading);font-size:clamp(35px,7vw,60px);line-height:1.02;font-weight:900;color:var(--white);letter-spacing:-1.8px;margin-bottom:22px}.deck{font-family:var(--heading);font-size:21px;line-height:1.42;color:var(--muted);font-weight:300;max-width:780px;margin:0 auto 22px}.meta{font-family:var(--heading);font-size:12px;color:#6f7e8e;text-transform:uppercase;letter-spacing:1.4px}.tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px}.tag{font-family:'Courier New',monospace;font-size:12px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);border-radius:999px;padding:8px 12px;color:#d8f2ff}.content{padding:56px 0}.summary{font-family:var(--heading);background:rgba(16,23,34,.88);border-left:4px solid var(--ecash-cyan);border-radius:9px;padding:27px 30px;margin-bottom:38px;font-size:16px}.summary p{margin-bottom:12px}.summary p:last-child{margin-bottom:0}p{margin-bottom:24px}h2{font-family:var(--heading);font-size:31px;line-height:1.2;color:var(--white);margin:48px 0 18px;letter-spacing:-.5px}h2:before{content:"";display:inline-block;width:30px;height:4px;background:var(--ecash-cyan);margin-right:14px;vertical-align:middle}h3{font-family:var(--heading);font-size:22px;margin:32px 0 14px;color:var(--white)}a{color:var(--ecash-cyan);text-decoration:none}a:hover{text-decoration:underline}.mono{font-family:'Courier New',monospace;color:#d8f2ff}.panel{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:26px 28px;margin:34px 0}.panel ul{list-style:none}.panel li{font-family:var(--heading);font-size:16px;margin-bottom:12px;color:#dce7ef}.panel li:before{content:"✓";color:var(--ecash-green);font-weight:900;margin-right:10px}.warn{font-family:var(--heading);background:rgba(255,204,0,.07);border-left:4px solid var(--gold);border-radius:8px;padding:22px 24px;margin:34px 0;font-size:16px}.quote{font-family:var(--heading);font-size:25px;font-weight:900;color:var(--ecash-cyan);text-align:center;line-height:1.32;margin:48px auto;max-width:720px}.codebox{font-family:'Courier New',monospace;background:#05070a;border:1px solid rgba(0,171,231,.25);border-radius:10px;padding:22px;margin:28px 0;color:#d8f2ff;font-size:15px;overflow-x:auto;white-space:pre-wrap}.links{font-family:var(--heading);background:var(--panel);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:24px;margin-top:44px}.links p{font-size:15px;margin-bottom:10px}.back{display:inline-block;margin-top:22px;font-family:var(--heading);font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold)}.footer{text-align:center;border-top:1px solid rgba(255,255,255,.08);margin-top:50px;padding-top:28px;font-family:var(--heading);font-size:11px;color:#6f7d88;text-transform:uppercase;letter-spacing:1.4px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="container">
+    <span class="kicker">Análisis técnico · THORNode · XEC</span>
+    <h1 class="title">Qué encontramos dentro del branch <span class="mono">xec-client</span></h1>
+    <p class="deck">La revisión de la rama de starsquid muestra que XEC ya no aparece como decoración simbólica: entra en paths reales del cliente UTXO de THORNode, con signing, construcción de transacciones, precisión contable, CashAddr por red y protecciones contra ambigüedad BCH/XEC.</p>
+    <div class="meta">Por eCash Magazine México · 16 de agosto de 2026</div>
+    <div class="tags"><span class="tag">starsquid/xec-client</span><span class="tag">UTXO client</span><span class="tag">1 XEC = 100 base units</span><span class="tag">CashAddr</span><span class="tag">disabled-by-default</span></div>
+  </div>
+</header>
+
+<main class="container content">
+  <section class="summary">
+    <p><strong>Resumen:</strong> xolosArmy revisó técnicamente la rama <span class="mono">starsquid/xec-client</span> de THORNode. La conclusión es contundente: XEC entra como una cadena UTXO real dentro del stack compartido de THORChain, no como un string decorativo.</p>
+    <p>La rama todavía no significa aceptación oficial ni merge garantizado, pero sí representa desarrollo activo del lado THORChain. La tarea correcta ahora es validar, documentar, comparar y alinear Tonalli/Teyolia alrededor de la arquitectura que el upstream parece preferir.</p>
+  </section>
+
+  <p>La integración nativa de eCash (XEC) en THORChain acaba de cruzar una frontera importante. Hasta hace poco, la narrativa pública giraba alrededor del Draft MR de xolosArmy: una prueba de trabajo comunitaria que abrió la puerta técnica. Ahora el foco se movió hacia una rama del propio entorno THORChain, <span class="mono">starsquid/xec-client</span>, que implementa una versión más upstream-style de la integración.</p>
+
+  <p>La diferencia no es menor. El MR comunitario empujaba una integración amplia: cadena XEC, cliente UTXO, mocknet, Docker, wallet/regtest, tests y wiring de simulación. La rama de starsquid se ve más quirúrgica: mete XEC dentro del stack UTXO existente, trabaja precisión y conversión de montos, endurece fees, normaliza CashAddr, deja la configuración desactivada por defecto y agrega tests focalizados.</p>
+
+  <div class="quote">La tesis cambió: ya no hablamos de “si XEC podría entrar”, sino de cómo se está diseñando su entrada como cadena UTXO real.</div>
+
+  <h2>XEC entra al cliente UTXO compartido</h2>
+  <p>El primer hallazgo importante aparece en el mecanismo de carga de chains. En la rama revisada, XEC entra junto con BTC, BCH, LTC, DOGE y ZEC dentro del cliente UTXO compartido. Eso significa que la cadena no se registra como un símbolo aislado, sino como parte del mismo camino técnico que THORNode usa para observar, construir y firmar transacciones UTXO.</p>
+
+  <div class="codebox">case common.BTCChain, common.BCHChain, common.XECChain, common.LTCChain, common.DOGEChain, common.ZECChain:
+    return utxo.NewClient(...)</div>
+
+  <p>También se observó que en la lógica de signing/building, XEC se trata como cadena no-SegWit junto con BCH, DOGE y ZEC, y usa una configuración propia para construir scripts de pago. Esa es una señal técnica clave: el branch no solamente declara XEC; lo conecta a paths reales de construcción de transacciones.</p>
+
+  <h2>La contabilidad respeta la naturaleza de eCash</h2>
+  <p>Uno de los riesgos más importantes de integrar XEC en software heredado de Bitcoin/BCH es la unidad base. En eCash, <strong>1 XEC equivale a 100 base units</strong>. La rama revisada introduce una arquitectura de conversión que conserva precisión explícita para XEC de 2 decimales mientras mantiene compatibilidad con cadenas UTXO tradicionales de 8 decimales.</p>
+
+  <div class="codebox">RPC amount
+→ native base units
+→ THORChain 1e8 representation</div>
+
+  <p>El test clave valida que 100 native base units de XEC se convierten correctamente a <span class="mono">common.One</span> dentro de la representación de THORChain y que los decimales de XEC se preservan como 2. También se revisó soporte para montos extremadamente grandes, incluyendo el caso de 20 trillones de XEC, donde la representación 1e8 puede exceder <span class="mono">uint64</span> pero el monto nativo todavía se puede convertir correctamente al wire amount.</p>
+
+  <h2>CashAddr se maneja por red y sin confundir BCH con XEC</h2>
+  <p>El segundo bloque crítico es direcciones. En <span class="mono">common/ecash.go</span>, XEC define prefijos por red: <span class="mono">ecash</span> para MainNet/StageNet/ChainNet, <span class="mono">ectest</span> para TestNet y <span class="mono">ecregtest</span> para MockNet.</p>
+
+  <p>La decisión de diseño es que una dirección externa puede existir como <span class="mono">ecash:q...</span>, pero THORChain trabaja internamente con forma canónica sin prefijo. Esa normalización prefixless evita romper la gramática de memos, donde el carácter <span class="mono">:</span> ya tiene significado como separador.</p>
+
+  <div class="panel">
+    <h3>Protecciones observadas</h3>
+    <ul>
+      <li>Una bare BCH CashAddr no se clasifica como XEC.</li>
+      <li>Una dirección <span class="mono">bitcoincash:</span> no pasa como XEC.</li>
+      <li>Una dirección <span class="mono">ecregtest:</span> no pasa en mainnet.</li>
+      <li>Una dirección <span class="mono">ecash:</span> no pasa en mocknet.</li>
+      <li>Mixed-case se rechaza y uppercase completo se acepta bajo las reglas esperadas.</li>
+    </ul>
+  </div>
+
+  <h2>El candado contra THORName es una pieza clave</h2>
+  <p>Uno de los hallazgos más importantes es la protección contra colisión con THORName. El problema es sutil: un memo con dirección XEC prefijada, como <span class="mono">+:XEC.XEC:ecash:q...</span>, puede partirse por el separador <span class="mono">:</span> y provocar que <span class="mono">ecash</span> se intente resolver como un THORName.</p>
+
+  <p>La rama agrega un bloqueo explícito en <span class="mono">FetchAddress()</span>: si la primera parte coincide con el prefijo reservado de XEC para la red actual, se devuelve error y se exige usar una dirección XEC sin prefijo dentro de memos.</p>
+
+  <div class="codebox">"ecash" / "ectest" / "ecregtest" quedan reservados según red.
+Resultado: usar XEC prefixless en memos o fallar explícitamente.</div>
+
+  <p>Este candado es importante porque convierte un edge case peligroso en una regla explícita. No deja que una dirección mal formateada se transforme silenciosamente en una búsqueda de THORName.</p>
+
+  <h2>XEC está apagado por defecto</h2>
+  <p>Otro punto correcto desde la perspectiva upstream es que XEC aparece en la configuración, pero con <span class="mono">disabled: true</span>. Esto permite que el código exista, se revise y se pruebe sin activar la cadena hasta que haya decisión de red, infraestructura, endpoints, pruebas y configuración adecuada.</p>
+
+  <div class="codebox">xec:
+  disabled: true
+  chain_id: XEC</div>
+
+  <p>Esta decisión separa el merge técnico de la activación operativa. Para una integración de cadena nativa, esa separación es sana: primero el código, luego las pruebas, después la configuración, y solo al final la activación.</p>
+
+  <h2>El único punto pendiente: DustThreshold</h2>
+  <p>La revisión dejó un punto que conviene confirmar con starsquid: el valor de <span class="mono">DustThreshold()</span> para XEC parece representar aproximadamente un umbral económico de 100 XEC, mientras que el <span class="mono">DustLimit()</span> técnico parece compartir un valor más bajo de 546 native units.</p>
+
+  <div class="warn"><strong>Pregunta abierta:</strong> ¿100 XEC como DustThreshold económico es intencional para XEC, separado del dust limit técnico? No se afirma que esté mal; se marca como punto que merece confirmación.</div>
+
+  <h2>Qué significa para Tonalli y Teyolia</h2>
+  <p>La revisión también tiene consecuencias directas para Tonalli Wallet. Si THORChain quiere direcciones XEC prefixless dentro de memos, Tonalli debe preparar un builder especializado para ADDLP y swaps que respete esa semántica. El soporte OP_RETURN genérico es útil, pero no reemplaza todavía un builder específico para THORChain.</p>
+
+  <p>Para Teyolia, el despliegue de 2.1-G Governance-Bridge encaja con esta dirección: una campaña exitosa puede liquidar hacia una multisig de gobernanza durable y desde ahí coordinar ADDLP posterior, en lugar de depender de un covenant efímero como ruta final de retorno LP.</p>
+
+  <div class="panel">
+    <h3>Próximas validaciones</h3>
+    <ul>
+      <li>Confirmar el DustThreshold económico de XEC.</li>
+      <li>Agregar o validar tests explícitos para prefijos <span class="mono">ecash/ectest/ecregtest</span> en memos.</li>
+      <li>Probar daemon XEC, wallet load/create, importaddress, listunspent y broadcast en entorno habilitado.</li>
+      <li>Validar observación inbound, outbound, refunds y quotes cuando haya mocknet o CI oficial disponible.</li>
+      <li>Alinear Tonalli Wallet con direcciones XEC prefixless dentro de memos THORChain.</li>
+    </ul>
+  </div>
+
+  <p>El objetivo final sigue siendo simple: XEC nativo en THORChain. No wrapped XEC. No bridge custodial. No token sintético como sustituto del L1. La diferencia es que ahora la conversación ya tiene arquitectura concreta, paths de código reales y preguntas técnicas específicas.</p>
+
+  <p>En una frase: XEC ya no está solamente tocando la puerta. Dentro del branch <span class="mono">xec-client</span>, XEC ya camina como una cadena UTXO real dentro de THORNode.</p>
+
+  <section class="links">
+    <p><strong>Branch de starsquid:</strong> <a href="https://gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client">gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client</a></p>
+    <p><strong>Draft MR inicial de xolosArmy:</strong> <a href="https://gitlab.com/XolosRMZ/thornode/-/merge_requests/2">gitlab.com/XolosRMZ/thornode/-/merge_requests/2</a></p>
+    <p><strong>Artículo previo:</strong> <a href="/reportajes/xec-thorchain-starsquid-xec-client.html">XEC en THORChain: el branch de starsquid cambia la partida</a></p>
+    <p><strong>Teyolia:</strong> <a href="https://www.teyolia.cash/campaigns/campaign-1775831790436">teyolia.cash/campaigns/campaign-1775831790436</a></p>
+    <a class="back" href="/">← Volver a primera plana</a>
+  </section>
+
+  <footer class="footer">eCash Magazine México · Infraestructura, cultura y soberanía técnica</footer>
+</main>
+</body>
+</html>
