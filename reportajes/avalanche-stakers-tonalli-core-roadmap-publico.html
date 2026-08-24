@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-3HX6VT60WB");
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avalanche, poder de los stakers y Tonalli Core: ¿quién decide cuál es la cadena real? | eCash Magazine México</title>
+  <meta name="description" content="Investigación exploratoria sobre Avalanche, elección de software de nodo, el horizonte Tonalli Core y el roadmap público verificable de xolosArmy Network.">
+  <meta name="author" content="Fernando Ramírez">
+  <link rel="canonical" href="https://magazine.ecash.mx/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="eCash Magazine México">
+  <meta property="og:title" content="Avalanche, poder de los stakers y Tonalli Core: ¿quién decide cuál es la cadena real?">
+  <meta property="og:description" content="Qué decide Avalanche en segundos, dónde entra la implementación de nodo y cómo xolosArmy publicará un roadmap verificable sin convertir hashes en promesas.">
+  <meta property="og:url" content="https://magazine.ecash.mx/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html">
+  <meta property="og:image" content="https://i.imgur.com/YZvGu8q.png">
+  <meta property="article:author" content="Fernando Ramírez">
+  <meta property="article:published_time" content="2026-08-24T00:00:00-06:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Avalanche, stakers y Tonalli Core">
+  <meta name="twitter:description" content="El software no es elegido por Avalanche: la red converge sobre bloques y transacciones válidos. Pero la implementación que ejecutan los stakers sí importa.">
+  <meta name="theme-color" content="#05070a">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AnalysisNewsArticle",
+    "headline": "Avalanche, poder de los stakers y Tonalli Core: ¿quién decide cuál es la cadena real?",
+    "description": "Investigación exploratoria sobre Avalanche, elección de software de nodo, el horizonte Tonalli Core y el roadmap público verificable de xolosArmy Network.",
+    "datePublished": "2026-08-24",
+    "dateModified": "2026-08-24",
+    "inLanguage": "es-MX",
+    "articleSection": "Reportajes",
+    "keywords": ["eCash", "XEC", "Avalanche", "staking", "Bitcoin ABC", "Tonalli Core", "xolosArmy Network", "roadmap", "consenso"],
+    "author": { "@type": "Person", "name": "Fernando Ramírez" },
+    "publisher": { "@type": "NewsMediaOrganization", "name": "eCash Magazine México", "url": "https://magazine.ecash.mx/" },
+    "mainEntityOfPage": "https://magazine.ecash.mx/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+    "image": "https://i.imgur.com/YZvGu8q.png"
+  }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+    :root {
+      --bg: #05070a;
+      --panel: #091018;
+      --panel-2: #0d1620;
+      --text: #dbeafe;
+      --muted: #94a3b8;
+      --soft: #64748b;
+      --cyan: #00abe7;
+      --cyan-2: #38bdf8;
+      --green: #50d890;
+      --gold: #ffcc00;
+      --purple: #a78bfa;
+      --red: #fb7185;
+      --line: rgba(255,255,255,.11);
+      --shadow: 0 30px 90px rgba(0,0,0,.55);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(0,171,231,.16), transparent 30%),
+        radial-gradient(circle at 84% 5%, rgba(80,216,144,.10), transparent 26%),
+        linear-gradient(180deg, #020305, var(--bg) 42%, #030508);
+      font-family: "Lexend", system-ui, sans-serif;
+      line-height: 1.78;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .07;
+      background-image:
+        linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    a { color: var(--cyan-2); text-decoration: none; }
+    a:hover { color: var(--gold); }
+    code, .mono { font-family: "Space Mono", monospace; }
+    code { overflow-wrap: anywhere; }
+    .shell { width: min(1180px, calc(100% - 28px)); margin: 18px auto 64px; position: relative; z-index: 1; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 17px 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px 22px 0 0;
+      background: rgba(2,6,23,.78);
+      backdrop-filter: blur(16px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; color: white; }
+    .brand img { width: 44px; height: 44px; object-fit: contain; border-radius: 50%; border: 1px solid rgba(0,171,231,.35); background: #020508; }
+    .brand-name { font-weight: 900; letter-spacing: -.055em; font-size: 1.28rem; }
+    .brand-name span { color: var(--cyan); }
+    .brand-sub { color: var(--soft); text-transform: uppercase; letter-spacing: .17em; font-size: .67rem; }
+    .back { padding: 8px 12px; color: #cbd5e1; border: 1px solid var(--line); border-radius: 999px; text-transform: uppercase; letter-spacing: .1em; font-size: .7rem; }
+
+    .article-shell { overflow: hidden; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 24px 24px; background: rgba(7,11,17,.96); box-shadow: var(--shadow); }
+    .hero {
+      position: relative;
+      min-height: 650px;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      padding: clamp(36px, 7vw, 78px) clamp(22px, 6vw, 76px) 46px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 78% 23%, rgba(0,171,231,.25), transparent 25%),
+        radial-gradient(circle at 67% 58%, rgba(80,216,144,.16), transparent 31%),
+        linear-gradient(145deg, #07111b 0%, #030507 72%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(0,171,231,.20) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,171,231,.20) 1px, transparent 1px);
+      background-size: 58px 58px;
+      transform: perspective(700px) rotateX(55deg) scale(1.35) translateY(22%);
+    }
+    .consensus-map {
+      position: absolute;
+      top: 66px;
+      right: clamp(22px, 7vw, 92px);
+      width: min(390px, 45vw);
+      display: grid;
+      gap: 10px;
+      opacity: .92;
+    }
+    .map-node { padding: 12px 15px; border: 1px solid var(--line); border-radius: 13px; background: rgba(3,7,12,.80); backdrop-filter: blur(8px); color: #cbd5e1; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+    .map-node:nth-child(2) { margin-left: 35px; border-color: rgba(0,171,231,.4); color: var(--cyan-2); }
+    .map-node:nth-child(3) { margin-left: 70px; border-color: rgba(80,216,144,.4); color: var(--green); }
+    .map-node:nth-child(4) { margin-left: 105px; border-color: rgba(255,204,0,.35); color: var(--gold); }
+    .hero-content { position: relative; z-index: 2; max-width: 930px; }
+    .kicker { display: inline-flex; gap: 9px; align-items: center; margin-bottom: 18px; padding: 7px 12px; border: 1px solid rgba(80,216,144,.36); border-radius: 999px; color: var(--green); background: rgba(80,216,144,.08); text-transform: uppercase; letter-spacing: .1em; font-size: .72rem; font-weight: 800; }
+    h1 { margin: 0 0 20px; color: white; font-size: clamp(2.35rem, 6.4vw, 5rem); line-height: 1.02; letter-spacing: -.06em; text-wrap: balance; }
+    .deck { max-width: 890px; margin: 0; color: #cbd5e1; font-size: clamp(1.05rem, 2.2vw, 1.35rem); line-height: 1.58; }
+    .meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+    .meta span { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(0,0,0,.25); font-size: .72rem; }
+
+    .status-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); background: #060b11; }
+    .status-item { padding: 18px; text-align: center; border-right: 1px solid var(--line); }
+    .status-item:last-child { border-right: 0; }
+    .status-item small { display: block; color: var(--soft); text-transform: uppercase; letter-spacing: .12em; font-size: .64rem; }
+    .status-item strong { display: block; margin-top: 5px; color: white; font-size: .9rem; }
+    .status-item:nth-child(1) strong { color: var(--cyan-2); }
+    .status-item:nth-child(2) strong { color: var(--green); }
+    .status-item:nth-child(4) strong { color: var(--red); }
+
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 305px; gap: 40px; padding: 46px clamp(22px, 6vw, 76px) 60px; }
+    .editorial-note { margin-bottom: 34px; padding: 21px 23px; border-left: 4px solid var(--gold); border-radius: 0 16px 16px 0; background: rgba(255,204,0,.06); color: #e5e7eb; }
+    .editorial-note strong { color: var(--gold); }
+    .main p { margin: 0 0 1.28rem; color: #cbd5e1; font-size: 1.04rem; }
+    .main .lead { color: #f1f5f9; font-size: 1.18rem; }
+    .main strong { color: white; }
+    .main h2 { margin: 50px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: white; font-size: clamp(1.55rem, 3vw, 2rem); line-height: 1.2; letter-spacing: -.035em; }
+    .main h3 { margin: 31px 0 10px; color: var(--cyan-2); font-size: 1.13rem; }
+    .pullquote { margin: 34px 0; padding: 28px; border: 1px solid rgba(0,171,231,.24); border-left: 4px solid var(--cyan); border-radius: 0 18px 18px 0; background: linear-gradient(135deg, rgba(0,171,231,.10), rgba(80,216,144,.05)); color: white; font-size: clamp(1.25rem, 2.7vw, 1.7rem); font-weight: 800; line-height: 1.35; letter-spacing: -.035em; }
+    .table-wrap { margin: 28px 0 36px; overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+    table { width: 100%; min-width: 700px; border-collapse: collapse; font-size: .88rem; }
+    th, td { padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { color: var(--gold); background: rgba(255,204,0,.06); }
+    td { color: #cbd5e1; background: rgba(255,255,255,.025); }
+    td:first-child { color: white; font-weight: 700; }
+    tr:last-child td { border-bottom: 0; }
+    .flow { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin: 28px 0 36px; }
+    .flow div { position: relative; padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.025); }
+    .flow div:not(:last-child)::after { content: "→"; position: absolute; right: -10px; top: 36%; z-index: 2; color: var(--cyan-2); font-weight: 900; }
+    .flow b { display: block; margin-bottom: 6px; color: white; font-size: .82rem; }
+    .flow span { color: var(--muted); font-size: .75rem; line-height: 1.45; }
+    .gate { margin: 32px 0; padding: 24px; border: 1px solid rgba(251,113,133,.34); border-radius: 17px; background: rgba(251,113,133,.06); }
+    .gate .verdict { display: inline-block; margin-bottom: 12px; padding: 5px 9px; border-radius: 999px; background: rgba(251,113,133,.14); color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .08em; }
+    .gate p:last-child { margin-bottom: 0; }
+    .hash { display: block; margin: 9px 0; padding: 11px 12px; border: 1px solid var(--line); border-radius: 9px; background: #05090d; color: #9ee8ff; font-size: .76rem; overflow-wrap: anywhere; }
+    .main ul, .main ol { padding-left: 24px; color: #cbd5e1; }
+    .main li { margin-bottom: 10px; }
+    .conclusion { margin-top: 42px; padding: 28px; border: 1px solid rgba(80,216,144,.32); border-radius: 18px; background: linear-gradient(135deg, rgba(80,216,144,.09), rgba(0,171,231,.05)); }
+    .conclusion p { margin: 0; color: white; font-size: 1.16rem; font-weight: 700; }
+    .references { margin-top: 46px; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .references h2 { margin-top: 0; font-size: 1.35rem; }
+    .references li { margin-bottom: 12px; font-size: .88rem; overflow-wrap: anywhere; }
+
+    .sidebar .sticky { position: sticky; top: 20px; display: grid; gap: 17px; }
+    .side-card { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: rgba(13,22,32,.72); }
+    .side-card.primary { border-color: rgba(0,171,231,.30); }
+    .side-card.warning { border-color: rgba(251,113,133,.28); }
+    .side-title { margin-bottom: 11px; color: var(--cyan-2); text-transform: uppercase; letter-spacing: .1em; font-size: .72rem; font-weight: 800; }
+    .warning .side-title { color: var(--red); }
+    .side-card p, .side-card li { margin: 0 0 8px; color: #cbd5e1; font-size: .84rem; line-height: 1.58; }
+    .side-card ul { margin: 0; padding-left: 18px; }
+    .legend { display: grid; gap: 9px; }
+    .legend div { padding: 10px; border: 1px solid var(--line); border-radius: 11px; color: #cbd5e1; background: rgba(0,0,0,.18); font-size: .76rem; }
+    .legend strong { color: var(--green); }
+    .footer { padding: 25px; border-top: 1px solid var(--line); color: var(--soft); text-align: center; text-transform: uppercase; letter-spacing: .1em; font-size: .7rem; }
+
+    @media (max-width: 920px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+      .sidebar .sticky { position: static; }
+      .consensus-map { display: none; }
+      .status-strip { grid-template-columns: repeat(2, 1fr); }
+      .status-item:nth-child(2) { border-right: 0; }
+      .status-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .flow div::after { display: none; }
+    }
+    @media (max-width: 620px) {
+      .back { display: none; }
+      .hero { min-height: 570px; }
+      .flow { grid-template-columns: 1fr; }
+      table { min-width: 640px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="https://i.imgur.com/YZvGu8q.png" alt="eCash Magazine México">
+        <div>
+          <div class="brand-name mono">eCash<span>Magazine</span></div>
+          <div class="brand-sub mono">México · Investigación exploratoria</div>
+        </div>
+      </a>
+      <a class="back mono" href="../index.html">← Primera Plana</a>
+    </header>
+
+    <main class="article-shell">
+      <section class="hero">
+        <div class="consensus-map mono" aria-hidden="true">
+          <div class="map-node">Implementación elegida por el operador</div>
+          <div class="map-node">Validación local de reglas</div>
+          <div class="map-node">Polling ponderado por stake</div>
+          <div class="map-node">Punta finalizada</div>
+        </div>
+        <div class="hero-content">
+          <div class="kicker mono">Investigación exploratoria · Consenso</div>
+          <h1>Avalanche, poder de los stakers y Tonalli Core</h1>
+          <p class="deck">eCash puede alcanzar consenso en segundos sobre bloques y transacciones válidos. Eso da a los Avalanche stakers poder operativo real, pero no equivale a una elección automática de software ni autoriza a reescribir las reglas de consenso.</p>
+          <div class="meta mono">
+            <span>Por Fernando Ramírez</span>
+            <span>24 agosto 2026</span>
+            <span>Corte del roadmap: 22 agosto · 18:00 CDMX</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="status-strip mono" aria-label="Resumen de hallazgos">
+        <div class="status-item"><small>Pre-consensus</small><strong>≈2 segundos</strong></div>
+        <div class="status-item"><small>Post-consensus</small><strong>Punta finalizada</strong></div>
+        <div class="status-item"><small>Roadmap</small><strong>22 proyectos</strong></div>
+        <div class="status-item"><small>Exportador público</small><strong>Gate no aprobado</strong></div>
+      </div>
+
+      <div class="content-grid">
+        <article class="main">
+          <div class="editorial-note">
+            <strong class="mono">Nota metodológica:</strong> esta investigación contrasta documentación pública de eCash y Bitcoin ABC con el roadmap estratégico de xolosArmy Network, su hoja maestra operativa y la última revisión independiente del contrato de exportación pública. El último Daily Cut disponible al redactar esta pieza corresponde al 22 de agosto de 2026 a las 18:00, hora de Ciudad de México; trabajo posterior puede no estar reflejado todavía.
+          </div>
+
+          <p class="lead">Una discusión pública sobre quién controla los distintos descendientes de Bitcoin llevó a una pregunta más concreta: si los Avalanche stakers de eCash cambian de implementación, ¿puede cambiar el poder de coordinación de la red en segundos y sin producir una división persistente de la cadena?</p>
+
+          <p>La respuesta exploratoria es <strong>sí, pero dentro de límites técnicos precisos</strong>. Los stakers eligen qué software ejecutar. Ese software valida localmente los candidatos y participa en el polling de Avalanche. Cuando existen bloques o transacciones válidos en conflicto, el protocolo ponderado por stake converge rápidamente sobre la opción que será finalizada. Sin embargo, Avalanche no contiene una urna que elija nombres de proyectos, repositorios o equipos.</p>
+
+          <div class="pullquote">La implementación no es elegida por Avalanche. Los operadores eligen la implementación; Avalanche selecciona y finaliza el estado válido sobre el que esos nodos votan.</div>
+
+          <h2>1. Qué decide Avalanche en eCash</h2>
+
+          <p>eCash combina el consenso Nakamoto basado en Proof of Work con Avalanche. La documentación oficial distingue dos funciones complementarias. <strong>Post-Consensus</strong>, activo desde 2022, permite que los nodos alcancen acuerdo sobre bloques observados y bloqueen la punta válida de la cadena, reduciendo la posibilidad de reorganizaciones. <strong>Pre-Consensus</strong>, activado el 15 de noviembre de 2025, extiende esa coordinación a transacciones antes de su inclusión en un bloque y ofrece finalización aproximada de dos a tres segundos.</p>
+
+          <p>La propia portada técnica de eCash resume el efecto de Post-Consensus de manera directa: un bloque finalizado queda fijado como punta válida y no puede retirarse después. También explica que la red de nodos participantes está ponderada por la cantidad de XEC comprometida en sus pruebas de stake y que Avalanche selecciona la cadena sobre la que los mineros construirán.</p>
+
+          <p>La secuencia conceptual puede representarse así:</p>
+
+          <div class="flow mono" aria-label="Flujo simplificado de consenso">
+            <div><b>1 · Validar</b><span>El nodo aplica sus reglas locales al candidato.</span></div>
+            <div><b>2 · Consultar</b><span>Avalanche toma muestras repetidas de peers.</span></div>
+            <div><b>3 · Converger</b><span>Las preferencias cambian según el resultado ponderado.</span></div>
+            <div><b>4 · Finalizar</b><span>Una transacción o bloque alcanza estado irreversible.</span></div>
+          </div>
+
+          <p>Hay una frontera que no debe perderse: la explicación protocolaria publicada por eCash establece que los elementos sometidos a votación deben cumplir primero las reglas de consenso. Avalanche ayuda a resolver conflictos entre opciones válidas; no transforma por mayoría de stake un bloque inválido en válido para un nodo que aplica reglas incompatibles.</p>
+
+          <h2>2. Dónde entra la elección del software</h2>
+
+          <p>Bitcoin ABC es actualmente la implementación de nodo completo que desarrolla y publica el software de eCash. Un operador puede descargarlo, auditarlo, modificarlo o construir otra implementación, porque el código es abierto. Pero para permanecer dentro de la misma red, una alternativa debe reproducir correctamente las reglas de consenso, la validación, los mensajes de Avalanche y el comportamiento esperado frente a los mismos datos.</p>
+
+          <p>Si un conjunto de stakers migra hacia otra implementación compatible, su stake no desaparece: esos operadores siguen participando en el quorum desde el software que eligieron. Si esa implementación expresa una preferencia distinta ante un conflicto que continúa siendo válido bajo las reglas compartidas y alcanza mayoría ponderada, el resultado de Avalanche puede reflejar ese cambio con rapidez.</p>
+
+          <p>Ése es el sentido defendible de la metáfora de “contratar” o “despedir” una implementación: <strong>los operadores pueden retirar adopción, infraestructura y stake a un proveedor de software y trasladarlos a otro</strong>. El poder no cambia por una resolución corporativa; cambia porque la red corre otro código compatible.</p>
+
+          <h3>Lo que esta capacidad no significa</h3>
+
+          <ul>
+            <li>No existe una votación protocolaria llamada “Bitcoin ABC vs. Tonalli Core”.</li>
+            <li>Una mayoría de stake no convierte automáticamente reglas incompatibles en una actualización aceptada por todos.</li>
+            <li>Los cambios obligatorios de consenso siguen requiriendo coordinación de versiones. La actualización de mayo de 2026, por ejemplo, exigió a los operadores pasar a Bitcoin ABC 0.33 o posterior para conservar sincronía.</li>
+            <li>Una segunda implementación no produce descentralización por existir: necesita compatibilidad, reproducción independiente, operadores reales y mantenimiento sostenido.</li>
+          </ul>
+
+          <p>Por eso la frase “el poder cambia en segundos” debe aplicarse al <strong>consenso vivo sobre el estado válido</strong>, no a una supuesta facultad instantánea para reescribir el protocolo.</p>
+
+          <h2>3. Por qué una implementación alternativa sigue importando</h2>
+
+          <p>Aun con esa precisión, la diversidad de software tiene valor estratégico. Una red con una sola implementación dominante concentra conocimiento, procesos de release, interpretación de especificaciones y capacidad de respuesta ante fallos. Otra implementación compatible puede funcionar como verificador independiente, revelar supuestos no documentados, reducir monocultura y ofrecer a los operadores una salida creíble.</p>
+
+          <p>eCash añade un elemento distintivo: los operadores de nodos Avalanche no son observadores pasivos. Participan en la finalización rápida. Si en el futuro pueden elegir entre implementaciones maduras y compatibles, la posibilidad de migrar stake e infraestructura tendría consecuencias operativas reales sobre la coordinación de la red.</p>
+
+          <p>Pero ése es precisamente el punto en el que una narrativa atractiva debe someterse a evidencia. Una implementación alternativa necesita pruebas diferenciales, fixtures de consenso, reproducibilidad, compatibilidad con Avalanche, manejo correcto de reorgs, actualizaciones coordinadas y una historia verificable de mantenimiento. Sin eso, “alternativa” es solo una etiqueta.</p>
+
+          <h2>4. Tonalli Core: horizonte público y distinción interna</h2>
+
+          <p>xolosArmy Network ha comenzado a utilizar públicamente el nombre <strong>Tonalli Core</strong> para describir el horizonte de una futura implementación alternativa de nodo eCash. El objetivo no sería crear una moneda rival ni forzar una división, sino ofrecer a los Avalanche stakers otra base de software compatible que puedan elegir.</p>
+
+          <p>El roadmap canónico obliga, sin embargo, a distinguir ese horizonte de dos repositorios actuales:</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Superficie</th><th>Estado al último corte</th><th>Qué existe</th><th>Qué no existe todavía</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>xolosArmy/tonalli-core</code></td><td><code>FROZEN / PASS</code></td><td>Contratos canónicos y primitivas compartidas; HEAD <code>cfe4cb1575b22ed258565717c000ac535aa98c67</code>.</td><td>No es una implementación de nodo eCash.</td></tr>
+                <tr><td><code>xolosArmy/bitcoin-abc</code></td><td><code>RESEARCH / BLOCKED</code></td><td>Superficie de investigación para procedencia, sincronización upstream y reproducibilidad.</td><td>No es un nodo alternativo validado ni listo para operar.</td></tr>
+                <tr><td><code>xolosArmy/tonalli-shield</code></td><td><code>PRE-ENGINEERING / BLOCKED</code></td><td>Investigación fail-closed y regtest-first con resultados posibles GO, REDESIGN o NO-GO.</td><td>No es mainnet, subnet ni privacidad funcional.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Esta diferencia es más que semántica. En el roadmap estratégico, <code>tonalli-core</code> define el idioma contractual del ecosistema; Tonalli Wallet conserva la autoridad criptográfica; y la investigación de infraestructura profunda —fork de Bitcoin ABC, futuro nodo y Tonalli Shield— aparece al final de la secuencia. El nodo alternativo no debe anunciarse como ya construido solo porque existe un paquete llamado <code>tonalli-core</code>.</p>
+
+          <p>El horizonte Tonalli Core se encuentra, por tanto, en una fase anterior a la ingeniería de una implementación independiente: primero debe demostrarse que el fork de Bitcoin ABC puede mantenerse sincronizado y reproducible, después definir el alcance del delta, y finalmente construir compatibilidad y pruebas suficientes para que un staker pueda usarlo sin aceptar garantías inventadas.</p>
+
+          <h2>5. Lo que el roadmap dice que está ocurriendo hoy</h2>
+
+          <p>La hoja maestra <strong>xolosArmy Network — Roadmap Status</strong> no es un tablero promocional. Separa estrategia, estado operativo y evidencia. Al último corte disponible registra 22 proyectos: cinco activos, tres bloqueados, uno en revisión, uno congelado, siete planeados, dos en mantenimiento, dos en investigación y uno en preingeniería. Ninguno aparece como <code>COMPLETE</code>.</p>
+
+          <p>La prioridad de ingeniería continúa siendo <strong>RMZWallet / Tonalli Wallet</strong>, porque funciona como raíz de autoridad criptográfica para Memo, agentes, x402 y Commerce Relay. Su estado al corte es <code>REVIEW / CONDITIONAL</code>. La infraestructura profunda de nodo permanece en investigación y no debe quitar foco al cierre de los gates de autorización, recuperación durable y separación entre firma y broadcast.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Estado</th><th>Cantidad</th><th>Lectura correcta</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>ACTIVE</code></td><td>5</td><td>Implementación o trabajo operativo en curso.</td></tr>
+                <tr><td><code>BLOCKED</code></td><td>3</td><td>Existe una dependencia concreta que impide cruzar el gate actual.</td></tr>
+                <tr><td><code>REVIEW</code></td><td>1</td><td>El hito requiere transferencia, auditoría o resolución de findings antes de avanzar.</td></tr>
+                <tr><td><code>FROZEN</code></td><td>1</td><td>La superficie se conserva estable; los cambios deben ser explícitos y versionados.</td></tr>
+                <tr><td><code>COMPLETE</code></td><td>0</td><td>Ningún proyecto ha cerrado todavía su hito total y todos sus gates.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>El corte diario ocurre a las 18:00, hora de Ciudad de México. La regla central es sencilla: progreso narrado sin HEAD exacto, PR, prueba, gate, documento o artefacto observable no cuenta como hito cerrado.</p>
+
+          <h2>6. Se crea una subpágina pública del roadmap</h2>
+
+          <p>xolosArmy Network anuncia la creación de <strong><code>xolosarmy.xyz/roadmap</code></strong>, una subpágina destinada a mostrar al público el estado sanitizado del roadmap, sus dependencias, gates y evidencia confirmable. La página no expondrá la hoja maestra privada ni la consumirá directamente.</p>
+
+          <p>La arquitectura prevista establece una frontera fail-closed:</p>
+
+          <div class="flow mono" aria-label="Flujo de publicación del roadmap">
+            <div><b>Hoja privada</b><span>Estado operativo completo y coordinación interna.</span></div>
+            <div><b>Exportador</b><span>Valida, normaliza, omite INTERNAL y rechaza ambigüedad.</span></div>
+            <div><b>JSON público</b><span>Snapshot limitado, versionado y determinista.</span></div>
+            <div><b>Subpágina</b><span>Presentación pública sin autoridad sobre la fuente.</span></div>
+          </div>
+
+          <p>Cada snapshot público podrá incluir referencias como repositorio, rama o PR, HEAD, tree, hash del artefacto, pruebas y resultado del gate. Un lector podrá comprobar que el estado mostrado corresponde a un objeto exacto del repositorio y no a una descripción mutable.</p>
+
+          <h3>Qué prueba un hash —y qué no</h3>
+
+          <p>Un hash puede vincular una afirmación con bytes exactos. Si cambia el archivo, el árbol o el patch, cambia la huella. Esto permite detectar sustituciones, reconstruir el objeto revisado y comparar si el código visible es el mismo que recibió una prueba o auditoría.</p>
+
+          <p>Pero un hash no demuestra por sí solo que el código sea correcto, seguro, remoto, mergeado o desplegado. Tampoco convierte una prueba verde en equivalencia de consenso. Por eso la página separará campos como <code>Status</code>, <code>Security Status</code>, <code>HEAD</code>, <code>Active PR</code>, <code>Current Gate</code>, <code>Blocker</code> y <code>Evidence</code>.</p>
+
+          <h2>7. El primer contrato público fue sometido a una prueba adversarial</h2>
+
+          <p>La subpágina todavía no está desplegada. Antes de conectar la hoja privada, xolosArmy diseñó un contrato de salida pública y lo sometió a revisiones independientes. El candidato más reciente quedó fijado por tres identificadores deterministas:</p>
+
+          <span class="hash mono"><strong>HEAD</strong> · b3ccf806ee6389bd0569044e7a58f8c434c4faf9</span>
+          <span class="hash mono"><strong>Tree</strong> · 756afa0521a4ec485098bd54966250076dc11c76</span>
+          <span class="hash mono"><strong>Patch SHA-256</strong> · 91b222421dfa9252a55582613f2dc09c0e5aae20445e234747f51ab3193e348c</span>
+
+          <p>La revisión comprobó 22 de 22 archivos, obtuvo 64 de 64 pruebas verdes, pasó <code>git diff --check</code> y validó el esquema con AJV 8.17.1 bajo Draft 2020-12. Aun así, el gate no cerró.</p>
+
+          <div class="gate">
+            <div class="verdict mono">CONTRACT CHANGES REQUIRED</div>
+            <p>La revisión encontró un bypass P0 en la clasificación de identidades <code>INTERNAL</code> mediante una variante Unicode y un P1 que permitía que resúmenes narrativos se autoatribuyeran estados como “integrado en la rama principal”, “tráfico de producción confirmado” o “security review aprobado” sin evidencia estructurada suficiente.</p>
+            <p>Por esa razón, el adapter de Google Sheets no debe implementarse todavía y el candidato no se presenta como rama pública, PR, merge o despliegue.</p>
+          </div>
+
+          <p>Este resultado ilustra el propósito de la futura subpágina mejor que un lanzamiento apresurado: <strong>64 pruebas verdes no vencen un finding material en la frontera de divulgación</strong>. La huella criptográfica identifica con exactitud el candidato rechazado; el veredicto impide confundirlo con uno aceptado.</p>
+
+          <h2>8. Hipótesis abiertas de esta investigación</h2>
+
+          <p>El trabajo exploratorio deja preguntas que deberán resolverse antes de que Tonalli Core pueda describirse como una alternativa real para stakers:</p>
+
+          <ol>
+            <li>¿Puede una implementación independiente reproducir todas las reglas de consenso y el comportamiento de Avalanche sin depender de supuestos implícitos de Bitcoin ABC?</li>
+            <li>¿Qué suite diferencial permite detectar divergencias antes de que lleguen a mainnet?</li>
+            <li>¿Cómo se actualiza una segunda implementación durante la cadencia semestral sin crear una cadena accidental?</li>
+            <li>¿Qué porcentaje de stake y qué diversidad de operadores constituirían una salida creíble, no meramente nominal?</li>
+            <li>¿Cómo se demuestra que una decisión de Avalanche fue observada de la misma forma por implementaciones distintas?</li>
+            <li>¿Qué claims pueden publicarse automáticamente sin filtrar información interna ni permitir autoatestación narrativa?</li>
+          </ol>
+
+          <p>La subpágina pública no responderá esas preguntas por decreto. Su función será mostrar qué evidencia existe, qué gate sigue abierto y qué objeto exacto fue revisado.</p>
+
+          <h2>Conclusión: poder verificable, no poder proclamado</h2>
+
+          <p>La arquitectura híbrida de eCash ofrece algo que otros descendientes de Bitcoin no tienen en la misma forma: stakers que ejecutan nodos y participan directamente en una convergencia rápida sobre transacciones y bloques válidos. Esa capacidad permite que una migración de operadores hacia otra implementación compatible tenga consecuencias reales en la coordinación de la red.</p>
+
+          <p>Sin embargo, la implementación alternativa no nace del slogan. Requiere equivalencia demostrada, reproducibilidad, mantenimiento y adopción. El roadmap de xolosArmy coloca correctamente esa ambición detrás de gates más inmediatos: estabilizar contratos, cerrar la autoridad de Tonalli Wallet, madurar regtest y verificar una base de nodo sincronizada.</p>
+
+          <div class="conclusion">
+            <p>Tonalli Core será una alternativa cuando los stakers puedan ejecutarlo, verificarlo y abandonar otra implementación sin abandonar eCash. Hasta entonces, el trabajo correcto es publicar el camino, los bloqueos y los hashes exactos sin convertirlos en garantías que todavía no existen.</p>
+          </div>
+
+          <section class="references">
+            <h2>Fuentes y evidencia consultada</h2>
+            <ul>
+              <li><a href="https://e.cash/">eCash: Avalanche-Enhanced, finalización instantánea, protección contra 51% y finalización de un bloque</a>.</li>
+              <li><a href="https://e.cash/blog/post-consensus">eCash: Avalanche Post-Consensus</a>.</li>
+              <li><a href="https://e.cash/blog/preconsensus-launch">eCash: activación de Avalanche Pre-Consensus, 15 de noviembre de 2025</a>.</li>
+              <li><a href="https://e.cash/blog/avalanche-tutorial">eCash: pruebas de stake, polling y relación entre Avalanche y reglas de consenso</a>.</li>
+              <li><a href="https://www.bitcoinabc.org/upgrade/">Bitcoin ABC: actualización de red de mayo de 2026</a>.</li>
+              <li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc">Bitcoin ABC: implementación pública de nodo completo para eCash</a>.</li>
+              <li><a href="https://github.com/xolosArmy/tonalli-core/commit/cfe4cb1575b22ed258565717c000ac535aa98c67">xolosArmy/tonalli-core: HEAD congelado registrado por el roadmap</a>.</li>
+              <li><a href="https://github.com/xolosArmy/bitcoin-abc/pull/1">xolosArmy/bitcoin-abc: investigación documental y gate de sincronización</a>.</li>
+              <li><a href="https://github.com/xolosArmy/tonalli-shield/pull/1">Tonalli Shield: expediente de preingeniería</a>.</li>
+            </ul>
+            <p>Fuentes internas consultadas: <em>xolosArmy GitHub Portfolio — Development Roadmap</em>, snapshot del 20 de agosto de 2026; hoja maestra <em>xolosArmy Network — Roadmap Status</em>, último Daily Cut disponible del 22 de agosto de 2026; y tercera revisión independiente del <em>Public Roadmap Contract v1</em>. La hoja maestra no se publica ni se enlaza directamente.</p>
+          </section>
+        </article>
+
+        <aside class="sidebar">
+          <div class="sticky">
+            <div class="side-card primary">
+              <div class="side-title mono">Hallazgo central</div>
+              <p><strong>Avalanche selecciona estado válido, no marcas de software.</strong></p>
+              <p>Los stakers eligen qué implementación ejecutan; esa elección define desde qué código validan y participan.</p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Estado del roadmap</div>
+              <div class="legend">
+                <div><strong>Prioridad #1</strong><br>RMZWallet / Tonalli Wallet</div>
+                <div><strong>tonalli-core</strong><br>FROZEN / PASS</div>
+                <div><strong>bitcoin-abc fork</strong><br>RESEARCH / BLOCKED</div>
+                <div><strong>tonalli-shield</strong><br>PRE-ENGINEERING / BLOCKED</div>
+              </div>
+            </div>
+
+            <div class="side-card warning">
+              <div class="side-title mono">No confundir</div>
+              <p>El repositorio actual <code>tonalli-core</code> contiene contratos compartidos.</p>
+              <p>El futuro Tonalli Core como nodo alternativo continúa siendo un horizonte de infraestructura, no una implementación operativa.</p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-title mono">Próxima superficie pública</div>
+              <p><code>xolosarmy.xyz/roadmap</code></p>
+              <p>Estado sanitizado, dependencias, gates y evidencia determinista. La hoja privada permanecerá fuera de la superficie pública.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer mono">eCash Magazine México · Investigación exploratoria · 2026</footer>
+    </main>
+  </div>
+</body>
+</html>
