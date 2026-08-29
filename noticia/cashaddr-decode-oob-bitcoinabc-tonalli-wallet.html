@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CashAddr OOB: Bitcoin ABC corrigió el fallo y Tonalli Wallet califica como no afectada | eCash Magazine México</title>
+<meta name="description" content="Contexto técnico de la divulgación pública sobre cashaddr::Decode(), la corrección en Bitcoin ABC y la revisión independiente de exposición realizada sobre Tonalli Wallet.">
+<link rel="canonical" href="https://magazine.ecash.mx/noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html">
+<meta name="theme-color" content="#101820">
+<style>
+:root{--bg:#101820;--text:#eef2f5;--muted:#aeb8c2;--cyan:#00abe7;--gold:#cfaa43;--green:#50d890;--card:#18232d;--border:#2a3644;--mono:'Courier New',monospace;--sans:'Helvetica Neue',Arial,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.75;padding:0 20px}main{max-width:850px;margin:auto;padding:48px 0 80px}a{color:var(--cyan)}header{border-bottom:1px solid var(--border);padding-bottom:30px;margin-bottom:42px}.tag{font-family:var(--mono);color:var(--cyan);font-weight:bold;text-transform:uppercase;letter-spacing:1px}.kicker{font-family:var(--mono);font-size:.82rem;color:var(--gold);margin-top:12px}h1{font-size:2.75rem;line-height:1.12;margin:14px 0 18px}.lede{font-size:1.25rem;color:#d1d8de}.meta{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--border);padding-top:16px;margin-top:24px;font-family:var(--mono);font-size:.82rem;color:var(--muted)}h2{font-size:1.75rem;color:var(--cyan);margin-top:46px;line-height:1.25}p{margin:0 0 24px}.callout{border-left:4px solid var(--green);background:#10241f;padding:24px 26px;margin:34px 0;font-size:1.08rem}.grid{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0}.row{background:var(--card);border:1px solid var(--border);padding:18px 20px}.row strong{color:white}.code{font-family:var(--mono);font-size:.92rem;background:#0b1218;border:1px solid var(--border);padding:18px 20px;overflow:auto;margin:28px 0}.sources{margin-top:58px;padding-top:26px;border-top:2px solid var(--cyan);font-size:.92rem;color:var(--muted)}.sources li{margin-bottom:10px}.disclaimer{font-size:.86rem;color:#93a0ab;border-top:1px solid var(--border);margin-top:38px;padding-top:20px}@media(max-width:620px){body{font-size:17px}h1{font-size:2.1rem}.meta{display:block}.meta span{display:block;margin-top:6px}}
+</style>
+</head>
+<body>
+<main>
+<article>
+<header>
+<div class="tag">[Seguridad]</div>
+<div class="kicker">ECASH · CASHADDR · BITCOIN ABC · TONALLI WALLET</div>
+<h1>CashAddr OOB: qué pasó en Bitcoin ABC y por qué Tonalli Wallet no quedó afectada</h1>
+<p class="lede">Una divulgación pública sobre <code>cashaddr::Decode()</code> recordó que compartir un estándar no significa compartir una vulnerabilidad. Bitcoin ABC corrigió el fallo nativo antes de la publicación; una revisión de Tonalli Wallet encontró una implementación independiente y sin enlace al código C++ afectado.</p>
+<div class="meta"><span>Redacción técnica · eCash Magazine México</span><span>29 agosto 2026</span></div>
+</header>
+
+<p>El 28 de agosto, el desarrollador conocido como <strong>roqqit</strong> hizo pública una vulnerabilidad de severidad media relacionada con <code>cashaddr::Decode()</code>. El problema afectaba a una implementación nativa de CashAddr utilizada por software derivado del código de Bitcoin ABC: una entrada suficientemente corta podía atravesar parte de la validación y terminar en una operación de iteradores fuera de un rango válido.</p>
+
+<p>La historia importante no es solamente que existiera un bug. También importa cómo fue tratado: Bitcoin ABC recibió el reporte, probó el caso relacionado y publicó una corrección antes de la divulgación pública. El commit de reparación identificado en la revisión es <code>8b31fb4780c6e02995214ab30e378aeb892e2904</code>, incorporado en Bitcoin ABC 0.33.10 el 11 de agosto de 2026.</p>
+
+<div class="callout"><strong>La lección:</strong> cuando un fallo aparece en una primitiva ampliamente reutilizada, la pregunta correcta para cada proyecto downstream no es “¿usamos CashAddr?”, sino “¿ejecutamos exactamente la implementación vulnerable o una línea de código equivalente?”.</div>
+
+<h2>Qué fallaba exactamente</h2>
+
+<p>CashAddr incluye un checksum de ocho símbolos. Según la divulgación y el parche revisado, el decoder C++ podía llegar a una resta fija de iteradores sin haber demostrado primero que el vector decodificado contenía esos ocho elementos. Para ciertos inputs demasiado cortos, eso podía producir un rango inválido y terminar en excepción o crash.</p>
+
+<p>La corrección añadió la condición que faltaba antes de operar sobre ese rango. Bitcoin Cash Node, que heredaba la misma familia de implementación nativa, también realizó un backport del arreglo.</p>
+
+<p>Esto es distinto de otro hallazgo relacionado reportado en el firmware de Trezor. Allí se observó un <code>IndexError</code> en un decoder escrito en Python. El propio investigador señaló que no veía una vulnerabilidad aparente en el firmware de Trezor. Ambos casos comparten contexto de validación de CashAddr, pero no deben presentarse como el mismo fallo.</p>
+
+<h2>¿Y Tonalli Wallet?</h2>
+
+<p>La aparición de una vulnerabilidad en software eCash justificaba revisar Tonalli Wallet, pero no justificaba asumir exposición. xolosArmy ejecutó una calificación defensiva sobre el baseline bloqueado de RMZWallet/Tonalli Wallet, preservando <code>main</code>, el lockfile y las versiones exactas de dependencias.</p>
+
+<p>El resultado fue <strong>NOT AFFECTED</strong> para esta vulnerabilidad concreta.</p>
+
+<div class="grid">
+<div class="row"><strong>Implementación afectada:</strong> decoder nativo C++ <code>cashaddr::Decode()</code> en <code>src/cashaddr.cpp</code>.</div>
+<div class="row"><strong>Implementación alcanzable por Tonalli Wallet:</strong> <code>ecashaddrjs@2.0.0</code>, escrita en TypeScript/JavaScript.</div>
+<div class="row"><strong>Puente entre ambas:</strong> no se encontró binding C++, FFI, addon nativo ni export WASM de CashAddr.</div>
+<div class="row"><strong>Resultado operativo:</strong> 95/95 pruebas enfocadas PASS y <code>typecheck</code> PASS, con lockfile sin cambios.</div>
+</div>
+
+<p>La diferencia de lenguaje por sí sola no habría sido suficiente para cerrar el análisis. La revisión siguió el linaje del código, el grafo de dependencias y las rutas reales de importación. El flujo relevante de Tonalli Wallet termina en <code>ecashaddrjs.decodeCashAddress()</code>, una implementación independiente que llegó al monorepo de Bitcoin ABC años después de que existiera la implementación C++ afectada.</p>
+
+<p>En otras palabras: ambos componentes implementan el mismo formato de direcciones, pero no ejecutan la misma función vulnerable.</p>
+
+<h2>Por qué “npm install y ya” habría sido una mala respuesta</h2>
+
+<p>En seguridad de supply chain, actualizar por reflejo puede crear tanto ruido como claridad. Un <code>npm install</code> genérico no demuestra que una vulnerabilidad haya sido corregida, y puede incluso modificar el árbol de dependencias sin relación con el problema investigado.</p>
+
+<p>La revisión hizo lo contrario: primero identificó el código afectado, después inventarió las dependencias exactas y sólo materializó el entorno con <code>npm ci</code>, conservando el lockfile. Ese orden permite responder una pregunta verificable: <strong>¿el baseline actual ejecuta el código vulnerable?</strong></p>
+
+<p>Para Tonalli Wallet, la respuesta fue no.</p>
+
+<h2>ecashaddrjs 2.0.1: hardening, no parche de esta OOB</h2>
+
+<p>El 28 de agosto también se publicó <code>ecashaddrjs@2.0.1</code> con una comprobación más temprana de la longitud correspondiente a los ocho símbolos del checksum. Ese cambio mejora el orden defensivo de validación y merece una evaluación normal de dependencia.</p>
+
+<p>Pero confundirlo con el parche obligatorio de la OOB nativa sería impreciso. La revisión encontró que la versión 2.0.0 usada por Tonalli no entra en la ruta C++ fuera de límites; su lógica termina rechazando el caso posteriormente por una validación de tamaño. Por eso, una posible actualización a 2.0.1 debe tratarse como <strong>defense in depth</strong>, no como evidencia de que Tonalli Wallet estuviera explotablemente afectada por el bug divulgado.</p>
+
+<h2>El contexto más amplio para eCash</h2>
+
+<p>Este incidente muestra una propiedad saludable del software abierto: una vulnerabilidad encontrada en una implementación puede convertirse en una señal para que todo un ecosistema revise sus propios límites de confianza. La divulgación pública permitió que proyectos downstream dejaran de discutir por asociación de marca y pasaran a revisar identidad de código, versiones y rutas de ejecución.</p>
+
+<p>También muestra por qué Bitcoin ABC ocupa una posición importante en la seguridad del ecosistema eCash. La corrección previa a la divulgación redujo la ventana de exposición para operadores que mantienen software actualizado. Al mismo tiempo, proyectos independientes como wallets, SDKs y servicios necesitan realizar su propia calificación en vez de asumir que todos comparten la misma superficie de ataque.</p>
+
+<p>Para xolosArmy Network, este caso encaja con la línea de trabajo de <strong>Tonalli Shield</strong>: seguridad basada en evidencia reproducible, procedencia de código, dependencias bloqueadas, pruebas enfocadas y gates que separan “afectado”, “no afectado” e “inconcluso” antes de modificar software.</p>
+
+<div class="callout"><strong>Seguridad sin teatro:</strong> un buen resultado no es “instalamos la última versión”. Es poder explicar qué código estaba en riesgo, si nuestro producto lo ejecutaba, qué evidencia se obtuvo y cuál es la acción mínima necesaria.</div>
+
+<h2>Lo que todavía falta revisar</h2>
+
+<p>El veredicto de Tonalli Wallet no debe extrapolarse automáticamente a Tonalli Core ni a un fork nativo de eCash. Allí la relación con el código C++ de Bitcoin ABC puede ser directa y la pregunta cambia: hay que comprobar si el baseline incorpora el commit de reparación o un cambio equivalente.</p>
+
+<p>Ese es precisamente el valor de separar componentes. “Tonalli” no es una sola superficie técnica: wallet, librerías JavaScript, Core nativo y servicios asociados pueden tener procedencias y modelos de riesgo distintos.</p>
+
+<section class="sources">
+<h2>Fuentes y evidencia</h2>
+<ul>
+<li><a href="https://x.com/roqqitdev/status/2093382100816908322">roqqit — anuncio público de la divulgación</a>.</li>
+<li><a href="https://teamsocket.net/security/2026-07-29-incident-cashaddr-decode-oob.html">Team Socket — incidente CashAddr Decode OOB</a>.</li>
+<li><a href="https://teamsocket.net/security/2026-07-29-disclosure-cashaddr-decode-oob.md.txt">Team Socket — responsible disclosure</a>.</li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/commit/8b31fb4780c6e02995214ab30e378aeb892e2904">Bitcoin ABC — commit de corrección</a>.</li>
+<li><a href="https://reviews.bitcoinabc.org/D20444">Bitcoin ABC — revisión D20444</a>.</li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/commit/3105292da101eb21d0353a3e3f7a02dda15f8c17">Bitcoin ABC — hardening posterior de ecashaddrjs</a>.</li>
+</ul>
+<p class="disclaimer">La calificación de Tonalli Wallet descrita aquí corresponde al baseline revisado el 29 de agosto de 2026 y exclusivamente a la vulnerabilidad nativa C++ divulgada en <code>cashaddr::Decode()</code>. No constituye una afirmación de ausencia general de vulnerabilidades.</p>
+</section>
+</article>
+</main>
+</body>
+</html>
