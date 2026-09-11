@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-3HX6VT60WB");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash | eCash Magazine México</title>
+  <meta name="description" content="Tonalli Memo ya funciona sobre eCash mainnet con publicaciones TM1 verificables, ingestión en vivo, adjuntos NFT con metadata IPFS, hipervínculos seguros y hasta 212 bytes de eventData.">
+  <link rel="canonical" href="https://magazine.ecash.mx/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="eCash Magazine México">
+  <meta property="og:title" content="Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash">
+  <meta property="og:description" content="De OP_RETURN a un feed verificable: TM1 mantiene su wire format mientras Tonalli añade identidad, NFTs, IPFS, enlaces y lectura en vivo.">
+  <meta property="og:url" content="https://magazine.ecash.mx/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tonalli Memo ya vive en mainnet">
+  <meta name="twitter:description" content="Texto, NFTs, metadata IPFS y enlaces seguros sobre eCash, sin cambiar TM1 Draft 0.2.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+    :root{--bg:#05070a;--panel:#0b1118;--line:rgba(255,255,255,.1);--cyan:#00abe7;--mint:#50d890;--amber:#ffcc00;--text:#e2e8f0;--muted:#94a3b8}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 8%,rgba(0,171,231,.12),transparent 30%),radial-gradient(circle at 88% 20%,rgba(80,216,144,.08),transparent 28%),var(--bg);color:var(--text);font-family:'Lexend',sans-serif;line-height:1.75}.space-mono{font-family:'Space Mono',monospace}.grid-bg{background-image:linear-gradient(rgba(0,171,231,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,171,231,.045) 1px,transparent 1px);background-size:34px 34px}.prose-xec p{color:#cbd5e1;margin:0 0 1.25rem}.prose-xec h2{font-size:clamp(1.45rem,3vw,2.15rem);line-height:1.25;margin:3.1rem 0 1rem;color:white;font-weight:800;letter-spacing:-.025em}.prose-xec h3{font-size:1.15rem;margin:2rem 0 .75rem;color:#f8fafc;font-weight:700}.prose-xec strong{color:white}.prose-xec a{color:#67e8f9;text-decoration:underline;text-underline-offset:3px}.prose-xec code{font-family:'Space Mono',monospace;color:#d9f99d;background:#071016;border:1px solid rgba(80,216,144,.18);padding:.08rem .35rem;border-radius:.3rem;font-size:.88em}.fact{background:rgba(3,8,12,.78);border:1px solid var(--line);border-radius:1rem;padding:1.1rem}.fact b{display:block;color:white;font-size:1.25rem}.tx{overflow-wrap:anywhere;font-family:'Space Mono',monospace;font-size:.78rem;color:#a5f3fc}.callout{border-left:4px solid var(--cyan);background:rgba(0,171,231,.07);padding:1.2rem 1.35rem;border-radius:0 .8rem .8rem 0}.warn{border-left-color:var(--amber);background:rgba(255,204,0,.06)}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"NewsArticle",
+    "headline":"Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash",
+    "datePublished":"2026-09-10",
+    "dateModified":"2026-09-10",
+    "inLanguage":"es-MX",
+    "mainEntityOfPage":"https://magazine.ecash.mx/reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+    "publisher":{"@type":"Organization","name":"eCash Magazine México","url":"https://magazine.ecash.mx/"},
+    "description":"Tonalli Memo ya funciona sobre eCash mainnet con publicaciones TM1 verificables, ingestión en vivo, adjuntos NFT con metadata IPFS, hipervínculos seguros y hasta 212 bytes de eventData."
+  }
+  </script>
+</head>
+<body>
+  <header class="border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto p-5 flex justify-between items-center gap-4">
+      <a href="/" class="flex items-center gap-3"><img src="https://i.imgur.com/YZvGu8q.png" alt="eCash Magazine México" class="h-10 w-auto rounded-full border border-cyan-500/30"><div class="text-lg md:text-xl font-bold italic space-mono"><span class="text-white">eCash</span><span class="text-[#00abe7]">Magazine</span></div></a>
+      <a href="/" class="text-[11px] md:text-xs uppercase tracking-wider font-bold text-cyan-300 space-mono">← Primera Plana</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-16">
+    <article>
+      <header class="relative overflow-hidden border border-cyan-500/25 rounded-3xl p-7 md:p-12 grid-bg bg-[#071016]/90 shadow-2xl">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(80,216,144,.14),transparent_28%)] pointer-events-none"></div>
+        <div class="relative z-10 max-w-4xl">
+          <div class="inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[.18em] font-bold space-mono text-emerald-300 border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 rounded-sm">Primera Plana · Infraestructura · 10 septiembre 2026</div>
+          <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-[1.04] tracking-tight italic mt-6 mb-6">Tonalli Memo ya vive en mainnet: <span class="text-[#00abe7]">texto, NFTs y enlaces</span> sobre eCash</h1>
+          <p class="text-lg md:text-2xl text-slate-300 italic leading-relaxed max-w-4xl">Lo importante no es convertir OP_RETURN en una red social gigantesca. Es demostrar que una capa pequeña, verificable y autocustodiada puede crecer sin romper su formato canónico.</p>
+          <div class="flex flex-wrap gap-2 mt-7 text-[10px] uppercase tracking-wider space-mono text-slate-300"><span class="border border-white/10 bg-black/30 px-3 py-2">TM1 Draft 0.2</span><span class="border border-white/10 bg-black/30 px-3 py-2">eCash mainnet</span><span class="border border-white/10 bg-black/30 px-3 py-2">Chronik</span><span class="border border-white/10 bg-black/30 px-3 py-2">NFT + IPFS</span><span class="border border-white/10 bg-black/30 px-3 py-2">212 B eventData</span></div>
+        </div>
+      </header>
+
+      <div class="grid lg:grid-cols-12 gap-8 mt-10">
+        <div class="lg:col-span-8 prose-xec bg-[#0b1118]/75 border border-white/10 rounded-2xl p-6 md:p-10">
+          <p class="text-xl !text-white font-medium">Tonalli Memo cruzó una línea que suele separar los prototipos de la infraestructura: ya no es solamente una idea de mensajería on-chain. Hay publicaciones reales en eCash mainnet, un indexador que las consume en vivo, un feed que distingue estados de verificación y una interfaz capaz de enriquecer el mismo payload con referencias NFT y enlaces seguros.</p>
+
+          <p>El punto técnico clave es que esta evolución se hizo <strong>sin cambiar el wire format de TM1 Draft 0.2</strong>. El formato canónico sigue siendo pequeño y deliberadamente rígido; las nuevas capacidades se construyen alrededor de él como convenciones de aplicación, verificación y presentación.</p>
+
+          <h2>Un protocolo mínimo, no una página web disfrazada de blockchain</h2>
+          <p>TM1 identifica sus mensajes mediante el LOKAD ID <code>544d4d00</code> —los bytes de <code>TMM\0</code>—, usa versión <code>0x01</code> y un evento POST <code>0x01</code>. El límite de compatibilidad del script es de <strong>223 bytes</strong>; dentro de ese presupuesto, el campo <code>eventData</code> puede ocupar hasta <strong>212 bytes UTF-8</strong>.</p>
+
+          <div class="grid sm:grid-cols-3 gap-3 my-7">
+            <div class="fact"><span class="text-xs text-cyan-300 uppercase space-mono">eventData</span><b>212 B</b><span class="text-sm text-slate-500">capacidad máxima</span></div>
+            <div class="fact"><span class="text-xs text-emerald-300 uppercase space-mono">script</span><b>223 B</b><span class="text-sm text-slate-500">techo de compatibilidad</span></div>
+            <div class="fact"><span class="text-xs text-amber-300 uppercase space-mono">NFT ref.</span><b>71 B</b><span class="text-sm text-slate-500"><code>@nft1:</code> + tokenId + salto</span></div>
+          </div>
+
+          <p>Eso obliga a ser disciplinados. Tonalli Memo no intenta incrustar HTML, imágenes o metadatos gigantes dentro de cada transacción. Guarda una señal canónica y deja que indexadores y clientes hagan el trabajo pesado de lectura y presentación.</p>
+
+          <h2>De la transacción al feed: Chronik como nervio de lectura</h2>
+          <p>El flujo de producción ya conecta la wallet con un indexador dedicado. La publicación se firma y transmite como una transacción eCash; Chronik la detecta desde mempool, el servicio <code>tonalli-memo</code> la interpreta y el read model la expone al feed público.</p>
+
+          <p>En pruebas de producción se verificó algo especialmente importante: no fue necesario un backfill administrativo para cada publicación. Un segundo memo llegó al indexador automáticamente desde mempool por WebSocket y después avanzó a estado confirmado. Es la diferencia entre una demo que “sabe leer una transacción” y un sistema que empieza a comportarse como servicio vivo.</p>
+
+          <div class="callout my-7">
+            <p class="!mb-2 font-bold !text-white">Tres huellas mainnet que cuentan la historia</p>
+            <p class="!mb-2"><strong>Primer canary TM1:</strong></p>
+            <div class="tx">fadee1662482e302fcac768686085baa8f67ea9b67d846dfea100a0de1dcd9fd</div>
+            <p class="!mt-4 !mb-2"><strong>Primer auto-ingest live desde mempool:</strong></p>
+            <div class="tx">8539b6f59912009f8f4fd322bf67266063233c101a4b54aa0a765ad0c9955ff8</div>
+            <p class="!mt-4 !mb-2"><strong>Primer Memo + NFT:</strong></p>
+            <div class="tx">0c96216decc99af759517cf2143e2bd22ea179d48a9280635c8cd1c1eb6b0150</div>
+          </div>
+
+          <h2>Adjuntar un NFT sin convertir TM1 en otro protocolo</h2>
+          <p>La solución para NFTs es deliberadamente conservadora. El mensaje puede comenzar con una directiva textual:</p>
+          <div class="bg-black/50 border border-white/10 rounded-xl p-4 my-5 overflow-x-auto"><code class="!bg-transparent !border-0 !p-0">@nft1:&lt;64_hex_token_id&gt;\n&lt;mensaje opcional&gt;</code></div>
+          <p>La directiva ocupa 71 bytes. El backend extrae el tokenId y comprueba de manera independiente que el activo sea un SLP NFT1 Child y que la wallet observada posea el token en el momento del indexado. Si la evidencia es positiva, el attachment queda marcado como <code>VERIFIED_AT_INDEXING</code>.</p>
+
+          <p>La imagen y el resto de la metadata <strong>no se consideran parte de la prueba de propiedad</strong>. RMZWallet resuelve el <code>genesisInfo.url</code>, obtiene el JSON desde IPFS y después resuelve <code>metadata.image</code> con failover entre gateways. Así, una caída de IPFS puede afectar la presentación, pero no cambia el estado criptográfico que ya decidió el backend.</p>
+
+          <p>El primer NFT mostrado en el feed fue <strong>“Evangelio RMZ del Xoloitzcuintle — Bloque Génesis”</strong>, tokenId:</p>
+          <div class="tx bg-black/40 border border-white/10 rounded-xl p-4 mb-6">17c807b364516916efbcfe64eac15b212935cce9e96aa58596bfbacfdba0d7c4</div>
+
+          <h2>Hipervínculos: la URL viaja on-chain, la seguridad vive en el cliente</h2>
+          <p>Las URLs no requirieron otra extensión del protocolo. Si el usuario escribe <code>https://...</code>, esos mismos bytes quedan dentro de <code>eventData</code>. El feed convierte solamente esquemas <code>http:</code> y <code>https:</code> en enlaces clickeables usando nodos React, sin interpretar HTML del usuario.</p>
+
+          <p>El renderer añade <code>noopener</code>, <code>noreferrer</code>, <code>nofollow</code> y <code>ugc</code>; además rechaza URLs con credenciales embebidas como <code>https://trusted.example@evil.example</code>, una forma clásica de disfrazar el host real. También aplica aislamiento bidireccional para reducir spoofing visual.</p>
+
+          <h2>Adiós al límite histórico de 80 bytes</h2>
+          <p>Mientras Tonalli Memo era apenas un micro-mensaje, la wallet mantenía una política conservadora de 80 bytes. Los hipervínculos hicieron evidente que ese límite ya no correspondía con la capacidad real de TM1. La política de Composer ahora es dinámica:</p>
+
+          <div class="grid sm:grid-cols-2 gap-4 my-7">
+            <div class="fact"><span class="text-xs uppercase text-cyan-300 space-mono">Memo sin NFT</span><b>hasta 212 B</b><span class="text-sm text-slate-500">todo el presupuesto de eventData</span></div>
+            <div class="fact"><span class="text-xs uppercase text-emerald-300 space-mono">Memo + NFT</span><b>141 B + 71 B</b><span class="text-sm text-slate-500">texto + directiva NFT</span></div>
+          </div>
+
+          <p>El contador usa bytes UTF-8 reales, no caracteres. Si alguien escribe 180 bytes y después adjunta un NFT, el texto no se trunca: la interfaz cambia el límite efectivo a 141, marca error y bloquea publicación hasta que el usuario reduzca el contenido o retire el NFT. El wire final nunca puede superar 212 bytes.</p>
+
+          <h2>Qué significa “verificado” en Tonalli Memo</h2>
+          <p>Conviene separar tres cosas que visualmente pueden aparecer juntas: la validez del payload TM1, la autorización de publicación en la interfaz oficial y la metadata externa.</p>
+          <p>TM1 define cómo reconocer y decodificar el mensaje. La aplicación oficial añade una capa de autoridad basada en identidad <code>.xec</code>, verificación de ownership y estados de recuperación antes de firmar. En attachments NFT, el backend verifica propiedad del token al indexar. IPFS, en cambio, solamente enriquece la presentación.</p>
+
+          <div class="callout warn my-7">
+            <p class="!mb-0"><strong>Importante:</strong> Tonalli Memo no convierte cada dato remoto en verdad criptográfica. Un badge de ownership no certifica que una descripción o imagen IPFS sea “verdadera”; certifica una relación específica observada por el backend. Esa separación de confianza es una característica, no una limitación accidental.</p>
+          </div>
+
+          <h2>¿Es ya una red social descentralizada?</h2>
+          <p>No en el sentido amplio. No hay timeline algorítmico complejo, almacenamiento multimedia on-chain ni un sistema universal de moderación. Y esa modestia técnica es precisamente parte de su valor.</p>
+          <p>Tonalli Memo hoy se parece más a una <strong>capa social verificable y mínima sobre eCash</strong>: identidad, pequeños mensajes, enlaces, referencia a activos y lectura pública. Su base es una transacción que cualquier tercero puede volver a interpretar sin depender del HTML de una página específica.</p>
+
+          <p>Eso abre una ruta interesante para comunidades, wallets y agentes: los clientes pueden construir experiencias distintas sobre el mismo rastro canónico, siempre que respeten la semántica del protocolo y distingan con cuidado lo que está firmado, lo que fue verificado por un servicio y lo que solamente viene de una fuente externa.</p>
+
+          <h2>La lección para eCash</h2>
+          <p>eCash suele discutirse desde pagos, escalabilidad o pre-consensus. Tonalli Memo muestra otra propiedad: una L1 de bajo costo y confirmación rápida puede servir también como sustrato para pequeñas declaraciones públicas verificables.</p>
+
+          <p>El avance no está en “meter redes sociales en la blockchain”. Está en construir una ruta donde <strong>cada capa conozca sus límites</strong>: TM1 conserva un formato compacto; Chronik entrega observabilidad; el indexador produce un read model; la wallet conserva autoridad de firma; IPFS resuelve metadata; y el front-end transforma bytes en una experiencia legible.</p>
+
+          <p>Después de meses de gates, pruebas, merges y canaries, Tonalli Memo ya no es una maqueta. Tiene transacciones mainnet, ingestión automática, un NFT verificable en el feed, enlaces seguros y el presupuesto completo de TM1 habilitado en producción.</p>
+
+          <div class="mt-10 p-6 md:p-8 rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-black/30 to-emerald-500/10">
+            <p class="text-xs uppercase tracking-[.2em] text-cyan-300 space-mono font-bold !mb-3">Probar Tonalli Memo</p>
+            <p class="!text-white text-lg">El feed y el Composer están disponibles en la wallet Tonalli.</p>
+            <div class="flex flex-wrap gap-3 mt-5">
+              <a href="https://app.tonalli.cash/memo" target="_blank" rel="noopener noreferrer" class="!no-underline inline-flex items-center gap-2 bg-[#00abe7] text-black font-bold px-5 py-3 rounded-sm uppercase text-xs space-mono">Abrir feed <i class="fas fa-arrow-up-right-from-square"></i></a>
+              <a href="https://app.tonalli.cash/memo/compose" target="_blank" rel="noopener noreferrer" class="!no-underline inline-flex items-center gap-2 border border-white/20 text-white font-bold px-5 py-3 rounded-sm uppercase text-xs space-mono">Publicar memo</a>
+              <a href="https://github.com/xolosArmy/tonalli-memo" target="_blank" rel="noopener noreferrer" class="!no-underline inline-flex items-center gap-2 border border-white/20 text-white font-bold px-5 py-3 rounded-sm uppercase text-xs space-mono">Código del indexador</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="lg:col-span-4 space-y-5">
+          <div class="border border-white/10 bg-black/35 rounded-2xl p-6 sticky top-24">
+            <p class="text-[10px] uppercase tracking-[.2em] text-cyan-300 space-mono font-bold mb-4">Ficha técnica</p>
+            <dl class="space-y-4 text-sm">
+              <div><dt class="text-slate-500">Red</dt><dd class="text-white font-bold">eCash mainnet</dd></div>
+              <div><dt class="text-slate-500">Protocolo</dt><dd class="text-white font-bold">TM1 Draft 0.2</dd></div>
+              <div><dt class="text-slate-500">LOKAD</dt><dd class="tx">544d4d00</dd></div>
+              <div><dt class="text-slate-500">eventData máx.</dt><dd class="text-white font-bold">212 bytes UTF-8</dd></div>
+              <div><dt class="text-slate-500">Script máx.</dt><dd class="text-white font-bold">223 bytes</dd></div>
+              <div><dt class="text-slate-500">NFT directive</dt><dd class="text-white font-bold">71 bytes</dd></div>
+              <div><dt class="text-slate-500">Lectura</dt><dd class="text-white font-bold">Chronik + indexador</dd></div>
+              <div><dt class="text-slate-500">Metadata NFT</dt><dd class="text-white font-bold">IPFS, fuera del wire TM1</dd></div>
+            </dl>
+            <div class="h-px bg-white/10 my-6"></div>
+            <p class="text-xs text-slate-500 italic">Esta pieza describe el estado de producción observado al 10 de septiembre de 2026. Las capacidades de presentación pertenecen a la aplicación; el formato TM1 Draft 0.2 permanece compacto.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-8 bg-black/80 py-10 px-6 border-t border-white/5 text-center text-[10px] text-gray-600 space-mono uppercase tracking-widest leading-loose">eCash Magazine México es una publicación libre e independiente.<br>Contenidos distribuidos bajo la soberanía del código abierto y la Licencia CC0. 2026.</footer>
+</body>
+</html>
