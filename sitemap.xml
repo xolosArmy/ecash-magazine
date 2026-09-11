@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://magazine.ecash.mx/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://magazine.ecash.mx/reportajes/tonalli-memo-mainnet-capa-social-ecash.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://magazine.ecash.mx/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html</loc>
