@@ -288,7 +288,7 @@ def fragment(article):
                 if data.get(attr):
                     image.set(attr, str(data[attr]))
             if data.get('width') and int(data['width']) < 960:
-                image.set('style', f'max-width:{int(data["width"])}px')
+                image.set('style', f'max-width:min(100%, {int(data["width"])}px)')
         if not image.get('alt'):
             image.set('alt', image.get('alt', ''))
         image.set('decoding', 'async')
