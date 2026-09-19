@@ -1,26 +1,29 @@
-# Disponibilidad de QA en navegador
+# Entornos de verificación de navegador
 
-Fecha: 2026-09-19. Las herramientas se instalaron fuera del repositorio y no son dependencias de producción.
+## Resultado final en GitHub Actions
 
-| Herramienta | Resultado comprobado |
+La verificación real quedó completada en [la ejecución 35450868683](https://github.com/xolosArmy/ecash-magazine/actions/runs/35450868683), sobre el commit `39f378c81465cd332c2884ba3571193c04bb6e59`: **136/136 comprobaciones aprobadas**, doce capturas PNG originales y cuatro mediciones Lighthouse completas antes/después.
+
+El workflow usa un runner de GitHub con Chromium 151.0.7922.34, Playwright 1.62.1, axe-core 4.13.0 y Lighthouse 13.5.0. Sirve la base inmutable y la rama mediante HTTP local en el runner. No publica la rama en el dominio ni modifica el hosting. Permisos del workflow: `contents: read`; límite: 15 minutos; artefactos: 30 días de retención.
+
+Los [resultados finales](README.md) y [resúmenes compactos](final/ci-summary.json) sustituyen el estado inicial de bloqueo para la entrega. El bloqueo local descrito abajo sigue siendo una limitación del runtime de trabajo, pero ya no deja pendientes las comprobaciones de navegador del PR.
+
+## Registro del bloqueo local inicial
+
+Fecha: 2026-09-19. Se instalaron las herramientas fuera del sitio, sin añadir dependencias de producción.
+
+| Herramienta | Resultado comprobado en el runtime local |
 |---|---|
-| `agent-browser` 0.38.1 | Instalado. No pudo iniciar su daemon: `Failed to bind socket: Operation not permitted (os error 1)`. |
-| Chrome for Testing 153.0.8010.52 | Descargado desde distribución oficial; ZIP verificado y ejecutable responde a `--version`. |
-| Lighthouse CLI 13.5.0 | Instalado. No pudo conectarse a Chrome: `Unable to connect to Chrome`. Chrome aborta con `socket() failed: Operation not permitted (1)` en `process_singleton_posix.cc`. |
+| `agent-browser` 0.38.1 | No inició su daemon: `Failed to bind socket: Operation not permitted (os error 1)`. |
+| Chrome for Testing 153.0.8010.52 | ZIP oficial verificado; `--version` funciona, pero el navegador no puede crear los sockets requeridos. |
+| Lighthouse CLI 13.5.0 | Chrome aborta con `socket() failed: Operation not permitted (1)` en `process_singleton_posix.cc`; Lighthouse responde `Unable to connect to Chrome`. |
 | html-validate 11.16.0 | Disponible y ejecutado sin navegador. |
-| Validador estructural Python/lxml | Disponible y ejecutado sin navegador. |
+| Python/lxml y jsdom | Validación estática y funcional disponible. |
 
-El bloqueo de sockets del entorno impide usar el navegador local, aunque las herramientas estén instaladas. No se modificaron restricciones de seguridad ni se obtuvieron puntuaciones de Lighthouse. Ningún resultado estructural se presenta como Core Web Vitals de campo, Lighthouse o auditoría visual.
+No se alteraron restricciones de seguridad para ejecutar Chrome localmente. Las puntuaciones publicadas proceden del runner de GitHub y están asociadas a su SHA y ejecución; no se atribuyen a los intentos locales fallidos.
 
-## Reproducir en un entorno con navegador permitido
+## Alcance de los resultados
 
-1. Instalar las herramientas de QA fuera del sitio: `npm install --no-save agent-browser lighthouse html-validate`.
-2. Ejecutar `agent-browser install`.
-3. Servir el repositorio con `python3 -m http.server 8766`.
-4. Abrir `http://127.0.0.1:8766` con `agent-browser open` y comprobar `snapshot -i`, `errors` y `console`.
-5. Probar portada, archivo, búsqueda y artículos en anchos 320, 390, 768, 1440 y 1920 px con `agent-browser set viewport ANCHO ALTO`.
-6. Verificar teclado, menú móvil, búsqueda, filtros, enlaces, índice y multimedia; capturar portada y artículo en escritorio y móvil.
-7. Ejecutar auditoría axe mediante `agent-browser a11y --tags wcag2a,wcag2aa,wcag21aa --json`.
-8. Ejecutar `lighthouse http://127.0.0.1:8766 --output=json --output=html --output-path=./lighthouse` en móvil y con `--preset=desktop`.
+Se conservaron 12 capturas antes/después de portada, principal y artículo técnico P2SH en escritorio y móvil. Se probaron cinco anchos y los 43 artículos a 390 px, teclado, menú, búsqueda, fallback de red y contenido sin JavaScript.
 
-Las verificaciones de navegador pendientes deben completarse antes de considerar aprobado el resultado visual y de accesibilidad. No se confunden los chequeos estáticos con esas verificaciones.
+La auditoría axe final no detectó violaciones en los escenarios probados; dejó una comprobación incompleta del símbolo no textual `✔` en Teyolia. Los errores Imgur 403 aparecen sólo en la referencia anterior y se conservan en los reportes. Lighthouse mide una corrida de laboratorio móvil por documento y revisión, no datos de usuarios de producción.

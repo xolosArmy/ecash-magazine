@@ -1,0 +1,1091 @@
+{
+  "runUrl": "https://github.com/xolosArmy/ecash-magazine/actions/runs/35450868683",
+  "commit": "39f378c81465cd332c2884ba3571193c04bb6e59",
+  "baselineRevision": "7b5cc72c05ee9deb74f26ff85edd209ee2d9b511",
+  "method": "GitHub Actions runner; local HTTP + Chromium, axe and Lighthouse",
+  "browserVersion": "151.0.7922.34",
+  "viewportWidths": [
+    320,
+    390,
+    768,
+    1440,
+    1920
+  ],
+  "counts": {
+    "checks": 136,
+    "failed": 0,
+    "externalErrors": 8
+  },
+  "lighthouseCaveat": "Single-run simulated mobile lab measurements. Both copies use the same uncompressed local HTTP server; original third-party resources retain their network behavior. These are not production field Core Web Vitals.",
+  "lighthouse": [
+    {
+      "phase": "before",
+      "page": "home",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.73,
+        "accessibility": 0.91,
+        "best-practices": 0.96,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 2476.3827,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 3445.1277,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 2476.3827,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 137,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.2685188768608268,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 265416,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-before-home-mobile.html"
+    },
+    {
+      "phase": "before",
+      "page": "article",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.72,
+        "accessibility": 1,
+        "best-practices": 0.92,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 4120.0488,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 5046.766099999999,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 4120.0488,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 42,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 417954,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-before-article-mobile.html"
+    },
+    {
+      "phase": "after",
+      "page": "home",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.99,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1353.0140999999999,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1878.0140999999999,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 1353.0140999999999,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 44,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.0001385967628672573,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 483862,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-after-home-mobile.html"
+    },
+    {
+      "phase": "after",
+      "page": "article",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.98,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1354.1669000000002,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1504.1776,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 1354.1669000000002,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 36.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.0926671129570166,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 299482,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-after-article-mobile.html"
+    }
+  ],
+  "axe": [
+    {
+      "page": "before-home-390",
+      "violations": 1,
+      "incomplete": 1,
+      "passes": 10,
+      "file": "axe-before-home-390.json",
+      "url": "http://127.0.0.1:8765/",
+      "violationsDetail": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "footer > .wrap"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.23 (foreground color: #64748b, background color: #05070a, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "incompleteDetail": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".tag"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h1"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h1 > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".grid > div > p"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".chip:nth-child(1)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".chip:nth-child(2)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".chip:nth-child(3)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".chip:nth-child(4)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "a[href$=\"memo\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "before-article-390",
+      "violations": 0,
+      "incomplete": 1,
+      "passes": 10,
+      "file": "axe-before-article-390.json",
+      "url": "http://127.0.0.1:8765/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "violationsDetail": [],
+      "incompleteDetail": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".md\\:text-xl > .text-white"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".text-\\[\\#00abe7\\]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".text-\\[11px\\]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".tracking-\\[\\.18em\\]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h1"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".text-\\[\\#50d890\\]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".md\\:text-2xl"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".bg-black\\/30.py-2.px-3:nth-child(1)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".bg-black\\/30.py-2.px-3:nth-child(2)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".bg-black\\/30.py-2.px-3:nth-child(3)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".bg-black\\/30.py-2.px-3:nth-child(4)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".text-xl"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".text-xl > strong:nth-child(1)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "strong:nth-child(2)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(2)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(3)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(4)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(4) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".fact:nth-child(1) > .text-emerald-300.text-xs.uppercase"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(5) > .fact:nth-child(1) > b"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(5) > .fact:nth-child(1) > .text-slate-500.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(5) > .fact:nth-child(2) > .text-cyan-300.text-xs.uppercase"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(5) > .fact:nth-child(2) > b"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(5) > .fact:nth-child(2) > .text-slate-500.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".text-amber-300"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(5) > .fact:nth-child(3) > b"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(5) > .fact:nth-child(3) > .text-slate-500.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(6)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".amber > .\\!mb-0"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".amber > .\\!mb-0 > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(8)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(9)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(10)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(10) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".mint.callout.my-7:nth-child(11) > .\\!mb-0"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".mint.callout.my-7:nth-child(11) > .\\!mb-0 > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(12)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(13)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(14)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(14) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".flow > div:nth-child(1) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "div:nth-child(1) > .text-slate-400.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".flow > div:nth-child(2) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "div:nth-child(2) > .text-slate-400.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".flow > div:nth-child(3) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "div:nth-child(3) > .text-slate-400.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(16)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(17)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(17) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(18)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(19)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".callout.my-7:nth-child(20) > .\\!mb-0"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".callout.my-7:nth-child(20) > .\\!mb-0 > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(21)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(22)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "em"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(23)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(24)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(25)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(26)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(27)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(28)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(29)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".text-purple-300"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(30) > .fact:nth-child(1) > b"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(30) > .fact:nth-child(1) > .text-slate-500.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(30) > .fact:nth-child(2) > .text-cyan-300.text-xs.uppercase"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(30) > .fact:nth-child(2) > b"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(30) > .fact:nth-child(2) > .text-slate-500.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".fact:nth-child(3) > .text-emerald-300.text-xs.uppercase"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(30) > .fact:nth-child(3) > b"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-3.gap-3.grid:nth-child(30) > .fact:nth-child(3) > .text-slate-500.text-sm"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(31)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(31) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "h2:nth-child(32)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(33)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(34)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".mint.callout.my-7:nth-child(35) > .\\!mb-0"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                ".mint.callout.my-7:nth-child(35) > .\\!mb-0 > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(36)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "p:nth-child(36) > strong"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "target": [
+                "footer"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "before-technical-article-390",
+      "violations": 1,
+      "incomplete": 0,
+      "passes": 19,
+      "file": "axe-before-technical-article-390.json",
+      "url": "http://127.0.0.1:8765/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "violationsDetail": [
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+          "nodes": [
+            {
+              "target": [
+                ".text:nth-child(77)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": [
+                ".text:nth-child(81)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": [
+                "#cb3 > .bash"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-home-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 19,
+      "file": "axe-after-home-390.json",
+      "url": "http://127.0.0.1:8766/",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-article-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 21,
+      "file": "axe-after-article-390.json",
+      "url": "http://127.0.0.1:8766/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-technical-article-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 23,
+      "file": "axe-after-technical-article-390.json",
+      "url": "http://127.0.0.1:8766/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-archive-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 25,
+      "file": "axe-after-archive-390.json",
+      "url": "http://127.0.0.1:8766/blog/index.html",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-search-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 25,
+      "file": "axe-after-search-390.json",
+      "url": "http://127.0.0.1:8766/buscar/",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-p2sh-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 23,
+      "file": "axe-after-p2sh-390.json",
+      "url": "http://127.0.0.1:8766/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-teyolia-390",
+      "violations": 0,
+      "incomplete": 1,
+      "passes": 21,
+      "file": "axe-after-teyolia-390.json",
+      "url": "http://127.0.0.1:8766/analisis/teyolia-direct-to-pool.html",
+      "violationsDetail": [],
+      "incompleteDetail": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".text-green-600"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "after-home-1440",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 17,
+      "file": "axe-after-home-1440.json",
+      "url": "http://127.0.0.1:8766/",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    },
+    {
+      "page": "after-article-1440",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 20,
+      "file": "axe-after-article-1440.json",
+      "url": "http://127.0.0.1:8766/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "violationsDetail": [],
+      "incompleteDetail": []
+    }
+  ],
+  "diagnosticsSummary": [
+    {
+      "page": "before-screenshots-desktop",
+      "expectedFailure": false,
+      "ownErrorCount": 0,
+      "externalErrorCount": 4,
+      "navigationAborts": 2,
+      "externalErrors": [
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        }
+      ]
+    },
+    {
+      "page": "before-screenshots-mobile",
+      "expectedFailure": false,
+      "ownErrorCount": 0,
+      "externalErrorCount": 4,
+      "navigationAborts": 2,
+      "externalErrors": [
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        }
+      ]
+    },
+    {
+      "page": "after-screenshots-desktop",
+      "expectedFailure": false,
+      "ownErrorCount": 0,
+      "externalErrorCount": 0,
+      "navigationAborts": 2,
+      "externalErrors": []
+    },
+    {
+      "page": "after-screenshots-mobile",
+      "expectedFailure": false,
+      "ownErrorCount": 0,
+      "externalErrorCount": 0,
+      "navigationAborts": 2,
+      "externalErrors": []
+    },
+    {
+      "page": "after-responsive",
+      "expectedFailure": false,
+      "ownErrorCount": 0,
+      "externalErrorCount": 0,
+      "navigationAborts": 16,
+      "externalErrors": []
+    },
+    {
+      "page": "after-keyboard-search",
+      "expectedFailure": false,
+      "ownErrorCount": 0,
+      "externalErrorCount": 0,
+      "navigationAborts": 1,
+      "externalErrors": []
+    },
+    {
+      "page": "expected-index-failure",
+      "expectedFailure": true,
+      "ownErrorCount": 2,
+      "externalErrorCount": 0,
+      "navigationAborts": 0,
+      "externalErrors": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "after-article-desktop.png",
+      "bytes": 1087230,
+      "sha256": "5b58a1b8dcef836af058d9692a876decb4dfc18c3a102860ce499776b996e508"
+    },
+    {
+      "file": "after-article-mobile.png",
+      "bytes": 905695,
+      "sha256": "892b4a924d731163d0cc464a7fc9f583fb2fa29e848e1e1ff254e9e9925c3981"
+    },
+    {
+      "file": "after-home-desktop.png",
+      "bytes": 1064086,
+      "sha256": "51939919d1ded7f0f86659b2a6d86a7e90ea31d3a6b01a1627b0014ab64c33f6"
+    },
+    {
+      "file": "after-home-mobile.png",
+      "bytes": 753814,
+      "sha256": "267aabc5989a9733f90698b28d3926864f804a091d6326526b8f827ea6adfaf7"
+    },
+    {
+      "file": "after-technical-article-desktop.png",
+      "bytes": 3668954,
+      "sha256": "c282c57e0f49f7f9575e084a8ec969d3212079cd0f50a60bd586264c3c30d2b9"
+    },
+    {
+      "file": "after-technical-article-mobile.png",
+      "bytes": 2759818,
+      "sha256": "895bc18dfef63197320b0fad7f7b72e58b2e8e9a659a8ef256e4b44925481f3b"
+    },
+    {
+      "file": "before-article-desktop.png",
+      "bytes": 1532207,
+      "sha256": "b78adae5add76e6c5aeb5375bf8388ed7b735e392f5ddaad069b5c4f57739f6f"
+    },
+    {
+      "file": "before-article-mobile.png",
+      "bytes": 870868,
+      "sha256": "cebf9f36babbae58187daac89486fa5535087d0a43595d61d3c75e37c9f3d5cb"
+    },
+    {
+      "file": "before-home-desktop.png",
+      "bytes": 841426,
+      "sha256": "5aed3e8f6388afcfb0f5c54904eee143756100e1d07079727a22709aeec04fc1"
+    },
+    {
+      "file": "before-home-mobile.png",
+      "bytes": 706660,
+      "sha256": "933ccf29d6efbc00750260400e1225efb23d565990467dbb07bd464277fc4862"
+    },
+    {
+      "file": "before-technical-article-desktop.png",
+      "bytes": 2789925,
+      "sha256": "216646712231178055af75d3dbf4d0178e49941ca8fab660fe8acb3c6c5774cd"
+    },
+    {
+      "file": "before-technical-article-mobile.png",
+      "bytes": 2454194,
+      "sha256": "b67d718efae89396ae9e0037995c8b50d31528ed4071886e4c1d239dbc6f5bc7"
+    }
+  ],
+  "artifactId": 10587040638,
+  "reviewScreenshotManifest": "../screenshots/manifest.json",
+  "screenshotScope": "Original PNG files in the CI artifact; lossless review copies and exact reconstruction hashes are recorded separately in reviewScreenshotManifest."
+}

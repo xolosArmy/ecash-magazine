@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-19T15:17:41.032261+00:00",
+  "repository": "xolosArmy/ecash-magazine",
+  "github_actions_run_id": "35450868683",
+  "github_actions_artifact_id": "10587040638",
+  "tested_commit": "39f378c81465cd332c2884ba3571193c04bb6e59",
+  "screenshot_count": 12,
+  "webp_file_count": 17,
+  "conversion": {
+    "webp_lossless": true,
+    "webp_exact": true,
+    "resize": false,
+    "content_removed": false,
+    "regenerated": false,
+    "maximum_segment_height": 15000,
+    "segment_coordinates": "Pixel coordinates, zero-based, y_end_exclusive excluded.",
+    "verification": "Each decoded WebP RGBA byte string equals its source region; complete concatenation equals the full original RGBA byte string."
+  },
+  "total_source_bytes": 19434877,
+  "total_output_bytes": 7597456,
+  "total_reduction_percent": 60.908,
+  "screenshots": [
+    {
+      "source_png": "after-article-desktop.png",
+      "width": 1440,
+      "height": 7762,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 1087230,
+      "source_png_sha256": "5b58a1b8dcef836af058d9692a876decb4dfc18c3a102860ce499776b996e508",
+      "source_rgba_sha256": "b6280df9a93f817a8352c761ab96f452df7b3a08b4ef5363d271abc4094ba929",
+      "reconstructed_rgba_sha256": "b6280df9a93f817a8352c761ab96f452df7b3a08b4ef5363d271abc4094ba929",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "after-article-desktop.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 7762,
+            "y_end_exclusive": 7762
+          },
+          "bytes": 424068,
+          "sha256": "b87a6b6c5ab883f8f78858f89c763b4098ed4fa3bc50c9a59fa13039b0606227",
+          "decoded_rgba_sha256": "b6280df9a93f817a8352c761ab96f452df7b3a08b4ef5363d271abc4094ba929",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 424068,
+      "reduction_percent": 60.996
+    },
+    {
+      "source_png": "after-article-mobile.png",
+      "width": 390,
+      "height": 9651,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 905695,
+      "source_png_sha256": "892b4a924d731163d0cc464a7fc9f583fb2fa29e848e1e1ff254e9e9925c3981",
+      "source_rgba_sha256": "adce8c662174b4585124f610790d101e8122b59187347779d08ca391731aecd1",
+      "reconstructed_rgba_sha256": "adce8c662174b4585124f610790d101e8122b59187347779d08ca391731aecd1",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "after-article-mobile.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 9651,
+            "y_end_exclusive": 9651
+          },
+          "bytes": 339086,
+          "sha256": "27d74a697a4e8a4ec614d14ba8aa88ae6a75d2d560a413d3f8f2b7b125961324",
+          "decoded_rgba_sha256": "adce8c662174b4585124f610790d101e8122b59187347779d08ca391731aecd1",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 339086,
+      "reduction_percent": 62.561
+    },
+    {
+      "source_png": "after-home-desktop.png",
+      "width": 1440,
+      "height": 4987,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 1064086,
+      "source_png_sha256": "51939919d1ded7f0f86659b2a6d86a7e90ea31d3a6b01a1627b0014ab64c33f6",
+      "source_rgba_sha256": "298d343255db24f059b42f567174cea0a4c66c7aafb00f1376f098b50849b730",
+      "reconstructed_rgba_sha256": "298d343255db24f059b42f567174cea0a4c66c7aafb00f1376f098b50849b730",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "after-home-desktop.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 4987,
+            "y_end_exclusive": 4987
+          },
+          "bytes": 694476,
+          "sha256": "487ff65afdc380b4979407bb14a535f14fd3a9ccd1a1bb9b7f821ce9c52296fb",
+          "decoded_rgba_sha256": "298d343255db24f059b42f567174cea0a4c66c7aafb00f1376f098b50849b730",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 694476,
+      "reduction_percent": 34.735
+    },
+    {
+      "source_png": "after-home-mobile.png",
+      "width": 390,
+      "height": 7153,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 753814,
+      "source_png_sha256": "267aabc5989a9733f90698b28d3926864f804a091d6326526b8f827ea6adfaf7",
+      "source_rgba_sha256": "31cecff05c1c10a6ab0e9c315c9421bc7b325fa9b90408705c63bb75884a4ac8",
+      "reconstructed_rgba_sha256": "31cecff05c1c10a6ab0e9c315c9421bc7b325fa9b90408705c63bb75884a4ac8",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "after-home-mobile.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 7153,
+            "y_end_exclusive": 7153
+          },
+          "bytes": 437772,
+          "sha256": "f27b55e812c190ee2bebcc60a8c1f3d3deb333d38a53bae4fb9c206c4634ddf8",
+          "decoded_rgba_sha256": "31cecff05c1c10a6ab0e9c315c9421bc7b325fa9b90408705c63bb75884a4ac8",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 437772,
+      "reduction_percent": 41.926
+    },
+    {
+      "source_png": "after-technical-article-desktop.png",
+      "width": 1440,
+      "height": 25530,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 3668954,
+      "source_png_sha256": "c282c57e0f49f7f9575e084a8ec969d3212079cd0f50a60bd586264c3c30d2b9",
+      "source_rgba_sha256": "2d526300accccf5454bf6399ee93fc8abbdff53612df244cc7ad07c9e362c07a",
+      "reconstructed_rgba_sha256": "2d526300accccf5454bf6399ee93fc8abbdff53612df244cc7ad07c9e362c07a",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": true,
+      "parts": [
+        {
+          "file": "after-technical-article-desktop-part-01.webp",
+          "part": 1,
+          "part_count": 2,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 15000,
+            "y_end_exclusive": 15000
+          },
+          "bytes": 956946,
+          "sha256": "d1ed9c1b9c5639a901ffd3a3ab1469c9e3f942fbacf764027ae1d1c2c34321eb",
+          "decoded_rgba_sha256": "715325c6b578bc2f234d058e2ef36bd3e856bd1f64ca351fe1d3f631572ff0e9",
+          "decoded_rgba_matches_source_region": true
+        },
+        {
+          "file": "after-technical-article-desktop-part-02.webp",
+          "part": 2,
+          "part_count": 2,
+          "coordinates": {
+            "x": 0,
+            "y": 15000,
+            "width": 1440,
+            "height": 10530,
+            "y_end_exclusive": 25530
+          },
+          "bytes": 258796,
+          "sha256": "0bb8191b776f919ae1a5ee9682a1783431899e715b5fa1ad2c91bfddf30bfb84",
+          "decoded_rgba_sha256": "d97b4789e89f812628d2e6050a3ea39cbf094508d498711e5a42587b8bf95ccc",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 1215742,
+      "reduction_percent": 66.864
+    },
+    {
+      "source_png": "after-technical-article-mobile.png",
+      "width": 390,
+      "height": 30894,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 2759818,
+      "source_png_sha256": "895bc18dfef63197320b0fad7f7b72e58b2e8e9a659a8ef256e4b44925481f3b",
+      "source_rgba_sha256": "a9051cd229c19d1514768947d2b32e4ce3fe68e21c47113e284198742ee88a37",
+      "reconstructed_rgba_sha256": "a9051cd229c19d1514768947d2b32e4ce3fe68e21c47113e284198742ee88a37",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": true,
+      "parts": [
+        {
+          "file": "after-technical-article-mobile-part-01.webp",
+          "part": 1,
+          "part_count": 3,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 15000,
+            "y_end_exclusive": 15000
+          },
+          "bytes": 431300,
+          "sha256": "b18e9c60d6748559d312a20173cb5d424bca8bc0d782be246f9aa8b24b62fdb4",
+          "decoded_rgba_sha256": "f87210c4939b5272de8c0076d90949a32c2abc6311db3fc5d5bd8e73d95d2b40",
+          "decoded_rgba_matches_source_region": true
+        },
+        {
+          "file": "after-technical-article-mobile-part-02.webp",
+          "part": 2,
+          "part_count": 3,
+          "coordinates": {
+            "x": 0,
+            "y": 15000,
+            "width": 390,
+            "height": 15000,
+            "y_end_exclusive": 30000
+          },
+          "bytes": 233310,
+          "sha256": "0b3366ab2f3c599939cfd786a044c16064f06965278dd894486b14ab0d53230d",
+          "decoded_rgba_sha256": "2f668dd81215e662d4034acaaea83cb2a76b9fff30a47a1b9091199d7bf4a077",
+          "decoded_rgba_matches_source_region": true
+        },
+        {
+          "file": "after-technical-article-mobile-part-03.webp",
+          "part": 3,
+          "part_count": 3,
+          "coordinates": {
+            "x": 0,
+            "y": 30000,
+            "width": 390,
+            "height": 894,
+            "y_end_exclusive": 30894
+          },
+          "bytes": 18674,
+          "sha256": "9e24ebceb216e46d1612a1c046ce634805ee198f3f1006f8477c02bb19752122",
+          "decoded_rgba_sha256": "d0f7fbe8751e68dcaadc86d125491e593c94a99dffa5c134d39953392fcd5f3a",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 683284,
+      "reduction_percent": 75.242
+    },
+    {
+      "source_png": "before-article-desktop.png",
+      "width": 1440,
+      "height": 5656,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 1532207,
+      "source_png_sha256": "b78adae5add76e6c5aeb5375bf8388ed7b735e392f5ddaad069b5c4f57739f6f",
+      "source_rgba_sha256": "3f7bfcb38a6c19b6a9663af8a1fd50522609289226c37b7a0d15eca898128b18",
+      "reconstructed_rgba_sha256": "3f7bfcb38a6c19b6a9663af8a1fd50522609289226c37b7a0d15eca898128b18",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "before-article-desktop.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 5656,
+            "y_end_exclusive": 5656
+          },
+          "bytes": 778924,
+          "sha256": "357d764f1beb0b5688451857ae2e2df06b05b84665d65571e8875bbbb891b3fe",
+          "decoded_rgba_sha256": "3f7bfcb38a6c19b6a9663af8a1fd50522609289226c37b7a0d15eca898128b18",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 778924,
+      "reduction_percent": 49.163
+    },
+    {
+      "source_png": "before-article-mobile.png",
+      "width": 390,
+      "height": 9295,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 870868,
+      "source_png_sha256": "cebf9f36babbae58187daac89486fa5535087d0a43595d61d3c75e37c9f3d5cb",
+      "source_rgba_sha256": "a8c79121e6488e6c6787e3a758edc6eaab19eb2b4c759593cdde987db2a30b30",
+      "reconstructed_rgba_sha256": "a8c79121e6488e6c6787e3a758edc6eaab19eb2b4c759593cdde987db2a30b30",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "before-article-mobile.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 9295,
+            "y_end_exclusive": 9295
+          },
+          "bytes": 429128,
+          "sha256": "50bdc1e2ac7309578509f3b70b928db1b2bbf093d63a3f85f3e148794764c24c",
+          "decoded_rgba_sha256": "a8c79121e6488e6c6787e3a758edc6eaab19eb2b4c759593cdde987db2a30b30",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 429128,
+      "reduction_percent": 50.724
+    },
+    {
+      "source_png": "before-home-desktop.png",
+      "width": 1440,
+      "height": 2062,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 841426,
+      "source_png_sha256": "5aed3e8f6388afcfb0f5c54904eee143756100e1d07079727a22709aeec04fc1",
+      "source_rgba_sha256": "a0a7570f34372df44bbd7ce5da7a41bb0b46d966a966a7c12706c4554ecc790b",
+      "reconstructed_rgba_sha256": "a0a7570f34372df44bbd7ce5da7a41bb0b46d966a966a7c12706c4554ecc790b",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "before-home-desktop.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 2062,
+            "y_end_exclusive": 2062
+          },
+          "bytes": 571174,
+          "sha256": "02e4a7f2219a670db7e9ffcb10083a1874b5a9908a1c1f25fc6e8643efc199ec",
+          "decoded_rgba_sha256": "a0a7570f34372df44bbd7ce5da7a41bb0b46d966a966a7c12706c4554ecc790b",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 571174,
+      "reduction_percent": 32.118
+    },
+    {
+      "source_png": "before-home-mobile.png",
+      "width": 390,
+      "height": 3840,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 706660,
+      "source_png_sha256": "933ccf29d6efbc00750260400e1225efb23d565990467dbb07bd464277fc4862",
+      "source_rgba_sha256": "b23e5694a6083cd7f51dd67cdffa877d74a8bd9c9b692c9351bda9e0d7a5ef3f",
+      "reconstructed_rgba_sha256": "b23e5694a6083cd7f51dd67cdffa877d74a8bd9c9b692c9351bda9e0d7a5ef3f",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": false,
+      "parts": [
+        {
+          "file": "before-home-mobile.webp",
+          "part": 1,
+          "part_count": 1,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 3840,
+            "y_end_exclusive": 3840
+          },
+          "bytes": 549290,
+          "sha256": "cde1493de946a4821715777ae4706950518b33198d9b8fcf616a5554ebc7dd45",
+          "decoded_rgba_sha256": "b23e5694a6083cd7f51dd67cdffa877d74a8bd9c9b692c9351bda9e0d7a5ef3f",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 549290,
+      "reduction_percent": 22.27
+    },
+    {
+      "source_png": "before-technical-article-desktop.png",
+      "width": 1440,
+      "height": 19693,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 2789925,
+      "source_png_sha256": "216646712231178055af75d3dbf4d0178e49941ca8fab660fe8acb3c6c5774cd",
+      "source_rgba_sha256": "251691d5862e3c2fd2cbe07ab6b0396a0c49ae2c3b922c9fa77f04c699407ff7",
+      "reconstructed_rgba_sha256": "251691d5862e3c2fd2cbe07ab6b0396a0c49ae2c3b922c9fa77f04c699407ff7",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": true,
+      "parts": [
+        {
+          "file": "before-technical-article-desktop-part-01.webp",
+          "part": 1,
+          "part_count": 2,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 15000,
+            "y_end_exclusive": 15000
+          },
+          "bytes": 659674,
+          "sha256": "1a5e97fe289151990ffd2a7f8f5813dd913c2959c1d23237729f967dd649ba09",
+          "decoded_rgba_sha256": "8d4f34140f27d12018128ce9f4f29b675181a39769b28298918ce3e7219882ab",
+          "decoded_rgba_matches_source_region": true
+        },
+        {
+          "file": "before-technical-article-desktop-part-02.webp",
+          "part": 2,
+          "part_count": 2,
+          "coordinates": {
+            "x": 0,
+            "y": 15000,
+            "width": 1440,
+            "height": 4693,
+            "y_end_exclusive": 19693
+          },
+          "bytes": 204322,
+          "sha256": "3d2a06cd6ad52d73f24fa7d2776aa58ed0e7855be32eaa884363684b8216ef80",
+          "decoded_rgba_sha256": "7b60bd1722aa0bc2f90ceb6a55f6c1b4a9483bb8ffc87877d7887e8adefa6f5e",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 863996,
+      "reduction_percent": 69.032
+    },
+    {
+      "source_png": "before-technical-article-mobile.png",
+      "width": 390,
+      "height": 28621,
+      "source_mode": "RGB",
+      "verification_mode": "RGBA",
+      "source_bytes": 2454194,
+      "source_png_sha256": "b67d718efae89396ae9e0037995c8b50d31528ed4071886e4c1d239dbc6f5bc7",
+      "source_rgba_sha256": "23a2dc3b296b8a71a87b528c2bf29f6cc8c70f4db6efa621d76f248411ead53c",
+      "reconstructed_rgba_sha256": "23a2dc3b296b8a71a87b528c2bf29f6cc8c70f4db6efa621d76f248411ead53c",
+      "reconstructed_rgba_equal": true,
+      "full_width_preserved": true,
+      "full_height_preserved": true,
+      "segmented": true,
+      "parts": [
+        {
+          "file": "before-technical-article-mobile-part-01.webp",
+          "part": 1,
+          "part_count": 2,
+          "coordinates": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 15000,
+            "y_end_exclusive": 15000
+          },
+          "bytes": 339180,
+          "sha256": "98543b2b5ed96b7179d53b6d750410ec63305024e7c1f4dd6070ee13c2b68414",
+          "decoded_rgba_sha256": "326aeacd51594f3a9af34876af6a424d1224ed6ac689aa7e94eb32df377a6a14",
+          "decoded_rgba_matches_source_region": true
+        },
+        {
+          "file": "before-technical-article-mobile-part-02.webp",
+          "part": 2,
+          "part_count": 2,
+          "coordinates": {
+            "x": 0,
+            "y": 15000,
+            "width": 390,
+            "height": 13621,
+            "y_end_exclusive": 28621
+          },
+          "bytes": 271336,
+          "sha256": "593d90f1f80d80a7aa1c418a83053386897433e9717475c4d74c8e5369aaab90",
+          "decoded_rgba_sha256": "2d295b81552703a10067274ddbe86c0eaa055148ff285482d993749a2959d12e",
+          "decoded_rgba_matches_source_region": true
+        }
+      ],
+      "output_bytes": 610516,
+      "reduction_percent": 75.124
+    }
+  ]
+}

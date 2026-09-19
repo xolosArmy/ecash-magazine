@@ -22,7 +22,9 @@ El sistema editorial conserva las 43 publicaciones y sus URLs históricas.
   perfiles, índices temáticos, metadatos, sitemap y RSS sin dependencias de
   ejecución en el servidor ni un framework de frontend.
 - `assets/css/editorial.css` y `assets/js/editorial.js`: sistema visual compartido
-  y mejoras progresivas de menú/búsqueda. La lectura y los índices funcionan sin JS.
+  y búsqueda progresiva. `assets/js/navigation.js` se inserta después de la
+  cabecera y antes del cuerpo para establecer el menú móvil antes de la primera
+  pintura y evitar saltos de layout. La lectura y los índices funcionan sin JS.
 
 El generador utiliza Python 3.11+ y una dependencia **de desarrollo**, lxml.
 GitHub Pages sirve los archivos ya generados; no necesita Python, Node, base de
