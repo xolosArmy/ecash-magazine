@@ -14,7 +14,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/reportaje/">Reportaje</a></li><li aria-current="page">XEC en THORChain: el branch de starsquid cambia la partida</li></ol></nav><header class="article-header"><div class="eyebrow"><a class="genre" href="/generos/reportaje/">Reportaje</a> <span class="section-label">THORChain</span></div><h1 class="article-title">XEC en THORChain: el branch de starsquid cambia la partida</h1><p class="article-deck">Después del Draft MR de xolosArmy y del feedback técnico de PiRK, un contribuidor del lado THORChain abrió una ruta propia starsquid/xec-client. No es una aceptación final, pero sí marca el paso de la tesis a una revisión técnica con camino upstream.</p><div class="story-meta"><span><a rel="author" href="/autores/ecash-magazine-mexico/">eCash Magazine México</a></span><span><time datetime="2026-08-16">16 de agosto de 2026</time></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/thorchain/">THORChain</a></li><li><a class="tag" href="/temas/xec/">XEC</a></li><li><a class="tag" href="/temas/draft-mr-2/">Draft MR !2</a></li><li><a class="tag" href="/temas/generic-utxo-client/">generic UTXO client</a></li><li><a class="tag" href="/temas/pirk-feedback/">PiRK feedback</a></li><li><a class="tag" href="/temas/starsquid-xec-client/">starsquid/xec-client</a></li><li><a class="tag" href="/temas/tonalli-path/">Tonalli path</a></li></ul><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/reportaje/">Reportaje</a></li><li aria-current="page">XEC en THORChain: el branch de starsquid cambia la partida</li></ol></nav><header class="article-header"><div class="eyebrow"><a class="genre" href="/generos/reportaje/">Reportaje</a> <span class="section-label">THORChain</span></div><h1 class="article-title">XEC en THORChain: el branch de starsquid cambia la partida</h1><p class="article-deck">Después del Draft MR de xolosArmy y del feedback técnico de PiRK, un contribuidor del lado THORChain abrió una ruta propia starsquid/xec-client. No es una aceptación final, pero sí marca el paso de la tesis a una revisión técnica con camino upstream.</p><div class="story-meta"><span><a rel="author" href="/autores/ecash-magazine-mexico/">eCash Magazine México</a></span><span><time datetime="2026-08-16">16 de agosto de 2026</time></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/thorchain/">THORChain</a></li><li><a class="tag" href="/temas/xec/">XEC</a></li><li><a class="tag" href="/temas/draft-mr-2/">Draft MR !2</a></li><li><a class="tag" href="/temas/generic-utxo-client/">generic UTXO client</a></li><li><a class="tag" href="/temas/pirk-feedback/">PiRK feedback</a></li><li><a class="tag" href="/temas/starsquid-xec-client/">starsquid/xec-client</a></li><li><a class="tag" href="/temas/tonalli-path/">Tonalli path</a></li></ul><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
 <div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#de-fork-comunitario-a-punto-de-coordinacion">De fork comunitario a punto de coordinación</a></li><li><a href="#la-senal-de-starsquid">La señal de starsquid</a></li><li><a href="#el-rol-correcto-de-xolosarmy-ahora">El rol correcto de xolosArmy ahora</a></li><li><a href="#teyolia-tonalli-y-la-siguiente-fase">Teyolia, Tonalli y la siguiente fase</a></li><li><a href="#que-observar-a-partir-de-ahora">Qué observar a partir de ahora</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="emg-header">
 <div class="container">
 <span class="kicker">Reportaje técnico · THORChain · XEC</span>

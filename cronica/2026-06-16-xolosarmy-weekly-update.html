@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">De código a producción: la actualización semanal que puso a XEC frente a THORChain</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">De código a producción: la actualización semanal que puso a XEC frente a THORChain</h1><p class="article-deck">En un Weekly Update de casi siete minutos, Fernando Ramírez confirmó que la integración nativa de eCash en THORChain avanza hacia una nueva etapa: código revisado, liquidez soberana y ecosistema L1 desde México.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica-Análisis. Clasificación editorial pendiente.</p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">De código a producción: la actualización semanal que puso a XEC frente a THORChain</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">De código a producción: la actualización semanal que puso a XEC frente a THORChain</h1><p class="article-deck">En un Weekly Update de casi siete minutos, Fernando Ramírez confirmó que la integración nativa de eCash en THORChain avanza hacia una nueva etapa: código revisado, liquidez soberana y ecosistema L1 desde México.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica-Análisis. Clasificación editorial pendiente.</p></header>
 <div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#01-el-puente-tecnico-ya-no-es-solo-una-idea">01 El puente técnico ya no es solo una idea</a></li><li><a href="#02-nativo-contra-wrapped-la-diferencia-filosofica">02 Nativo contra wrapped: la diferencia filosófica</a></li><li><a href="#03-teyolia-2-4-5-billones-de-xec-para-liquidez-soberana">03 Teyolia 2: 4.5 billones de XEC para liquidez soberana</a></li><li><a href="#04-mas-alla-de-thorchain-marketplace-escrow-y-alias-xec">04 Más allá de THORChain: Marketplace, escrow y alias .xec</a></li><li><a href="#05-conclusion-de-la-narrativa-al-protocolo">05 Conclusión: de la narrativa al protocolo</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="site-shell">
 <div class="article">
 <section class="hero">

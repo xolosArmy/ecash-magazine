@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/autores/">Autores</a></li><li aria-current="page">Colaborador Editorial</li></ol></nav><header class="article-header"><h1>Colaborador Editorial</h1><p class="article-deck">Publicaciones que incluyen esta firma en su ficha editorial original.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/autores/">Autores</a></li><li aria-current="page">Colaborador Editorial</li></ol></nav><header class="article-header"><h1>Colaborador Editorial</h1><p class="article-deck">Publicaciones que incluyen esta firma en su ficha editorial original.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
 <h2 class="story-title"><a href="/opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html">De Rothbard a eCash: soberanía protocolaria sin negar la jurisdicción física</a></h2>
 <p class="story-deck">La criptografía no crea un país nuevo. Hace algo quizá más interesante: permite trasladar ciertas funciones económicas desde instituciones territoriales hacia protocolos voluntarios, verificables y con capacidad de salida.</p><div class="story-meta"><span><a rel="author" href="/autores/colaborador-editorial/">Colaborador Editorial</a></span><span><time datetime="2026-08-28">28 de agosto de 2026</time></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/filosofia-politica/">FILOSOFÍA POLÍTICA</a></li><li><a class="tag" href="/temas/dinero-digital/">DINERO DIGITAL</a></li><li><a class="tag" href="/temas/jurisdiccion/">JURISDICCIÓN</a></li></ul></div></article><article class="story-card"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
 <h2 class="story-title"><a href="/opinion/economia-agentica-tokenizada.html">El dinero no desaparecerá: solo dejará de verse</a></h2>

@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/noticia/">Noticia</a></li><li aria-current="page">xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G</li></ol></nav><header class="article-header"><div class="eyebrow"><a class="genre" href="/generos/noticia/">Noticia</a> </div><h1 class="article-title">xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G</h1><p class="article-deck">The infrastructure proposal to natively integrate eCash (XEC) into THORChain enters an institutional review phase. The development team confirms approaches with key ecosystem figures.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/noticia/">Noticia</a></li><li aria-current="page">xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G</li></ol></nav><header class="article-header"><div class="eyebrow"><a class="genre" href="/generos/noticia/">Noticia</a> </div><h1 class="article-title">xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G</h1><p class="article-deck">The infrastructure proposal to natively integrate eCash (XEC) into THORChain enters an institutional review phase. The development team confirms approaches with key ecosystem figures.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
 <div class="article-layout"><article class="article-content" id="lectura" aria-label="Texto de la publicación"><nav class="article-translations" aria-label="Versiones del artículo"><a href="https://magazine.ecash.mx/noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html">🌐 Leer en Español</a></nav><div class="site-shell">
 <div class="article">
 <section class="hero">

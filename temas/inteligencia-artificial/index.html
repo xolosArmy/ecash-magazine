@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/temas/">Temas</a></li><li aria-current="page">Inteligencia artificial</li></ol></nav><header class="article-header"><h1>Inteligencia artificial</h1><p class="article-deck">Publicaciones con el tema Inteligencia artificial consignado en sus metadatos editoriales.</p></header><div class="story-grid"><article class="story-card"><a href="/opinion/ia-binarios-open-source-nueva-ventaja.html" tabindex="-1" aria-hidden="true"><img class="story-image" src="/assets/media/ia-binarios-open-source-1600.webp" alt="Representación abstracta de código binario interpretado por una red de inteligencia artificial" width="1600" height="900" srcset="/assets/media/ia-binarios-open-source-480.webp 480w, /assets/media/ia-binarios-open-source-960.webp 960w, /assets/media/ia-binarios-open-source-1440.webp 1440w, /assets/media/ia-binarios-open-source-1600.webp 1600w" sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 560px" loading="lazy" decoding="async"></a><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/temas/">Temas</a></li><li aria-current="page">Inteligencia artificial</li></ol></nav><header class="article-header"><h1>Inteligencia artificial</h1><p class="article-deck">Publicaciones con el tema Inteligencia artificial consignado en sus metadatos editoriales.</p></header><div class="story-grid"><article class="story-card"><a href="/opinion/ia-binarios-open-source-nueva-ventaja.html" tabindex="-1" aria-hidden="true"><img class="story-image" src="/assets/media/ia-binarios-open-source-1600.webp" alt="Representación abstracta de código binario interpretado por una red de inteligencia artificial" width="1600" height="900" srcset="/assets/media/ia-binarios-open-source-480.webp 480w, /assets/media/ia-binarios-open-source-960.webp 960w, /assets/media/ia-binarios-open-source-1440.webp 1440w, /assets/media/ia-binarios-open-source-1600.webp 1600w" sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 560px" loading="lazy" decoding="async"></a><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
 <h2 class="story-title"><a href="/opinion/ia-binarios-open-source-nueva-ventaja.html">El binario ya no es una muralla</a></h2>
 <p class="story-deck">La IA no convierte el software cerrado en open source. Hace algo distinto y quizá más incómodo: reduce la protección práctica que ofrecía la opacidad y multiplica el valor estratégico de construir en público.</p><div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-05T00:00:00-06:00">5 de septiembre de 2026</time></span><span><span>9 min de lectura</span></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/inteligencia-artificial/">Inteligencia artificial</a></li></ul></div></article><article class="story-card"><a href="/opinion/tonalli-shield-ia-evidencia-rbitcoin.html" tabindex="-1" aria-hidden="true"><img class="story-image" src="/assets/media/circuito-1440.webp" alt="" width="1440" height="960" srcset="/assets/media/circuito-480.webp 480w, /assets/media/circuito-960.webp 960w, /assets/media/circuito-1440.webp 1440w" sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 560px" loading="lazy" decoding="async"></a><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
 <h2 class="story-title"><a href="/opinion/tonalli-shield-ia-evidencia-rbitcoin.html">Tonalli Shield: si la IA acelera el código, debemos elevar la evidencia</a></h2>

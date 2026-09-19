@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/">Géneros</a></li><li aria-current="page">Reportaje</li></ol></nav><header class="article-header"><h1>Reportaje</h1><p class="article-deck">Investigación, contexto, fuentes y evidencia sobre un tema.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><a class="genre" href="/generos/reportaje/">Reportaje</a>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/">Géneros</a></li><li aria-current="page">Reportaje</li></ol></nav><header class="article-header"><h1>Reportaje</h1><p class="article-deck">Investigación, contexto, fuentes y evidencia sobre un tema.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><a class="genre" href="/generos/reportaje/">Reportaje</a>
 <h2 class="story-title"><a href="/reportajes/xec-thorchain-starsquid-xec-client.html">XEC en THORChain: el branch de starsquid cambia la partida</a></h2>
 <p class="story-deck">Después del Draft MR de xolosArmy y del feedback técnico de PiRK, un contribuidor del lado THORChain abrió una ruta propia starsquid/xec-client. No es una aceptación final, pero sí marca el paso de la tesis a una revisión técnica con camino upstream.</p><div class="story-meta"><span><a rel="author" href="/autores/ecash-magazine-mexico/">eCash Magazine México</a></span><span><time datetime="2026-08-16">16 de agosto de 2026</time></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/thorchain/">THORChain</a></li><li><a class="tag" href="/temas/xec/">XEC</a></li><li><a class="tag" href="/temas/draft-mr-2/">Draft MR !2</a></li></ul></div></article><article class="story-card"><a href="/reportajes/bip-110-bitcoin-cash-forks-consenso.html" tabindex="-1" aria-hidden="true"><img class="story-image" src="/assets/media/bip-110-bitcoin-cash-forks-1672.webp" alt="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro." width="1672" height="941" srcset="/assets/media/bip-110-bitcoin-cash-forks-480.webp 480w, /assets/media/bip-110-bitcoin-cash-forks-960.webp 960w, /assets/media/bip-110-bitcoin-cash-forks-1440.webp 1440w, /assets/media/bip-110-bitcoin-cash-forks-1672.webp 1672w" sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 560px" loading="lazy" decoding="async"></a><div class="story-card-body"><a class="genre" href="/generos/reportaje/">Reportaje</a>
 <h2 class="story-title"><a href="/reportajes/bip-110-bitcoin-cash-forks-consenso.html">BIP-110 y Bitcoin Cash: dos forks, dos destinos</a></h2>

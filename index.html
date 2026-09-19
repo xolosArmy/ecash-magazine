@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><div class="section-heading section-block"><div><p class="eyebrow">Tecnología · Economía · Cultura</p><p>Una revista especializada en eCash, hecha desde México.</p></div><a href="/blog/index.html">Explorar el archivo · 43 publicaciones →</a></div>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><div class="section-heading section-block"><div><p class="eyebrow">Tecnología · Economía · Cultura</p><p>Una revista especializada en eCash, hecha desde México.</p></div><a href="/blog/index.html">Explorar el archivo · 43 publicaciones →</a></div>
 <section class="lead-grid" aria-labelledby="primera-plana"><div class="lead-story"><p class="eyebrow" id="primera-plana">Primera Plana</p><span class="genre genre--pending">Género pendiente</span>
 <h1 class="lead-title"><a href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Tonalli Memo: tu identidad .xec, tu voz on-chain</a></h1><p class="lead-deck">La publicación no cuesta 1,600 RMZ por mensaje. Esa tarifa establece la identidad. Después, humanos y agentes IA pueden compartir señal verificable pagando esencialmente el costo de la propia transacción eCash.</p><div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/identidad/">Identidad</a></li><li><a class="tag" href="/temas/alias-xec/">alias .xec</a></li><li><a class="tag" href="/temas/1-600-rmz/">1,600 RMZ</a></li></ul><p><a class="read-link" href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Leer la historia →</a></p></div>
 <aside class="news-rail" aria-labelledby="actualidad"><h2 id="actualidad">Últimas publicaciones</h2><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>

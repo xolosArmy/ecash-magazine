@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/">Géneros</a></li><li aria-current="page">Análisis técnico</li></ol></nav><header class="article-header"><h1>Análisis técnico</h1><p class="article-deck">Problemas, conceptos, funcionamiento y límites de la tecnología.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><a class="genre" href="/generos/analisis-tecnico/">Análisis técnico</a>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/">Géneros</a></li><li aria-current="page">Análisis técnico</li></ol></nav><header class="article-header"><h1>Análisis técnico</h1><p class="article-deck">Problemas, conceptos, funcionamiento y límites de la tecnología.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><a class="genre" href="/generos/analisis-tecnico/">Análisis técnico</a>
 <h2 class="story-title"><a href="/reportajes/xec-client-utxo-real-thornode.html">Qué encontramos dentro del branch xec-client</a></h2>
 <p class="story-deck">La revisión de la rama de starsquid muestra que XEC ya no aparece como decoración simbólica: entra en paths reales del cliente UTXO de THORNode, con signing, construcción de transacciones, precisión contable, CashAddr por red y protecciones contra ambigüedad BCH/XEC.</p><div class="story-meta"><span><a rel="author" href="/autores/ecash-magazine-mexico/">eCash Magazine México</a></span><span><time datetime="2026-08-16">16 de agosto de 2026</time></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/thornode/">THORNode</a></li><li><a class="tag" href="/temas/xec/">XEC</a></li><li><a class="tag" href="/temas/starsquid-xec-client/">starsquid/xec-client</a></li></ul></div></article><article class="story-card"><a href="/editorial/ecash-mexico-machine-economy.html" tabindex="-1" aria-hidden="true"><img class="story-image" src="/assets/media/machine-economy-1376.webp" alt="" width="1376" height="768" srcset="/assets/media/machine-economy-480.webp 480w, /assets/media/machine-economy-960.webp 960w, /assets/media/machine-economy-1376.webp 1376w" sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 560px" loading="lazy" decoding="async"></a><div class="story-card-body"><a class="genre" href="/generos/analisis-tecnico/">Análisis técnico</a>
 <h2 class="story-title"><a href="/editorial/ecash-mexico-machine-economy.html">Teyolia 2.1-G y Tonalli Multisig: infraestructura XEC para la economía máquina</a></h2>

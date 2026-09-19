@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Oráculo Tonalli xolosArmy: la cultura ancestral como onboarding cripto</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">Oráculo Tonalli xolosArmy: la cultura ancestral como onboarding cripto</h1><p class="article-deck">De la matemática mesoamericana a una dApp en eCash. Cómo xolosArmy Network construyó un embudo cultural de microtransacciones utilizando XEC.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Reportaje + Análisis Técnico. Clasificación editorial pendiente.</p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Oráculo Tonalli xolosArmy: la cultura ancestral como onboarding cripto</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">Oráculo Tonalli xolosArmy: la cultura ancestral como onboarding cripto</h1><p class="article-deck">De la matemática mesoamericana a una dApp en eCash. Cómo xolosArmy Network construyó un embudo cultural de microtransacciones utilizando XEC.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Reportaje + Análisis Técnico. Clasificación editorial pendiente.</p></header>
 <div class="article-layout"><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="site-shell">
 <div class="article">
 <section class="hero">
@@ -28,12 +51,12 @@
 </div>
 <h2 id="el-rigor-matematico-detras-del-calendario-sagrado">El rigor matemático detrás del calendario sagrado</h2>
 <p>El proyecto no comenzó con el diseño web, sino resolviendo el núcleo duro: la matemática del <strong>tonalpohualli</strong>. El calendario sagrado de 260 días requería una correlación histórica precisa para funcionar. El equipo optó por la correlación de <strong>Alfonso Caso / Nicholson</strong>, fijando un ancla determinista:</p>
-<pre tabindex="0" aria-label="Bloque de código o datos técnicos"><code><span class="code-comment">// Ancla histórica verificable</span>
+<section class="code-region" aria-label="Bloque de código o datos técnicos 1"><pre tabindex="0"><code><span class="code-comment">// Ancla histórica verificable</span>
 13 de agosto de 1521 juliano = 23 de agosto de 1521 gregoriano proléptico = 1 Cóatl</code></pre>
-<p>Durante la programación del motor en TypeScript, el equipo se topó con un problema de lógica clásica en el cálculo de trecenas: el operador <span class="code-chip">%</span> en JS/TS no es un módulo matemático real, sino un operador de residuo. Esto rompía el cálculo para fechas anteriores al ancla histórica devolviendo índices negativos. La solución técnica fue implementar una función modular pura:</p>
-<pre tabindex="0" aria-label="Bloque de código o datos técnicos"><code><span class="code-comment">// Módulo matemático seguro en TypeScript</span>
+</section><p>Durante la programación del motor en TypeScript, el equipo se topó con un problema de lógica clásica en el cálculo de trecenas: el operador <span class="code-chip">%</span> en JS/TS no es un módulo matemático real, sino un operador de residuo. Esto rompía el cálculo para fechas anteriores al ancla histórica devolviendo índices negativos. La solución técnica fue implementar una función modular pura:</p>
+<section class="code-region" aria-label="Bloque de código o datos técnicos 2"><pre tabindex="0"><code><span class="code-comment">// Módulo matemático seguro en TypeScript</span>
 const mod = (n: number, m: number): number =&gt; ((n % m) + m) % m;</code></pre>
-<p>Con este ajuste, el motor no solo validó correctamente el ancla (1 Coatl), sino que pasó la prueba vital de retroceso demostrando que el 18 de marzo de 1992 arroja <strong>13 Ollin, Trecena 1 Cóatl</strong>, asegurando una legitimidad matemática total antes de pasar al diseño.</p>
+</section><p>Con este ajuste, el motor no solo validó correctamente el ancla (1 Coatl), sino que pasó la prueba vital de retroceso demostrando que el 18 de marzo de 1992 arroja <strong>13 Ollin, Trecena 1 Cóatl</strong>, asegurando una legitimidad matemática total antes de pasar al diseño.</p>
 <div class="pullquote">
             Descubre tu Tonalli. Actívalo con XEC. Entra al camino de xolosArmy.
           </div>

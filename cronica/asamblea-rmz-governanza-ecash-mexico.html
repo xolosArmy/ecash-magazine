@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">El día en que xolosarmy.xec pasó de identidad soberana a ciudadanía activa</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">El día en que xolosarmy.xec pasó de identidad soberana a ciudadanía activa</h1><p class="article-deck">El alias xolosarmy.xec ya no solo existe como identidad confirmada sobre eCash. Ahora emite votos firmados criptográficamente en la Asamblea RMZ.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica + Análisis Técnico. Clasificación editorial pendiente.</p><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">El día en que xolosarmy.xec pasó de identidad soberana a ciudadanía activa</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">El día en que xolosarmy.xec pasó de identidad soberana a ciudadanía activa</h1><p class="article-deck">El alias xolosarmy.xec ya no solo existe como identidad confirmada sobre eCash. Ahora emite votos firmados criptográficamente en la Asamblea RMZ.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica + Análisis Técnico. Clasificación editorial pendiente.</p><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
 <div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#i-la-fase-a-cuando-la-identidad-quedo-confirmada">I La Fase A: cuando la identidad quedó confirmada</a></li><li><a href="#ii-el-cambio-estrategico-adelantar-la-asamblea-rmz">II El cambio estratégico: adelantar la Asamblea RMZ</a></li><li><a href="#iii-el-diseno-de-la-asamblea-un-voto-por-identidad">III El diseño de la Asamblea: un voto por identidad</a></li><li><a href="#iv-nace-rmz-assembly-api">IV Nace rmz-assembly-api</a></li><li><a href="#v-la-elegibilidad-dejo-de-ser-simulacion">V La elegibilidad dejó de ser simulación</a></li><li><a href="#vi-la-firma-criptografica-real">VI La firma criptográfica real</a></li><li><a href="#vii-de-localhost-a-produccion-assembly-ecash-mx">VII De localhost a producción: assembly.ecash.mx</a></li><li><a href="#viii-el-frontend-ecash-mx-asamblea">VIII El frontend: ecash.mx/asamblea</a></li><li><a href="#ix-el-primer-voto-real-y-la-auditoria">IX El primer voto real y la auditoría</a></li><li><a href="#analisis-lo-que-realmente-se-construyo">Análisis: Lo que realmente se construyó</a></li><li><a href="#x-memoria-on-chain-el-nft-conmemorativo">X Memoria On-Chain: El NFT Conmemorativo</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="site-shell">
 <div class="article">
 <section class="hero">
@@ -39,13 +62,13 @@
 <div class="flow-step">→ verificación pública en ecash.mx/identidad</div>
 </div>
 <p>La identidad quedó confirmada con estos datos de la red:</p>
-<pre tabindex="0" aria-label="Bloque de código o datos técnicos"><code>Alias: xolosarmy.xec
+<section class="code-region" aria-label="Bloque de código o datos técnicos 1"><pre tabindex="0"><code>Alias: xolosarmy.xec
 Wallet: ecash:qzdq0q65fwnt94rlcph5kllj0xcry6e0v58zrgp7a3
 Tx alias: 8406ba40d1f760e807b6635a840c874e4ca8efd7ee323bb1a781539442288de1
 Bloque: 952171
 Status: confirmed
 Source: chronik-indexer</code></pre>
-<p>Después, en la interfaz de <code>ecash.mx/identidad</code>, apareció el mensaje que cerró simbólicamente esta fase: <strong>"Alias verificado. Identidad confirmada."</strong> Pero una identidad que no participa todavía es una identidad dormida. El siguiente paso era convertir esa identidad en acción.</p>
+</section><p>Después, en la interfaz de <code>ecash.mx/identidad</code>, apareció el mensaje que cerró simbólicamente esta fase: <strong>"Alias verificado. Identidad confirmada."</strong> Pero una identidad que no participa todavía es una identidad dormida. El siguiente paso era convertir esa identidad en acción.</p>
 <h2 id="ii-el-cambio-estrategico-adelantar-la-asamblea-rmz"><span class="num">II</span> El cambio estratégico: adelantar la Asamblea RMZ</h2>
 <p>El plan original para la Fase B tenía este orden: B1 (Telegram token-gated), B2 (Medallas/reputación) y B3 (Asamblea/votaciones). Pero durante el proceso se decidió cambiar la prioridad. La lógica fue poderosa: antes de cerrar el acceso a espacios privados o decorar perfiles con reputación visual, había que demostrar que la identidad soberana podía participar en decisiones.</p>
 <div class="pullquote">
@@ -58,7 +81,7 @@ Source: chronik-indexer</code></pre>
 <p>La regla inicial fue deliberadamente sencilla: <span class="code-chip">1 alias .xec confirmado + holder RMZ = 1 voto</span>. No se pondera por cantidad de RMZ. Esto importa porque evita que la primera versión de la Asamblea nazca como una plutocracia. El MVP pone el centro en la identidad comunitaria.</p>
 <h2 id="iv-nace-rmz-assembly-api"><span class="num">IV</span> Nace rmz-assembly-api</h2>
 <p>Para sostener esta nueva capa de gobernanza se creó un backend dedicado: <code>~/rmz-assembly-api</code>. El proyecto se implementó con TypeScript, Express, Zod y JSONL. El primer commit dejó sembrada la estructura:</p>
-<pre tabindex="0" aria-label="Bloque de código o datos técnicos"><code><span class="code-comment">ea443c0 feat: add RMZ assembly API skeleton</span>
+<section class="code-region" aria-label="Bloque de código o datos técnicos 2"><pre tabindex="0"><code><span class="code-comment">ea443c0 feat: add RMZ assembly API skeleton</span>
 
 GET  /v1/assembly/health
 GET  /v1/assembly/proposals/:proposalId
@@ -67,9 +90,9 @@ GET  /v1/assembly/proposals/:proposalId/audit.jsonl
 POST /v1/assembly/eligibility/check
 POST /v1/assembly/votes/prepare
 POST /v1/assembly/votes</code></pre>
-<h2 id="v-la-elegibilidad-dejo-de-ser-simulacion"><span class="num">V</span> La elegibilidad dejó de ser simulación</h2>
+</section><h2 id="v-la-elegibilidad-dejo-de-ser-simulacion"><span class="num">V</span> La elegibilidad dejó de ser simulación</h2>
 <p>El backend comenzó a comprobar: 1) Que el alias .xec fuera válido, 2) Que estuviera confirmado, 3) Que la dirección del alias coincidiera con la wallet enviada y 4) Que la wallet tuviera RMZ.</p>
-<pre tabindex="0" aria-label="Bloque de código o datos técnicos"><code class="code-json">{
+<section class="code-region" aria-label="Bloque de código o datos técnicos 3"><pre tabindex="0"><code class="code-json">{
   "eligible": true,
   "alias": "xolosarmy.xec",
   "wallet": "ecash:qzdq0q65fwnt94rlcph5kllj0xcry6e0v58zrgp7a3",
@@ -78,7 +101,7 @@ POST /v1/assembly/votes</code></pre>
     "atoms": "100"
   }
 }</code></pre>
-<p>En ese momento, <span class="code-chip">xolosarmy.xec</span> ya no era solamente un alias verificado. Era una identidad elegible para votar.</p>
+</section><p>En ese momento, <span class="code-chip">xolosarmy.xec</span> ya no era solamente un alias verificado. Era una identidad elegible para votar.</p>
 <h2 id="vi-la-firma-criptografica-real"><span class="num">VI</span> La firma criptográfica real</h2>
 <p>Al principio faltaba una pieza esencial: verificar correctamente la firma mediante <code>ecash-lib</code>. Durante el proceso se identificó el formato usado por Tonalli Wallet: <em>base64, 65 bytes, recoverable ECDSA, Hash double-SHA256</em>.</p>
 <p>Desde ese punto, el backend verifica que la firma sea válida sobre el mensaje exacto, que la public key derive a la wallet enviada y que esta coincida con el alias. <strong>Ese fue el momento técnico más importante de la jornada.</strong> El voto se convirtió en una prueba criptográfica real.</p>
@@ -89,11 +112,11 @@ POST /v1/assembly/votes</code></pre>
 <p>El sistema generó el mensaje canónico, el documento de voluntad listo para ser firmado por el usuario.</p>
 <h2 id="ix-el-primer-voto-real-y-la-auditoria"><span class="num">IX</span> El primer voto real y la auditoría</h2>
 <p>Tonalli Wallet firmó el mensaje. El backend verificó la firma. La Asamblea aceptó el voto. La interfaz mostró:</p>
-<pre tabindex="0" aria-label="Bloque de código o datos técnicos"><code>Yes: 1
+<section class="code-region" aria-label="Bloque de código o datos técnicos 4"><pre tabindex="0"><code>Yes: 1
 No: 0
 Abstain: 0
 effectiveVotes: 1</code></pre>
-<p>La Asamblea RMZ no quedó como un <em>mockup</em>. Quedó con un primer voto válido, auditable y efectivo guardado en archivos estructurados (<code>JSONL</code>), creando una memoria pública de la voluntad comunitaria.</p>
+</section><p>La Asamblea RMZ no quedó como un <em>mockup</em>. Quedó con un primer voto válido, auditable y efectivo guardado en archivos estructurados (<code>JSONL</code>), creando una memoria pública de la voluntad comunitaria.</p>
 <h2 id="analisis-lo-que-realmente-se-construyo">Análisis: Lo que realmente se construyó</h2>
 <p>La identidad soberana dice: <em>"Esta wallet tiene un nombre."</em> La elegibilidad dice: <em>"Este nombre pertenece a la comunidad RMZ."</em> La firma dice: <em>"Esta voluntad fue expresada por quien controla la wallet."</em> El resultado dice: <em>"Esta voluntad cuenta."</em></p>
 <p>Hoy se construyó una primera forma de ciudadanía digital soberana sobre eCash. La ruta estratégica avanza: B3 Gobernanza (✅), B2 Reputación visual (siguiente) y B1 Acceso token-gated (al final).</p>

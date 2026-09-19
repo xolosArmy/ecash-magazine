@@ -163,7 +163,7 @@ def nav():
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header>'''
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header>''' + '<script>' + (ROOT / 'assets/js/navigation.js').read_text(encoding='utf-8') + '</script>'
 
 
 def footer():
@@ -312,9 +312,15 @@ def fragment(article):
         parent.remove(table)
         wrapper.append(table)
         parent.insert(index, wrapper)
-    for pre in node.xpath('.//pre'):
+    for pre_number, pre in enumerate(node.xpath('.//pre'), 1):
         pre.set('tabindex', '0')
-        pre.set('aria-label', 'Bloque de código o datos técnicos')
+        pre.attrib.pop('aria-label', None)
+        parent = pre.getparent()
+        wrapper = html.Element('section', {'class': 'code-region', 'aria-label': f'Bloque de código o datos técnicos {pre_number}'})
+        index = parent.index(pre)
+        parent.remove(pre)
+        wrapper.append(pre)
+        parent.insert(index, wrapper)
     for box_number, box in enumerate(node.xpath('.//*[contains(concat(" ", normalize-space(@class), " "), " codebox ")]'), 1):
         if box.tag != 'pre':
             box.tag = 'section'

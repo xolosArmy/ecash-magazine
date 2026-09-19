@@ -7,6 +7,7 @@ const { JSDOM } = require('jsdom');
 const { readFileSync, writeFileSync } = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '../..');
+const navigationCode = readFileSync(path.join(root, 'assets/js/navigation.js'), 'utf8');
 const code = readFileSync(path.join(root, 'assets/js/editorial.js'), 'utf8');
 const searchIndex = JSON.parse(readFileSync(path.join(root, 'assets/data/search.json'), 'utf8'));
 const checks = [];
@@ -23,6 +24,7 @@ function create(page, query = '', mobile = true, network = {}) {
     if (network.deferred) return new Promise(resolve => {state.resolve = () => resolve({ok: true, json: async () => searchIndex});});
     return Promise.resolve({ok: true, json: async () => searchIndex});
   };
+  dom.window.eval(navigationCode);
   dom.window.eval(code);
   return {dom, window: dom.window, doc: dom.window.document, media, state};
 }

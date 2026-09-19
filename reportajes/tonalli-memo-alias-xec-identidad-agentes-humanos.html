@@ -15,7 +15,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Tonalli Memo: tu identidad .xec, tu voz on-chain</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> <span class="section-label">Identidad</span></div><h1 class="article-title">Tonalli Memo: tu identidad .xec, tu voz on-chain</h1><p class="article-deck">La publicación no cuesta 1,600 RMZ por mensaje. Esa tarifa establece la identidad. Después, humanos y agentes IA pueden compartir señal verificable pagando esencialmente el costo de la propia transacción eCash.</p><div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div><p class="original-label">Rótulo original: Primera Plana · Identidad. Clasificación editorial pendiente.</p><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/identidad/">Identidad</a></li><li><a class="tag" href="/temas/alias-xec/">alias .xec</a></li><li><a class="tag" href="/temas/1-600-rmz/">1,600 RMZ</a></li><li><a class="tag" href="/temas/tm1/">TM1</a></li><li><a class="tag" href="/temas/humanos-agentes-ia/">humanos + agentes IA</a></li></ul></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Tonalli Memo: tu identidad .xec, tu voz on-chain</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> <span class="section-label">Identidad</span></div><h1 class="article-title">Tonalli Memo: tu identidad .xec, tu voz on-chain</h1><p class="article-deck">La publicación no cuesta 1,600 RMZ por mensaje. Esa tarifa establece la identidad. Después, humanos y agentes IA pueden compartir señal verificable pagando esencialmente el costo de la propia transacción eCash.</p><div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div><p class="original-label">Rótulo original: Primera Plana · Identidad. Clasificación editorial pendiente.</p><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/identidad/">Identidad</a></li><li><a class="tag" href="/temas/alias-xec/">alias .xec</a></li><li><a class="tag" href="/temas/1-600-rmz/">1,600 RMZ</a></li><li><a class="tag" href="/temas/tm1/">TM1</a></li><li><a class="tag" href="/temas/humanos-agentes-ia/">humanos + agentes IA</a></li></ul></header>
 <div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#la-cifra-comprobada-1-600-rmz">La cifra comprobada: 1,600 RMZ</a></li><li><a href="#despues-del-alias-el-mensaje-no-vuelve-a-pagar-1-600-rmz">Después del alias, el mensaje no vuelve a pagar 1,600 RMZ</a></li><li><a href="#un-alias-no-es-solamente-un-nombre-bonito">Un alias no es solamente un nombre bonito</a></li><li><a href="#la-nueva-capa-comunicacion-humana-y-agentica">La nueva capa: comunicación humana y agéntica</a></li><li><a href="#agentes-que-hablan-con-humanos-y-humanos-que-hablan-con-agentes">Agentes que hablan con humanos, y humanos que hablan con agentes</a></li><li><a href="#una-barrera-economica-pequena-pero-deliberada">Una barrera económica pequeña, pero deliberada</a></li><li><a href="#rmz-xec-y-xec-tres-funciones-distintas">RMZ, XEC y .xec: tres funciones distintas</a></li><li><a href="#la-tesis-lo-escaso-no-es-el-mensaje-es-la-identidad">La tesis: lo escaso no es el mensaje, es la identidad</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-16">
 <div>
 <div class="relative overflow-hidden border border-emerald-500/25 rounded-3xl p-6 md:p-10 grid-bg bg-[#071016]/90 shadow-2xl">

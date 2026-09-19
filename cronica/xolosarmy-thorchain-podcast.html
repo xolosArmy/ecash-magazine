@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">eCash en THORChain: del código listo a la liquidez soberana</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">eCash en THORChain: del código listo a la liquidez soberana</h1><p class="article-deck">Presentación de la visión detrás de la integración nativa: una ruta para llevar XEC a liquidez descentralizada, sin wrappers, sin custodios y con infraestructura comunitaria.</p><div class="story-meta"><span><a rel="author" href="/autores/emg-technical-team/">EMG Technical Team</a></span><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica / Análisis. Clasificación editorial pendiente.</p><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">eCash en THORChain: del código listo a la liquidez soberana</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">eCash en THORChain: del código listo a la liquidez soberana</h1><p class="article-deck">Presentación de la visión detrás de la integración nativa: una ruta para llevar XEC a liquidez descentralizada, sin wrappers, sin custodios y con infraestructura comunitaria.</p><div class="story-meta"><span><a rel="author" href="/autores/emg-technical-team/">EMG Technical Team</a></span><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica / Análisis. Clasificación editorial pendiente.</p><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
 <div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#del-podcast-al-protocolo">Del podcast al protocolo</a></li><li><a href="#por-que-thorchain">¿Por qué THORChain?</a></li><li><a href="#ecash-utxo-avalanche-y-finalidad-rapida">eCash: UTXO, Avalanche y finalidad rápida</a></li><li><a href="#el-estado-tecnico-el-cliente-de-cadena-ya-esta-en-la-mesa">El estado técnico: el cliente de cadena ya está en la mesa</a></li><li><a href="#la-nueva-frontera-sembrar-el-pool">La nueva frontera: sembrar el pool</a></li><li><a href="#sin-wrappers-la-tesis-soberana">Sin wrappers: la tesis soberana</a></li><li><a href="#mexico-en-la-conversacion-global-de-ecash">México en la conversación global de eCash</a></li><li><a href="#cierre">Cierre</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="emg-article-header">
 <div class="container">
 <div class="emg-meta">

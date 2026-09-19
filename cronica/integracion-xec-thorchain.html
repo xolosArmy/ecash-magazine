@@ -13,7 +13,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">El nivel de los dioses: cuando XEC empieza a hablar de core a core con THORChain</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">El nivel de los dioses: cuando XEC empieza a hablar de core a core con THORChain</h1><p class="article-deck">Una interacción técnica muestra que la integración nativa de eCash en THORChain dejó de ser solo una idea comunitaria y entró al terreno de daemons, runners y CI oficial.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica + Análisis Técnico. Clasificación editorial pendiente.</p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">El nivel de los dioses: cuando XEC empieza a hablar de core a core con THORChain</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">El nivel de los dioses: cuando XEC empieza a hablar de core a core con THORChain</h1><p class="article-deck">Una interacción técnica muestra que la integración nativa de eCash en THORChain dejó de ser solo una idea comunitaria y entró al terreno de daemons, runners y CI oficial.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Crónica + Análisis Técnico. Clasificación editorial pendiente.</p></header>
 <div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#01-el-codigo-ya-fue-tomado-en-serio">01 El código ya fue tomado en serio</a></li><li><a href="#02-la-llave-el-ci-oficial-de-thorchain">02 La llave: el CI oficial de THORChain</a></li><li><a href="#03-el-error-que-revelo-el-nivel-tecnico">03 El error que reveló el nivel técnico</a></li><li><a href="#04-que-sigue-en-la-terminal">04 Qué sigue en la terminal</a></li><li><a href="#05-por-que-esto-importa-para-ecash">05 Por qué esto importa para eCash</a></li><li><a href="#06-conclusion-el-codigo-entra-al-templo">06 Conclusión: el código entra al templo</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="site-shell">
 <div class="article">
 <section class="hero">
@@ -37,8 +60,8 @@
 <p>El problema previo era práctico: los <em>runners</em> disponibles para las pruebas propias tenían límites de tiempo. Por eso, la posibilidad de correr en el CI oficial cambia por completo el tablero estratégico de la integración.</p>
 <h2 id="03-el-error-que-revelo-el-nivel-tecnico"><span class="num">03</span> El error que reveló el nivel técnico</h2>
 <p>Durante la prueba apareció un error clásico en entornos modernos derivados de Bitcoin Core:</p>
-<pre tabindex="0" aria-label="Bloque de código o datos técnicos"><code>-18: No wallet is loaded</code></pre>
-<p>Ese error no significa necesariamente que la integración esté mal diseñada. Significa que el daemon arrancó sin una wallet cargada. En versiones modernas de nodos derivados de Bitcoin Core, la creación automática de billeteras dejó de ser una suposición segura. Ahora, muchos entornos requieren crear o cargar explícitamente la wallet antes de que ciertos comandos RPC puedan funcionar.</p>
+<section class="code-region" aria-label="Bloque de código o datos técnicos 1"><pre tabindex="0"><code>-18: No wallet is loaded</code></pre>
+</section><p>Ese error no significa necesariamente que la integración esté mal diseñada. Significa que el daemon arrancó sin una wallet cargada. En versiones modernas de nodos derivados de Bitcoin Core, la creación automática de billeteras dejó de ser una suposición segura. Ahora, muchos entornos requieren crear o cargar explícitamente la wallet antes de que ciertos comandos RPC puedan funcionar.</p>
 <div class="pullquote">
             En integraciones core-to-core, los errores pequeños son exámenes. No se gana negándolos; se gana entendiéndolos rápido.
           </div>

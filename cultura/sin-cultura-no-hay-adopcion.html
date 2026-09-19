@@ -14,7 +14,30 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> <span class="section-label">Cultura</span></div><h1 class="article-title">Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México</h1><p class="article-deck">La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable.</p><div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-07-06">6 de julio de 2026</time></span></div><p class="original-label">Rótulo original: Cultura // Tesis; ensayo. Clasificación editorial pendiente.</p><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/cultura/">Cultura</a></li></ul><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> <span class="section-label">Cultura</span></div><h1 class="article-title">Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México</h1><p class="article-deck">La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable.</p><div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-07-06">6 de julio de 2026</time></span></div><p class="original-label">Rótulo original: Cultura // Tesis; ensayo. Clasificación editorial pendiente.</p><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/cultura/">Cultura</a></li></ul><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
 <div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#tener-una-wallet-no-significa-comprender-la-autocustodia">Tener una wallet no significa comprender la autocustodia</a></li><li><a href="#el-problema-no-es-solamente-tecnologico">El problema no es solamente tecnológico</a></li><li><a href="#por-que-la-cultura-precede-a-la-adopcion">Por qué la cultura precede a la adopción</a></li><li><a href="#tonalli-como-herramienta-de-autocustodia">Tonalli como herramienta de autocustodia</a></li><li><a href="#teyolia-como-coordinacion-comunitaria">Teyolia como coordinación comunitaria</a></li><li><a href="#xec-como-dinero-operativo">XEC como dinero operativo</a></li><li><a href="#responsabilidad-seguridad-y-educacion">Responsabilidad, seguridad y educación</a></li><li><a href="#la-soberania-no-se-descarga-se-aprende">La soberanía no se descarga: se aprende</a></li><li><a href="#referencias">Referencias y documentación</a></li><li><a href="#en-este-ensayo">En este ensayo</a></li><li><a href="#principio-editorial">Principio editorial</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div>
 <div class="hero">
 </div>

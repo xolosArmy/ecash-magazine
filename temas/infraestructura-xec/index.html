@@ -13,6 +13,29 @@
 <header class="site-header"><div class="masthead container">
 <a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
 <div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
-<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/temas/">Temas</a></li><li aria-current="page">Infraestructura XEC</li></ol></nav><header class="article-header"><h1>Infraestructura XEC</h1><p class="article-deck">Publicaciones con el tema Infraestructura XEC consignado en sus metadatos editoriales.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/temas/">Temas</a></li><li aria-current="page">Infraestructura XEC</li></ol></nav><header class="article-header"><h1>Infraestructura XEC</h1><p class="article-deck">Publicaciones con el tema Infraestructura XEC consignado en sus metadatos editoriales.</p></header><div class="story-grid"><article class="story-card"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
 <h2 class="story-title"><a href="/analisis/teyolia-direct-to-pool.html">Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain</a></h2>
 <p class="story-deck">Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain.</p><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/infraestructura-xec/">Infraestructura XEC</a></li></ul></div></article></div><p class="section-block"><a href="/blog/index.html">Consultar el archivo completo →</a></p></div></main><footer class="site-footer"><div class="container"><p class="brand-name">eCash Magazine México</p><p>Tecnología, economía y cultura desde México.</p><nav aria-label="Enlaces editoriales"><a href="/principios-editoriales/">Principios editoriales</a><a href="/correcciones/">Correcciones y actualizaciones</a><a href="/autores/">Autores</a><a href="/feed.xml">RSS</a><a href="https://ecash.mx">Portal eCash México ↗</a></nav><p>XEC es el dinero · RMZ es la llave · La cultura es la red</p><small>Contenidos bajo CC0 · eCash Magazine México</small></div></footer></body></html>
