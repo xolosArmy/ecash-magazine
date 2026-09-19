@@ -1,0 +1,75 @@
+<div class="site-shell">
+<div class="article">
+<section class="hero">
+<img src="https://i.imgur.com/jmb9k7i.jpeg" alt="" role="presentation" class="editorial-legacy-image"><div class="hero-content">
+<div class="kicker mono">[Reportaje] + [Análisis Técnico]</div>
+<h1>Oráculo Tonalli xolosArmy: la cultura ancestral como onboarding cripto</h1>
+<p class="deck">De la matemática mesoamericana a una dApp en eCash. Cómo xolosArmy Network construyó un embudo cultural de microtransacciones utilizando XEC.</p>
+</div>
+</section>
+<div class="content-grid">
+<div class="main">
+<div class="lede-card">
+<div class="lede-label mono">Tesis Editorial</div>
+<p>La adopción cripto no tiene que depender exclusivamente de gráficos financieros o de interfaces de trading complejas. El nuevo <strong>Oráculo Tonalli xolosArmy</strong> demuestra que un embudo estructurado —curiosidad espiritual, lectura simbólica y una microtransacción con eCash— es una puerta de entrada mucho más orgánica y cultural para la adopción en México.</p>
+</div>
+<h2>El rigor matemático detrás del calendario sagrado</h2>
+<p>El proyecto no comenzó con el diseño web, sino resolviendo el núcleo duro: la matemática del <strong>tonalpohualli</strong>. El calendario sagrado de 260 días requería una correlación histórica precisa para funcionar. El equipo optó por la correlación de <strong>Alfonso Caso / Nicholson</strong>, fijando un ancla determinista:</p>
+<pre><code><span class="code-comment">// Ancla histórica verificable</span>
+13 de agosto de 1521 juliano = 23 de agosto de 1521 gregoriano proléptico = 1 Cóatl</code></pre>
+<p>Durante la programación del motor en TypeScript, el equipo se topó con un problema de lógica clásica en el cálculo de trecenas: el operador <span class="code-chip">%</span> en JS/TS no es un módulo matemático real, sino un operador de residuo. Esto rompía el cálculo para fechas anteriores al ancla histórica devolviendo índices negativos. La solución técnica fue implementar una función modular pura:</p>
+<pre><code><span class="code-comment">// Módulo matemático seguro en TypeScript</span>
+const mod = (n: number, m: number): number =&gt; ((n % m) + m) % m;</code></pre>
+<p>Con este ajuste, el motor no solo validó correctamente el ancla (1 Coatl), sino que pasó la prueba vital de retroceso demostrando que el 18 de marzo de 1992 arroja <strong>13 Ollin, Trecena 1 Cóatl</strong>, asegurando una legitimidad matemática total antes de pasar al diseño.</p>
+<div class="pullquote">
+            Descubre tu Tonalli. Actívalo con XEC. Entra al camino de xolosArmy.
+          </div>
+<h2>El flujo comercial: Payment-Gated UX</h2>
+<p>La estrategia del oráculo está estructurada como un embudo (funnel) perfecto de adopción web3:</p>
+<ol class="list-decimal list-inside space-y-2 mb-6">
+<li>El usuario ingresa su fecha de nacimiento por curiosidad.</li>
+<li>La API devuelve un <em>preview</em> gratuito de su Tonalli.</li>
+<li>Para desbloquear la lectura completa y el cierre cultural de xolosArmy, la app solicita una microtransacción de <strong>5,000 XEC</strong>.</li>
+</ol>
+<p>Para esta versión MVP (Producto Mínimo Viable), la validación de pago se gestiona mediante confianza comunitaria y revisión manual. La aplicación genera de forma dinámica un código QR real integrando la librería <code>qrcode</code> en Fastify, apuntando a la tesorería: <span class="code-chip">ecash:qq7qn90ev23ecast...</span> y ofrece un campo para ingresar el TXID como comprobante.</p>
+<h2>Infraestructura Soberana y Despliegue</h2>
+<p>La aplicación no se limitó a un servidor local. El stack utilizado fue:</p>
+<ul class="list-disc list-inside space-y-2 mb-6">
+<li><strong>Backend:</strong> Node.js con Fastify (Sirviendo API y estáticos).</li>
+<li><strong>Lenguaje:</strong> TypeScript (Cálculos tipados y seguros, probados con Vitest).</li>
+<li><strong>Hosting:</strong> Render Web Service, desplegado desde la rama <code>main</code> del repositorio oficial en GitHub.</li>
+</ul>
+<p>El broche de oro de la infraestructura fue la integración del Custom Domain. Enlazando los DNS, la plataforma ahora respira en <span class="code-chip">https://tonalli.xolosarmy.xyz</span>.</p>
+<p>El resultado es la materialización directa del mantra de la red: <strong>XEC es el dinero. RMZ es la llave. La cultura es la red.</strong> El tiempo sagrado ya tiene portal.</p>
+</div>
+<aside class="sidebar">
+<div class="sticky">
+<div class="side-card">
+<div class="side-title mono">Ficha de Proyecto</div>
+<p><strong>App:</strong> Oráculo Tonalli xolosArmy</p>
+<p><strong>Dominio:</strong> tonalli.xolosarmy.xyz</p>
+<p><strong>Costo Lectura:</strong> 5,000 XEC</p>
+<p><strong>Estado:</strong> MVP en Producción</p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Stack Tecnológico</div>
+<ul>
+<li>TypeScript &amp; Fastify</li>
+<li>Vitest (TDD)</li>
+<li>Render (Hosting)</li>
+<li>Vanilla JS / HTML / CSS</li>
+</ul>
+</div>
+<div class="side-card">
+<div class="side-title mono">Mantra Estratégico</div>
+<p>
+                XEC es el dinero.<br>
+                RMZ es la llave.<br>
+                La cultura es la red.
+              </p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>

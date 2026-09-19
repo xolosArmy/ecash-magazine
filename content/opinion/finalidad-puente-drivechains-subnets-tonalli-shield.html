@@ -1,0 +1,111 @@
+<div class="shell">
+<div class="article">
+<section class="hero">
+<div class="bridge-map mono" aria-hidden="true">
+<div class="bridge-node l1"><strong>eCash L1</strong><small>≈2–3 s finality</small></div>
+<div class="bridge-link">↔<span>bridge ≠ L1</span></div>
+<div class="bridge-node l2"><strong>Subnet</strong><small>parámetros propios</small></div>
+</div>
+<div class="hero-content">
+<div class="kicker mono">[Opinión] · Consenso · Tonalli Shield</div>
+<h1>La finalidad no es el puente</h1>
+<p class="deck">Drivechains y las futuras subnets de eCash exponen una confusión frecuente: que una cadena finalice en segundos no significa que cualquier puente entre capas liquide en segundos. Para Tonalli Shield, esa diferencia debe convertirse en una regla de ingeniería.</p>
+</div>
+</section>
+<div class="meta mono">
+<span>Por Fernando Ramírez</span>
+<span>9 septiembre 2026</span>
+<span>Opinión / Infraestructura</span>
+</div>
+<div class="evidence-strip mono" aria-label="Semáforo de evidencia">
+<div class="evidence-item confirmed"><small>Confirmado</small><strong>eCash finaliza L1 en segundos</strong></div>
+<div class="evidence-item proposed"><small>Propuesto</small><strong>Subnets EVM y ZK</strong></div>
+<div class="evidence-item unknown"><small>Desconocido</small><strong>Latencia exacta del reverse peg</strong></div>
+</div>
+<div class="content-grid">
+<div class="main">
+<div class="lede">
+<div class="lede-label mono">Tesis</div>
+<p>El debate importante no es si una sidechain necesita smart contracts. Es quién autoriza el regreso del valor a la capa base, bajo qué reglas y con qué evidencia. Ahí se decide el verdadero modelo de seguridad.</p>
+</div>
+<p>Las discusiones sobre drivechains suelen comenzar por su atractivo: extender una red tipo Bitcoin sin convertir la capa base en una máquina general de contratos. Eso es correcto, pero incompleto. El problema realmente difícil aparece cuando los fondos deben volver.</p>
+<p>En <a href="https://github.com/bitcoin/bips/blob/master/bip-0300.mediawiki" rel="noopener noreferrer">BIP-300</a>, ese regreso se resuelve mediante un <em>hashrate escrow</em>. Los retiros de la L2 a la L1 no dependen de una federación fija ni de un smart contract estilo Ethereum: dependen de señalización de prueba de trabajo. El diseño exige que un bundle de retiro acumule al menos <strong>13,150 ACKs</strong>, mientras dispone de una ventana de <strong>26,300 bloques</strong>. El propio documento describe el proceso como deliberadamente lento y sitúa la votación del bundle en un horizonte de <strong>3 a 6 meses</strong>.</p>
+<p>Eso no significa que cada usuario de una drivechain deba permanecer inmóvil durante meses. El mismo BIP contempla que, una vez establecido el bridge, puedan existir swaps que den liquidez inmediata y que BIP-300 quede como capa de liquidación final. La distinción es crucial: <strong>liquidez de mercado y liquidación protocolaria no son la misma cosa</strong>.</p>
+<div class="pullquote">La pregunta correcta no es “¿qué tan rápida es la cadena?”, sino “¿qué prueba acepta la capa base para liberar valor que estuvo gobernado por otra máquina de estados?”.</div>
+<h2>El reverse peg es la frontera de confianza</h2>
+<p>Mover valor de L1 hacia una segunda capa suele ser conceptualmente más sencillo: la capa base bloquea o compromete fondos y la otra red reconoce ese hecho. Volver es distinto. La L1 necesita una razón verificable para aceptar que cierta salida es legítima.</p>
+<p>En BIP-300, esa razón es una historia prolongada de ACKs de mineros. El modelo no es una custodia tradicional, pero sí deposita una parte central de su seguridad en la conducta agregada del hashpower durante una ventana extensa. Ésa es su elección de diseño.</p>
+<p>eCash parte de otra arquitectura. La red mantiene Nakamoto consensus y añade Avalanche como una segunda capa de consenso. Desde noviembre de 2025, <a href="https://e.cash/blog/preconsensus-launch" rel="noopener noreferrer">Avalanche Pre-Consensus</a> permite finalidad de transacciones en menos de tres segundos; documentación posterior de eCash suele resumirla alrededor de dos segundos. Ese hecho ya está en producción sobre la capa base.</p>
+<p>Además, el <a href="https://e.cash/roadmap" rel="noopener noreferrer">roadmap público de eCash</a> mantiene una <strong>EVM Subnet</strong> y una <strong>Zero-Knowledge Subnet</strong> como proyectos en <em>Planning</em>. La portada tecnológica de eCash describe las subnets como redes personalizables y permissionless impulsadas por su tecnología Avalanche.</p>
+<p>También existe desde hace años una motivación pública muy concreta: usar Avalanche para abordar mejor el problema del reverse peg que ha limitado a sidechains y drivechains en arquitecturas tipo Bitcoin. Esa intención importa, pero <strong>una intención de arquitectura no es todavía una especificación de bridge</strong>.</p>
+<h2>Tres segundos no responden la pregunta del bridge</h2>
+<p>Aquí aparece la confusión más peligrosa. Si eCash finaliza una transacción L1 en dos o tres segundos, es tentador concluir que una salida de una futura subnet debería tardar lo mismo. No podemos afirmarlo.</p>
+<p>La finalidad de L1 responde una pregunta: ¿la red eCash ya decidió que esta transacción es válida y final? Un bridge responde otra: ¿qué evidencia debe presentar una segunda máquina de estados para que la L1 acepte un cambio de custodia o desbloqueo asociado con esa red?</p>
+<p>Ese bridge puede aprovechar Avalanche y puede terminar siendo radicalmente más rápido que BIP-300. También puede imponer reglas propias, checkpoints, umbrales, pruebas criptográficas o mecanismos que hoy no conocemos. Mientras la especificación no sea pública, asignarle “segundos”, “minutos” u “horas” es convertir un hueco documental en una garantía inventada.</p>
+<table class="compare">
+<thead><tr><th>Propiedad</th><th>BIP-300 Drivechain</th><th>Futura subnet eCash</th></tr></thead>
+<tbody>
+<tr><td>L1</td><td>Nakamoto PoW de Bitcoin.</td><td>Nakamoto PoW + Avalanche en eCash.</td></tr>
+<tr><td>Reglas de L2</td><td>Pueden diferir de la capa base.</td><td>El objetivo declarado es permitir redes personalizables.</td></tr>
+<tr><td>Reverse peg</td><td>Bundles gobernados por ACKs de hashpower.</td><td>La arquitectura pública apunta a aprovechar Avalanche, pero el mecanismo final no está especificado públicamente.</td></tr>
+<tr><td>Latencia de liquidación</td><td>El BIP define una ventana prolongada; los bundles se ACKean durante 3–6 meses.</td><td><strong>Desconocida</strong> hasta que exista especificación verificable.</td></tr>
+<tr><td>Smart contracts en L1</td><td>No son el mecanismo de seguridad del peg.</td><td>No debemos presuponer que sean necesarios para el bridge.</td></tr>
+</tbody>
+</table>
+<h2>Lo que esto cambia para Tonalli Shield</h2>
+<p>Para <strong>Tonalli Shield</strong>, esta diferencia no es académica. Shield investiga una superficie privada y verificable alrededor del ecosistema eCash. Si en el futuro una subnet ZK se convierte en infraestructura real, podría ser una pieza natural a evaluar. Pero diseñar Shield hoy como si esa subnet ya existiera, como si su bridge ya tuviera propiedades conocidas o como si una prueba ZK resolviera automáticamente la custodia sería exactamente el tipo de salto que el proyecto debe evitar.</p>
+<p>El expediente público de <a href="https://github.com/xolosArmy/tonalli-shield/pull/1" rel="noopener noreferrer">Tonalli Shield</a> mantiene el trabajo en <strong>PRE-ENGINEERING</strong>, con mainnet y fondos reales fuera de alcance y con sus decisiones de arquitectura todavía propuestas. Esa cautela cobra más sentido frente a las subnets: Shield debe poder incorporar una tecnología futura sin depender hoy de propiedades que todavía no han sido demostradas.</p>
+<p>La regla que proponemos es sencilla: cada afirmación relevante debe entrar a uno de tres estados.</p>
+<div class="gate-grid">
+<div class="gate confirmed"><span class="mono">CONFIRMADO</span><p>Existe especificación, implementación o evidencia reproducible. Ejemplo: finalidad L1 de eCash mediante Pre-Consensus.</p></div>
+<div class="gate proposed"><span class="mono">PROPUESTO</span><p>Existe una dirección pública de arquitectura, pero no una capacidad desplegada. Ejemplo: EVM Subnet y ZK Subnet en el roadmap.</p></div>
+<div class="gate unknown"><span class="mono">DESCONOCIDO</span><p>No hay base suficiente para asignar una propiedad. Ejemplo: tiempo exacto del reverse peg de una subnet futura.</p></div>
+</div>
+<p>Tonalli Shield debería rechazar cualquier transición de <em>PROPUESTO</em> o <em>DESCONOCIDO</em> a <em>CONFIRMADO</em> que no venga acompañada por evidencia. No basta una presentación, una inferencia por analogía o una cifra que “suena razonable”.</p>
+<div class="boundary">
+<p><strong>La consecuencia arquitectónica:</strong> Shield debe ser subnet-agnostic mientras no exista una interfaz verificable. La verdad de L1 sigue perteneciendo al nodo eCash; la autoridad de gasto sigue perteneciendo a la wallet; y cualquier futura subnet deberá aportar pruebas y reglas explícitas antes de convertirse en una dependencia de seguridad.</p>
+</div>
+<h2>La velocidad importa; el modelo de evidencia importa más</h2>
+<p>La comparación con drivechains ayuda precisamente porque evita un argumento superficial. BIP-300 no es “malo” por ser lento: su lentitud es parte de la defensa que eligió para un sistema donde el hashpower gobierna la salida. El costo es capital menos eficiente y una dependencia fuerte de ese proceso de señalización. A cambio, evita una federación fija y mantiene una filosofía muy cercana a Bitcoin.</p>
+<p>eCash tiene la oportunidad de construir otra respuesta porque dispone de Avalanche como mecanismo de coordinación adicional. Si esa ventaja se extiende correctamente al reverse peg, podría reducir de forma drástica la fricción que históricamente ha acompañado a las sidechains tipo Bitcoin. Pero la ventaja real no será poder escribir “2 segundos” en una gráfica. Será poder describir con precisión <strong>quién valida, qué se vota, qué se prueba, qué se finaliza y bajo qué condición la L1 libera valor</strong>.</p>
+<p>Ése es también el estándar que debe perseguir Tonalli Shield. Una arquitectura de privacidad no se vuelve segura por llamarse ZK, subnet o Avalanche. Se vuelve defendible cuando sus fronteras de autoridad pueden señalarse, sus supuestos pueden enumerarse y sus fallos pueden reproducirse sin poner fondos reales en riesgo.</p>
+<h2>Una buena arquitectura sabe decir “todavía no sabemos”</h2>
+<p>En criptografía aplicada y sistemas monetarios, admitir una incógnita es una propiedad, no una debilidad. Permite que el diseño conserve espacio para aprender sin convertir cada expectativa en deuda técnica.</p>
+<p>Hoy sabemos que eCash ya tiene finalidad L1 en segundos. Sabemos que las subnets EVM y ZK están en el roadmap. Sabemos que Avalanche fue concebido como una pieza para mejorar la extensibilidad y enfrentar el reverse peg. Y sabemos cómo BIP-300 elige resolver ese problema mediante hashpower y una ventana deliberadamente larga.</p>
+<p>Lo que todavía no sabemos públicamente es la especificación final del bridge de las subnets de eCash. Por eso tampoco sabemos su latencia exacta de salida.</p>
+<div class="conclusion">
+<p>Mi conclusión para Tonalli Shield es simple: no diseñar alrededor de una cifra. Diseñar alrededor de una frontera de confianza. Cuando llegue la subnet, que entre por evidencia.</p>
+</div>
+</div>
+<aside class="sidebar">
+<div class="sticky">
+<div class="side-card">
+<div class="side-title mono">Punto central</div>
+<p><strong>Finalidad de L1</strong> y <strong>liquidación de un bridge</strong> son propiedades distintas. Una no determina automáticamente a la otra.</p>
+</div>
+<div class="side-card warning">
+<div class="side-title mono">No afirmar todavía</div>
+<ul>
+<li>Que el reverse peg de una subnet tardará 2–3 segundos.</li>
+<li>Que tardará minutos u horas.</li>
+<li>Que requerirá un challenge period.</li>
+<li>Que una ZK subnet ya es infraestructura disponible.</li>
+</ul>
+</div>
+<div class="side-card source-list">
+<div class="side-title mono">Fuentes técnicas</div>
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0300.mediawiki" rel="noopener noreferrer">BIP-300 — Hashrate Escrows</a>
+<a href="https://e.cash/roadmap" rel="noopener noreferrer">eCash Roadmap</a>
+<a href="https://e.cash/blog/preconsensus-launch" rel="noopener noreferrer">Avalanche Pre-Consensus Launch</a>
+<a href="https://e.cash/blog/ecash-ama-2021-09-27-en" rel="noopener noreferrer">Archivo técnico sobre subnets y reverse peg</a>
+<a href="https://github.com/xolosArmy/tonalli-shield/pull/1" rel="noopener noreferrer">Tonalli Shield — charter de investigación</a>
+</div>
+<div class="side-card">
+<div class="side-title mono">Lectura relacionada</div>
+<p><a href="tonalli-shield-ia-evidencia-rbitcoin.html">Tonalli Shield: si la IA acelera el código, debemos elevar la evidencia →</a></p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>

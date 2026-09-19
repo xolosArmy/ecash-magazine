@@ -1,318 +1,107 @@
 <!DOCTYPE html>
-<html lang="es-MX">
-<head>
-<!-- Google tag (gtag.js) -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-
-  gtag("config", "G-3HX6VT60WB");
-</script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[Opinión] La IA va a castigar el código opaco | eCash Magazine México</title>
-  <meta name="description" content="Por qué eCash México apuesta por infraestructura determinista, abierta y verificable frente a la opacidad de los contratos inteligentes y privacy coins." />
-  <meta name="author" content="Fernando Ramírez" />
-  <link rel="canonical" href="https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html" />
-  <meta property="og:site_name" content="eCash Magazine México" />
-  <meta property="og:title" content="La IA va a castigar el código opaco | eCash Magazine México" />
-  <meta property="og:type" content="article" />
-  <meta property="og:description" content="Por qué la infraestructura determinista, abierta y verificable tendrá ventaja frente al código financiero opaco en la era de la IA." />
-  <meta property="og:url" content="https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" />
-  <meta property="article:author" content="Fernando Ramírez" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="La IA va a castigar el código opaco | eCash Magazine México" />
-  <meta name="twitter:description" content="Por qué la infraestructura determinista, abierta y verificable tendrá ventaja frente al código financiero opaco en la era de la IA." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" />
-  <meta name="theme-color" content="#00abe7" />
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
-
-    :root {
-      --bg: #05070a;
-      --panel: #090d16;
-      --text: #dbeafe;
-      --muted: #94a3b8;
-      --soft: #64748b;
-      --cyan: #00abe7;
-      --cyan-2: #38bdf8;
-      --gold: #ffcc00;
-      --purple: #a855f7;
-      --green: #4ade80;
-      --line: rgba(255, 255, 255, 0.11);
-      --cyan-line: rgba(0, 171, 231, 0.28);
-      --shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
-      --radius: 24px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 20% 0%, rgba(0, 171, 231, 0.16), transparent 32%),
-                  radial-gradient(circle at 80% 5%, rgba(255, 204, 0, 0.10), transparent 30%),
-                  linear-gradient(180deg, #020305 0%, var(--bg) 42%, #030508 100%);
-      color: var(--text);
-      font-family: "Lexend", system-ui, sans-serif;
-      line-height: 1.75;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.08;
-      background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-      z-index: 0;
-    }
-
-    .scanline {
-      position: fixed; left: 0; width: 100%; height: 110px; top: -120px;
-      z-index: 1; pointer-events: none; opacity: .32;
-      background: linear-gradient(180deg, transparent 0%, rgba(0,171,231,.08) 50%, transparent 100%);
-      animation: scan 12s linear infinite;
-    }
-    @keyframes scan { 0% { transform: translateY(-120px); } 100% { transform: translateY(calc(100vh + 240px)); } }
-
-    a { color: inherit; text-decoration: none; }
-    .mono { font-family: "Space Mono", monospace; }
-
-    .site-shell {
-      width: min(1120px, calc(100% - 28px));
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .topbar {
-      margin-top: 18px; border: 1px solid var(--line);
-      background: rgba(2, 6, 23, 0.72); backdrop-filter: blur(16px);
-      border-radius: 22px 22px 0 0; box-shadow: 0 18px 50px rgba(0,0,0,.35);
-      overflow: hidden;
-    }
-    .topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-mark {
-      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
-      background: radial-gradient(circle at 50% 38%, rgba(255,255,255,.25), transparent 22%), linear-gradient(135deg, rgba(0,171,231,.25), rgba(255,204,0,.14));
-      border: 1px solid var(--cyan-line); box-shadow: 0 0 28px rgba(0,171,231,.18); font-size: 23px;
-    }
-    .brand-title { font-weight: 900; letter-spacing: -0.06em; font-size: 1.3rem; }
-    .brand-title span { color: var(--cyan); }
-    .brand-sub { color: var(--soft); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
-
-    .topnav { display: flex; gap: 12px; }
-    .nav-pill {
-      border: 1px solid rgba(255,255,255,.12); color: #cbd5e1; padding: 8px 12px; border-radius: 999px;
-      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; background: rgba(255,255,255,.03); transition: all .2s;
-    }
-    .nav-pill:hover { border-color: var(--cyan-line); color: white; box-shadow: 0 0 18px rgba(0,171,231,.14); }
-
-    .article {
-      background: linear-gradient(180deg, rgba(9, 13, 22, .96) 0%, rgba(8, 12, 21, .98) 100%);
-      border: 1px solid var(--line); border-top: 0;
-      border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow);
-    }
-
-    .hero {
-      position: relative; padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 70px) 26px;
-      border-bottom: 1px solid var(--line); min-height: 500px; display: grid; align-items: end;
-    }
-    .hero::before {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.68) 52%, rgba(0,0,0,.98) 100%),
-                  url("https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80") center/cover;
-      opacity: .45;
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 930px; }
-    
-    .kicker {
-      display: inline-flex; align-items: center; gap: 10px; color: var(--gold); border: 1px solid rgba(255,204,0,0.3);
-      background: rgba(255,204,0,0.08); border-radius: 999px; padding: 7px 12px; font-size: .74rem; font-weight: 700; margin-bottom: 18px; text-transform: uppercase;
-    }
-    .kicker::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--cyan-2); box-shadow: 0 0 18px rgba(0,171,231,.7); }
-
-    h1 { font-size: clamp(2.25rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: -0.05em; margin: 0 0 18px; color: white; text-wrap: balance;}
-    .deck { color: var(--cyan-2); font-size: 1.3rem; font-weight: 600; line-height: 1.5; margin: 0 0 22px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);}
-
-    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 34px; padding: 40px clamp(20px, 5vw, 70px); }
-    
-    .lede-card {
-      border: 1px solid rgba(255,204,0,0.3); background: rgba(15, 23, 42, .72);
-      border-radius: 20px; padding: 24px; margin-bottom: 32px;
-    }
-    .lede-label { color: var(--gold); font-size: .74rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
-    .lede-card p { margin: 0; color: #e2e8f0; font-size: 1.05rem; }
-
-    article p { color: #cbd5e1; font-size: 1.05rem; margin: 0 0 1.25rem; }
-    article strong { color: white; font-weight: 800; }
-    h2 { color: white; font-size: 1.8rem; margin: 44px 0 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;}
-    
-    .pullquote {
-      margin: 34px 0; padding: 30px; border-left: 4px solid var(--cyan-2);
-      background: rgba(0,171,231,.05); border-radius: 0 20px 20px 0;
-      color: white; font-size: 1.5rem; font-weight: 900; line-height: 1.4;
-    }
-
-    .code-chip {
-      display: inline-block; font-family: "Space Mono", monospace; color: var(--green);
-      background: rgba(15, 23, 42, .9); border: 1px solid rgba(74,222,128,.22);
-      padding: 2px 8px; border-radius: 7px; font-size: .9em;
-    }
-
-    .sidebar .sticky { position: sticky; top: 22px; display: grid; gap: 18px; }
-    .side-card { border: 1px solid var(--line); background: rgba(15, 23, 42, .56); border-radius: 20px; padding: 20px; }
-    .side-title { color: var(--gold); font-size: .75rem; text-transform: uppercase; font-weight: 800; margin-bottom: 12px; }
-    .side-card p, .side-card li { color: #cbd5e1; font-size: .88rem; margin-bottom: 8px; line-height: 1.6;}
-    .side-card ul { padding-left: 20px; margin: 0; }
-
-    .conclusion-box { background: rgba(0,0,0,0.4); border: 1px solid var(--gold); border-radius: 12px; padding: 25px; margin-top: 40px; text-align: center;}
-    .conclusion-box p { font-size: 1.2rem; font-weight: bold; color: white; margin: 0; }
-    .conclusion-box span { display: block; font-family: "Space Mono", monospace; color: var(--gold); font-size: 0.85rem; margin-top: 15px; text-transform: uppercase; }
-
-    .footer { border-top: 1px solid var(--line); padding: 26px clamp(20px, 5vw, 70px); color: var(--soft); font-size: .75rem; text-transform: uppercase; background: rgba(0,0,0,.18); text-align: center;}
-
-    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { order: -1; } .sidebar .sticky { position: static; } .topnav { display: none; } }
-  </style>
-</head>
-
-<body>
-  <div class="scanline"></div>
-
-  <div class="site-shell">
-    <header class="topbar">
-      <div class="topbar-inner">
-        <a href="../index.html" class="brand">
-          <div class="brand-mark">✦</div>
-          <div>
-            <div class="brand-title mono">eCash<span>Magazine</span></div>
-            <div class="brand-sub mono">México · Opinión · Desarrollo</div>
-          </div>
-        </a>
-        <nav class="topnav mono">
-          <a class="nav-pill" href="../index.html">Primera Plana</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="article">
-      <section class="hero">
-        <div class="hero-content">
-          <div class="kicker mono">[Opinión]</div>
-          <h1>La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable</h1>
-          <p class="deck">En la nueva etapa del mundo cripto, la ventaja no será tener el sistema más complejo. La ventaja será tener el sistema más verificable.</p>
-        </div>
-      </section>
-
-      <div class="content-grid">
-        <article class="main">
-          
-          <div class="lede-card">
-            <div class="lede-label mono">Tesis</div>
-            <p>La inteligencia artificial está cambiando la forma en que se audita el mundo cripto. Hoy, los modelos avanzados de IA pueden leer código, detectar patrones extraños, comparar implementaciones y señalar zonas donde la complejidad esconde vulnerabilidades. La fragilidad oculta del código financiero se está volviendo visible.</p>
-          </div>
-
-          <h2>Menos magia, más verificabilidad</h2>
-          <p>eCash México parte de una premisa simple: la infraestructura financiera debe poder entenderse, auditarse y verificarse.</p>
-          <p>No se trata de vender una promesa mística sobre el código. Se trata de construir sobre piezas deterministas, abiertas y revisables. Bitcoin ABC, el software de nodo de eCash, se desarrolla y se publica como software open source bajo licencia MIT. Bitcoin ABC también se define oficialmente como una implementación de nodo completo del protocolo eCash, enfocada en proveer software e infraestructura sólida para XEC.</p>
-          <p>Esa base sólida permite construir herramientas como Tonalli Wallet, alias <span class="code-chip">.xec</span>, RMZ, NFTs, sistemas de reputación y la asamblea comunitaria, con una lógica infinitamente más legible que la de ecosistemas construidos alrededor de contratos arbitrarios, <em>upgradeability</em> compleja o estados cifrados difíciles de observar.</p>
-
-          <div class="pullquote">
+<html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable | eCash Magazine México</title><meta name="description" content="En la nueva etapa del mundo cripto, la ventaja no será tener el sistema más complejo. La ventaja será tener el sistema más verificable.">
+<link rel="canonical" href="https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html"><link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#F6F3EC">
+<meta property="og:site_name" content="eCash Magazine México"><meta property="og:type" content="article"><meta property="og:title" content="La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable"><meta property="og:url" content="https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html">
+<meta property="og:description" content="En la nueva etapa del mundo cripto, la ventaja no será tener el sistema más complejo. La ventaja será tener el sistema más verificable."><meta property="og:image" content="https://magazine.ecash.mx/assets/media/ia-codigo-1440.webp"><meta property="og:image:alt" content="La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable"><meta property="og:image:width" content="1440"><meta property="og:image:height" content="1800">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable"><meta name="twitter:description" content="En la nueva etapa del mundo cripto, la ventaja no será tener el sistema más complejo. La ventaja será tener el sistema más verificable."><meta name="twitter:image" content="https://magazine.ecash.mx/assets/media/ia-codigo-1440.webp"><meta name="twitter:image:alt" content="La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable">
+<link rel="alternate" type="application/rss+xml" title="eCash Magazine México — publicaciones" href="/feed.xml">
+<link rel="stylesheet" href="/assets/css/editorial.css"><script defer src="/assets/js/editorial.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsMediaOrganization", "@id": "https://magazine.ecash.mx/#organization", "name": "eCash Magazine México", "url": "https://magazine.ecash.mx/"}, {"@type": "BlogPosting", "@id": "https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html#article", "headline": "La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable", "url": "https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html", "mainEntityOfPage": "https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html", "publisher": {"@id": "https://magazine.ecash.mx/#organization"}, "description": "En la nueva etapa del mundo cripto, la ventaja no será tener el sistema más complejo. La ventaja será tener el sistema más verificable.", "inLanguage": "es-MX", "author": {"@type": "Person", "name": "Fernando Ramírez", "url": "https://magazine.ecash.mx/autores/fernando-ramirez/"}, "image": "https://magazine.ecash.mx/assets/media/ia-codigo-1440.webp"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://magazine.ecash.mx/"}, {"@type": "ListItem", "position": 2, "name": "Opinión", "item": "https://magazine.ecash.mx/generos/opinion/"}, {"@type": "ListItem", "position": 3, "name": "La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable", "item": "https://magazine.ecash.mx/opinion/ia-y-codigo-verificable-en-cripto.html"}]}]}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-3HX6VT60WB");</script>
+</head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header"><div class="masthead container">
+<a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
+<div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/opinion/">Opinión</a></li><li aria-current="page">La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable</li></ol></nav><header class="article-header"><div class="eyebrow"><a class="genre" href="/generos/opinion/">Opinión</a> </div><h1 class="article-title">La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable</h1><p class="article-deck">En la nueva etapa del mundo cripto, la ventaja no será tener el sistema más complejo. La ventaja será tener el sistema más verificable.</p><div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><span>Fecha de publicación no consignada</span></span></div><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#menos-magia-mas-verificabilidad">Menos magia, más verificabilidad</a></li><li><a href="#el-problema-de-las-vms-turing-complete">El problema de las VMs Turing-complete</a></li><li><a href="#privacy-coins-y-auditabilidad-economica">Privacy coins y auditabilidad económica</a></li><li><a href="#typescript-como-lenguaje-de-infraestructura-transparente">TypeScript como lenguaje de infraestructura transparente</a></li><li><a href="#referencias">Referencias</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="site-shell">
+<div class="article">
+<section class="hero">
+<img src="/assets/media/ia-codigo-1440.webp" alt="" role="presentation" class="editorial-legacy-image" width="1440" height="1800" srcset="/assets/media/ia-codigo-480.webp 480w, /assets/media/ia-codigo-960.webp 960w, /assets/media/ia-codigo-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px" decoding="async"><div class="hero-content">
+</div>
+</section>
+<div class="content-grid">
+<div class="main">
+<div class="lede-card">
+<div class="lede-label mono">Tesis</div>
+<p>La inteligencia artificial está cambiando la forma en que se audita el mundo cripto. Hoy, los modelos avanzados de IA pueden leer código, detectar patrones extraños, comparar implementaciones y señalar zonas donde la complejidad esconde vulnerabilidades. La fragilidad oculta del código financiero se está volviendo visible.</p>
+</div>
+<h2 id="menos-magia-mas-verificabilidad">Menos magia, más verificabilidad</h2>
+<p>eCash México parte de una premisa simple: la infraestructura financiera debe poder entenderse, auditarse y verificarse.</p>
+<p>No se trata de vender una promesa mística sobre el código. Se trata de construir sobre piezas deterministas, abiertas y revisables. Bitcoin ABC, el software de nodo de eCash, se desarrolla y se publica como software open source bajo licencia MIT. Bitcoin ABC también se define oficialmente como una implementación de nodo completo del protocolo eCash, enfocada en proveer software e infraestructura sólida para XEC.</p>
+<p>Esa base sólida permite construir herramientas como Tonalli Wallet, alias <span class="code-chip">.xec</span>, RMZ, NFTs, sistemas de reputación y la asamblea comunitaria, con una lógica infinitamente más legible que la de ecosistemas construidos alrededor de contratos arbitrarios, <em>upgradeability</em> compleja o estados cifrados difíciles de observar.</p>
+<div class="pullquote">
             En la era de IA, la ventaja no será tener el código más complejo, sino el código más verificable.
           </div>
-
-          <h2>El problema de las VMs Turing-complete</h2>
-          <p>Ethereum y otros ecosistemas de <em>smart contracts</em> demostraron que una blockchain puede ejecutar aplicaciones muy poderosas. Ethereum define los smart contracts como programas desplegados en la red que ejecutan funciones cuando los usuarios interactúan con ellos mediante transacciones.</p>
-          <p>Esa potencia es real. Pero también trae una consecuencia inevitable: <strong>más superficie de ataque</strong>.</p>
-          <p>Cuando una red permite lógica arbitraria, aparecen más posibilidades de errores: permisos mal diseñados, <em>bugs</em> en contratos, fallas de actualizaciones, interacciones imprevistas entre protocolos, dependencias externas, oráculos manipulables o rutas de ataque que solo aparecen al combinar varias piezas.</p>
-          <p>No es que todo contrato inteligente sea inseguro. Es que cada capa de expresividad aumenta la cantidad de cosas que deben salir bien. En un mundo donde la IA acelera la revisión de código, esa complejidad será examinada con una lupa cada vez más agresiva.</p>
-
-          <h2>Privacy coins y auditabilidad económica</h2>
-          <p>El segundo punto es más delicado. No sería correcto decir que todas las <em>privacy coins</em> son inauditables. Proyectos como Zcash han tenido auditorías formales y reportes públicos.</p>
-          <p>Pero sí hay una crítica difícil de esquivar: cuando el estado monetario depende de criptografía avanzada y <em>pools</em> cifrados, la auditabilidad social y económica se vuelve extremadamente difícil para usuarios, exchanges y observadores externos. La privacidad extrema puede proteger al usuario, pero complica la verificación pública del suministro y de posibles fallas contables. Esta tensión se volvió visible con la divulgación de CVE-2019-7167 en Zcash, una vulnerabilidad que podía permitir emisión no detectada dentro del <em>pool</em> Sprout.</p>
-          <p>eCash toma una ruta distinta. Presenta herramientas como <em>CashFusion</em> como opciones de privacidad que mantienen el suministro global auditable. Esa diferencia es clave para eCash México: privacidad sí, pero sin sacrificar la capacidad de verificar matemáticamente el sistema monetario.</p>
-
-          <h2>TypeScript como lenguaje de infraestructura transparente</h2>
-          <p>Dentro de eCash México, TypeScript no es una garantía mágica de seguridad; ningún lenguaje lo es. Pero TypeScript aporta algo valioso: obliga a estructurar mejor las interfaces, los estados, las validaciones, los errores y los flujos de datos.</p>
-          <p>Para un ecosistema como eCash México, eso importa mucho. Tonalli Wallet, las APIs y los <em>frontends</em> pueden mantenerse como componentes abiertos, revisables y deterministas. La ventaja no está solo en usar TypeScript, está en usarlo dentro de una cultura técnica donde cada pieza pueda ser leída, probada y auditada.</p>
-          <p>La misma lógica se aplica al dinero operado por agentes: el análisis sobre <a href="../editorial/ecash-mexico-machine-economy.html">Teyolia 2.1-G y Tonalli Multisig en la economía máquina</a> propone que la automatización prepare y coordine operaciones, mientras reglas verificables y firmantes distribuidos conservan el control crítico.</p>
-
-          <h2>Referencias</h2>
-          <ul>
-            <li><a href="https://www.bitcoinabc.org/">Bitcoin ABC: implementación de nodo completo del protocolo eCash</a>.</li>
-            <li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc">Repositorio público de Bitcoin ABC y licencia del proyecto</a>.</li>
-            <li><a href="https://ethereum.org/developers/docs/smart-contracts/">Documentación de Ethereum sobre contratos inteligentes</a>.</li>
-            <li><a href="https://zfnd.org/concerning-the-sprout-vulnerability-cve-2019-7167/">Zcash Foundation: divulgación de CVE-2019-7167</a>.</li>
-            <li><a href="https://e.cash/tech">eCash: CashFusion y conservación de un suministro auditable</a>.</li>
-          </ul>
-
-          <div class="conclusion-box">
-            <p>La IA va a castigar el código opaco. eCash México apuesta por infraestructura determinista, abierta y verificable.</p>
-            <span>"AI will punish opaque code. Deterministic systems will age better."</span>
-          </div>
-
-        </article>
-
-        <aside class="sidebar">
-          <div class="sticky">
-            
-            <div class="side-card" style="border-color: var(--gold);">
-              <div class="side-title mono">Ficha Editorial</div>
-              <p><strong>Género:</strong> Opinión</p>
-              <p><strong>Temas:</strong> Auditoría, Inteligencia Artificial, eCash, Smart Contracts, Determinismo.</p>
-              <p><strong>Medio:</strong> eCash Magazine México</p>
-            </div>
-
-            <div class="side-card">
-              <div class="side-title mono">Créditos</div>
-              <p><strong>Autor:</strong> Fernando Ramírez</p>
-              <p><strong>Revisión técnica interna:</strong> eCash México / xolosArmy Network</p>
-            </div>
-
-            <div class="side-card">
-              <div class="side-title mono">Conceptos Clave</div>
-              <ul>
-                <li><strong>Determinismo:</strong> Un sistema donde un mismo estado inicial siempre produce el mismo resultado predecible.</li>
-                <li><strong>Superficie de Ataque:</strong> La suma de todos los puntos donde un usuario no autorizado puede intentar introducir datos o extraerlos de un entorno de software.</li>
-                <li><strong>Opacidad:</strong> Falta de claridad o dificultad extrema para leer y auditar el código fuente.</li>
-              </ul>
-            </div>
-
-            <div class="side-card">
-              <div class="side-title mono">Mantra</div>
-              <p style="font-weight:bold; color:white;">
+<h2 id="el-problema-de-las-vms-turing-complete">El problema de las VMs Turing-complete</h2>
+<p>Ethereum y otros ecosistemas de <em>smart contracts</em> demostraron que una blockchain puede ejecutar aplicaciones muy poderosas. Ethereum define los smart contracts como programas desplegados en la red que ejecutan funciones cuando los usuarios interactúan con ellos mediante transacciones.</p>
+<p>Esa potencia es real. Pero también trae una consecuencia inevitable: <strong>más superficie de ataque</strong>.</p>
+<p>Cuando una red permite lógica arbitraria, aparecen más posibilidades de errores: permisos mal diseñados, <em>bugs</em> en contratos, fallas de actualizaciones, interacciones imprevistas entre protocolos, dependencias externas, oráculos manipulables o rutas de ataque que solo aparecen al combinar varias piezas.</p>
+<p>No es que todo contrato inteligente sea inseguro. Es que cada capa de expresividad aumenta la cantidad de cosas que deben salir bien. En un mundo donde la IA acelera la revisión de código, esa complejidad será examinada con una lupa cada vez más agresiva.</p>
+<h2 id="privacy-coins-y-auditabilidad-economica">Privacy coins y auditabilidad económica</h2>
+<p>El segundo punto es más delicado. No sería correcto decir que todas las <em>privacy coins</em> son inauditables. Proyectos como Zcash han tenido auditorías formales y reportes públicos.</p>
+<p>Pero sí hay una crítica difícil de esquivar: cuando el estado monetario depende de criptografía avanzada y <em>pools</em> cifrados, la auditabilidad social y económica se vuelve extremadamente difícil para usuarios, exchanges y observadores externos. La privacidad extrema puede proteger al usuario, pero complica la verificación pública del suministro y de posibles fallas contables. Esta tensión se volvió visible con la divulgación de CVE-2019-7167 en Zcash, una vulnerabilidad que podía permitir emisión no detectada dentro del <em>pool</em> Sprout.</p>
+<p>eCash toma una ruta distinta. Presenta herramientas como <em>CashFusion</em> como opciones de privacidad que mantienen el suministro global auditable. Esa diferencia es clave para eCash México: privacidad sí, pero sin sacrificar la capacidad de verificar matemáticamente el sistema monetario.</p>
+<h2 id="typescript-como-lenguaje-de-infraestructura-transparente">TypeScript como lenguaje de infraestructura transparente</h2>
+<p>Dentro de eCash México, TypeScript no es una garantía mágica de seguridad; ningún lenguaje lo es. Pero TypeScript aporta algo valioso: obliga a estructurar mejor las interfaces, los estados, las validaciones, los errores y los flujos de datos.</p>
+<p>Para un ecosistema como eCash México, eso importa mucho. Tonalli Wallet, las APIs y los <em>frontends</em> pueden mantenerse como componentes abiertos, revisables y deterministas. La ventaja no está solo en usar TypeScript, está en usarlo dentro de una cultura técnica donde cada pieza pueda ser leída, probada y auditada.</p>
+<p>La misma lógica se aplica al dinero operado por agentes: el análisis sobre <a href="../editorial/ecash-mexico-machine-economy.html">Teyolia 2.1-G y Tonalli Multisig en la economía máquina</a> propone que la automatización prepare y coordine operaciones, mientras reglas verificables y firmantes distribuidos conservan el control crítico.</p>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li><a href="https://www.bitcoinabc.org/">Bitcoin ABC: implementación de nodo completo del protocolo eCash</a>.</li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc">Repositorio público de Bitcoin ABC y licencia del proyecto</a>.</li>
+<li><a href="https://ethereum.org/developers/docs/smart-contracts/">Documentación de Ethereum sobre contratos inteligentes</a>.</li>
+<li><a href="https://zfnd.org/concerning-the-sprout-vulnerability-cve-2019-7167/">Zcash Foundation: divulgación de CVE-2019-7167</a>.</li>
+<li><a href="https://e.cash/tech">eCash: CashFusion y conservación de un suministro auditable</a>.</li>
+</ul>
+<div class="conclusion-box">
+<p>La IA va a castigar el código opaco. eCash México apuesta por infraestructura determinista, abierta y verificable.</p>
+<span>"AI will punish opaque code. Deterministic systems will age better."</span>
+</div>
+</div>
+<aside class="sidebar" aria-label="Contexto de la publicación 1">
+<div class="sticky">
+<div class="side-card">
+<div class="side-title mono">Ficha Editorial</div>
+<p><strong>Género:</strong> Opinión</p>
+<p><strong>Temas:</strong> Auditoría, Inteligencia Artificial, eCash, Smart Contracts, Determinismo.</p>
+<p><strong>Medio:</strong> eCash Magazine México</p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Créditos</div>
+<p><strong>Autor:</strong> Fernando Ramírez</p>
+<p><strong>Revisión técnica interna:</strong> eCash México / xolosArmy Network</p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Conceptos Clave</div>
+<ul>
+<li><strong>Determinismo:</strong> Un sistema donde un mismo estado inicial siempre produce el mismo resultado predecible.</li>
+<li><strong>Superficie de Ataque:</strong> La suma de todos los puntos donde un usuario no autorizado puede intentar introducir datos o extraerlos de un entorno de software.</li>
+<li><strong>Opacidad:</strong> Falta de claridad o dificultad extrema para leer y auditar el código fuente.</li>
+</ul>
+</div>
+<div class="side-card">
+<div class="side-title mono">Mantra</div>
+<p>
                 XEC es el dinero.<br>
                 RMZ es la llave.<br>
                 La cultura es la red.
               </p>
-              <p style="font-size: 0.8rem; margin-top: 10px; color: var(--cyan-2);"><em>...Y el código debe poder verificarse.</em></p>
-            </div>
-
-          </div>
-        </aside>
-      </div>
-
-      <footer class="footer mono">
-        <div>eCash Magazine México · Opinión · 2026</div>
-      </footer>
-    </main>
-  </div>
-</body>
-</html>
+<p><em>...Y el código debe poder verificarse.</em></p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</article><section class="evidence" id="fuentes-evidencia" aria-labelledby="fuentes-title"><h2 id="fuentes-title">Fuentes y evidencia</h2>
+<p>Referencias consignadas en esta publicación. Su presencia no equivale por sí sola a una verificación independiente.</p><ul><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://www.bitcoinabc.org/">Bitcoin ABC: implementación de nodo completo del protocolo eCash</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/Bitcoin-ABC/bitcoin-abc">Repositorio público de Bitcoin ABC y licencia del proyecto</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://ethereum.org/developers/docs/smart-contracts/">Documentación de Ethereum sobre contratos inteligentes</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://zfnd.org/concerning-the-sprout-vulnerability-cve-2019-7167/">Zcash Foundation: divulgación de CVE-2019-7167</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://e.cash/tech">eCash: CashFusion y conservación de un suministro auditable</a></p></li></ul>
+</section></div><section class="related-stories section-block" id="relacionados"><div class="section-heading"><h2>Lecturas relacionadas</h2></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/analisis-tecnico/">Análisis técnico</a>
+<h3 class="story-title"><a href="/editorial/ecash-mexico-machine-economy.html">Teyolia 2.1-G y Tonalli Multisig: infraestructura XEC para la economía máquina</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-06-25">25 de junio de 2026</time></span></div></div></article></div></section><section class="section-block"><div class="section-heading"><h2>Últimas publicaciones</h2><a href="/blog/index.html">Ver el archivo completo →</a></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Tonalli Memo: tu identidad .xec, tu voz on-chain</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-10">10 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html">La finalidad no es el puente</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-09T00:00:00-06:00">9 de septiembre de 2026</time></span></div></div></article></div></section></div></main><footer class="site-footer"><div class="container"><p class="brand-name">eCash Magazine México</p><p>Tecnología, economía y cultura desde México.</p><nav aria-label="Enlaces editoriales"><a href="/principios-editoriales/">Principios editoriales</a><a href="/correcciones/">Correcciones y actualizaciones</a><a href="/autores/">Autores</a><a href="/feed.xml">RSS</a><a href="https://ecash.mx">Portal eCash México ↗</a></nav><p>XEC es el dinero · RMZ es la llave · La cultura es la red</p><small>Contenidos bajo CC0 · eCash Magazine México</small></div></footer></body></html>

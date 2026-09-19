@@ -1,0 +1,3899 @@
+{
+  "version": 1,
+  "baseUrl": "https://magazine.ecash.mx",
+  "sourceRevision": "7b5cc72c05ee9deb74f26ff85edd209ee2d9b511",
+  "articles": [
+    {
+      "id": "bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version",
+      "url": "/analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+      "sourcePath": "analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+      "title": "Bitcoin ABC 0.33.6 corrige un fallo raro de Chronik: por qué importa para la infraestructura eCash",
+      "genre": "Análisis técnico",
+      "originalGenreLabel": "Análisis técnico",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "La versión 0.33.6 de Bitcoin ABC incluye una corrección discreta pero importante para Chronik: evita un posible colapso del indexador bajo circunstancias poco comunes. Para operadores de nodos, exploradores y aplicaciones construidas sobre eCash, este tipo de actualización no es cosmética: es mantenimiento crítico de infraestructura.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+        "genre": "analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html :: rótulo editorial observado: Análisis técnico (normalización literal; no se usa la carpeta)",
+        "summary": "analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html :: /html/body/div[2]/main/section/div/p",
+        "language": "analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "ecash-mining-variance",
+      "url": "/analisis/ecash-mining-variance.html",
+      "sourcePath": "analisis/ecash-mining-variance.html",
+      "title": "Ocho horas sin encontrar un bloque: ¿señal alcista o simple varianza minera en eCash?",
+      "genre": "Análisis técnico",
+      "originalGenreLabel": "Análisis técnico",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [],
+      "author": {
+        "name": "eCash Magazine México",
+        "type": "Organization"
+      },
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "Un aumento del hashrate puede reflejar mayor rentabilidad y actividad minera, pero no demuestra por sí mismo que los mineros anticipen un movimiento extraordinario del mercado.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://e.cash/mining",
+          "label": "Fuente: eCash Mining",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/ecash-mining-variance.html :: /html/body/div/article/main/p[10]/a"
+        },
+        {
+          "url": "https://e.cash/blog/block-explorer",
+          "label": "Fuente",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/ecash-mining-variance.html :: /html/body/div/article/main/p[18]/a"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "El dato fue compartido de manera comunitaria y no ha sido verificado de forma independiente mediante estadísticas públicas completas de la operación. Sin embargo, resulta útil como punto de partida para analizar una pregunta recurrente dentro de las redes Proof-of-Work:",
+          "provenance": "analisis/ecash-mining-variance.html :: /html/body/div/article/main/p[2]"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "analisis/ecash-mining-variance.html :: /html/body/div/article/header/h1",
+        "url": "Ruta pública existente: analisis/ecash-mining-variance.html",
+        "genre": "analisis/ecash-mining-variance.html :: rótulo editorial observado: Análisis técnico (normalización literal; no se usa la carpeta)",
+        "author": "analisis/ecash-mining-variance.html :: firma visible",
+        "summary": "analisis/ecash-mining-variance.html :: /html/body/div/article/header/p",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "analisis/ecash-mining-variance.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "section",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "gobernanza-rmz-ecash-mexico",
+      "url": "/analisis/gobernanza-rmz-ecash-mexico.html",
+      "sourcePath": "analisis/gobernanza-rmz-ecash-mexico.html",
+      "title": "Gobernanza con RMZ: identidad, reputación y voto verificable para el ecosistema eCash",
+      "genre": "Análisis técnico",
+      "originalGenreLabel": "Análisis técnico",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "xolosArmy desarrolla un modelo experimental de gobernanza para eCash que conecta alias .xec, posesión de RMZ, votaciones firmadas y reputación basada en evidencia pública. La propuesta evita que el poder electoral aumente automáticamente con el balance de tokens, pero continúa en fase MVP y deberá resolver desafíos relacionados con identidades múltiples, persistencia de datos, operación independiente y legitimidad comunitaria.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "analisis/gobernanza-rmz-ecash-mexico.html :: /html/body/div/header/h1",
+        "url": "Ruta pública existente: analisis/gobernanza-rmz-ecash-mexico.html",
+        "genre": "analisis/gobernanza-rmz-ecash-mexico.html :: rótulo editorial observado: Análisis técnico (normalización literal; no se usa la carpeta)",
+        "summary": "analisis/gobernanza-rmz-ecash-mexico.html :: /html/body/div/header/p",
+        "language": "analisis/gobernanza-rmz-ecash-mexico.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "multifirma-tonalli-wallet-bovedas-p2sh-ecash",
+      "url": "/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "sourcePath": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "title": "[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash",
+      "genre": "Análisis técnico",
+      "originalGenreLabel": "Análisis técnico",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [
+        {
+          "label": "multifirma en Tonalli Wallet",
+          "slug": "multifirma-en-tonalli-wallet",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: JSON-LD keywords"
+        },
+        {
+          "label": "wallet multifirma eCash",
+          "slug": "wallet-multifirma-ecash",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: JSON-LD keywords"
+        },
+        {
+          "label": "bóveda 2-de-3",
+          "slug": "boveda-2-de-3",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: JSON-LD keywords"
+        },
+        {
+          "label": "P2SH en eCash",
+          "slug": "p2sh-en-ecash",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: JSON-LD keywords"
+        },
+        {
+          "label": "tesorería XEC",
+          "slug": "tesoreria-xec",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: JSON-LD keywords"
+        },
+        {
+          "label": "administración compartida de XEC",
+          "slug": "administracion-compartida-de-xec",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: JSON-LD keywords"
+        }
+      ],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada.",
+      "image": {
+        "src": "https://i.imgur.com/eRiUhXC.jpeg",
+        "alt": "Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash.",
+        "width": 1672,
+        "height": 941
+      },
+      "tags": [
+        "multifirma en Tonalli Wallet",
+        "wallet multifirma eCash",
+        "bóveda 2-de-3",
+        "P2SH en eCash",
+        "tesorería XEC",
+        "administración compartida de XEC"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc",
+          "label": "Commit fijado de revisión",
+          "kind": "commit",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[1]/a",
+          "locator": "9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df",
+          "label": "Commit que introdujo el MVP P2SH multifirma",
+          "kind": "commit",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[2]/a",
+          "locator": "ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md",
+          "label": "Guía del MVP multifirma",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[3]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts",
+          "label": "Servicio EcashMultisigService.ts",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[4]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts",
+          "label": "Servicio XolosWalletService.ts",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[5]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx",
+          "label": "Rutas de creación y firma",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[6]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts",
+          "label": "Cliente Chronik",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[7]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16",
+          "label": "Configuración de ejecutores en package.json",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[8]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx",
+          "label": "Pruebas de navegación con las únicas referencias a multifirma",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[9]/a"
+        },
+        {
+          "url": "https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff",
+          "label": "TXID de fondeo",
+          "kind": "transaction",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[10]/a",
+          "locator": "72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff"
+        },
+        {
+          "url": "https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329",
+          "label": "TXID del gasto 2-de-3",
+          "kind": "transaction",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[14]/li[11]/a",
+          "locator": "3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L18-L32",
+          "label": "Documentación primaria, líneas 18-32",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[4]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L5-L16",
+          "label": "Guía, líneas 5-16",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[1]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L50-L63",
+          "label": "Pantalla de creación, líneas 50-63",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[1]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L187-L197",
+          "label": "Servicio, líneas 187-197",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[2]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L237-L260",
+          "label": "Servicio, líneas 237-260",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[2]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L226-L235",
+          "label": "Servicio, líneas 226-235",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[3]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308",
+          "label": "Servicio, líneas 263-308",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[4]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428",
+          "label": "Servicio, líneas 331-428",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[4]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L9-L16",
+          "label": "Guía, líneas 9-16",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[5]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L731-L737",
+          "label": "Fondeo, líneas 731-737",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[5]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L815-L825",
+          "label": "Propuestas, líneas 815-825",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[5]/a[3]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts#L1-L36",
+          "label": "Cliente Chronik, líneas 1-36",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[3]/li[6]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L230-L260",
+          "label": "Servicio personal, líneas 230-260",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ol[1]/li[1]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L457-L500",
+          "label": "Cifrado local, líneas 457-500",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ol[1]/li[1]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L957-L974",
+          "label": "Firmante P2PKH, líneas 957-974",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ol[1]/li[1]/a[3]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98",
+          "label": "Tipos y almacenamiento de bóvedas, líneas 35-98",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ol[1]/li[2]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L34-L46",
+          "label": "Guía, líneas 34-46",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[16]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L87-L103",
+          "label": "Interfaz de firma, líneas 87-103",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[16]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L613-L627",
+          "label": "Exportación, líneas 613-627",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[17]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L629-L681",
+          "label": "Importación y validación, líneas 629-681",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[18]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L14-L48",
+          "label": "Ruta de creación, líneas 14-48",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[22]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L560-L600",
+          "label": "Servicio, líneas 560-600",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[23]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L66-L82",
+          "label": "Guía, líneas 66-82",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[24]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L705-L788",
+          "label": "Servicio de fondeo, líneas 705-788",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[25]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L84-L101",
+          "label": "Guía, líneas 84-101",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[25]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L791-L885",
+          "label": "Creación de propuesta, líneas 791-885",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[26]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L103-L115",
+          "label": "Guía, líneas 103-115",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[27]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L34-L85",
+          "label": "Interfaz de firma, líneas 34-85",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[28]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L105-L166",
+          "label": "Controles, líneas 105-166",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[28]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L962-L995",
+          "label": "Broadcast, líneas 962-995",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[30]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L172-L195",
+          "label": "Guía, líneas 172-195",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[31]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L60-L90",
+          "label": "Prueba de navegación, líneas 60-90",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[34]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L148-L160",
+          "label": "Prueba de navegación, líneas 148-160",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[34]/a[2]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L237-L246",
+          "label": "Registro primario, líneas 237-246",
+          "kind": "repository",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[37]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L117-L129",
+          "label": "Guía, líneas 117-129",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[68]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L484-L534",
+          "label": "Inspector de outputs, líneas 484-534",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[13]/li[8]/a[1]"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L972-L995",
+          "label": "Broadcast, líneas 972-995",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/ul[13]/li[8]/a[2]"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada.",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[1]"
+        },
+        {
+          "text": "No se localizó una auditoría de seguridad independiente publicada en el repositorio, su documentación ni la búsqueda del repositorio al 31 de julio de 2026. Esto no permite descartar una revisión privada no publicada; sí impide describir la función como auditada.",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[72]"
+        },
+        {
+          "text": "La proporción también importa: el proyecto marca la función como experimental, limita el MVP a XEC puro, depende de coordinación manual, no incluye pruebas funcionales automatizadas dedicadas a la multifirma y no presenta una auditoría independiente publicada.",
+          "provenance": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[75]"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: h1#análisis-técnico-tonalli-wallet-y-p2sh-cómo-funciona-una-bóveda-2-de-3-en-ecash",
+        "url": "Ruta pública existente: analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+        "genre": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: rótulo editorial observado: Análisis técnico (normalización literal; no se usa la carpeta)",
+        "summary": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/p[1]",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "image": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: /html/body/div/main/article/figure/img",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "readingMinutes",
+        "referenceClassification"
+      ],
+      "editorialNote": "Corte metodológico 31-jul-2026 NO equivale a fecha publicación; schema sin fechas/autor."
+    },
+    {
+      "id": "proof-of-stake-2011-ecash-avalanche-hibrido",
+      "url": "/analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+      "sourcePath": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+      "title": "2011 ya imaginaba PoW + stake",
+      "genre": null,
+      "originalGenreLabel": "Análisis histórico-técnico",
+      "classificationStatus": "pending",
+      "section": "Historia del consenso",
+      "topics": [
+        {
+          "label": "Historia del consenso",
+          "slug": "historia-del-consenso",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: Cabecera .kicker"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Avalanche",
+          "slug": "avalanche",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Proof of Work",
+          "slug": "proof-of-work",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Proof of Stake",
+          "slug": "proof-of-stake",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "APoW",
+          "slug": "apow",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Nakamoto consensus",
+          "slug": "nakamoto-consensus",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "BitcoinTalk",
+          "slug": "bitcointalk",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        },
+        {
+          "label": "delegation",
+          "slug": "delegation",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD keywords"
+        }
+      ],
+      "author": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "summary": "Un debate temprano sobre Proof of Stake anticipó voto económico, delegación y una arquitectura híbrida. eCash llegó a ideas parecidas por otra ruta: Nakamoto PoW + Avalanche.",
+      "image": null,
+      "tags": [
+        "eCash",
+        "XEC",
+        "Avalanche",
+        "Proof of Work",
+        "Proof of Stake",
+        "APoW",
+        "Nakamoto consensus",
+        "BitcoinTalk",
+        "delegation"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://bitcointalk.org/index.php?topic=27787.0",
+          "label": "“Proof of stake instead of proof of work”",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[18]/a[1]"
+        },
+        {
+          "url": "https://e.cash/blog/avalanche-tutorial",
+          "label": "tutorial oficial de Avalanche",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[18]/a[2]"
+        },
+        {
+          "url": "https://e.cash/blog/post-consensus",
+          "label": "Post-Consensus",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[18]/a[3]"
+        },
+        {
+          "url": "https://e.cash/staking",
+          "label": "staking",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[18]/a[4]"
+        },
+        {
+          "url": "https://e.cash/blog/avalanche-faq",
+          "label": "Avalanche FAQ",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[18]/a[5]"
+        },
+        {
+          "url": "https://www.bitcoinabc.org/doc/release-notes/release-notes-0.32.0.html",
+          "label": "release notes de Bitcoin ABC 0.32.0",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[18]/a[6]"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "Nota editorial: la relación presentada aquí es histórica y conceptual. No se encontró evidencia primaria que establezca una línea causal QuantumMechanic → Avalanche → eCash. La documentación de eCash identifica el paper de Avalanche de 2018 como el disparador técnico directo para la implementación de Bitcoin ABC.",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[19]"
+        },
+        {
+          "text": "El 11 de julio de 2011, cuando Bitcoin apenas tenía dos años y Proof of Stake todavía no era una categoría consolidada, un usuario de BitcoinTalk propuso sustituir la seguridad basada exclusivamente en trabajo por votos ponderados según monedas demostrablemente controladas. La conversación evolucionó muy rápido hacia algo todavía más interesante: no eliminar necesariamente PoW, sino combinarlo con stake y permitir delegación. Esa intuición guarda un parecido conceptual notable con la arquitectura que eCash opera hoy, aunque no exista evidencia de una línea causal directa.",
+          "provenance": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/main/article/p[1]"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/header/div[2]/h1",
+        "url": "Ruta pública existente: analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+        "genre": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: rótulo editorial observado: Análisis histórico-técnico (requiere decisión editorial)",
+        "publishedAt": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD datePublished",
+        "updatedAt": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: JSON-LD dateModified",
+        "summary": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: /html/body/header/div[2]/p",
+        "section": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: Cabecera .kicker",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "genre",
+        "author",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "teyolia-2-1-direct-to-pool",
+      "url": "/analisis/teyolia-2-1-direct-to-pool.html",
+      "sourcePath": "analisis/teyolia-2-1-direct-to-pool.html",
+      "title": "eCash DeFi Dawn: The Arrival of Tonalli Multisig and the New THORChain Governance Bridge",
+      "genre": "Análisis técnico",
+      "originalGenreLabel": "Technical Analysis",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [
+        {
+          "label": "xolosArmy Network",
+          "slug": "xolosarmy-network",
+          "provenance": "analisis/teyolia-2-1-direct-to-pool.html :: rótulo temático explícito en cabecera/ficha"
+        }
+      ],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "How a major mainnet P2SH deployment, asynchronous vault churn matrices, and the architectural evolution of Teyolia 2.1-G are establishing non-custodial capital sovereignty from Mexico.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "en",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "analisis/teyolia-2-1-direct-to-pool.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: analisis/teyolia-2-1-direct-to-pool.html",
+        "genre": "analisis/teyolia-2-1-direct-to-pool.html :: rótulo editorial observado: Technical Analysis (normalización literal; no se usa la carpeta)",
+        "summary": "analisis/teyolia-2-1-direct-to-pool.html :: /html/body/div[2]/main/section/div/p",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "language": "analisis/teyolia-2-1-direct-to-pool.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes"
+      ]
+    },
+    {
+      "id": "teyolia-direct-to-pool",
+      "url": "/analisis/teyolia-direct-to-pool.html",
+      "sourcePath": "analisis/teyolia-direct-to-pool.html",
+      "title": "Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain",
+      "genre": null,
+      "originalGenreLabel": "Especial: Infraestructura XEC",
+      "classificationStatus": "pending",
+      "section": "Infraestructura XEC",
+      "topics": [
+        {
+          "label": "Infraestructura XEC",
+          "slug": "infraestructura-xec",
+          "provenance": "analisis/teyolia-direct-to-pool.html :: Rótulo visible «Especial: Infraestructura XEC»"
+        }
+      ],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "analisis/teyolia-direct-to-pool.html :: /html/body/header/div/h1",
+        "url": "Ruta pública existente: analisis/teyolia-direct-to-pool.html",
+        "genre": "analisis/teyolia-direct-to-pool.html :: rótulo editorial observado: Especial: Infraestructura XEC (requiere decisión editorial)",
+        "summary": "analisis/teyolia-direct-to-pool.html :: /html/body/header/div/p",
+        "section": "analisis/teyolia-direct-to-pool.html :: Rótulo visible «Especial: Infraestructura XEC»",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "language": "analisis/teyolia-direct-to-pool.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes"
+      ]
+    },
+    {
+      "id": "2026-05-29-xolosarmy-weekly-update",
+      "url": "/blog/2026-05-29-xolosarmy-weekly-update.html",
+      "sourcePath": "blog/2026-05-29-xolosarmy-weekly-update.html",
+      "title": "XEC es el dinero, RMZ es la llave",
+      "genre": "Crónica",
+      "originalGenreLabel": "Crónica",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [
+        {
+          "label": "Transmisión comunitaria",
+          "slug": "transmision-comunitaria",
+          "provenance": "blog/2026-05-29-xolosarmy-weekly-update.html :: /html/body/div[2]/main/section/div/div[2]/span[2]"
+        },
+        {
+          "label": "Infraestructura soberana",
+          "slug": "infraestructura-soberana",
+          "provenance": "blog/2026-05-29-xolosarmy-weekly-update.html :: /html/body/div[2]/main/section/div/div[2]/span[3]"
+        },
+        {
+          "label": "XolosArmy Network",
+          "slug": "xolosarmy-network",
+          "provenance": "blog/2026-05-29-xolosarmy-weekly-update.html :: /html/body/div[2]/main/section/div/div[2]/span[4]"
+        }
+      ],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "En una transmisión comunitaria, eCash México presentó una nueva capa de autenticación basada en RMZ: una herramienta para distinguir miembros reales, proteger comunidades digitales y construir infraestructura soberana desde México.",
+      "image": null,
+      "tags": [
+        "Transmisión comunitaria",
+        "Infraestructura soberana",
+        "XolosArmy Network"
+      ],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "blog/2026-05-29-xolosarmy-weekly-update.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: blog/2026-05-29-xolosarmy-weekly-update.html",
+        "genre": "blog/2026-05-29-xolosarmy-weekly-update.html :: rótulo editorial observado: Crónica (normalización literal; no se usa la carpeta)",
+        "summary": "blog/2026-05-29-xolosarmy-weekly-update.html :: /html/body/div[2]/main/section/div/p",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "language": "blog/2026-05-29-xolosarmy-weekly-update.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes"
+      ],
+      "editorialNote": "Fecha visible 28-may-2026 coincide con transmisión descrita; slug 29-may. No asumir fecha publicación."
+    },
+    {
+      "id": "npm-xolosarmy-tonalli-core-ecash-mexico",
+      "url": "/blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+      "sourcePath": "blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+      "title": "xolosArmy lleva su infraestructura soberana a NPM con @xolosarmy/tonalli-core",
+      "genre": null,
+      "originalGenreLabel": "Noticia + Análisis Técnico",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": null,
+      "image": {
+        "src": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Código y terminal",
+        "width": null,
+        "height": null
+      },
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "blog/npm-xolosarmy-tonalli-core-ecash-mexico.html :: /html/body/div[2]/div[1]/h1",
+        "url": "Ruta pública existente: blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+        "genre": "blog/npm-xolosarmy-tonalli-core-ecash-mexico.html :: rótulo editorial observado: Noticia + Análisis Técnico (requiere decisión editorial)",
+        "image": "blog/npm-xolosarmy-tonalli-core-ecash-mexico.html :: /html/body/div[2]/div[2]/img",
+        "language": "blog/npm-xolosarmy-tonalli-core-ecash-mexico.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "summary",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico",
+      "url": "/blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+      "sourcePath": "blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+      "title": "Soberanía de Código: xolosArmy Despliega el Primer Bloque de su Stack Tecnológico Operativo",
+      "genre": null,
+      "originalGenreLabel": "Boletín de Infraestructura; Ficha de Noticia Ampliada",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": null,
+      "image": {
+        "src": "https://i.imgur.com/BsjnSBO.jpeg",
+        "alt": "Xoloitzcuintle en la era del código",
+        "width": null,
+        "height": null
+      },
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html :: /html/body/div[2]/div[1]/h1",
+        "url": "Ruta pública existente: blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+        "genre": "blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html :: rótulo editorial observado: Boletín de Infraestructura; Ficha de Noticia Ampliada (requiere decisión editorial)",
+        "image": "blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html :: /html/body/div[2]/div[2]/img",
+        "language": "blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "summary",
+        "readingMinutes",
+        "topics"
+      ],
+      "editorialNote": "Solo mes: Publicación Oficial Actualizada — Mayo 2026."
+    },
+    {
+      "id": "2026-06-02-precio-ecash-xec",
+      "url": "/columna/2026-06-02-precio-ecash-xec.html",
+      "sourcePath": "columna/2026-06-02-precio-ecash-xec.html",
+      "title": "XEC débil, pero no roto: el precio de la paciencia",
+      "genre": null,
+      "originalGenreLabel": "Análisis de Mercado",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": {
+        "name": "eCash Magazine México",
+        "type": "Organization"
+      },
+      "publishedAt": "2026-06-02",
+      "updatedAt": null,
+      "summary": "Mientras el mercado mira velas rojas, eCash México mira acumulación, infraestructura y soberanía digital.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "columna/2026-06-02-precio-ecash-xec.html :: /html/body/main/header/h1",
+        "url": "Ruta pública existente: columna/2026-06-02-precio-ecash-xec.html",
+        "genre": "columna/2026-06-02-precio-ecash-xec.html :: rótulo editorial observado: Análisis de Mercado (requiere decisión editorial)",
+        "author": "columna/2026-06-02-precio-ecash-xec.html :: firma visible",
+        "publishedAt": "columna/2026-06-02-precio-ecash-xec.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "columna/2026-06-02-precio-ecash-xec.html :: /html/body/main/header/p",
+        "language": "columna/2026-06-02-precio-ecash-xec.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ],
+      "editorialNote": "NO clasificar por directorio columna sin revisión: cabecera dice Análisis de Mercado."
+    },
+    {
+      "id": "gnc-ecash-irrelevance-crypto-winter",
+      "url": "/columna/gnc-ecash-irrelevance-crypto-winter.html",
+      "sourcePath": "columna/gnc-ecash-irrelevance-crypto-winter.html",
+      "title": "Is the GNC Losing Relevance During Crypto Winter?",
+      "genre": null,
+      "originalGenreLabel": "Opinion; Analysis Column",
+      "classificationStatus": "pending",
+      "section": "Governance",
+      "topics": [
+        {
+          "label": "Governance",
+          "slug": "governance",
+          "provenance": "columna/gnc-ecash-irrelevance-crypto-winter.html :: Cabecera .kicker: Opinion · Governance · eCash"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "columna/gnc-ecash-irrelevance-crypto-winter.html :: rótulo temático explícito en cabecera/ficha"
+        }
+      ],
+      "author": {
+        "name": "eCash Magazine México",
+        "type": "Organization"
+      },
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "The refusal to fund native XEC–THORChain liquidity, the absence of a formal institutional governance path, and the recommendation to seek private individuals raise legitimate questions about the council’s ability to protect strategic infrastructure when the market no longer does.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "en",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "columna/gnc-ecash-irrelevance-crypto-winter.html :: /html/body/main/article/header/h1",
+        "url": "Ruta pública existente: columna/gnc-ecash-irrelevance-crypto-winter.html",
+        "genre": "columna/gnc-ecash-irrelevance-crypto-winter.html :: rótulo editorial observado: Opinion; Analysis Column (requiere decisión editorial)",
+        "author": "columna/gnc-ecash-irrelevance-crypto-winter.html :: firma visible",
+        "summary": "columna/gnc-ecash-irrelevance-crypto-winter.html :: /html/body/main/article/header/p",
+        "section": "columna/gnc-ecash-irrelevance-crypto-winter.html :: Cabecera .kicker: Opinion · Governance · eCash",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "language": "columna/gnc-ecash-irrelevance-crypto-winter.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes"
+      ]
+    },
+    {
+      "id": "2026-06-16-xolosarmy-weekly-update",
+      "url": "/cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "sourcePath": "cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "title": "De código a producción: la actualización semanal que puso a XEC frente a THORChain",
+      "genre": null,
+      "originalGenreLabel": "Crónica-Análisis",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "En un Weekly Update de casi siete minutos, Fernando Ramírez confirmó que la integración nativa de eCash en THORChain avanza hacia una nueva etapa: código revisado, liquidez soberana y ecosistema L1 desde México.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/2026-06-16-xolosarmy-weekly-update.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: cronica/2026-06-16-xolosarmy-weekly-update.html",
+        "genre": "cronica/2026-06-16-xolosarmy-weekly-update.html :: rótulo editorial observado: Crónica-Análisis (requiere decisión editorial)",
+        "summary": "cronica/2026-06-16-xolosarmy-weekly-update.html :: /html/body/div[2]/main/section/div/p",
+        "language": "cronica/2026-06-16-xolosarmy-weekly-update.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "alias-ecash-mexico",
+      "url": "/cronica/alias-ecash-mexico.html",
+      "sourcePath": "cronica/alias-ecash-mexico.html",
+      "title": "La noche en que xolosarmy.xec quedó vivo",
+      "genre": null,
+      "originalGenreLabel": "Crónica + Análisis Técnico",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "Tonalli Wallet registró xolosarmy.xec, cobró 1600 RMZ, escribió el alias en la blockchain de eCash y permitió verificar la identidad desde ecash.mx/identidad. No fue solo una prueba técnica: fue el cierre de un circuito soberano.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/alias-ecash-mexico.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: cronica/alias-ecash-mexico.html",
+        "genre": "cronica/alias-ecash-mexico.html :: rótulo editorial observado: Crónica + Análisis Técnico (requiere decisión editorial)",
+        "summary": "cronica/alias-ecash-mexico.html :: /html/body/div[2]/main/section/div/p",
+        "language": "cronica/alias-ecash-mexico.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "asamblea-rmz-governanza-ecash-mexico",
+      "url": "/cronica/asamblea-rmz-governanza-ecash-mexico.html",
+      "sourcePath": "cronica/asamblea-rmz-governanza-ecash-mexico.html",
+      "title": "El día en que xolosarmy.xec pasó de identidad soberana a ciudadanía activa",
+      "genre": null,
+      "originalGenreLabel": "Crónica + Análisis Técnico",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "El alias xolosarmy.xec ya no solo existe como identidad confirmada sobre eCash. Ahora emite votos firmados criptográficamente en la Asamblea RMZ.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://explorer.xolosarmy.xyz/tx/c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05",
+          "label": "Ver Transacción de Minteo en el Explorador ↗",
+          "kind": "transaction",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "cronica/asamblea-rmz-governanza-ecash-mexico.html :: /html/body/div[2]/main/div/article/p[21]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)",
+          "locator": "c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/asamblea-rmz-governanza-ecash-mexico.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: cronica/asamblea-rmz-governanza-ecash-mexico.html",
+        "genre": "cronica/asamblea-rmz-governanza-ecash-mexico.html :: rótulo editorial observado: Crónica + Análisis Técnico (requiere decisión editorial)",
+        "summary": "cronica/asamblea-rmz-governanza-ecash-mexico.html :: /html/body/div[2]/main/section/div/p",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "cronica/asamblea-rmz-governanza-ecash-mexico.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "compra-parcial-rmz-tonalli-wallet",
+      "url": "/cronica/compra-parcial-rmz-tonalli-wallet.html",
+      "sourcePath": "cronica/compra-parcial-rmz-tonalli-wallet.html",
+      "title": "Tonalli Wallet activa la compra parcial de RMZ: nace el mercado fraccional on-chain en eCash",
+      "genre": null,
+      "originalGenreLabel": "Crónica + Análisis Técnico",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "Una prueba real permitió comprar 1 RMZ desde una oferta mayor de 500 RMZ, dejando el remanente vivo en Agora para futuros compradores.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/compra-parcial-rmz-tonalli-wallet.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: cronica/compra-parcial-rmz-tonalli-wallet.html",
+        "genre": "cronica/compra-parcial-rmz-tonalli-wallet.html :: rótulo editorial observado: Crónica + Análisis Técnico (requiere decisión editorial)",
+        "summary": "cronica/compra-parcial-rmz-tonalli-wallet.html :: /html/body/div[2]/main/section/div/p",
+        "language": "cronica/compra-parcial-rmz-tonalli-wallet.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "integracion-xec-thorchain",
+      "url": "/cronica/integracion-xec-thorchain.html",
+      "sourcePath": "cronica/integracion-xec-thorchain.html",
+      "title": "El nivel de los dioses: cuando XEC empieza a hablar de core a core con THORChain",
+      "genre": null,
+      "originalGenreLabel": "Crónica + Análisis Técnico",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "Una interacción técnica muestra que la integración nativa de eCash en THORChain dejó de ser solo una idea comunitaria y entró al terreno de daemons, runners y CI oficial.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/integracion-xec-thorchain.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: cronica/integracion-xec-thorchain.html",
+        "genre": "cronica/integracion-xec-thorchain.html :: rótulo editorial observado: Crónica + Análisis Técnico (requiere decisión editorial)",
+        "summary": "cronica/integracion-xec-thorchain.html :: /html/body/div[2]/main/section/div/p",
+        "language": "cronica/integracion-xec-thorchain.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "liquidez-soberana-ecash-xec-thorchain",
+      "url": "/cronica/liquidez-soberana-ecash-xec-thorchain.html",
+      "sourcePath": "cronica/liquidez-soberana-ecash-xec-thorchain.html",
+      "title": "Teyolia 2.0: Liquidez Soberana XEC en THORChain",
+      "genre": null,
+      "originalGenreLabel": "Crónica-Análisis",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": "2026-06-17",
+      "updatedAt": null,
+      "summary": "xolosArmy Network activa una nueva campaña comunitaria para preparar la primera fase de liquidez nativa XEC/RUNE en THORChain. No es un dev grant. Es un liquidity bootstrap: una iniciativa para convertir el avance técnico de eCash en infraestructura de mercado abierta, no custodial y sin wrappers.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": null,
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/liquidez-soberana-ecash-xec-thorchain.html :: /html/body/article/header/h1",
+        "url": "Ruta pública existente: cronica/liquidez-soberana-ecash-xec-thorchain.html",
+        "genre": "cronica/liquidez-soberana-ecash-xec-thorchain.html :: rótulo editorial observado: Crónica-Análisis (requiere decisión editorial)",
+        "publishedAt": "cronica/liquidez-soberana-ecash-xec-thorchain.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "cronica/liquidez-soberana-ecash-xec-thorchain.html :: /html/body/article/header/p",
+        "language": "No declarado en el documento original"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ],
+      "editorialNote": "Metadata visible incluye eCash Magazine México, pero no atribución explícita. Documento es fragmento HTML."
+    },
+    {
+      "id": "oraculo-tonalli-app-ecash-mexico",
+      "url": "/cronica/oraculo-tonalli-app-ecash-mexico.html",
+      "sourcePath": "cronica/oraculo-tonalli-app-ecash-mexico.html",
+      "title": "Oráculo Tonalli xolosArmy: la cultura ancestral como onboarding cripto",
+      "genre": null,
+      "originalGenreLabel": "Reportaje + Análisis Técnico",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "De la matemática mesoamericana a una dApp en eCash. Cómo xolosArmy Network construyó un embudo cultural de microtransacciones utilizando XEC.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/oraculo-tonalli-app-ecash-mexico.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: cronica/oraculo-tonalli-app-ecash-mexico.html",
+        "genre": "cronica/oraculo-tonalli-app-ecash-mexico.html :: rótulo editorial observado: Reportaje + Análisis Técnico (requiere decisión editorial)",
+        "summary": "cronica/oraculo-tonalli-app-ecash-mexico.html :: /html/body/div[2]/main/section/div/p",
+        "language": "cronica/oraculo-tonalli-app-ecash-mexico.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ],
+      "editorialNote": "NO clasificar por directorio cronica: cabecera dice Reportaje + Análisis Técnico."
+    },
+    {
+      "id": "xolosarmy-thorchain-podcast",
+      "url": "/cronica/xolosarmy-thorchain-podcast.html",
+      "sourcePath": "cronica/xolosarmy-thorchain-podcast.html",
+      "title": "eCash en THORChain: del código listo a la liquidez soberana",
+      "genre": null,
+      "originalGenreLabel": "Crónica / Análisis",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": {
+        "name": "EMG Technical Team",
+        "type": null
+      },
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "Presentación de la visión detrás de la integración nativa: una ruta para llevar XEC a liquidez descentralizada, sin wrappers, sin custodios y con infraestructura comunitaria.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://www.youtube.com/watch?v=4eO4hWRv4x0",
+          "label": "Podcast THORChain #210 - YouTube",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "cronica/xolosarmy-thorchain-podcast.html :: /html/body/main/div/aside[1]/span/a"
+        }
+      ],
+      "related": [],
+      "language": "es",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cronica/xolosarmy-thorchain-podcast.html :: /html/body/header/div/h1",
+        "url": "Ruta pública existente: cronica/xolosarmy-thorchain-podcast.html",
+        "genre": "cronica/xolosarmy-thorchain-podcast.html :: rótulo editorial observado: Crónica / Análisis (requiere decisión editorial)",
+        "author": "cronica/xolosarmy-thorchain-podcast.html :: firma visible",
+        "summary": "cronica/xolosarmy-thorchain-podcast.html :: /html/body/header/div/p",
+        "language": "cronica/xolosarmy-thorchain-podcast.html :: html[lang]",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido."
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics",
+        "referenceClassification"
+      ],
+      "editorialNote": "Solo año en firma: 2026 (Tiempo de Red)."
+    },
+    {
+      "id": "sin-cultura-no-hay-adopcion",
+      "url": "/cultura/sin-cultura-no-hay-adopcion.html",
+      "sourcePath": "cultura/sin-cultura-no-hay-adopcion.html",
+      "title": "Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México",
+      "genre": null,
+      "originalGenreLabel": "Cultura // Tesis; ensayo",
+      "classificationStatus": "pending",
+      "section": "Cultura",
+      "topics": [
+        {
+          "label": "Cultura",
+          "slug": "cultura",
+          "provenance": "cultura/sin-cultura-no-hay-adopcion.html :: Cabecera .kicker: Cultura // Tesis"
+        }
+      ],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": "2026-07-06",
+      "updatedAt": null,
+      "summary": "La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://e.cash/blog/avalanche",
+          "label": "Avalanche-enhanced Proof of Work",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "cultura/sin-cultura-no-hay-adopcion.html :: /html/body/main/div/article/section[9]/ul/li[1]/a"
+        },
+        {
+          "url": "https://e.cash/blog/avalanche-faq",
+          "label": "Avalanche FAQ",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "cultura/sin-cultura-no-hay-adopcion.html :: /html/body/main/div/article/section[9]/ul/li[2]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet",
+          "label": "Repositorio de Tonalli Wallet",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "cultura/sin-cultura-no-hay-adopcion.html :: /html/body/main/div/article/section[9]/ul/li[3]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/ecash-flipstarter",
+          "label": "Repositorio con Teyolia y sus covenants",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "cultura/sin-cultura-no-hay-adopcion.html :: /html/body/main/div/article/section[9]/ul/li[4]/a"
+        }
+      ],
+      "related": [
+        "/editorial/ecash-mexico-machine-economy.html",
+        "/opinion/ia-y-codigo-verificable-en-cripto.html"
+      ],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "cultura/sin-cultura-no-hay-adopcion.html :: /html/body/main/header/h1",
+        "url": "Ruta pública existente: cultura/sin-cultura-no-hay-adopcion.html",
+        "genre": "cultura/sin-cultura-no-hay-adopcion.html :: rótulo editorial observado: Cultura // Tesis; ensayo (requiere decisión editorial)",
+        "author": "cultura/sin-cultura-no-hay-adopcion.html :: firma visible; Person explícito en JSON-LD publicado del mismo autor",
+        "publishedAt": "cultura/sin-cultura-no-hay-adopcion.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "cultura/sin-cultura-no-hay-adopcion.html :: /html/body/main/header/p[2]",
+        "section": "cultura/sin-cultura-no-hay-adopcion.html :: Cabecera .kicker: Cultura // Tesis",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "related": "cultura/sin-cultura-no-hay-adopcion.html :: enlaces publicados a otros artículos del catálogo; sin asociación inferida",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "cultura/sin-cultura-no-hay-adopcion.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "updatedAt",
+        "readingMinutes",
+        "referenceClassification",
+        "image"
+      ]
+    },
+    {
+      "id": "ecash-mexico-machine-economy",
+      "url": "/editorial/ecash-mexico-machine-economy.html",
+      "sourcePath": "editorial/ecash-mexico-machine-economy.html",
+      "title": "Teyolia 2.1-G y Tonalli Multisig: infraestructura XEC para la economía máquina",
+      "genre": "Análisis técnico",
+      "originalGenreLabel": "Análisis técnico",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [
+        {
+          "label": "Infraestructura",
+          "slug": "infraestructura",
+          "provenance": "editorial/ecash-mexico-machine-economy.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "Liquidez",
+          "slug": "liquidez",
+          "provenance": "editorial/ecash-mexico-machine-economy.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "Machine Economy",
+          "slug": "machine-economy",
+          "provenance": "editorial/ecash-mexico-machine-economy.html :: rótulo temático explícito en cabecera/ficha"
+        }
+      ],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": "2026-06-25",
+      "updatedAt": null,
+      "summary": "La combinación de campañas Teyolia, bóvedas P2SH multisig nativas en eCash y coordinación futura con THORChain abre una ruta para tesorerías autónomas, agentes de liquidez y gobernanza híbrida humano-máquina.",
+      "image": {
+        "src": "https://i.imgur.com/BtB0Y9Y.jpeg",
+        "alt": null,
+        "width": null,
+        "height": null
+      },
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [
+        "/opinion/ia-y-codigo-verificable-en-cripto.html"
+      ],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "editorial/ecash-mexico-machine-economy.html :: /html/body/article/header/h1",
+        "url": "Ruta pública existente: editorial/ecash-mexico-machine-economy.html",
+        "genre": "editorial/ecash-mexico-machine-economy.html :: rótulo editorial observado: Análisis técnico (normalización literal; no se usa la carpeta)",
+        "author": "editorial/ecash-mexico-machine-economy.html :: firma visible; Person explícito en JSON-LD publicado del mismo autor",
+        "publishedAt": "editorial/ecash-mexico-machine-economy.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "editorial/ecash-mexico-machine-economy.html :: /html/body/article/header/p[1]",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "image": "editorial/ecash-mexico-machine-economy.html :: meta[property=\"og:image\"]; alt no declarado",
+        "related": "editorial/ecash-mexico-machine-economy.html :: enlaces publicados a otros artículos del catálogo; sin asociación inferida",
+        "language": "editorial/ecash-mexico-machine-economy.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "updatedAt",
+        "readingMinutes",
+        "imageAlt"
+      ],
+      "editorialNote": "NO clasificar por directorio editorial: cabecera dice Análisis técnico."
+    },
+    {
+      "id": "cashaddr-decode-oob-bitcoinabc-tonalli-wallet",
+      "url": "/noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+      "sourcePath": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+      "title": "CashAddr OOB: qué pasó en Bitcoin ABC y por qué Tonalli Wallet no quedó afectada",
+      "genre": null,
+      "originalGenreLabel": "Seguridad",
+      "classificationStatus": "pending",
+      "section": "Seguridad",
+      "topics": [
+        {
+          "label": "Seguridad",
+          "slug": "seguridad",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: Cabecera .tag: [Seguridad]"
+        },
+        {
+          "label": "ECASH",
+          "slug": "ecash",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "CASHADDR",
+          "slug": "cashaddr",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "BITCOIN ABC",
+          "slug": "bitcoin-abc",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "TONALLI WALLET",
+          "slug": "tonalli-wallet",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: rótulo temático explícito en cabecera/ficha"
+        }
+      ],
+      "author": {
+        "name": "Redacción técnica · eCash Magazine México",
+        "type": "Organization"
+      },
+      "publishedAt": "2026-08-29",
+      "updatedAt": null,
+      "summary": "Una divulgación pública sobre cashaddr::Decode() recordó que compartir un estándar no significa compartir una vulnerabilidad. Bitcoin ABC corrigió el fallo nativo antes de la publicación; una revisión de Tonalli Wallet encontró una implementación independiente y sin enlace al código C++ afectado.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://x.com/roqqitdev/status/2093382100816908322",
+          "label": "roqqit — anuncio público de la divulgación",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/section/ul/li[1]/a"
+        },
+        {
+          "url": "https://teamsocket.net/security/2026-07-29-incident-cashaddr-decode-oob.html",
+          "label": "Team Socket — incidente CashAddr Decode OOB",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/section/ul/li[2]/a"
+        },
+        {
+          "url": "https://teamsocket.net/security/2026-07-29-disclosure-cashaddr-decode-oob.md.txt",
+          "label": "Team Socket — responsible disclosure",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/section/ul/li[3]/a"
+        },
+        {
+          "url": "https://github.com/Bitcoin-ABC/bitcoin-abc/commit/8b31fb4780c6e02995214ab30e378aeb892e2904",
+          "label": "Bitcoin ABC — commit de corrección",
+          "kind": "commit",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/section/ul/li[4]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)",
+          "locator": "8b31fb4780c6e02995214ab30e378aeb892e2904"
+        },
+        {
+          "url": "https://reviews.bitcoinabc.org/D20444",
+          "label": "Bitcoin ABC — revisión D20444",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/section/ul/li[5]/a"
+        },
+        {
+          "url": "https://github.com/Bitcoin-ABC/bitcoin-abc/commit/3105292da101eb21d0353a3e3f7a02dda15f8c17",
+          "label": "Bitcoin ABC — hardening posterior de ecashaddrjs",
+          "kind": "commit",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/section/ul/li[6]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)",
+          "locator": "3105292da101eb21d0353a3e3f7a02dda15f8c17"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "La calificación de Tonalli Wallet descrita aquí corresponde al baseline revisado el 29 de agosto de 2026 y exclusivamente a la vulnerabilidad nativa C++ divulgada en cashaddr::Decode(). No constituye una afirmación de ausencia general de vulnerabilidades.",
+          "provenance": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/section/p"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/header/h1",
+        "url": "Ruta pública existente: noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+        "genre": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: rótulo editorial observado: Seguridad (requiere decisión editorial)",
+        "author": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: firma visible",
+        "publishedAt": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: /html/body/main/article/header/p",
+        "section": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: Cabecera .tag: [Seguridad]",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "genre",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "comunicaciones-integracion-xec-thorchain-con-teyolia",
+      "url": "/noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+      "sourcePath": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+      "title": "xolosArmy avanza diálogos con stakeholders y el GNC sobre Teyolia 2.1-G",
+      "genre": "Noticia",
+      "originalGenreLabel": "Noticia",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "La propuesta de infraestructura para integrar eCash (XEC) de forma nativa en THORChain entra en fase de revisión institucional. El equipo desarrollador confirma acercamientos con figuras clave del ecosistema.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://i.imgur.com/HkMWQv0.jpeg",
+          "label": "Conversación con Amaury Séchet sobre la participación de xolosArmy en THORChain y la ruta hacia liquidez nativa XEC.",
+          "kind": "image",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html :: /html/body/div[2]/main/div/article/figure[1]/img"
+        },
+        {
+          "url": "https://i.imgur.com/I9sYI9O.png",
+          "label": "Correspondencia enviada al GNC sobre Teyolia, la integración XEC–THORChain y la coordinación de liquidez.",
+          "kind": "image",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html :: /html/body/div[2]/main/div/article/figure[2]/img"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+        "genre": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html :: rótulo editorial observado: Noticia (normalización literal; no se usa la carpeta)",
+        "summary": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html :: /html/body/div[2]/main/section/div/p",
+        "references": "Imágenes documentales publicadas en el apartado «Documentación adicional» / «Additional documentation»; no se inventa una transcripción ni se certifica autenticidad.",
+        "language": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "comunications-integration-xec-thorchain-with-teyolia",
+      "url": "/noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+      "sourcePath": "noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+      "title": "xolosArmy advances dialogue with stakeholders and the GNC regarding Teyolia 2.1-G",
+      "genre": "Noticia",
+      "originalGenreLabel": "News",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "The infrastructure proposal to natively integrate eCash (XEC) into THORChain enters an institutional review phase. The development team confirms approaches with key ecosystem figures.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://i.imgur.com/HkMWQv0.jpeg",
+          "label": "Conversation with Amaury Séchet about xolosArmy’s THORChain participation and the path toward native XEC liquidity.",
+          "kind": "image",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/comunications-integration-xec-thorchain-with-teyolia.html :: /html/body/div[2]/main/div/article/figure[1]/img"
+        },
+        {
+          "url": "https://i.imgur.com/I9sYI9O.png",
+          "label": "Correspondence sent to the GNC regarding Teyolia, the XEC–THORChain integration and liquidity coordination.",
+          "kind": "image",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/comunications-integration-xec-thorchain-with-teyolia.html :: /html/body/div[2]/main/div/article/figure[2]/img"
+        }
+      ],
+      "related": [],
+      "language": "en",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "noticia/comunications-integration-xec-thorchain-with-teyolia.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+        "genre": "noticia/comunications-integration-xec-thorchain-with-teyolia.html :: rótulo editorial observado: News (normalización literal; no se usa la carpeta)",
+        "summary": "noticia/comunications-integration-xec-thorchain-with-teyolia.html :: /html/body/div[2]/main/section/div/p",
+        "language": "noticia/comunications-integration-xec-thorchain-with-teyolia.html :: html[lang]",
+        "references": "Imágenes documentales publicadas en el apartado «Documentación adicional» / «Additional documentation»; no se inventa una transcripción ni se certifica autenticidad."
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "mexico-kyc-aml-cripto-transferencias-2026",
+      "url": "/noticia/mexico-kyc-aml-cripto-transferencias-2026.html",
+      "sourcePath": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html",
+      "title": "México endurece el KYC cripto: qué cambia realmente",
+      "genre": "Noticia",
+      "originalGenreLabel": "Noticias",
+      "classificationStatus": "confirmed",
+      "section": "Regulación",
+      "topics": [
+        {
+          "label": "Regulación",
+          "slug": "regulacion",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: Cabecera .kicker: Regulación · Activos virtuales · México"
+        },
+        {
+          "label": "Activos virtuales",
+          "slug": "activos-virtuales",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "México",
+          "slug": "mexico",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "KYC",
+          "slug": "kyc",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "AML",
+          "slug": "aml",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "LFPIORPI",
+          "slug": "lfpiorpi",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Bitcoin",
+          "slug": "bitcoin",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "cripto",
+          "slug": "cripto",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Travel Rule",
+          "slug": "travel-rule",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "GAFI",
+          "slug": "gafi",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "UIF",
+          "slug": "uif",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        },
+        {
+          "label": "SAT",
+          "slug": "sat",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD keywords"
+        }
+      ],
+      "author": null,
+      "publishedAt": "2026-08-12",
+      "updatedAt": "2026-08-12",
+      "summary": "Las nuevas reglas profundizan la trazabilidad para proveedores de activos virtuales. El salto regulatorio es real, pero describirlo como “KYC total para toda transferencia de Bitcoin” borra distinciones importantes.",
+      "image": null,
+      "tags": [
+        "México",
+        "KYC",
+        "AML",
+        "LFPIORPI",
+        "activos virtuales",
+        "Bitcoin",
+        "cripto",
+        "Travel Rule",
+        "GAFI",
+        "UIF",
+        "SAT"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": null,
+          "label": "Diario Oficial de la Federación: reforma de la LFPIORPI y publicación de las Reglas de Carácter General aplicables al régimen de actividades vulnerables.",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: /html/body/main/article/ul/li[1]"
+        },
+        {
+          "url": null,
+          "label": "Secretaría de Hacienda y Crédito Público / Unidad de Inteligencia Financiera: materiales institucionales sobre prevención de lavado de dinero y activos virtuales.",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: /html/body/main/article/ul/li[2]"
+        },
+        {
+          "url": null,
+          "label": "Recomendaciones del Grupo de Acción Financiera Internacional (GAFI/FATF), en particular el tratamiento de activos virtuales y la Recomendación 16.",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: /html/body/main/article/ul/li[3]"
+        },
+        {
+          "url": null,
+          "label": "Análisis regulatorios de Holland & Knight, Alvarez & Marsal y firmas especializadas en cumplimiento LFPIORPI.",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: /html/body/main/article/ul/li[4]"
+        },
+        {
+          "url": null,
+          "label": "Discusión técnica pública del 12 de agosto de 2026 sobre el alcance de las nuevas reglas y la diferencia entre conservación/reporte de datos y una Travel Rule VASP-a-VASP plenamente operativa.",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: /html/body/main/article/ul/li[5]"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: /html/body/header/div[2]/h1",
+        "url": "Ruta pública existente: noticia/mexico-kyc-aml-cripto-transferencias-2026.html",
+        "genre": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: rótulo editorial observado: Noticias (normalización literal; no se usa la carpeta)",
+        "publishedAt": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD datePublished",
+        "updatedAt": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: JSON-LD dateModified",
+        "summary": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: /html/body/header/div[2]/p",
+        "section": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: Cabecera .kicker: Regulación · Activos virtuales · México",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "author",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap",
+      "url": "/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html",
+      "sourcePath": "noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html",
+      "title": "xolosArmy Publishes Technical & Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap",
+      "genre": null,
+      "originalGenreLabel": "Technical Note · Draft v0.1 · Review Request",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "The repository reframes the proposed Teyolia XEC/RUNE liquidity bootstrap as a technical, governance and execution review process before any public campaign launch or capital request.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://gitlab.com/XolosRMZ/teyolia-xec-rune-review-package",
+          "label": "View the Review Package on GitLab",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html :: /html/body/article/section/p[8]/a"
+        }
+      ],
+      "related": [],
+      "language": "en",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html :: /html/body/article/header/h1",
+        "url": "Ruta pública existente: noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html",
+        "genre": "noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html :: rótulo editorial observado: Technical Note · Draft v0.1 · Review Request (requiere decisión editorial)",
+        "summary": "noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html :: /html/body/article/header/p",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics",
+        "referenceClassification"
+      ],
+      "editorialNote": "Solo mes: July 2026."
+    },
+    {
+      "id": "economia-agentica-tokenizada",
+      "url": "/opinion/economia-agentica-tokenizada.html",
+      "sourcePath": "opinion/economia-agentica-tokenizada.html",
+      "title": "El dinero no desaparecerá: solo dejará de verse",
+      "genre": "Opinión",
+      "originalGenreLabel": "Opinión",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [],
+      "author": {
+        "name": "Colaborador Editorial",
+        "type": null
+      },
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "La proliferación de tokens y agentes de inteligencia artificial podría ocultar el acto de pagar al usuario común. Pero detrás de cada permiso, suscripción e intercambio seguirá siendo necesaria una unidad monetaria capaz de medir, coordinar y liquidar obligaciones.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "opinion/economia-agentica-tokenizada.html :: /html/body/div/article/header/h1",
+        "url": "Ruta pública existente: opinion/economia-agentica-tokenizada.html",
+        "genre": "opinion/economia-agentica-tokenizada.html :: rótulo editorial observado: Opinión (normalización literal; no se usa la carpeta)",
+        "author": "opinion/economia-agentica-tokenizada.html :: firma visible",
+        "summary": "opinion/economia-agentica-tokenizada.html :: /html/body/div/article/header/p",
+        "language": "opinion/economia-agentica-tokenizada.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "topics"
+      ]
+    },
+    {
+      "id": "finalidad-puente-drivechains-subnets-tonalli-shield",
+      "url": "/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "sourcePath": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "title": "La finalidad no es el puente",
+      "genre": "Opinión",
+      "originalGenreLabel": "Opinión",
+      "classificationStatus": "confirmed",
+      "section": "Infraestructura",
+      "topics": [
+        {
+          "label": "Infraestructura",
+          "slug": "infraestructura",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: Ficha .meta: Opinión / Infraestructura"
+        },
+        {
+          "label": "Consenso",
+          "slug": "consenso",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "Tonalli Shield",
+          "slug": "tonalli-shield",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Avalanche",
+          "slug": "avalanche",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        },
+        {
+          "label": "subnets",
+          "slug": "subnets",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        },
+        {
+          "label": "drivechains",
+          "slug": "drivechains",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        },
+        {
+          "label": "BIP-300",
+          "slug": "bip-300",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        },
+        {
+          "label": "reverse peg",
+          "slug": "reverse-peg",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        },
+        {
+          "label": "finalidad",
+          "slug": "finalidad",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD keywords"
+        }
+      ],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": "2026-09-09T00:00:00-06:00",
+      "updatedAt": "2026-09-09T00:00:00-06:00",
+      "summary": "Drivechains y las futuras subnets de eCash exponen una confusión frecuente: que una cadena finalice en segundos no significa que cualquier puente entre capas liquide en segundos. Para Tonalli Shield, esa diferencia debe convertirse en una regla de ingeniería.",
+      "image": null,
+      "tags": [
+        "eCash",
+        "XEC",
+        "Avalanche",
+        "subnets",
+        "drivechains",
+        "BIP-300",
+        "reverse peg",
+        "Tonalli Shield",
+        "finalidad"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0300.mediawiki",
+          "label": "BIP-300",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: /html/body/div/main/div[3]/article/p[2]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-shield/pull/1",
+          "label": "Tonalli Shield",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: /html/body/div/main/div[3]/article/p[13]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        },
+        {
+          "url": "https://e.cash/roadmap",
+          "label": "eCash Roadmap",
+          "kind": "reference",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: /html/body/div/main/div[3]/aside/div/div[3]/a[2]"
+        },
+        {
+          "url": "https://e.cash/blog/preconsensus-launch",
+          "label": "Avalanche Pre-Consensus Launch",
+          "kind": "reference",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: /html/body/div/main/div[3]/aside/div/div[3]/a[3]"
+        },
+        {
+          "url": "https://e.cash/blog/ecash-ama-2021-09-27-en",
+          "label": "Archivo técnico sobre subnets y reverse peg",
+          "kind": "reference",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: /html/body/div/main/div[3]/aside/div/div[3]/a[4]"
+        }
+      ],
+      "related": [
+        "/opinion/tonalli-shield-ia-evidencia-rbitcoin.html"
+      ],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: /html/body/div/main/section/div[2]/h1",
+        "url": "Ruta pública existente: opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+        "genre": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: rótulo editorial observado: Opinión (normalización literal; no se usa la carpeta)",
+        "author": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: firma visible",
+        "publishedAt": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD datePublished",
+        "updatedAt": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: JSON-LD dateModified",
+        "summary": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: /html/body/div/main/section/div[2]/p",
+        "section": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: Ficha .meta: Opinión / Infraestructura",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "related": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: enlaces publicados a otros artículos del catálogo; sin asociación inferida",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "ia-binarios-open-source-nueva-ventaja",
+      "url": "/opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "sourcePath": "opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "title": "El binario ya no es una muralla",
+      "genre": "Opinión",
+      "originalGenreLabel": "Opinión",
+      "classificationStatus": "confirmed",
+      "section": "Inteligencia artificial",
+      "topics": [
+        {
+          "label": "Inteligencia artificial",
+          "slug": "inteligencia-artificial",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: Cabecera .kicker: Opinión · Inteligencia artificial"
+        }
+      ],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": "2026-09-05T00:00:00-06:00",
+      "updatedAt": "2026-09-05T00:00:00-06:00",
+      "summary": "La IA no convierte el software cerrado en open source. Hace algo distinto y quizá más incómodo: reduce la protección práctica que ofrecía la opacidad y multiplica el valor estratégico de construir en público.",
+      "image": {
+        "src": "/assets/ia-binarios-open-source.webp",
+        "alt": "Representación abstracta de código binario interpretado por una red de inteligencia artificial",
+        "width": 1600,
+        "height": 900
+      },
+      "tags": [],
+      "readingMinutes": 9,
+      "references": [
+        {
+          "url": "https://opensource.org/osd",
+          "label": "Open Source Initiative — The Open Source Definition",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/div[2]/article/section/ul/li[1]/a"
+        },
+        {
+          "url": "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/",
+          "label": "GitHub Octoverse 2025 — actividad open source y auge de la infraestructura de IA",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/div[2]/article/section/ul/li[2]/a"
+        },
+        {
+          "url": "https://arxiv.org/abs/2505.16366",
+          "label": "ReCopilot: Reverse Engineering Copilot in Binary Analysis",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/div[2]/article/section/ul/li[3]/a"
+        },
+        {
+          "url": "https://arxiv.org/abs/2604.27319",
+          "label": "REBench: benchmark para tipos y nombres en binarios sin símbolos",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/div[2]/article/section/ul/li[4]/a"
+        },
+        {
+          "url": "https://arxiv.org/abs/2608.27981",
+          "label": "Chisel: recuperación iterativa de código con IA y verificación diferencial",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/div[2]/article/section/ul/li[5]/a"
+        },
+        {
+          "url": "https://arxiv.org/abs/2605.29059",
+          "label": "SCDBench: fidelidad semántica en decompilación de contratos inteligentes",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/div[2]/article/section/ul/li[6]/a"
+        },
+        {
+          "url": "/opinion/ia-y-codigo-verificable-en-cripto.html",
+          "label": "eCash Magazine México — La IA va a castigar el código opaco",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/div[2]/article/section/ul/li[7]/a"
+        }
+      ],
+      "related": [
+        "/noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+        "/opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+        "/opinion/ia-y-codigo-verificable-en-cripto.html"
+      ],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/section/div[2]/h1",
+        "url": "Ruta pública existente: opinion/ia-binarios-open-source-nueva-ventaja.html",
+        "genre": "opinion/ia-binarios-open-source-nueva-ventaja.html :: rótulo editorial observado: Opinión (normalización literal; no se usa la carpeta)",
+        "author": "opinion/ia-binarios-open-source-nueva-ventaja.html :: firma visible",
+        "publishedAt": "opinion/ia-binarios-open-source-nueva-ventaja.html :: JSON-LD datePublished",
+        "updatedAt": "opinion/ia-binarios-open-source-nueva-ventaja.html :: JSON-LD dateModified",
+        "summary": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/section/div[2]/p",
+        "section": "opinion/ia-binarios-open-source-nueva-ventaja.html :: Cabecera .kicker: Opinión · Inteligencia artificial",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "image": "opinion/ia-binarios-open-source-nueva-ventaja.html :: /html/body/div/main/section/img; dimensiones verificadas en archivo publicado",
+        "readingMinutes": "opinion/ia-binarios-open-source-nueva-ventaja.html :: .meta: Lectura: 9 minutos (valor publicado, no estimado)",
+        "related": "opinion/ia-binarios-open-source-nueva-ventaja.html :: enlaces publicados a otros artículos del catálogo; sin asociación inferida",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "opinion/ia-binarios-open-source-nueva-ventaja.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "referenceClassification"
+      ],
+      "editorialNote": "Única duración explícita localizada: Lectura: 9 minutos."
+    },
+    {
+      "id": "ia-y-codigo-verificable-en-cripto",
+      "url": "/opinion/ia-y-codigo-verificable-en-cripto.html",
+      "sourcePath": "opinion/ia-y-codigo-verificable-en-cripto.html",
+      "title": "La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable",
+      "genre": "Opinión",
+      "originalGenreLabel": "Opinión",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "En la nueva etapa del mundo cripto, la ventaja no será tener el sistema más complejo. La ventaja será tener el sistema más verificable.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80",
+        "alt": null,
+        "width": null,
+        "height": null
+      },
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://www.bitcoinabc.org/",
+          "label": "Bitcoin ABC: implementación de nodo completo del protocolo eCash",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-y-codigo-verificable-en-cripto.html :: /html/body/div[2]/main/div/article/ul/li[1]/a"
+        },
+        {
+          "url": "https://github.com/Bitcoin-ABC/bitcoin-abc",
+          "label": "Repositorio público de Bitcoin ABC y licencia del proyecto",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-y-codigo-verificable-en-cripto.html :: /html/body/div[2]/main/div/article/ul/li[2]/a"
+        },
+        {
+          "url": "https://ethereum.org/developers/docs/smart-contracts/",
+          "label": "Documentación de Ethereum sobre contratos inteligentes",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-y-codigo-verificable-en-cripto.html :: /html/body/div[2]/main/div/article/ul/li[3]/a"
+        },
+        {
+          "url": "https://zfnd.org/concerning-the-sprout-vulnerability-cve-2019-7167/",
+          "label": "Zcash Foundation: divulgación de CVE-2019-7167",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-y-codigo-verificable-en-cripto.html :: /html/body/div[2]/main/div/article/ul/li[4]/a"
+        },
+        {
+          "url": "https://e.cash/tech",
+          "label": "eCash: CashFusion y conservación de un suministro auditable",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/ia-y-codigo-verificable-en-cripto.html :: /html/body/div[2]/main/div/article/ul/li[5]/a"
+        }
+      ],
+      "related": [
+        "/editorial/ecash-mexico-machine-economy.html"
+      ],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "opinion/ia-y-codigo-verificable-en-cripto.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: opinion/ia-y-codigo-verificable-en-cripto.html",
+        "genre": "opinion/ia-y-codigo-verificable-en-cripto.html :: rótulo editorial observado: Opinión (normalización literal; no se usa la carpeta)",
+        "author": "opinion/ia-y-codigo-verificable-en-cripto.html :: firma visible; Person explícito en JSON-LD publicado del mismo autor",
+        "summary": "opinion/ia-y-codigo-verificable-en-cripto.html :: /html/body/div[2]/main/section/div/p",
+        "image": "opinion/ia-y-codigo-verificable-en-cripto.html :: meta[property=\"og:image\"]; alt no declarado",
+        "related": "opinion/ia-y-codigo-verificable-en-cripto.html :: enlaces publicados a otros artículos del catálogo; sin asociación inferida",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "opinion/ia-y-codigo-verificable-en-cripto.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "publishedAt",
+        "updatedAt",
+        "readingMinutes",
+        "topics",
+        "referenceClassification",
+        "imageAlt"
+      ]
+    },
+    {
+      "id": "rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion",
+      "url": "/opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html",
+      "sourcePath": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html",
+      "title": "De Rothbard a eCash: soberanía protocolaria sin negar la jurisdicción física",
+      "genre": null,
+      "originalGenreLabel": "Opinión; nota: columna",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [
+        {
+          "label": "FILOSOFÍA POLÍTICA",
+          "slug": "filosofia-politica",
+          "provenance": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "DINERO DIGITAL",
+          "slug": "dinero-digital",
+          "provenance": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "JURISDICCIÓN",
+          "slug": "jurisdiccion",
+          "provenance": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: rótulo temático explícito en cabecera/ficha"
+        }
+      ],
+      "author": {
+        "name": "Colaborador Editorial",
+        "type": null
+      },
+      "publishedAt": "2026-08-28",
+      "updatedAt": null,
+      "summary": "La criptografía no crea un país nuevo. Hace algo quizá más interesante: permite trasladar ciertas funciones económicas desde instituciones territoriales hacia protocolos voluntarios, verificables y con capacidad de salida.",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://mises.org/es/anatomia-del-estado",
+          "label": "Anatomía del Estado",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: /html/body/main/article/section/ul/li[1]/a"
+        },
+        {
+          "url": "https://e.cash/about",
+          "label": "About XEC",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: /html/body/main/article/section/ul/li[2]/a"
+        },
+        {
+          "url": "https://www.bitcoinabc.org/",
+          "label": "sitio oficial",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: /html/body/main/article/section/ul/li[3]/a"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "Esta columna es una interpretación editorial de filosofía política y arquitectura de sistemas. No constituye asesoría legal ni afirma que los activos o protocolos digitales sustituyan las obligaciones aplicables en una jurisdicción física.",
+          "provenance": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: /html/body/main/article/section/p"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: /html/body/main/article/header/h1",
+        "url": "Ruta pública existente: opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html",
+        "genre": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: cabecera [Opinión] y p.disclaimer «Esta columna»; requiere decisión editorial entre géneros distintos",
+        "author": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: firma visible",
+        "publishedAt": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: /html/body/main/article/header/p",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "tonalli-shield-ia-evidencia-rbitcoin",
+      "url": "/opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "sourcePath": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "title": "Tonalli Shield: si la IA acelera el código, debemos elevar la evidencia",
+      "genre": null,
+      "originalGenreLabel": "Opinión; nota: columna de opinión",
+      "classificationStatus": "pending",
+      "section": "Ingeniería",
+      "topics": [
+        {
+          "label": "Ingeniería",
+          "slug": "ingenieria",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: Ficha .meta: Opinión / Ingeniería"
+        },
+        {
+          "label": "Tonalli Shield",
+          "slug": "tonalli-shield",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "rbitcoin",
+          "slug": "rbitcoin",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: JSON-LD keywords"
+        },
+        {
+          "label": "inteligencia artificial",
+          "slug": "inteligencia-artificial",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: JSON-LD keywords"
+        },
+        {
+          "label": "ciberseguridad",
+          "slug": "ciberseguridad",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: JSON-LD keywords"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Bitcoin ABC",
+          "slug": "bitcoin-abc",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: JSON-LD keywords"
+        }
+      ],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": "2026-08-20",
+      "updatedAt": "2026-08-20",
+      "summary": "rbitcoin mostró hasta dónde puede llegar la ingeniería de Bitcoin asistida por IA. Para nosotros, la lección no es acelerar promesas: es diseñar Tonalli Shield para que una hipótesis pueda ser refutada antes de convertirse en infraestructura.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+        "alt": null,
+        "width": null,
+        "height": null
+      },
+      "tags": [
+        "Tonalli Shield",
+        "rbitcoin",
+        "inteligencia artificial",
+        "ciberseguridad",
+        "eCash",
+        "Bitcoin ABC"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/SECURITY.md",
+          "label": "rbitcoin: política de seguridad y declaración de autoría",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[1]/a"
+        },
+        {
+          "url": "https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/docs/experimental-mainnet.md",
+          "label": "rbitcoin: runbook experimental de mainnet",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[2]/a"
+        },
+        {
+          "url": "https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/docs/external_findings/README.md",
+          "label": "rbitcoin: registro de hallazgos externos",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[3]/a"
+        },
+        {
+          "url": "https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/docs/quality.md",
+          "label": "rbitcoin: programa y deuda de calidad",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[4]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-shield/pull/1",
+          "label": "Tonalli Shield: PR-Cero documental en Draft",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[5]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-shield/blob/46c37e50f17fac365ad6a1f7c27aa2c2bb0a27db/docs/STATUS.md",
+          "label": "Tonalli Shield: estado detallado del proyecto",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[6]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-shield/blob/46c37e50f17fac365ad6a1f7c27aa2c2bb0a27db/docs/SECURITY_BOUNDARIES.md",
+          "label": "Tonalli Shield: límites de seguridad propuestos",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[7]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/bitcoin-abc/blob/e0602314163ae6f7cddb8615b4acc854a88ead39/doc/tonalli/README.md",
+          "label": "xolosArmy/bitcoin-abc: alcance de investigación Tonalli",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[8]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/bitcoin-abc/blob/e0602314163ae6f7cddb8615b4acc854a88ead39/doc/tonalli/UPSTREAM_TRACKING.md",
+          "label": "xolosArmy/bitcoin-abc: política y estado de sincronización upstream",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/div[2]/article/section/ul/li[9]/a"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/section/div[2]/h1",
+        "url": "Ruta pública existente: opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+        "genre": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: rótulo editorial observado: Opinión; nota: columna de opinión (requiere decisión editorial)",
+        "author": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: firma visible",
+        "publishedAt": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: JSON-LD datePublished",
+        "updatedAt": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: JSON-LD dateModified",
+        "summary": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: /html/body/div/main/section/div[2]/p",
+        "section": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: Ficha .meta: Opinión / Ingeniería",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "image": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: meta[property=\"og:image\"]; alt no declarado",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "readingMinutes",
+        "referenceClassification",
+        "imageAlt"
+      ]
+    },
+    {
+      "id": "avalanche-stakers-tonalli-core-roadmap-publico",
+      "url": "/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "sourcePath": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "title": "Avalanche, poder de los stakers y Tonalli Core",
+      "genre": null,
+      "originalGenreLabel": "Investigación exploratoria",
+      "classificationStatus": "pending",
+      "section": "Consenso",
+      "topics": [
+        {
+          "label": "Consenso",
+          "slug": "consenso",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: Cabecera .kicker: Investigación exploratoria · Consenso"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Avalanche",
+          "slug": "avalanche",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        },
+        {
+          "label": "staking",
+          "slug": "staking",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Bitcoin ABC",
+          "slug": "bitcoin-abc",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Tonalli Core",
+          "slug": "tonalli-core",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        },
+        {
+          "label": "xolosArmy Network",
+          "slug": "xolosarmy-network",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        },
+        {
+          "label": "roadmap",
+          "slug": "roadmap",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD keywords"
+        }
+      ],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": "2026-08-24",
+      "updatedAt": "2026-08-24",
+      "summary": "eCash puede alcanzar consenso en segundos sobre bloques y transacciones válidos. Eso da a los Avalanche stakers poder operativo real, pero no equivale a una elección automática de software ni autoriza a reescribir las reglas de consenso.",
+      "image": null,
+      "tags": [
+        "eCash",
+        "XEC",
+        "Avalanche",
+        "staking",
+        "Bitcoin ABC",
+        "Tonalli Core",
+        "xolosArmy Network",
+        "roadmap",
+        "consenso"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://e.cash/",
+          "label": "eCash: Avalanche-Enhanced, finalización instantánea, protección contra 51% y finalización de un bloque",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[1]/a"
+        },
+        {
+          "url": "https://e.cash/blog/post-consensus",
+          "label": "eCash: Avalanche Post-Consensus",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[2]/a"
+        },
+        {
+          "url": "https://e.cash/blog/preconsensus-launch",
+          "label": "eCash: activación de Avalanche Pre-Consensus, 15 de noviembre de 2025",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[3]/a"
+        },
+        {
+          "url": "https://e.cash/blog/avalanche-tutorial",
+          "label": "eCash: pruebas de stake, polling y relación entre Avalanche y reglas de consenso",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[4]/a"
+        },
+        {
+          "url": "https://www.bitcoinabc.org/upgrade/",
+          "label": "Bitcoin ABC: actualización de red de mayo de 2026",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[5]/a"
+        },
+        {
+          "url": "https://github.com/Bitcoin-ABC/bitcoin-abc",
+          "label": "Bitcoin ABC: implementación pública de nodo completo para eCash",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[6]/a"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-core/commit/cfe4cb1575b22ed258565717c000ac535aa98c67",
+          "label": "xolosArmy/tonalli-core: HEAD congelado registrado por el roadmap",
+          "kind": "commit",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[7]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)",
+          "locator": "cfe4cb1575b22ed258565717c000ac535aa98c67"
+        },
+        {
+          "url": "https://github.com/xolosArmy/bitcoin-abc/pull/1",
+          "label": "xolosArmy/bitcoin-abc: investigación documental y gate de sincronización",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[8]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-shield/pull/1",
+          "label": "Tonalli Shield: expediente de preingeniería",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/ul/li[9]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "Fuentes internas consultadas: xolosArmy GitHub Portfolio — Development Roadmap, snapshot del 20 de agosto de 2026; hoja maestra xolosArmy Network — Roadmap Status, último Daily Cut disponible del 22 de agosto de 2026; y tercera revisión independiente del Public Roadmap Contract v1. La hoja maestra no se publica ni se enlaza directamente.",
+          "provenance": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/div[2]/article/section/p"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/section/div[2]/h1",
+        "url": "Ruta pública existente: reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+        "genre": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: rótulo editorial observado: Investigación exploratoria (requiere decisión editorial)",
+        "author": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: firma visible",
+        "publishedAt": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD datePublished",
+        "updatedAt": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: JSON-LD dateModified",
+        "summary": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: /html/body/div/main/section/div[2]/p",
+        "section": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: Cabecera .kicker: Investigación exploratoria · Consenso",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "genre",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "bip-110-bitcoin-cash-forks-consenso",
+      "url": "/reportajes/bip-110-bitcoin-cash-forks-consenso.html",
+      "sourcePath": "reportajes/bip-110-bitcoin-cash-forks-consenso.html",
+      "title": "BIP-110 y Bitcoin Cash: dos forks, dos destinos",
+      "genre": "Reportaje",
+      "originalGenreLabel": "Reportaje; Investigación correlacional",
+      "classificationStatus": "confirmed",
+      "section": null,
+      "topics": [
+        {
+          "label": "BIP-110",
+          "slug": "bip-110",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Bitcoin Cash",
+          "slug": "bitcoin-cash",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD keywords"
+        },
+        {
+          "label": "BCH",
+          "slug": "bch",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD keywords"
+        },
+        {
+          "label": "fork de Bitcoin",
+          "slug": "fork-de-bitcoin",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD keywords"
+        },
+        {
+          "label": "UASF",
+          "slug": "uasf",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD keywords"
+        },
+        {
+          "label": "consenso",
+          "slug": "consenso",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD keywords"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD keywords"
+        }
+      ],
+      "author": null,
+      "publishedAt": "2026-08-09",
+      "updatedAt": "2026-08-09",
+      "summary": "La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin.",
+      "image": {
+        "src": "/assets/bip-110-bitcoin-cash-forks.webp",
+        "alt": "Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro.",
+        "width": 1672,
+        "height": 941
+      },
+      "tags": [
+        "BIP-110",
+        "Bitcoin Cash",
+        "BCH",
+        "fork de Bitcoin",
+        "UASF",
+        "consenso",
+        "eCash"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki",
+          "label": "especificación oficial de BIP-110",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/main/article/p[24]/a[1]"
+        },
+        {
+          "url": "https://github.com/Bitcoin-ABC/bitcoin-abc/blob/master/doc/abc/replay-protected-sighash.md",
+          "label": "SIGHASH_FORKID",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/main/article/p[24]/a[2]"
+        },
+        {
+          "url": "https://www.bitcoinabc.org/2017-11-01-DAA-es/",
+          "label": "reemplazo del EDA por el DAA de 2017",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/main/article/p[24]/a[3]"
+        },
+        {
+          "url": "https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support",
+          "label": "CoinDesk",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/main/article/p[24]/a[4]"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "Nota editorial: la rama BIP-110 era un acontecimiento en desarrollo al cierre de esta publicación. Las cantidades de bloques, la distancia entre cadenas y las estimaciones de hashrate pueden cambiar. Los parámetros de activación y la distinción entre señalización obligatoria, lock-in y activación RDTS provienen de la especificación del BIP.",
+          "provenance": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/main/article/p[25]"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/header/div/h1",
+        "url": "Ruta pública existente: reportajes/bip-110-bitcoin-cash-forks-consenso.html",
+        "genre": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: rótulo editorial observado: Reportaje; Investigación correlacional (normalización literal; no se usa la carpeta)",
+        "publishedAt": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD datePublished",
+        "updatedAt": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: JSON-LD dateModified",
+        "summary": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/header/div/p",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "image": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: /html/body/header/img; dimensiones verificadas en archivo publicado",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "reportajes/bip-110-bitcoin-cash-forks-consenso.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "section",
+        "author",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "firma-alpha-tonalli-wallet-mainnet-agora",
+      "url": "/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+      "sourcePath": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+      "title": "Firma Alpha ya se mueve dentro de Tonalli",
+      "genre": null,
+      "originalGenreLabel": "Investigación técnica; Auditoría de infraestructura financiera",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [
+        {
+          "label": "Firma Alpha",
+          "slug": "firma-alpha",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "FIRMA",
+          "slug": "firma",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Tonalli Wallet",
+          "slug": "tonalli-wallet",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Agora",
+          "slug": "agora",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "ALP",
+          "slug": "alp",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Chronik",
+          "slug": "chronik",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "autocustodia",
+          "slug": "autocustodia",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "mainnet",
+          "slug": "mainnet",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD keywords"
+        },
+        {
+          "label": "RMZ · identidad",
+          "slug": "rmz-identidad",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/header/div[2]/span[1]"
+        },
+        {
+          "label": "XEC · liquidación y fees",
+          "slug": "xec-liquidacion-y-fees",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/header/div[2]/span[2]"
+        },
+        {
+          "label": "FIRMA · activo económico interoperable",
+          "slug": "firma-activo-economico-interoperable",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/header/div[2]/span[3]"
+        },
+        {
+          "label": "Agora · mercado UTXO",
+          "slug": "agora-mercado-utxo",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/header/div[2]/span[4]"
+        }
+      ],
+      "author": null,
+      "publishedAt": "2026-08-10",
+      "updatedAt": "2026-08-12",
+      "summary": "La integración pasó de código y pruebas a evidencia on-chain: Tonalli compró FIRMA mediante Agora y realizó un envío soberano a un alias .xec, manteniendo la autocustodia sobre eCash.",
+      "image": null,
+      "tags": [
+        "Firma Alpha",
+        "FIRMA",
+        "Tonalli Wallet",
+        "eCash",
+        "XEC",
+        "Agora",
+        "ALP",
+        "Chronik",
+        "autocustodia",
+        "mainnet",
+        "RMZ · identidad",
+        "XEC · liquidación y fees",
+        "FIRMA · activo económico interoperable",
+        "Agora · mercado UTXO"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": null,
+          "label": "Esta actualización editorial se basa en la investigación técnica entregada a eCash Magazine México sobre la evolución de Tonalli Wallet, los commits d51022321a83b2ccc593e9eadfe2694f8881b6bf y 24ab1eab43d6ea751eed6483e4ea784a6cf20f67, la reconstrucción de los dos TXIDs mainnet, la lógica Agora/ALP, la arquitectura HD, el threat model y la evaluación cuantitativa contenida en esa auditoría.",
+          "kind": "reference",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/main/article/p[18]"
+        },
+        {
+          "url": null,
+          "label": "FIRMA está anclado en Tonalli por el Token ID canónico 0387947fd575db4fb19a3e322f635dec37fd192b5941625b66bc4b2c3008cbf0, usa ALP y opera con cuatro decimales. La pubkey que autorizó la génesis no funciona como una lista blanca de vendedores: cualquier poseedor puede crear liquidez compatible en Agora.",
+          "kind": "token-id",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "locator": "0387947fd575db4fb19a3e322f635dec37fd192b5941625b66bc4b2c3008cbf0",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/main/article/p[4]/code"
+        },
+        {
+          "url": null,
+          "label": "La primera compra real — 088c39e6d9913fa31a253a8d8c1415358650ca208a39817b8c5a28c1a2f7e738",
+          "kind": "transaction",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "locator": "088c39e6d9913fa31a253a8d8c1415358650ca208a39817b8c5a28c1a2f7e738",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/main/article/p[7]/code"
+        },
+        {
+          "url": null,
+          "label": "La transacción 4eed622286f24477e9bc6993c7178508aa9a6fd0bdff83962833a95fdeae7a3c documenta el envío de FIRMA hacia una dirección resuelta mediante alias .xec. La auditoría describe un OP_RETURN ALP SEND correctamente estructurado y un input auxiliar compuesto sólo de XEC para cubrir la comisión.",
+          "kind": "transaction",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "locator": "4eed622286f24477e9bc6993c7178508aa9a6fd0bdff83962833a95fdeae7a3c",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/main/article/p[9]/code[1]"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "Nota editorial: Firma Alpha es infraestructura de terceros dentro del ecosistema eCash. Este reportaje documenta arquitectura y evidencia técnica; no constituye recomendación de inversión ni garantía de valor, liquidez o redención.",
+          "provenance": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/main/article/p[19]"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/header/h1",
+        "url": "Ruta pública existente: reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+        "genre": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: rótulo editorial observado: Investigación técnica; Auditoría de infraestructura financiera (requiere decisión editorial)",
+        "publishedAt": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD datePublished",
+        "updatedAt": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: JSON-LD dateModified",
+        "summary": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: /html/body/header/p",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ],
+      "editorialNote": "Publicación 10-ago-2026; modificación 12-ago-2026 en JSON-LD y texto visible."
+    },
+    {
+      "id": "firma-wallet-seed-tonalli-interoperabilidad-mainnet",
+      "url": "/reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+      "sourcePath": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+      "title": "De pesos a XEC: Bitso, Solana, Firma y Tonalli en un solo embudo",
+      "genre": null,
+      "originalGenreLabel": "Prueba mainnet; Rampa fiat → eCash probada con fondos reales",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [
+        {
+          "label": "Bitso",
+          "slug": "bitso",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "USDT",
+          "slug": "usdt",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Solana",
+          "slug": "solana",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Firma Wallet",
+          "slug": "firma-wallet",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Firma Alpha",
+          "slug": "firma-alpha",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Tonalli Wallet",
+          "slug": "tonalli-wallet",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Agora",
+          "slug": "agora",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "BIP44",
+          "slug": "bip44",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "1899",
+          "slug": "1899",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "autocustodia",
+          "slug": "autocustodia",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "mainnet",
+          "slug": "mainnet",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "interoperabilidad",
+          "slug": "interoperabilidad",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD keywords"
+        },
+        {
+          "label": "Entrada · MXN",
+          "slug": "entrada-mxn",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/header/div[2]/span[1]"
+        },
+        {
+          "label": "Rail · USDT Solana",
+          "slug": "rail-usdt-solana",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/header/div[2]/span[2]"
+        },
+        {
+          "label": "Activo · Firma Alpha / ALP",
+          "slug": "activo-firma-alpha-alp",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/header/div[2]/span[3]"
+        },
+        {
+          "label": "Salida · XEC autocustodiado",
+          "slug": "salida-xec-autocustodiado",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/header/div[2]/span[4]"
+        }
+      ],
+      "author": null,
+      "publishedAt": "2026-08-14",
+      "updatedAt": "2026-08-14",
+      "summary": "El experimento ya no termina en una seed compatible. Se compró USDT sobre Solana desde un exchange mexicano, se envió a firma.cash, Firma Alpha apareció bajo la seed eCash recuperada por Tonalli y terminó convertido a XEC mediante una oferta Agora aceptada en mainnet.",
+      "image": null,
+      "tags": [
+        "Bitso",
+        "USDT",
+        "Solana",
+        "Firma Wallet",
+        "Firma Alpha",
+        "Tonalli Wallet",
+        "Agora",
+        "eCash",
+        "XEC",
+        "BIP44",
+        "1899",
+        "autocustodia",
+        "mainnet",
+        "interoperabilidad",
+        "Entrada · MXN",
+        "Rail · USDT Solana",
+        "Activo · Firma Alpha / ALP",
+        "Salida · XEC autocustodiado"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/pull/48",
+          "label": "#48",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/main/article/p[8]/a[1]; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/pull/49",
+          "label": "#49",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/main/article/p[8]/a[2]; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/pull/50",
+          "label": "#50",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/main/article/p[8]/a[3]; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        },
+        {
+          "url": "https://github.com/xolosArmy/RMZWallet/pull/51",
+          "label": "#51",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/main/article/p[14]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        }
+      ],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "Lo que la prueba no revela es la implementación interna de Firma entre esos dos extremos: wallets operativas, conciliación, custodia temporal del USDT, disparadores internos o lógica exacta de emisión/entrega. Firma había indicado previamente que estas operaciones se realizan internamente y que no existe documentación pública de esa infraestructura.",
+          "provenance": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/main/article/p[5]"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/header/h1",
+        "url": "Ruta pública existente: reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+        "genre": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: rótulo editorial observado: Prueba mainnet; Rampa fiat → eCash probada con fondos reales (requiere decisión editorial)",
+        "publishedAt": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD datePublished",
+        "updatedAt": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: JSON-LD dateModified",
+        "summary": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: /html/body/header/p",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "tonalli-faucet-ecash-mexico",
+      "url": "/reportajes/tonalli-faucet-ecash-mexico.html",
+      "sourcePath": "reportajes/tonalli-faucet-ecash-mexico.html",
+      "title": "Tonalli Faucet: el fan-out como puerta de entrada masiva a eCash en las universidades de México",
+      "genre": null,
+      "originalGenreLabel": "Reportaje · Análisis Técnico",
+      "classificationStatus": "pending",
+      "section": null,
+      "topics": [
+        {
+          "label": "Adopción Masiva",
+          "slug": "adopcion-masiva",
+          "provenance": "reportajes/tonalli-faucet-ecash-mexico.html :: /html/body/div[2]/main/section/div/div[2]/span[1]"
+        },
+        {
+          "label": "Soberanía Financiera",
+          "slug": "soberania-financiera",
+          "provenance": "reportajes/tonalli-faucet-ecash-mexico.html :: /html/body/div[2]/main/section/div/div[2]/span[2]"
+        },
+        {
+          "label": "XolosArmy Network",
+          "slug": "xolosarmy-network",
+          "provenance": "reportajes/tonalli-faucet-ecash-mexico.html :: /html/body/div[2]/main/section/div/div[2]/span[3]"
+        }
+      ],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "Del QR al primer XEC: la estrategia universitaria para masificar eCash en México.",
+      "image": {
+        "src": "https://i.imgur.com/jIm0Vp1.jpeg",
+        "alt": null,
+        "width": null,
+        "height": null
+      },
+      "tags": [
+        "Adopción Masiva",
+        "Soberanía Financiera",
+        "XolosArmy Network"
+      ],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "reportajes/tonalli-faucet-ecash-mexico.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: reportajes/tonalli-faucet-ecash-mexico.html",
+        "genre": "reportajes/tonalli-faucet-ecash-mexico.html :: rótulo editorial observado: Reportaje · Análisis Técnico (requiere decisión editorial)",
+        "summary": "reportajes/tonalli-faucet-ecash-mexico.html :: /html/body/div[2]/main/section/div/p",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "image": "reportajes/tonalli-faucet-ecash-mexico.html :: meta[property=\"og:image\"]; alt no declarado",
+        "language": "reportajes/tonalli-faucet-ecash-mexico.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "section",
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "readingMinutes",
+        "imageAlt"
+      ]
+    },
+    {
+      "id": "tonalli-memo-alias-xec-identidad-agentes-humanos",
+      "url": "/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "sourcePath": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "title": "Tonalli Memo: tu identidad .xec, tu voz on-chain",
+      "genre": null,
+      "originalGenreLabel": "Primera Plana · Identidad",
+      "classificationStatus": "pending",
+      "section": "Identidad",
+      "topics": [
+        {
+          "label": "Identidad",
+          "slug": "identidad",
+          "provenance": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: Cabecera visible: Primera Plana · Identidad · 14 septiembre 2026"
+        },
+        {
+          "label": "alias .xec",
+          "slug": "alias-xec",
+          "provenance": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: /html/body/main/article/header/div/div[1]/div[2]/span[1]"
+        },
+        {
+          "label": "1,600 RMZ",
+          "slug": "1-600-rmz",
+          "provenance": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: /html/body/main/article/header/div/div[1]/div[2]/span[2]"
+        },
+        {
+          "label": "TM1",
+          "slug": "tm1",
+          "provenance": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: /html/body/main/article/header/div/div[1]/div[2]/span[3]"
+        },
+        {
+          "label": "humanos + agentes IA",
+          "slug": "humanos-agentes-ia",
+          "provenance": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: /html/body/main/article/header/div/div[1]/div[2]/span[4]"
+        }
+      ],
+      "author": null,
+      "publishedAt": "2026-09-14",
+      "updatedAt": "2026-09-14",
+      "summary": "La publicación no cuesta 1,600 RMZ por mensaje. Esa tarifa establece la identidad. Después, humanos y agentes IA pueden compartir señal verificable pagando esencialmente el costo de la propia transacción eCash.",
+      "image": {
+        "src": "/assets/tonalli-memo-identidad-xec-agentes.webp",
+        "alt": "Xoloitzcuintle y agente IA representando la comunicación humana y agéntica de Tonalli Memo",
+        "width": 320,
+        "height": 213
+      },
+      "tags": [
+        "alias .xec",
+        "1,600 RMZ",
+        "TM1",
+        "humanos + agentes IA"
+      ],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: /html/body/main/article/header/div/div[1]/h1",
+        "url": "Ruta pública existente: reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+        "genre": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: rótulo editorial observado: Primera Plana · Identidad (requiere decisión editorial)",
+        "publishedAt": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: JSON-LD datePublished",
+        "updatedAt": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: JSON-LD dateModified",
+        "summary": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: /html/body/main/article/header/div/div[1]/p",
+        "section": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: Cabecera visible: Primera Plana · Identidad · 14 septiembre 2026",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "image": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: /html/body/main/article/header/div/div[2]/img; dimensiones verificadas en archivo publicado",
+        "language": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "author",
+        "readingMinutes"
+      ]
+    },
+    {
+      "id": "tonalli-memo-mainnet-capa-social-ecash",
+      "url": "/reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+      "sourcePath": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+      "title": "Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash",
+      "genre": null,
+      "originalGenreLabel": "Primera Plana · Infraestructura",
+      "classificationStatus": "pending",
+      "section": "Infraestructura",
+      "topics": [
+        {
+          "label": "Infraestructura",
+          "slug": "infraestructura",
+          "provenance": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: Cabecera visible: Primera Plana · Infraestructura · 10 septiembre 2026"
+        },
+        {
+          "label": "TM1 Draft 0.2",
+          "slug": "tm1-draft-0-2",
+          "provenance": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/header/div[2]/div[2]/span[1]"
+        },
+        {
+          "label": "eCash mainnet",
+          "slug": "ecash-mainnet",
+          "provenance": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/header/div[2]/div[2]/span[2]"
+        },
+        {
+          "label": "Chronik",
+          "slug": "chronik",
+          "provenance": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/header/div[2]/div[2]/span[3]"
+        },
+        {
+          "label": "NFT + IPFS",
+          "slug": "nft-ipfs",
+          "provenance": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/header/div[2]/div[2]/span[4]"
+        },
+        {
+          "label": "212 B eventData",
+          "slug": "212-b-eventdata",
+          "provenance": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/header/div[2]/div[2]/span[5]"
+        }
+      ],
+      "author": null,
+      "publishedAt": "2026-09-10",
+      "updatedAt": "2026-09-10",
+      "summary": "Lo importante no es convertir OP_RETURN en una red social gigantesca. Es demostrar que una capa pequeña, verificable y autocustodiada puede crecer sin romper su formato canónico.",
+      "image": null,
+      "tags": [
+        "TM1 Draft 0.2",
+        "eCash mainnet",
+        "Chronik",
+        "NFT + IPFS",
+        "212 B eventData"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://github.com/xolosArmy/tonalli-memo",
+          "label": "Código del indexador",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/div/div/div[7]/div/a[3]"
+        }
+      ],
+      "related": [],
+      "language": "es",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/header/div[2]/h1",
+        "url": "Ruta pública existente: reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+        "genre": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: rótulo editorial observado: Primera Plana · Infraestructura (requiere decisión editorial)",
+        "publishedAt": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: JSON-LD datePublished",
+        "updatedAt": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: JSON-LD dateModified",
+        "summary": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: /html/body/main/article/header/div[2]/p",
+        "section": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: Cabecera visible: Primera Plana · Infraestructura · 10 septiembre 2026",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "genre",
+        "author",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "xec-client-utxo-real-thornode",
+      "url": "/reportajes/xec-client-utxo-real-thornode.html",
+      "sourcePath": "reportajes/xec-client-utxo-real-thornode.html",
+      "title": "Qué encontramos dentro del branch xec-client",
+      "genre": "Análisis técnico",
+      "originalGenreLabel": "Análisis técnico",
+      "classificationStatus": "confirmed",
+      "section": "THORNode",
+      "topics": [
+        {
+          "label": "THORNode",
+          "slug": "thornode",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: Cabecera .kicker: Análisis técnico · THORNode · XEC"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "starsquid/xec-client",
+          "slug": "starsquid-xec-client",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/header/div/div[2]/span[1]"
+        },
+        {
+          "label": "UTXO client",
+          "slug": "utxo-client",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/header/div/div[2]/span[2]"
+        },
+        {
+          "label": "1 XEC = 100 base units",
+          "slug": "1-xec-100-base-units",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/header/div/div[2]/span[3]"
+        },
+        {
+          "label": "CashAddr",
+          "slug": "cashaddr",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/header/div/div[2]/span[4]"
+        },
+        {
+          "label": "disabled-by-default",
+          "slug": "disabled-by-default",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/header/div/div[2]/span[5]"
+        }
+      ],
+      "author": {
+        "name": "eCash Magazine México",
+        "type": "Organization"
+      },
+      "publishedAt": "2026-08-16",
+      "updatedAt": null,
+      "summary": "La revisión de la rama de starsquid muestra que XEC ya no aparece como decoración simbólica: entra en paths reales del cliente UTXO de THORNode, con signing, construcción de transacciones, precisión contable, CashAddr por red y protecciones contra ambigüedad BCH/XEC.",
+      "image": null,
+      "tags": [
+        "starsquid/xec-client",
+        "UTXO client",
+        "1 XEC = 100 base units",
+        "CashAddr",
+        "disabled-by-default"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client",
+          "label": "gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/main/section[2]/p[1]/a"
+        },
+        {
+          "url": "https://gitlab.com/XolosRMZ/thornode/-/merge_requests/2",
+          "label": "gitlab.com/XolosRMZ/thornode/-/merge_requests/2",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/main/section[2]/p[2]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        }
+      ],
+      "related": [
+        "/reportajes/xec-thorchain-starsquid-xec-client.html"
+      ],
+      "language": "es",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/header/div/h1",
+        "url": "Ruta pública existente: reportajes/xec-client-utxo-real-thornode.html",
+        "genre": "reportajes/xec-client-utxo-real-thornode.html :: rótulo editorial observado: Análisis técnico (normalización literal; no se usa la carpeta)",
+        "author": "reportajes/xec-client-utxo-real-thornode.html :: firma visible",
+        "publishedAt": "reportajes/xec-client-utxo-real-thornode.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "reportajes/xec-client-utxo-real-thornode.html :: /html/body/header/div/p",
+        "section": "reportajes/xec-client-utxo-real-thornode.html :: Cabecera .kicker: Análisis técnico · THORNode · XEC",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "related": "reportajes/xec-client-utxo-real-thornode.html :: enlaces publicados a otros artículos del catálogo; sin asociación inferida",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "reportajes/xec-client-utxo-real-thornode.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ],
+      "editorialNote": "NO clasificar por directorio reportajes: cabecera dice Análisis técnico."
+    },
+    {
+      "id": "xec-thorchain-starsquid-xec-client",
+      "url": "/reportajes/xec-thorchain-starsquid-xec-client.html",
+      "sourcePath": "reportajes/xec-thorchain-starsquid-xec-client.html",
+      "title": "XEC en THORChain: el branch de starsquid cambia la partida",
+      "genre": "Reportaje",
+      "originalGenreLabel": "Reportaje técnico",
+      "classificationStatus": "confirmed",
+      "section": "THORChain",
+      "topics": [
+        {
+          "label": "THORChain",
+          "slug": "thorchain",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: Cabecera .kicker: Reportaje técnico · THORChain · XEC"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: rótulo temático explícito en cabecera/ficha"
+        },
+        {
+          "label": "Draft MR !2",
+          "slug": "draft-mr-2",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/div[2]/span[1]"
+        },
+        {
+          "label": "generic UTXO client",
+          "slug": "generic-utxo-client",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/div[2]/span[2]"
+        },
+        {
+          "label": "PiRK feedback",
+          "slug": "pirk-feedback",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/div[2]/span[3]"
+        },
+        {
+          "label": "starsquid/xec-client",
+          "slug": "starsquid-xec-client",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/div[2]/span[4]"
+        },
+        {
+          "label": "Tonalli path",
+          "slug": "tonalli-path",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/div[2]/span[5]"
+        }
+      ],
+      "author": {
+        "name": "eCash Magazine México",
+        "type": "Organization"
+      },
+      "publishedAt": "2026-08-16",
+      "updatedAt": null,
+      "summary": "Después del Draft MR de xolosArmy y del feedback técnico de PiRK, un contribuidor del lado THORChain abrió una ruta propia starsquid/xec-client. No es una aceptación final, pero sí marca el paso de la tesis a una revisión técnica con camino upstream.",
+      "image": null,
+      "tags": [
+        "Draft MR !2",
+        "generic UTXO client",
+        "PiRK feedback",
+        "starsquid/xec-client",
+        "Tonalli path"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client",
+          "label": "gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client",
+          "kind": "repository",
+          "category": null,
+          "classificationStatus": "pending",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/main/section[2]/p[1]/a"
+        },
+        {
+          "url": "https://gitlab.com/XolosRMZ/thornode/-/merge_requests/2",
+          "label": "gitlab.com/XolosRMZ/thornode/-/merge_requests/2",
+          "kind": "pull-request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/main/section[2]/p[2]/a; identificador técnico explícito en URL publicada (no certifica su comprobación independiente)"
+        }
+      ],
+      "related": [],
+      "language": "es",
+      "evidenceLimitations": [
+        {
+          "text": "Después del Draft MR de xolosArmy y del feedback técnico de PiRK, un contribuidor del lado THORChain abrió una ruta propia starsquid/xec-client. No es una aceptación final, pero sí marca el paso de la tesis a una revisión técnica con camino upstream.",
+          "provenance": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/p"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/h1",
+        "url": "Ruta pública existente: reportajes/xec-thorchain-starsquid-xec-client.html",
+        "genre": "reportajes/xec-thorchain-starsquid-xec-client.html :: rótulo editorial observado: Reportaje técnico (normalización literal; no se usa la carpeta)",
+        "author": "reportajes/xec-thorchain-starsquid-xec-client.html :: firma visible",
+        "publishedAt": "reportajes/xec-thorchain-starsquid-xec-client.html :: fecha de cabecera/ficha editorial observada",
+        "summary": "reportajes/xec-thorchain-starsquid-xec-client.html :: /html/body/header/div/p",
+        "section": "reportajes/xec-thorchain-starsquid-xec-client.html :: Cabecera .kicker: Reportaje técnico · THORChain · XEC",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "tags": "Etiquetas de cabecera y/o JSON-LD keywords; mismas fuentes en topics[].provenance",
+        "references": "Proveniencia individual en references[].provenance. Tipos commit/PR/transacción/bloque responden a identificadores explícitos, no a verificación nueva de su contenido.",
+        "language": "reportajes/xec-thorchain-starsquid-xec-client.html :: html[lang]",
+        "evidenceLimitations": "Pasajes literales que delimitan comprobación; proveniencia por elemento."
+      },
+      "pendingMetadata": [
+        "updatedAt",
+        "image",
+        "readingMinutes",
+        "referenceClassification"
+      ]
+    },
+    {
+      "id": "como-comprar-etoken-cultural-xolos-rmz",
+      "url": "/reseñas/como-comprar-etoken-cultural-xolos-rmz.html",
+      "sourcePath": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html",
+      "title": "Cuando el meme se convierte en onboarding: Tonalli Faucet y la llave RMZ",
+      "genre": "Reseña",
+      "originalGenreLabel": "Reseña · Evaluación de Producto",
+      "classificationStatus": "confirmed",
+      "section": "Evaluación de Producto",
+      "topics": [
+        {
+          "label": "Evaluación de Producto",
+          "slug": "evaluacion-de-producto",
+          "provenance": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html :: Cabecera .kicker: [Reseña] · Evaluación de Producto"
+        }
+      ],
+      "author": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "summary": "¿Cómo un chiste gráfico en redes sociales se transforma en el primer paso hacia la soberanía financiera?",
+      "image": null,
+      "tags": [],
+      "readingMinutes": null,
+      "references": [],
+      "related": [],
+      "language": "es-MX",
+      "evidenceLimitations": [],
+      "metadataProvenance": {
+        "title": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html :: /html/body/div[2]/main/section/div/h1",
+        "url": "Ruta pública existente: reseñas/como-comprar-etoken-cultural-xolos-rmz.html",
+        "genre": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html :: rótulo editorial observado: Reseña · Evaluación de Producto (normalización literal; no se usa la carpeta)",
+        "summary": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html :: /html/body/div[2]/main/section/div/p",
+        "section": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html :: Cabecera .kicker: [Reseña] · Evaluación de Producto",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "language": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html :: html[lang]"
+      },
+      "pendingMetadata": [
+        "author",
+        "publishedAt",
+        "updatedAt",
+        "image",
+        "readingMinutes"
+      ]
+    }
+  ]
+}

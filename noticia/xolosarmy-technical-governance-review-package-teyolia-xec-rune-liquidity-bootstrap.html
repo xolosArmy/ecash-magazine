@@ -1,285 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>xolosArmy Publishes Technical & Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap</title>
-
-  <meta
-    name="description"
-    content="xolosArmy Network publishes a Draft v0.1 technical and governance review package for the proposed Teyolia XEC/RUNE liquidity bootstrap before any public campaign launch."
-  />
-
-  <style>
-    :root {
-      --primary-color: #00ABE7;
-      --accent-color: #00D084;
-      --text-main: #E8EDF2;
-      --text-muted: #A0AAB5;
-      --bg-dark: #0B0F14;
-      --bg-card: #141A22;
-      --bg-soft: #1C2430;
-      --border-color: rgba(255,255,255,0.12);
-    }
-
-    body {
-      margin: 0;
-      padding: 24px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(0,171,231,0.13), transparent 32%),
-        radial-gradient(circle at top right, rgba(0,208,132,0.10), transparent 28%),
-        var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.68;
-    }
-
-    .ecash-magazine-article {
-      max-width: 900px;
-      margin: 0 auto;
-      background: linear-gradient(180deg, var(--bg-card), #0B0F14);
-      padding: 42px;
-      border-radius: 22px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.35);
-    }
-
-    .article-header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 34px;
-    }
-
-    .article-kicker {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,171,231,0.45);
-      color: var(--primary-color);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(0,171,231,0.08);
-    }
-
-    .article-title {
-      margin: 0 0 16px;
-      color: #FFFFFF;
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      line-height: 1.02;
-      letter-spacing: -0.045em;
-    }
-
-    .article-subtitle {
-      max-width: 780px;
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 1.16rem;
-      line-height: 1.55;
-    }
-
-    .article-meta {
-      margin-top: 22px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .article-content h2 {
-      margin-top: 44px;
-      margin-bottom: 14px;
-      color: #FFFFFF;
-      font-size: 1.65rem;
-      line-height: 1.2;
-      border-left: 4px solid var(--primary-color);
-      padding-left: 12px;
-    }
-
-    .article-content p {
-      margin: 0 0 20px;
-      font-size: 1.08rem;
-    }
-
-    .article-content ul {
-      margin: 0 0 24px;
-      padding-left: 22px;
-    }
-
-    .article-content li {
-      margin-bottom: 10px;
-      font-size: 1.05rem;
-    }
-
-    .highlight-quote {
-      margin: 32px 0;
-      padding: 24px;
-      border-radius: 18px;
-      border-left: 4px solid var(--accent-color);
-      background: rgba(0,208,132,0.08);
-      color: #FFFFFF;
-      font-size: 1.28rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .status-box {
-      margin: 28px 0;
-      padding: 22px;
-      border-radius: 18px;
-      background: var(--bg-soft);
-      border: 1px solid var(--border-color);
-    }
-
-    .status-box strong {
-      color: #FFFFFF;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 13px 24px;
-      border-radius: 999px;
-      background: var(--primary-color);
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: 800;
-      box-shadow: 0 10px 25px rgba(0,171,231,0.24);
-    }
-
-    .btn-primary:hover {
-      background: #008CBF;
-    }
-
-    .footer-note {
-      margin-top: 36px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 14px;
-      }
-
-      .ecash-magazine-article {
-        padding: 24px;
-        border-radius: 18px;
-      }
-
-      .article-content p,
-      .article-content li {
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <article class="ecash-magazine-article">
-    <header class="article-header">
-      <div class="article-kicker">Technical Note · Draft v0.1 · Review Request</div>
-
-      <h1 class="article-title">
-        xolosArmy Publishes Technical & Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap
-      </h1>
-
-      <p class="article-subtitle">
-        The repository reframes the proposed Teyolia XEC/RUNE liquidity bootstrap as a technical,
-        governance and execution review process before any public campaign launch or capital request.
-      </p>
-
-      <div class="article-meta">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xolosArmy Publishes Technical &amp; Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap | eCash Magazine México</title><meta name="description" content="The repository reframes the proposed Teyolia XEC/RUNE liquidity bootstrap as a technical, governance and execution review process before any public campaign launch or capital request.">
+<link rel="canonical" href="https://magazine.ecash.mx/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html"><link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#F6F3EC">
+<meta property="og:site_name" content="eCash Magazine México"><meta property="og:type" content="article"><meta property="og:title" content="xolosArmy Publishes Technical &amp; Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap"><meta property="og:url" content="https://magazine.ecash.mx/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html">
+<meta property="og:description" content="The repository reframes the proposed Teyolia XEC/RUNE liquidity bootstrap as a technical, governance and execution review process before any public campaign launch or capital request."><meta property="og:image" content="https://magazine.ecash.mx/assets/media/ecash-magazine-social.png"><meta property="og:image:alt" content="eCash Magazine México"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="xolosArmy Publishes Technical &amp; Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap"><meta name="twitter:description" content="The repository reframes the proposed Teyolia XEC/RUNE liquidity bootstrap as a technical, governance and execution review process before any public campaign launch or capital request."><meta name="twitter:image" content="https://magazine.ecash.mx/assets/media/ecash-magazine-social.png"><meta name="twitter:image:alt" content="eCash Magazine México">
+<link rel="alternate" type="application/rss+xml" title="eCash Magazine México — publicaciones" href="/feed.xml">
+<link rel="stylesheet" href="/assets/css/editorial.css"><script defer src="/assets/js/editorial.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsMediaOrganization", "@id": "https://magazine.ecash.mx/#organization", "name": "eCash Magazine México", "url": "https://magazine.ecash.mx/"}, {"@type": "Article", "@id": "https://magazine.ecash.mx/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html#article", "headline": "xolosArmy Publishes Technical & Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap", "url": "https://magazine.ecash.mx/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html", "mainEntityOfPage": "https://magazine.ecash.mx/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html", "publisher": {"@id": "https://magazine.ecash.mx/#organization"}, "description": "The repository reframes the proposed Teyolia XEC/RUNE liquidity bootstrap as a technical, governance and execution review process before any public campaign launch or capital request.", "inLanguage": "en"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://magazine.ecash.mx/"}, {"@type": "ListItem", "position": 2, "name": "Archivo", "item": "https://magazine.ecash.mx/blog/index.html"}, {"@type": "ListItem", "position": 3, "name": "xolosArmy Publishes Technical & Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap", "item": "https://magazine.ecash.mx/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html"}]}]}</script>
+</head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header"><div class="masthead container">
+<a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
+<div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">xolosArmy Publishes Technical &amp; Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> </div><h1 class="article-title">xolosArmy Publishes Technical &amp; Governance Review Package for Teyolia XEC/RUNE Liquidity Bootstrap</h1><p class="article-deck">The repository reframes the proposed Teyolia XEC/RUNE liquidity bootstrap as a technical, governance and execution review process before any public campaign launch or capital request.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Technical Note · Draft v0.1 · Review Request. Clasificación editorial pendiente.</p><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<div class="article-layout"><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="ecash-magazine-article">
+<div class="article-header">
+<div class="article-meta">
         eCash Magazine México · July 2026 · xolosArmy Network
       </div>
-    </header>
-
-    <section class="article-content">
-      <p>
-        <strong>xolosArmy Network has published the public Draft v0.1 repository for the Teyolia XEC/RUNE Liquidity Bootstrap review package.</strong>
-      </p>
-
-      <p>
+</div>
+<section class="article-content">
+<p>
+<strong>xolosArmy Network has published the public Draft v0.1 repository for the Teyolia XEC/RUNE Liquidity Bootstrap review package.</strong>
+</p>
+<p>
         The repository serves as the canonical English document for coordinating technical,
         governance and execution review around the proposed path for native XEC liquidity on THORChain.
       </p>
-
-      <h2>A Review Request, Not a Funding Request</h2>
-
-      <p>
+<h2 id="a-review-request-not-a-funding-request">A Review Request, Not a Funding Request</h2>
+<p>
         This publication marks a strategic transition in the project roadmap. The repository is explicitly framed as a
         review package. It is not a request for funding, endorsement, political support or immediate campaign promotion.
       </p>
-
-      <blockquote class="highlight-quote">
+<blockquote class="highlight-quote">
         “We are not asking for approval. We are asking for technically competent review before asking anyone for capital.”
       </blockquote>
-
-      <p>
+<p>
         The immediate objective is to request independent feedback on the architecture before any public liquidity
         campaign is launched. This includes the Teyolia 2.1-G settlement logic, the Tonalli native eCash multisig,
         UTXO/script assumptions, risk disclosures and governance questions.
       </p>
-
-      <h2>What the Review Package Covers</h2>
-
-      <ul>
-        <li><strong>Native XEC THORNode integration path:</strong> public technical work that remains subject to THORChain review.</li>
-        <li><strong>Tonalli Multisig:</strong> native eCash P2SH multisig governance custody demonstrated on mainnet.</li>
-        <li><strong>Teyolia 2.1-G:</strong> a governed settlement flow that separates community fundraising from final THORChain ADDLP execution.</li>
-        <li><strong>Governance questions:</strong> signer selection, custody model, LP ownership, withdrawal authority and reporting.</li>
-        <li><strong>Risk disclosures:</strong> impermanent loss, low initial volume, execution risk, multisig risk and unresolved RUNE coordination.</li>
-      </ul>
-
-      <h2>Current Status</h2>
-
-      <div class="status-box">
-        <p><strong>No capital is confirmed.</strong> No community or institutional capital has been committed to the liquidity pool.</p>
-        <p><strong>No RUNE match is confirmed.</strong> Any RUNE coordination remains unresolved unless explicitly documented later.</p>
-        <p><strong>No THORNode merge is claimed.</strong> The native XEC integration path remains public and reviewable, but not described as merged or accepted.</p>
-        <p><strong>No GNC funding or formal GNC role is documented.</strong> The GNC declined funding due to limited budget and recommended reaching out to individuals who can personally commit to helping on governance.</p>
-      </div>
-
-      <h2>The Path Forward</h2>
-
-      <p>
+<h2 id="what-the-review-package-covers">What the Review Package Covers</h2>
+<ul>
+<li><strong>Native XEC THORNode integration path:</strong> public technical work that remains subject to THORChain review.</li>
+<li><strong>Tonalli Multisig:</strong> native eCash P2SH multisig governance custody demonstrated on mainnet.</li>
+<li><strong>Teyolia 2.1-G:</strong> a governed settlement flow that separates community fundraising from final THORChain ADDLP execution.</li>
+<li><strong>Governance questions:</strong> signer selection, custody model, LP ownership, withdrawal authority and reporting.</li>
+<li><strong>Risk disclosures:</strong> impermanent loss, low initial volume, execution risk, multisig risk and unresolved RUNE coordination.</li>
+</ul>
+<h2 id="current-status">Current Status</h2>
+<div class="status-box">
+<p><strong>No capital is confirmed.</strong> No community or institutional capital has been committed to the liquidity pool.</p>
+<p><strong>No RUNE match is confirmed.</strong> Any RUNE coordination remains unresolved unless explicitly documented later.</p>
+<p><strong>No THORNode merge is claimed.</strong> The native XEC integration path remains public and reviewable, but not described as merged or accepted.</p>
+<p><strong>No GNC funding or formal GNC role is documented.</strong> The GNC declined funding due to limited budget and recommended reaching out to individuals who can personally commit to helping on governance.</p>
+</div>
+<h2 id="the-path-forward">The Path Forward</h2>
+<p>
         The operational doctrine is simple:
       </p>
-
-      <blockquote class="highlight-quote">
+<blockquote class="highlight-quote">
         Review first. Promotion second. Governance third. Capital fourth.
       </blockquote>
-
-      <p>
+<p>
         No public fundraising campaign should be launched until the relevant technical review, governance coordination
         and risk disclosure requirements are sufficiently reviewed, documented and disclosed.
       </p>
-
-      <p>
+<p>
         Independent developers and technical reviewers within the UTXO/script ecosystem are invited to inspect the
         Draft v0.1 repository and provide feedback.
       </p>
-
-      <p>
-        <a
-          href="https://gitlab.com/XolosRMZ/teyolia-xec-rune-review-package"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary"
-        >
+<p>
+<a href="https://gitlab.com/XolosRMZ/teyolia-xec-rune-review-package" target="_blank" rel="noopener noreferrer" class="btn-primary">
           View the Review Package on GitLab
         </a>
-      </p>
-
-      <p class="footer-note">
+</p>
+<p class="footer-note">
         This technical note is not investment advice and does not guarantee profitability. It does not state that the
         THORNode integration has been merged or accepted, nor that GNC funding, holder capital or RUNE matching has
         been confirmed.
       </p>
-    </section>
-  </article>
-</body>
-</html>
+</section>
+</div>
+</article><section class="evidence" id="fuentes-evidencia" aria-labelledby="fuentes-title"><h2 id="fuentes-title">Fuentes y evidencia</h2>
+<p>Referencias consignadas en esta publicación. Su presencia no equivale por sí sola a una verificación independiente.</p><ul><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://gitlab.com/XolosRMZ/teyolia-xec-rune-review-package">View the Review Package on GitLab</a></p></li></ul>
+</section></div><section class="section-block"><div class="section-heading"><h2>Últimas publicaciones</h2><a href="/blog/index.html">Ver el archivo completo →</a></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Tonalli Memo: tu identidad .xec, tu voz on-chain</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-10">10 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html">La finalidad no es el puente</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-09T00:00:00-06:00">9 de septiembre de 2026</time></span></div></div></article></div></section></div></main><footer class="site-footer"><div class="container"><p class="brand-name">eCash Magazine México</p><p>Tecnología, economía y cultura desde México.</p><nav aria-label="Enlaces editoriales"><a href="/principios-editoriales/">Principios editoriales</a><a href="/correcciones/">Correcciones y actualizaciones</a><a href="/autores/">Autores</a><a href="/feed.xml">RSS</a><a href="https://ecash.mx">Portal eCash México ↗</a></nav><p>XEC es el dinero · RMZ es la llave · La cultura es la red</p><small>Contenidos bajo CC0 · eCash Magazine México</small></div></footer></body></html>

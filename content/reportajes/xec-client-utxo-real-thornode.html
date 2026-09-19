@@ -1,0 +1,79 @@
+<header class="hero">
+<div class="container">
+<span class="kicker">Análisis técnico · THORNode · XEC</span>
+<h1 class="title">Qué encontramos dentro del branch <span class="mono">xec-client</span></h1>
+<p class="deck">La revisión de la rama de starsquid muestra que XEC ya no aparece como decoración simbólica: entra en paths reales del cliente UTXO de THORNode, con signing, construcción de transacciones, precisión contable, CashAddr por red y protecciones contra ambigüedad BCH/XEC.</p>
+<div class="meta">Por eCash Magazine México · 16 de agosto de 2026</div>
+<div class="tags"><span class="tag">starsquid/xec-client</span><span class="tag">UTXO client</span><span class="tag">1 XEC = 100 base units</span><span class="tag">CashAddr</span><span class="tag">disabled-by-default</span></div>
+</div>
+</header>
+<div class="container content">
+<section class="summary">
+<p><strong>Resumen:</strong> xolosArmy revisó técnicamente la rama <span class="mono">starsquid/xec-client</span> de THORNode. La conclusión es contundente: XEC entra como una cadena UTXO real dentro del stack compartido de THORChain, no como un string decorativo.</p>
+<p>La rama todavía no significa aceptación oficial ni merge garantizado, pero sí representa desarrollo activo del lado THORChain. La tarea correcta ahora es validar, documentar, comparar y alinear Tonalli/Teyolia alrededor de la arquitectura que el upstream parece preferir.</p>
+</section>
+<p>La integración nativa de eCash (XEC) en THORChain acaba de cruzar una frontera importante. Hasta hace poco, la narrativa pública giraba alrededor del Draft MR de xolosArmy: una prueba de trabajo comunitaria que abrió la puerta técnica. Ahora el foco se movió hacia una rama del propio entorno THORChain, <span class="mono">starsquid/xec-client</span>, que implementa una versión más upstream-style de la integración.</p>
+<p>La diferencia no es menor. El MR comunitario empujaba una integración amplia: cadena XEC, cliente UTXO, mocknet, Docker, wallet/regtest, tests y wiring de simulación. La rama de starsquid se ve más quirúrgica: mete XEC dentro del stack UTXO existente, trabaja precisión y conversión de montos, endurece fees, normaliza CashAddr, deja la configuración desactivada por defecto y agrega tests focalizados.</p>
+<div class="quote">La tesis cambió: ya no hablamos de “si XEC podría entrar”, sino de cómo se está diseñando su entrada como cadena UTXO real.</div>
+<h2>XEC entra al cliente UTXO compartido</h2>
+<p>El primer hallazgo importante aparece en el mecanismo de carga de chains. En la rama revisada, XEC entra junto con BTC, BCH, LTC, DOGE y ZEC dentro del cliente UTXO compartido. Eso significa que la cadena no se registra como un símbolo aislado, sino como parte del mismo camino técnico que THORNode usa para observar, construir y firmar transacciones UTXO.</p>
+<div class="codebox">case common.BTCChain, common.BCHChain, common.XECChain, common.LTCChain, common.DOGEChain, common.ZECChain:
+    return utxo.NewClient(...)</div>
+<p>También se observó que en la lógica de signing/building, XEC se trata como cadena no-SegWit junto con BCH, DOGE y ZEC, y usa una configuración propia para construir scripts de pago. Esa es una señal técnica clave: el branch no solamente declara XEC; lo conecta a paths reales de construcción de transacciones.</p>
+<h2>La contabilidad respeta la naturaleza de eCash</h2>
+<p>Uno de los riesgos más importantes de integrar XEC en software heredado de Bitcoin/BCH es la unidad base. En eCash, <strong>1 XEC equivale a 100 base units</strong>. La rama revisada introduce una arquitectura de conversión que conserva precisión explícita para XEC de 2 decimales mientras mantiene compatibilidad con cadenas UTXO tradicionales de 8 decimales.</p>
+<div class="codebox">RPC amount
+→ native base units
+→ THORChain 1e8 representation</div>
+<p>El test clave valida que 100 native base units de XEC se convierten correctamente a <span class="mono">common.One</span> dentro de la representación de THORChain y que los decimales de XEC se preservan como 2. También se revisó soporte para montos extremadamente grandes, incluyendo el caso de 20 trillones de XEC, donde la representación 1e8 puede exceder <span class="mono">uint64</span> pero el monto nativo todavía se puede convertir correctamente al wire amount.</p>
+<h2>CashAddr se maneja por red y sin confundir BCH con XEC</h2>
+<p>El segundo bloque crítico es direcciones. En <span class="mono">common/ecash.go</span>, XEC define prefijos por red: <span class="mono">ecash</span> para MainNet/StageNet/ChainNet, <span class="mono">ectest</span> para TestNet y <span class="mono">ecregtest</span> para MockNet.</p>
+<p>La decisión de diseño es que una dirección externa puede existir como <span class="mono">ecash:q...</span>, pero THORChain trabaja internamente con forma canónica sin prefijo. Esa normalización prefixless evita romper la gramática de memos, donde el carácter <span class="mono">:</span> ya tiene significado como separador.</p>
+<div class="panel">
+<h3>Protecciones observadas</h3>
+<ul>
+<li>Una bare BCH CashAddr no se clasifica como XEC.</li>
+<li>Una dirección <span class="mono">bitcoincash:</span> no pasa como XEC.</li>
+<li>Una dirección <span class="mono">ecregtest:</span> no pasa en mainnet.</li>
+<li>Una dirección <span class="mono">ecash:</span> no pasa en mocknet.</li>
+<li>Mixed-case se rechaza y uppercase completo se acepta bajo las reglas esperadas.</li>
+</ul>
+</div>
+<h2>El candado contra THORName es una pieza clave</h2>
+<p>Uno de los hallazgos más importantes es la protección contra colisión con THORName. El problema es sutil: un memo con dirección XEC prefijada, como <span class="mono">+:XEC.XEC:ecash:q...</span>, puede partirse por el separador <span class="mono">:</span> y provocar que <span class="mono">ecash</span> se intente resolver como un THORName.</p>
+<p>La rama agrega un bloqueo explícito en <span class="mono">FetchAddress()</span>: si la primera parte coincide con el prefijo reservado de XEC para la red actual, se devuelve error y se exige usar una dirección XEC sin prefijo dentro de memos.</p>
+<div class="codebox">"ecash" / "ectest" / "ecregtest" quedan reservados según red.
+Resultado: usar XEC prefixless en memos o fallar explícitamente.</div>
+<p>Este candado es importante porque convierte un edge case peligroso en una regla explícita. No deja que una dirección mal formateada se transforme silenciosamente en una búsqueda de THORName.</p>
+<h2>XEC está apagado por defecto</h2>
+<p>Otro punto correcto desde la perspectiva upstream es que XEC aparece en la configuración, pero con <span class="mono">disabled: true</span>. Esto permite que el código exista, se revise y se pruebe sin activar la cadena hasta que haya decisión de red, infraestructura, endpoints, pruebas y configuración adecuada.</p>
+<div class="codebox">xec:
+  disabled: true
+  chain_id: XEC</div>
+<p>Esta decisión separa el merge técnico de la activación operativa. Para una integración de cadena nativa, esa separación es sana: primero el código, luego las pruebas, después la configuración, y solo al final la activación.</p>
+<h2>El único punto pendiente: DustThreshold</h2>
+<p>La revisión dejó un punto que conviene confirmar con starsquid: el valor de <span class="mono">DustThreshold()</span> para XEC parece representar aproximadamente un umbral económico de 100 XEC, mientras que el <span class="mono">DustLimit()</span> técnico parece compartir un valor más bajo de 546 native units.</p>
+<div class="warn"><strong>Pregunta abierta:</strong> ¿100 XEC como DustThreshold económico es intencional para XEC, separado del dust limit técnico? No se afirma que esté mal; se marca como punto que merece confirmación.</div>
+<h2>Qué significa para Tonalli y Teyolia</h2>
+<p>La revisión también tiene consecuencias directas para Tonalli Wallet. Si THORChain quiere direcciones XEC prefixless dentro de memos, Tonalli debe preparar un builder especializado para ADDLP y swaps que respete esa semántica. El soporte OP_RETURN genérico es útil, pero no reemplaza todavía un builder específico para THORChain.</p>
+<p>Para Teyolia, el despliegue de 2.1-G Governance-Bridge encaja con esta dirección: una campaña exitosa puede liquidar hacia una multisig de gobernanza durable y desde ahí coordinar ADDLP posterior, en lugar de depender de un covenant efímero como ruta final de retorno LP.</p>
+<div class="panel">
+<h3>Próximas validaciones</h3>
+<ul>
+<li>Confirmar el DustThreshold económico de XEC.</li>
+<li>Agregar o validar tests explícitos para prefijos <span class="mono">ecash/ectest/ecregtest</span> en memos.</li>
+<li>Probar daemon XEC, wallet load/create, importaddress, listunspent y broadcast en entorno habilitado.</li>
+<li>Validar observación inbound, outbound, refunds y quotes cuando haya mocknet o CI oficial disponible.</li>
+<li>Alinear Tonalli Wallet con direcciones XEC prefixless dentro de memos THORChain.</li>
+</ul>
+</div>
+<p>El objetivo final sigue siendo simple: XEC nativo en THORChain. No wrapped XEC. No bridge custodial. No token sintético como sustituto del L1. La diferencia es que ahora la conversación ya tiene arquitectura concreta, paths de código reales y preguntas técnicas específicas.</p>
+<p>En una frase: XEC ya no está solamente tocando la puerta. Dentro del branch <span class="mono">xec-client</span>, XEC ya camina como una cadena UTXO real dentro de THORNode.</p>
+<section class="links">
+<p><strong>Branch de starsquid:</strong> <a href="https://gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client">gitlab.com/thorchain/thornode/-/tree/starsquid/xec-client</a></p>
+<p><strong>Draft MR inicial de xolosArmy:</strong> <a href="https://gitlab.com/XolosRMZ/thornode/-/merge_requests/2">gitlab.com/XolosRMZ/thornode/-/merge_requests/2</a></p>
+<p><strong>Artículo previo:</strong> <a href="/reportajes/xec-thorchain-starsquid-xec-client.html">XEC en THORChain: el branch de starsquid cambia la partida</a></p>
+<p><strong>Teyolia:</strong> <a href="https://www.teyolia.cash/campaigns/campaign-1775831790436">teyolia.cash/campaigns/campaign-1775831790436</a></p>
+<a class="back" href="/">← Volver a primera plana</a>
+</section>
+</div>

@@ -1,0 +1,93 @@
+<div class="shell"></div>
+<header class="hero">
+<div class="kicker">Rampa fiat → eCash probada con fondos reales</div>
+<h1>De pesos a XEC: Bitso, Solana, Firma y Tonalli en un solo embudo</h1>
+<p class="dek">El experimento ya no termina en una seed compatible. Se compró USDT sobre Solana desde un exchange mexicano, se envió a firma.cash, Firma Alpha apareció bajo la seed eCash recuperada por Tonalli y terminó convertido a XEC mediante una oferta Agora aceptada en mainnet.</p>
+<div class="flow">
+<span class="pill"><strong>Entrada</strong> · MXN</span>
+<span class="pill"><strong>Rail</strong> · USDT Solana</span>
+<span class="pill"><strong>Activo</strong> · Firma Alpha / ALP</span>
+<span class="pill"><strong>Salida</strong> · XEC autocustodiado</span>
+</div>
+</header>
+<div><div>
+<p class="standfirst"><strong>El 14 de agosto de 2026 se cerró un embudo que llevaba días siendo una pregunta abierta.</strong> En una prueba con fondos reales se recorrió la ruta <strong>MXN → Bitso → USDT sobre Solana → firma.cash → Firma Alpha sobre eCash → Tonalli Wallet → Agora → XEC</strong>. La operación convirtió una hipótesis de interoperabilidad en una ruta funcional y reproducible.</p>
+<p class="dateline">Ciudad de México · eCash mainnet · 14 de agosto de 2026</p>
+<div class="metrics">
+<div class="metric"><b>243.328 FIRMA</b><span>redención grande transmitida desde Tonalli</span></div>
+<div class="metric"><b>36,385,587.2 XEC</b><span>XEC estimados por el preview al completarse</span></div>
+<div class="metric"><b>0.002 FIRMA</b><span>cambio FIRMA restante después de la oferta</span></div>
+</div>
+<h2>El embudo completo, paso por paso</h2>
+<div class="route">
+<div><b>1 · Fiat</b>Pesos mexicanos entran al exchange usado en la prueba.</div>
+<div><b>2 · Solana</b>Se compra USDT y se retira por la red Solana.</div>
+<div><b>3 · Firma</b>USDT se envía a firma.cash; el activo que después aparece bajo la seed eCash es Firma Alpha.</div>
+<div><b>4 · eCash</b>Tonalli recupera la seed 1899, descubre FIRMA y lo redime por XEC mediante Agora.</div>
+</div>
+<p>La secuencia es importante porque separa dos conceptos que se habían mezclado durante la investigación. <strong>Solana fue el rail de entrada para USDT; Firma Alpha no “vivió” como un token Solana dentro de Tonalli.</strong> Lo que Tonalli encontró fue el token ALP nativo de eCash controlado por las llaves derivadas de la seed compatible con Cashtab.</p>
+<h2>Qué sabemos —y qué sigue siendo una caja negra</h2>
+<p>El experimento demuestra funcionalmente los extremos de la conversión: USDT salió por Solana hacia Firma y después apareció Firma Alpha bajo la identidad eCash correspondiente. Eso permite afirmar que el recorrido funciona para el usuario.</p>
+<p>Lo que la prueba <strong>no</strong> revela es la implementación interna de Firma entre esos dos extremos: wallets operativas, conciliación, custodia temporal del USDT, disparadores internos o lógica exacta de emisión/entrega. Firma había indicado previamente que estas operaciones se realizan internamente y que no existe documentación pública de esa infraestructura.</p>
+<blockquote>La conclusión prudente no es “descubrimos un bridge público Solana↔eCash”. La conclusión comprobada es: USDT sobre Solana puede entrar por Firma y terminar como Firma Alpha controlado por una seed eCash que Tonalli puede recuperar.</blockquote>
+<h2>La seed convierte la integración en recuperación, no en transferencia</h2>
+<p>Una vez que Firma Alpha está bajo las llaves eCash de la seed, el salto <strong>Firma Wallet → Tonalli</strong> no requiere bridge ni otra transacción. La misma mnemonic se restaura en Tonalli; el perfil <code>ecash-standard-1899</code> deriva el árbol compatible con Cashtab y el scanner encuentra los UTXOs correspondientes.</p>
+<p>Esta distinción fue probada previamente con un saldo de <strong>15.2142 FIRMA</strong>, visible tanto en Cashtab como en Tonalli. Tonalli no “recibió” esos tokens desde Cashtab: ambas aplicaciones podían observar y gastar UTXOs controlados por la misma raíz criptográfica.</p>
+<h2>1899 sin romper el pasado</h2>
+<p>La interoperabilidad exigió separar correctamente las identidades criptográficas. El PR <a href="https://github.com/xolosArmy/RMZWallet/pull/48">#48</a> añadió soporte dual; el PR <a href="https://github.com/xolosArmy/RMZWallet/pull/49">#49</a> convirtió el derivador canónico en la fuente de identidad para el perfil estándar; y el PR <a href="https://github.com/xolosArmy/RMZWallet/pull/50">#50</a> restauró la semántica histórica de Tonalli Legacy 899 después de detectar que <code>minimal-xec-wallet@2.0.2</code> producía claves diferentes para el mismo path nominal.</p>
+<section class="table-wrap"><table><thead><tr><th>Perfil</th><th>Engine</th><th>Finalidad</th></tr></thead><tbody>
+<tr><td><code>tonalli-legacy-899</code></td><td>compatibilidad histórica</td><td>Recuperar wallets Tonalli anteriores al cambio.</td></tr>
+<tr><td><code>ecash-standard-899</code></td><td><code>ecash-lib</code> BIP32</td><td>Recuperación de la ventana transitoria.</td></tr>
+<tr><td><code>ecash-standard-1899</code></td><td><code>ecash-lib</code> BIP32</td><td>Cashtab/Firma y nuevas wallets interoperables.</td></tr>
+</tbody></table></section>
+<p>La aceptación real confirmó ambos lados: la wallet legacy volvió a leer su saldo y la seed de Firma siguió encontrando y gastando Firma Alpha bajo 1899.</p>
+<h2>Firma Alpha: identidad on-chain verificada</h2>
+<p>El activo usado en estas pruebas fue <strong>Firma Alpha</strong>, no un saldo genérico de la aplicación Firma. Tonalli lo identifica por su Token ID canónico:</p>
+<span class="tx">0387947fd575db4fb19a3e322f635dec37fd192b5941625b66bc4b2c3008cbf0</span>
+<p>Es un token ALP con cuatro decimales sobre eCash. Esta precisión importa porque Firma USD, fCHF y fEUR son productos distintos y no deben mezclarse editorialmente con Firma Alpha.</p>
+<h2>Primer cierre: recovery y gasto real</h2>
+<p>Después del discovery de los 15.2142 FIRMA, Tonalli completó un envío real firmado localmente. El TXID de aceptación fue:</p>
+<span class="tx">83dccd0c7e542f9397aba29be62f0ec4d7b41570aa155ed7ff50274b111b77f4</span>
+<p>Ese broadcast validó discovery HD, selección de inputs, derivación de los signatories correctos y gasto del token recuperado desde una seed originada en Firma Wallet.</p>
+<h2>Segundo cierre: FIRMA → XEC mediante Agora</h2>
+<p>La redención requirió además resolver otro problema de infraestructura: Tonalli intentaba consultar un endpoint de bid obsoleto y el navegador lo bloqueaba por CORS. El PR <a href="https://github.com/xolosArmy/RMZWallet/pull/51">#51</a> movió esa lectura a un proxy server-side same-origin y alineó el upstream con el endpoint vigente utilizado por Cashtab.</p>
+<p>Con la corrección desplegada, Tonalli pudo previsualizar y transmitir una oferta de redención. En una primera prueba se bloquearon <strong>15.2165 FIRMA</strong> para recibir aproximadamente <strong>2,278,169.6 XEC</strong> al completarse. La oferta fue transmitida con:</p>
+<span class="tx">1d8a2bd65eed00638ae41d366164df017fecc2d7d69b09d10cd6ae3b4409472a:1</span>
+<p>Después de la aceptación del sweeper, el saldo XEC de la wallet se actualizó.</p>
+<h2>La prueba grande: 243.328 FIRMA</h2>
+<p>Más tarde se repitió el embudo con un monto sustancialmente mayor proveniente del recorrido MXN → USDT Solana → firma.cash. Tonalli mostró en el preview:</p>
+<section class="table-wrap"><table><thead><tr><th>Campo</th><th>Valor observado</th></tr></thead><tbody>
+<tr><td>FIRMA bloqueado</td><td><strong>243.328 FIRMA</strong></td></tr>
+<tr><td>XEC al completarse</td><td><strong>36,385,587.2 XEC</strong></td></tr>
+<tr><td>Precio efectivo</td><td>149,533.08 XEC/FIRMA</td></tr>
+<tr><td>Bid oficial</td><td>149,578.25 XEC/FIRMA</td></tr>
+<tr><td>Comisión estimada</td><td>5.31 XEC</td></tr>
+<tr><td>Cambio FIRMA</td><td>0.002 FIRMA</td></tr>
+<tr><td>Capacidad sweeper</td><td>233,453,847.64 XEC</td></tr>
+</tbody></table></section>
+<p>La oferta fue transmitida con el siguiente TXID/Offer ID:</p>
+<span class="tx">49dd6237df7c6574e60440e3709f6293a424c8ce3abd87ee7311ee31ff52e191:1</span>
+<p>Tras la aceptación, Tonalli mostró <strong>0.0020 FIRMA</strong> como remanente y el saldo total XEC de la wallet se actualizó. Ese saldo total no debe confundirse con el payout aislado de la redención: la wallet ya poseía XEC antes de esta operación.</p>
+<h2>Qué queda demostrado</h2>
+<section class="status">
+<p><strong>Fiat → stablecoin:</strong> pesos mexicanos pudieron convertirse en USDT y salir por Solana.</p>
+<p><strong>Stablecoin → Firma:</strong> el USDT enviado a firma.cash terminó produciendo Firma Alpha bajo una identidad eCash controlada por seed.</p>
+<p><strong>Firma → Tonalli:</strong> la misma seed fue recuperable en Tonalli con BIP44 1899; no hizo falta una transferencia entre wallets.</p>
+<p><strong>FIRMA → XEC:</strong> Tonalli creó ofertas Agora de redención que fueron aceptadas y terminaron actualizando el saldo XEC.</p>
+<p><strong>Compatibilidad:</strong> el soporte 1899 coexistió con la recuperación real de wallets Tonalli Legacy 899.</p>
+</section>
+<h2>Qué no debe exagerarse</h2>
+<section class="warning">
+<p>La prueba no demuestra que exista un bridge público, trustless y documentado entre Solana y eCash. Demuestra que <strong>el servicio de Firma realizó el tramo funcional</strong> entre un depósito de USDT sobre Solana y Firma Alpha controlado por la seed eCash del usuario.</p>
+<p>Tampoco convierte a Tonalli en un banco ni en una rampa fiat regulada. Tonalli intervino después, como wallet autocustodiada y cliente Agora. Los requisitos de KYC, límites, comisiones y disponibilidad del rail externo pertenecen a los proveedores correspondientes y pueden cambiar.</p>
+</section>
+<h2>El resultado para un usuario mexicano</h2>
+<p>La consecuencia práctica es simple: <strong>ya existe una ruta operacional desde pesos mexicanos hasta XEC autocustodiado sin que Tonalli tenga integración bancaria propia.</strong> El exchange resuelve la entrada fiat, Solana transporta USDT, Firma realiza la conversión hacia Firma Alpha sobre eCash, y Tonalli recupera esas mismas llaves para completar la salida hacia XEC mediante Agora.</p>
+<p>El tutorial didáctico de principio a fin quedó publicado por Xolos Ramírez en <a href="https://xolosramirez.com/blog/tutorial-firma-wallet-tonalli-firma-xec.html">su guía práctica del embudo Firma → Tonalli → XEC</a>.</p>
+<section class="verdict">
+<h2>Conclusión</h2>
+<p>La investigación comenzó preguntando dónde vivía el supuesto “bridge” entre Firma, Solana y eCash. La prueba real llevó a una respuesta más útil: <strong>para el usuario final, Solana funciona como rail de entrada y la custodia eCash puede continuar mediante una seed interoperable.</strong></p>
+<p>El 14 de agosto de 2026 la ruta completa quedó probada con fondos reales: <strong>MXN → USDT Solana → firma.cash → Firma Alpha → Tonalli → Agora → XEC.</strong> No es una promesa de integración futura. Es una secuencia que ya produjo UTXOs, firmas y saldos verificables en mainnet.</p>
+</section>
+<p class="source-note"><strong>Metodología:</strong> reconstrucción basada en pruebas manuales documentadas el 14 de agosto de 2026, capturas de Tonalli/Cashtab, TXIDs de ofertas y envíos mainnet, y los PR públicos #48, #49, #50 y #51 de <code>xolosArmy/RMZWallet</code>. No se publica ninguna seed ni material privado. Los precios, fees y capacidades citados son observaciones históricas de las pruebas, no cotizaciones actuales.</p>
+</div></div>

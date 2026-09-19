@@ -1,0 +1,86 @@
+<div class="shell">
+</div>
+<header class="hero" aria-label="Portada del reportaje">
+<img src="/assets/bip-110-bitcoin-cash-forks.webp" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" alt="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro.">
+<div class="hero-copy">
+<div class="kicker">Investigación correlacional</div>
+<h1>BIP-110 y Bitcoin Cash: dos forks, dos destinos</h1>
+<p class="dek">La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin.</p>
+</div>
+</header>
+<div>
+<div>
+<p class="standfirst"><strong>Los dos episodios nacieron de una disputa sobre la función monetaria de Bitcoin y ambos produjeron historiales incompatibles.</strong> Pero Bitcoin Cash llegó al 1 de agosto de 2017 con mecanismos para operar como una red independiente. BIP-110 llegó al 8 de agosto de 2026 esperando imponer sus reglas sobre BTC. Cuando casi todo el hashrate eligió la cadena principal, esa diferencia de diseño se convirtió en destino.</p>
+<p class="dateline">Ciudad de México · Corte de información: 9 de agosto de 2026</p>
+<h2>La misma pregunta, respuestas opuestas</h2>
+<p>Bitcoin Cash y BIP-110 pueden colocarse en una misma genealogía política: ambos movimientos sostuvieron que Bitcoin se estaba alejando de su función como dinero. La correlación ideológica es fuerte; la solución técnica fue inversa.</p>
+<p>Los partidarios de Bitcoin Cash atribuían la congestión y las comisiones elevadas al límite de capacidad. Su respuesta fue <strong>ampliar el espacio disponible para pagos on-chain</strong>. Los promotores de BIP-110 atribuyeron parte de la presión sobre nodos y blockspace a Ordinals, inscripciones y otros datos arbitrarios. Su respuesta fue <strong>restringir por consenso determinados usos no monetarios</strong>.</p>
+<blockquote>Bitcoin Cash apostó por la abundancia de blockspace. BIP-110 apostó por clasificar y excluir parte de su demanda. Ambos dijeron defender el dinero; discrepaban sobre qué amenaza enfrentaba.</blockquote>
+<h2>La comparación en una mirada</h2>
+<section class="table-wrap" aria-label="Comparación entre Bitcoin Cash y BIP-110" tabindex="0">
+<table>
+<thead><tr><th>Variable</th><th class="bch">Bitcoin Cash · 2017</th><th class="rdts">BIP-110 · 2026</th></tr></thead>
+<tbody>
+<tr><td>Conflicto</td><td>Escalamiento y pagos on-chain</td><td>Dinero frente a almacenamiento arbitrario</td></tr>
+<tr><td>Cambio</td><td>Hard fork permanente</td><td>Soft fork restrictivo y temporal</td></tr>
+<tr><td>Objetivo político</td><td>Crear otra red si BTC no adoptaba bloques grandes</td><td>Convertir RDTS en las reglas de la cadena identificada como BTC</td></tr>
+<tr><td>Separación</td><td>Deliberada y públicamente programada</td><td>Consecuencia de rechazar bloques sin bit 4</td></tr>
+<tr><td>Replay protection</td><td><code>SIGHASH_FORKID</code></td><td>Sin protección equivalente incorporada</td></tr>
+<tr><td>Dificultad</td><td>EDA para sobrevivir como cadena minoritaria</td><td>Retarget normal cada 2,016 bloques</td></tr>
+<tr><td>Economía propia</td><td>Ticker, mercados, wallets, servicios y comunidad</td><td>Sin infraestructura económica independiente comparable</td></tr>
+<tr><td>Resultado inicial</td><td>Cadena lenta, pero operativa</td><td>Dos bloques observados y estancamiento práctico</td></tr>
+</tbody>
+</table>
+</section>
+<h2>Lo que ocurrió con BIP-110</h2>
+<p>BIP-110 había alcanzado el estado documental <strong>Complete</strong> en el repositorio de BIPs. Esa etiqueta significa que la especificación estaba terminada; no equivale a aprobación, activación ni consenso económico de Bitcoin.</p>
+<p>La especificación RDTS estableció una señalización modificada sobre el bit 4. Su umbral era de 1,109 bloques sobre 2,016 —55 %— y, si no se alcanzaba voluntariamente, los nodos que la aplicaban debían rechazar bloques sin señal desde la altura 961,632. El lock-in forzado llegaría en 963,648 y las restricciones de datos solamente se volverían activas en 965,664.</p>
+<p>Al llegar la altura 961,632 el 8 de agosto, AntPool produjo un bloque sin la señal. La red seguida por Bitcoin Core y casi todo el poder de cómputo lo aceptó. Los nodos que aplicaban BIP-110 lo rechazaron y reconocieron una versión señalizada minada por Roughnecks mediante OCEAN. Esa rama produjo también el bloque 961,633 y después dejó de avanzar durante el periodo observado.</p>
+<p><strong>Esto fue un fork de consenso, pero no una división económica equilibrada.</strong> Los dos historiales eran incompatibles desde el punto de vista de los nodos BIP-110; mercados, custodios, wallets y la inmensa mayoría del hashrate siguieron operando sobre la cadena principal.</p>
+<p>También debe evitarse una confusión: el episodio <strong>no activó las siete restricciones RDTS</strong>. Lo que entró en vigor para esos nodos fue la obligación de señalizar. La rama minoritaria se estancó miles de bloques antes de la altura 965,664.</p>
+<h2>Por qué Bitcoin Cash sí tenía un kit de supervivencia</h2>
+<p>Bitcoin Cash no fue diseñado como una amenaza temporal destinada a conquistar el ticker BTC. Sus promotores aceptaron la posibilidad de ser minoría y prepararon tres mecanismos decisivos.</p>
+<h3>1. Incompatibilidad deliberada</h3>
+<p>La activación modificó las reglas de tamaño de bloque y produjo una cadena separada. El <a href="https://www.blockchain.com/explorer/blocks/bch/478559">primer bloque BCH, 478,559</a>, fue minado por ViaBTC el 1 de agosto de 2017 después de varias horas de espera. Con aproximadamente 1.9 MB, hizo visible la nueva política de capacidad y no podía ser aceptado bajo el límite anterior de BTC.</p>
+<h3>2. Protección contra replay</h3>
+<p>Bitcoin ABC introdujo <code>SIGHASH_FORKID</code>: un esquema de firma que genera un digest distinto y permite que una transacción firmada para BCH sea inválida en la rama que no usa ese mecanismo. La separación no era solo narrativa; también existía en la autorización criptográfica de los gastos.</p>
+<h3>3. Ajuste de dificultad para una minoría</h3>
+<p>El Emergency Difficulty Adjustment reducía la dificultad cuando la producción de bloques se ralentizaba. Más tarde generó oscilaciones severas y fue reemplazado en noviembre de 2017, pero Bitcoin ABC reconoció expresamente que el EDA había permitido a Bitcoin Cash sobrevivir como cadena minoritaria.</p>
+<p>BIP-110 no incorporó una salida semejante. Conservó la dificultad de Bitcoin y el retarget normal de 2,016 bloques porque su plan era coordinar a los mineros dentro de BTC, no administrar una moneda separada con poco hashrate.</p>
+<h2>La trampa matemática de la dificultad heredada</h2>
+<p>Cuando una rama conserva la dificultad de una red pero recibe solo una fracción de su poder de cómputo, el tiempo esperado por bloque aumenta aproximadamente en proporción inversa:</p>
+<div class="formula">tiempo esperado ≈ 10 minutos ÷ fracción del hashrate</div>
+<p>Con una estimación hipotética de 0.15 % del hashrate, el promedio sería cercano a 4.6 días por bloque. Recorrer unos 2,014 bloques hasta el primer ajuste tomaría alrededor de 25 años si esa proporción permaneciera constante.</p>
+<p>El hashrate no se observa directamente y una muestra de dos bloques es demasiado pequeña para medirlo con precisión. La cifra debe entenderse como <strong>escenario ilustrativo, no como pronóstico</strong>. La conclusión estructural no cambia: sin más mineros o sin modificar otra vez el consenso, la rama debía superar una barrera de dificultad diseñada para una red miles de veces mayor.</p>
+<h2>El poder real de un nodo</h2>
+<p>Los dos forks ayudan a distinguir dos formas de poder:</p>
+<ul>
+<li><strong>Poder negativo:</strong> un nodo decide qué reglas no acepta y puede rechazar una cadena.</li>
+<li><strong>Poder positivo:</strong> una red consigue que mineros, usuarios, mercados, wallets, custodios y desarrolladores produzcan valor bajo las reglas elegidas.</li>
+</ul>
+<p>Los nodos BIP-110 ejercieron plenamente el primero: se negaron a aceptar el bloque de AntPool. No consiguieron el segundo. Bitcoin Cash, en cambio, combinó software, minería, replay protection, ajuste de dificultad, infraestructura comercial y una identidad económica distinta.</p>
+<blockquote>Un nodo puede abandonar el consenso dominante. No puede obligar al resto de la economía a acompañarlo.</blockquote>
+<h2>La correlación decisiva</h2>
+<p>La variable que mejor explica los resultados no es simplemente el porcentaje inicial de hashrate. Bitcoin Cash también comenzó como minoría. La correlación más fuerte es la <strong>capacidad de autonomía</strong>:</p>
+<ol>
+<li>reglas de consenso identificables;</li>
+<li>separación de transacciones y protección contra replay;</li>
+<li>dificultad compatible con el hashrate disponible;</li>
+<li>software e infraestructura operativa;</li>
+<li>liquidez, precio y mercados propios;</li>
+<li>usuarios y desarrolladores dispuestos a continuar.</li>
+</ol>
+<p>BCH reunió ese conjunto con imperfecciones y crisis posteriores. BIP-110 reunió una especificación completa, una implementación y una fracción residual de minería, pero no una economía alternativa preparada para el escenario de rechazo.</p>
+<h2>¿Fue BIP-110 “otro Bitcoin Cash”?</h2>
+<p>Solo en un sentido estrecho: un grupo aplicó reglas incompatibles y terminó siguiendo otro historial. En casi todo lo demás, la analogía falla.</p>
+<p>Bitcoin Cash buscó una separación permanente y asumió una identidad propia. BIP-110 buscó modificar temporalmente las reglas de BTC y dependía de que la presión de los nodos atrajera a los mineros. BCH diseñó una vía de supervivencia para la minoría. BIP-110 diseñó una vía de activación para convertirse en mayoría.</p>
+<div class="verdict">
+<h2>Conclusión</h2>
+<p><strong>Bitcoin Cash convirtió una derrota en la disputa por BTC en el nacimiento de una economía independiente.</strong> BIP-110 intentó ganar las reglas de BTC mediante una obligación de señalización; cuando la mayoría no lo siguió, su rama no tenía dificultad, replay protection ni infraestructura económica adaptadas para vivir como otra red.</p>
+<p>La lección para la genealogía que conecta Bitcoin, Bitcoin Cash y eCash es concreta: una especificación declara reglas; un nodo puede defenderlas; un minero puede producir bloques. Pero solo la coordinación entre seguridad, software, liquidez, usuarios y continuidad convierte esos bloques en una red viva.</p>
+</div>
+<h2>Fuentes y metodología</h2>
+<p>La comparación se construyó con la <a href="https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki">especificación oficial de BIP-110</a>, la documentación de Bitcoin ABC sobre <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/blob/master/doc/abc/replay-protected-sighash.md"><code>SIGHASH_FORKID</code></a> y su <a href="https://www.bitcoinabc.org/2017-11-01-DAA-es/">reemplazo del EDA por el DAA de 2017</a>. Para el acontecimiento del 8 y 9 de agosto se contrastaron los parámetros de consenso con la cobertura contemporánea de <a href="https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support">CoinDesk</a> y los historiales reportados para los bloques 961,632 y 961,633.</p>
+<p class="source-note">Nota editorial: la rama BIP-110 era un acontecimiento en desarrollo al cierre de esta publicación. Las cantidades de bloques, la distancia entre cadenas y las estimaciones de hashrate pueden cambiar. Los parámetros de activación y la distinción entre señalización obligatoria, lock-in y activación RDTS provienen de la especificación del BIP.</p>
+</div>
+</div>

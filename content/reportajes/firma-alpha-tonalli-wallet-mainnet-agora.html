@@ -1,0 +1,65 @@
+<div class="shell"></div>
+<header class="hero">
+<div class="kicker">Auditoría de infraestructura financiera</div>
+<h1>Firma Alpha ya se mueve dentro de Tonalli</h1>
+<p class="dek">La integración pasó de código y pruebas a evidencia on-chain: Tonalli compró FIRMA mediante Agora y realizó un envío soberano a un alias <code>.xec</code>, manteniendo la autocustodia sobre eCash.</p>
+<div class="flow"><span class="pill"><strong>RMZ</strong> · identidad</span><span class="pill"><strong>XEC</strong> · liquidación y fees</span><span class="pill"><strong>FIRMA</strong> · activo económico interoperable</span><span class="pill"><strong>Agora</strong> · mercado UTXO</span></div>
+</header>
+<div><div>
+<p class="standfirst"><strong>La conclusión del reportaje publicado el 10 de agosto cambió.</strong> Entonces, la integración Firma Alpha ↔ Tonalli estaba fusionada y auditada, pero faltaba cruzar la frontera operacional. La investigación posterior documenta dos transacciones aceptadas por la red principal: una compra parcial de FIRMA vía Agora y un envío soberano hacia una dirección resuelta mediante alias <code>.xec</code>. El código ya no sólo promete el flujo: la red lo ejecutó.</p>
+<p class="dateline">Ciudad de México · Corte técnico actualizado: 12 de agosto de 2026</p>
+<div class="metrics">
+<div class="metric"><b>2 TXIDs</b><span>compra y envío FIRMA documentados en mainnet</span></div>
+<div class="metric"><b>10/10</b><span>seguridad self-custodial en la evaluación de la auditoría</span></div>
+<div class="metric"><b>8.5/10</b><span>readiness estimado para uso cotidiano</span></div>
+</div>
+<h2>No es un ticker nuevo: es un motor de liquidación</h2>
+<p>La actualización de Tonalli incorporó dos capas complementarias. El PR #45 integró el intercambio XEC ↔ FIRMA mediante Agora; el PR #46 habilitó el envío soberano del activo con soporte para UTXOs distribuidos entre rutas HD. La arquitectura mantiene una jerarquía explícita: RMZ conserva su papel de identidad y gobernanza; XEC sigue siendo la moneda nativa que paga la infraestructura; FIRMA entra como instrumento económico interoperable.</p>
+<p>FIRMA está anclado en Tonalli por el Token ID canónico <code>0387947fd575db4fb19a3e322f635dec37fd192b5941625b66bc4b2c3008cbf0</code>, usa ALP y opera con cuatro decimales. La pubkey que autorizó la génesis no funciona como una lista blanca de vendedores: cualquier poseedor puede crear liquidez compatible en Agora.</p>
+<h2>Agora: órdenes limitadas en lugar de un pool</h2>
+<p>Agora no funciona como un AMM de Ethereum. Un maker bloquea tokens en un covenant P2SH bajo reglas que exigen el pago correcto en XEC. Si un taker acepta sólo una parte, la misma transacción paga la porción correspondiente y recrea el remanente bajo el covenant original.</p>
+<blockquote>La atomicidad no depende de que Tonalli “se porte bien”: el covenant obliga a que pago y transferencia ocurran en la misma transacción válida.</blockquote>
+<p>Para compras parciales, Tonalli calcula el precio efectivo con aritmética entera <code>BigInt</code>, descarta remanentes inválidos y vuelve a validar la oferta antes de firmar. La selección de makers permanece permissionless a nivel del protocolo.</p>
+<h2>La primera compra real</h2>
+<p>La transacción <code>088c39e6d9913fa31a253a8d8c1415358650ca208a39817b8c5a28c1a2f7e738</code> documenta una adquisición real de Firma Alpha desde Tonalli. Según la reconstrucción de la auditoría, consumió un UTXO XEC del comprador y un UTXO P2SH de Agora; pagó al maker, transfirió 1,000 átomos de FIRMA al comprador y recreó correctamente el remanente de la oferta.</p>
+<p>Ese detalle importa: prueba una aceptación parcial end-to-end en condiciones reales. El Offer ID anterior deja de existir al gastarse el UTXO y el nuevo remanente pasa a tener otro <code>txid:vout</code>.</p>
+<h2>El primer envío soberano</h2>
+<p>La transacción <code>4eed622286f24477e9bc6993c7178508aa9a6fd0bdff83962833a95fdeae7a3c</code> documenta el envío de FIRMA hacia una dirección resuelta mediante alias <code>.xec</code>. La auditoría describe un <code>OP_RETURN</code> ALP SEND correctamente estructurado y un input auxiliar compuesto sólo de XEC para cubrir la comisión.</p>
+<p>La importancia de ese input puro es defensiva: el motor evita tomar UTXOs que contengan RMZ, NFTs, otros tokens o mint batons para pagar fees. Eso reduce el riesgo de una quema accidental de activos ajenos a la operación.</p>
+<h2>HD: saldo agregado sin sacrificar la propiedad de cada input</h2>
+<p>Tonalli puede sumar FIRMA disperso entre varias direcciones derivadas bajo <code>m/44'/899'/0'</code>. Cada UTXO conserva su rama, índice y ruta; cuando llega la firma, se deriva el signatory específico del input correspondiente.</p>
+<p>La política de cambio actual concentra remanentes FIRMA y XEC en <code>m/44'/899'/0'/0/0</code>. Esto simplifica recuperación y escaneo, pero la propia auditoría identifica un costo: reutilizar esa dirección facilita correlacionar actividad on-chain y reduce privacidad.</p>
+<h2>Preview sin claves y defensa contra TOCTOU</h2>
+<p>La previsualización emplea <code>DUMMY_KEYPAIR</code> y <code>EccDummy</code>; la semilla real permanece fuera del flujo hasta la confirmación. Después, Tonalli reconstruye y compara el plan —outpoints, cantidades, destinos, fees y cambio— antes de instanciar los signatories reales.</p>
+<p>Ese patrón de huella digital protege contra discrepancias entre lo que el usuario aprobó y lo que finalmente se firma. La auditoría además relaciona la equivalencia de tamaños entre firmas dummy y Schnorr con estimaciones de fee deterministas.</p>
+<h2>El threat model no desaparece</h2>
+<section class="table-wrap"><table><thead><tr><th>Capa</th><th>Riesgo principal</th><th>Efecto</th></tr></thead><tbody>
+<tr><td>Wallet local</td><td>Malware o exposición de la semilla.</td><td>Puede comprometer fondos.</td></tr>
+<tr><td>Hosting web</td><td>Supply-chain sobre JavaScript desplegado.</td><td>Puede alterar la interfaz o intentar redirigir operaciones.</td></tr>
+<tr><td>Chronik</td><td>Estados obsoletos, eclipse o filtrado de ofertas.</td><td>Puede censurar o degradar la experiencia, no falsificar firmas.</td></tr>
+<tr><td>Alias .xec</td><td>Resolución incorrecta del nombre.</td><td>Puede inducir un destino erróneo; el fingerprint reduce cambios posteriores.</td></tr>
+<tr><td>Liquidez/redención FIRMA</td><td>Downtime, iliquidez o fallas externas.</td><td>Puede cerrar vías de salida aunque Agora P2P permanezca.</td></tr>
+</tbody></table></section>
+<h2>Qué está probado y qué todavía no</h2>
+<p>Las pruebas automatizadas cubren transformaciones locales, selección de inputs, precisión ALP, paridad de preview y firma, y múltiples regresiones de seguridad. Los dos TXIDs elevan la evidencia: prueban que la red aceptó los scripts producidos por Tonalli para una compra Agora y un envío FIRMA.</p>
+<div class="warning"><strong>Lo no probado:</strong> la investigación deja abierta la agregación de muchas ofertas diminutas bajo estrés, los límites prácticos de tamaño de transacción y la resiliencia del frontend durante caídas severas o intermitentes de Chronik.</div>
+<h2>Evaluación de la auditoría</h2>
+<section class="table-wrap"><table><thead><tr><th>Dimensión</th><th>Puntuación</th><th>Lectura</th></tr></thead><tbody>
+<tr><td>Seguridad self-custodial</td><td>10/10</td><td>Separación estricta entre preview y material de firma.</td></tr>
+<tr><td>Atomicidad</td><td>10/10</td><td>Covenants P2SH y validación on-chain simultánea.</td></tr>
+<tr><td>Descentralización</td><td>7/10</td><td>Mercado P2P, pero dependencia operativa de hosting e indexación.</td></tr>
+<tr><td>Permissionlessness</td><td>9/10</td><td>Sin whitelist de makers a nivel de mercado.</td></tr>
+<tr><td>Robustez HD</td><td>9/10</td><td>Inputs distribuidos con signatory por ruta.</td></tr>
+<tr><td>Protección contra token burn</td><td>10/10</td><td>Filtros de UTXOs tokenizados para fees.</td></tr>
+<tr><td>Madurez económica</td><td>7/10</td><td>La ingeniería no garantiza liquidez, solvencia ni estabilidad externa.</td></tr>
+<tr><td>Readiness cotidiano</td><td>8.5/10</td><td>Flujos funcionales y baratos, con dependencias todavía emergentes.</td></tr>
+</tbody></table></section>
+<h2>El límite económico: Tonalli no puede garantizar el valor de FIRMA</h2>
+<p>La integración abre una vía para cotizar y liquidar bienes o servicios en un activo pensado para operar con referencia fiduciaria, mientras XEC absorbe silenciosamente el costo de red. Técnicamente, eso puede reducir fricción para microeconomías y tesorerías operativas.</p>
+<p>Pero la auditoría hace una distinción esencial: la estabilidad económica de Firma Alpha depende de factores externos a Tonalli —liquidez, redención y actores que sostienen el mecanismo económico—. La wallet puede garantizar autocustodia y correcta construcción de transacciones; no puede garantizar solvencia, profundidad de mercado ni paridad futura.</p>
+<div class="status"><strong>Estado actualizado:</strong> Firma Alpha ya fue comprado y enviado desde Tonalli en mainnet. Agora proporciona el mecanismo de mercado, XEC paga la infraestructura y las claves permanecen en la wallet. La siguiente etapa de madurez no es demostrar que el flujo existe, sino reducir dependencias operativas y probarlo bajo estrés.</div>
+<div class="verdict"><h2>Conclusión</h2><p>La integración de Firma Alpha convierte a Tonalli en algo más amplio que una interfaz de balances: un cliente autocustodiado capaz de descubrir órdenes, ejecutar compras parciales, construir ALP SEND y firmar inputs distribuidos entre rutas HD.</p><p>La evidencia mainnet es la pieza que faltaba. El mercado no quedó encerrado en una simulación y el envío no quedó limitado a una prueba unitaria. Al mismo tiempo, la auditoría evita confundir seguridad transaccional con seguridad económica: <strong>Tonalli puede mover FIRMA correctamente; no puede prometer qué valdrá FIRMA mañana.</strong></p></div>
+<h2>Fuentes y metodología</h2>
+<p>Esta actualización editorial se basa en la investigación técnica entregada a eCash Magazine México sobre la evolución de Tonalli Wallet, los commits <code>d51022321a83b2ccc593e9eadfe2694f8881b6bf</code> y <code>24ab1eab43d6ea751eed6483e4ea784a6cf20f67</code>, la reconstrucción de los dos TXIDs mainnet, la lógica Agora/ALP, la arquitectura HD, el threat model y la evaluación cuantitativa contenida en esa auditoría.</p>
+<p class="source-note">Nota editorial: Firma Alpha es infraestructura de terceros dentro del ecosistema eCash. Este reportaje documenta arquitectura y evidencia técnica; no constituye recomendación de inversión ni garantía de valor, liquidez o redención.</p>
+</div></div>

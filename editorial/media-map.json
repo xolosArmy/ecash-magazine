@@ -1,0 +1,191 @@
+{
+  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80": {
+    "src": "/assets/media/binarios-unsplash-1440.webp",
+    "width": 1440,
+    "height": 960,
+    "srcset": "/assets/media/binarios-unsplash-480.webp 480w, /assets/media/binarios-unsplash-960.webp 960w, /assets/media/binarios-unsplash-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80": {
+    "src": "/assets/media/infraestructura-unsplash-1440.webp",
+    "width": 1440,
+    "height": 808,
+    "srcset": "/assets/media/infraestructura-unsplash-480.webp 480w, /assets/media/infraestructura-unsplash-960.webp 960w, /assets/media/infraestructura-unsplash-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=82": {
+    "src": "/assets/media/infraestructura-unsplash-1800-1440.webp",
+    "width": 1440,
+    "height": 808,
+    "srcset": "/assets/media/infraestructura-unsplash-1800-480.webp 480w, /assets/media/infraestructura-unsplash-1800-960.webp 960w, /assets/media/infraestructura-unsplash-1800-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/YZvGu8q.png": {
+    "src": "/assets/media/logo-ecash-magazine-256.webp",
+    "width": 256,
+    "height": 192,
+    "srcset": "/assets/media/logo-ecash-magazine-128.webp 128w, /assets/media/logo-ecash-magazine-256.webp 256w",
+    "sizes": "128px"
+  },
+  "https://i.imgur.com/eRiUhXC.jpeg": {
+    "src": "/assets/media/multifirma-tonalli-p2sh-1440.webp",
+    "width": 1440,
+    "height": 810,
+    "srcset": "/assets/media/multifirma-tonalli-p2sh-480.webp 480w, /assets/media/multifirma-tonalli-p2sh-960.webp 960w, /assets/media/multifirma-tonalli-p2sh-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80": {
+    "src": "/assets/media/codigo-terminal-1200.webp",
+    "width": 1200,
+    "height": 800,
+    "srcset": "/assets/media/codigo-terminal-480.webp 480w, /assets/media/codigo-terminal-960.webp 960w, /assets/media/codigo-terminal-1200.webp 1200w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/BsjnSBO.jpeg": {
+    "src": "/assets/media/xolo-codigo-1440.webp",
+    "width": 1440,
+    "height": 2146,
+    "srcset": "/assets/media/xolo-codigo-480.webp 480w, /assets/media/xolo-codigo-960.webp 960w, /assets/media/xolo-codigo-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/HkMWQv0.jpeg": {
+    "src": "/assets/media/conversacion-amaury-576.jpeg",
+    "width": 576,
+    "height": 1280,
+    "srcset": "/assets/media/conversacion-amaury-576.jpeg 576w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/I9sYI9O.png": {
+    "src": "/assets/media/correspondencia-gnc-1920.webp",
+    "width": 1920,
+    "height": 1080,
+    "srcset": "/assets/media/correspondencia-gnc-480.webp 480w, /assets/media/correspondencia-gnc-960.webp 960w, /assets/media/correspondencia-gnc-1440.webp 1440w, /assets/media/correspondencia-gnc-1920.webp 1920w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80": {
+    "src": "/assets/media/ia-codigo-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcset": "/assets/media/ia-codigo-480.webp 480w, /assets/media/ia-codigo-960.webp 960w, /assets/media/ia-codigo-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80": {
+    "src": "/assets/media/circuito-1440.webp",
+    "width": 1440,
+    "height": 960,
+    "srcset": "/assets/media/circuito-480.webp 480w, /assets/media/circuito-960.webp 960w, /assets/media/circuito-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/jIm0Vp1.jpeg": {
+    "src": "/assets/media/tonalli-faucet-1440.webp",
+    "width": 1440,
+    "height": 810,
+    "srcset": "/assets/media/tonalli-faucet-480.webp 480w, /assets/media/tonalli-faucet-960.webp 960w, /assets/media/tonalli-faucet-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/GaCfRIp.jpeg": {
+    "src": "/assets/media/xec-thorchain-1440.webp",
+    "width": 1440,
+    "height": 804,
+    "srcset": "/assets/media/xec-thorchain-480.webp 480w, /assets/media/xec-thorchain-960.webp 960w, /assets/media/xec-thorchain-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/qyKpVP4.jpeg": {
+    "src": "/assets/media/chronik-1440.webp",
+    "width": 1440,
+    "height": 960,
+    "srcset": "/assets/media/chronik-480.webp 480w, /assets/media/chronik-960.webp 960w, /assets/media/chronik-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/jmb9k7i.jpeg": {
+    "src": "/assets/media/oraculo-tonalli-1440.webp",
+    "width": 1440,
+    "height": 804,
+    "srcset": "/assets/media/oraculo-tonalli-480.webp 480w, /assets/media/oraculo-tonalli-960.webp 960w, /assets/media/oraculo-tonalli-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/YBbW4xD.jpeg": {
+    "src": "/assets/media/liquidez-soberana-1440.webp",
+    "width": 1440,
+    "height": 804,
+    "srcset": "/assets/media/liquidez-soberana-480.webp 480w, /assets/media/liquidez-soberana-960.webp 960w, /assets/media/liquidez-soberana-1440.webp 1440w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/godoHEz.jpeg": {
+    "src": "/assets/media/compra-parcial-1024.webp",
+    "width": 1024,
+    "height": 572,
+    "srcset": "/assets/media/compra-parcial-480.webp 480w, /assets/media/compra-parcial-960.webp 960w, /assets/media/compra-parcial-1024.webp 1024w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://i.imgur.com/BtB0Y9Y.jpeg": {
+    "src": "/assets/media/machine-economy-1376.webp",
+    "width": 1376,
+    "height": 768,
+    "srcset": "/assets/media/machine-economy-480.webp 480w, /assets/media/machine-economy-960.webp 960w, /assets/media/machine-economy-1376.webp 1376w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "/assets/tonalli-memo-identidad-xec-agentes.webp": {
+    "src": "/assets/media/tonalli-memo-identidad-xec-agentes-320.webp",
+    "width": 320,
+    "height": 213,
+    "srcset": "/assets/media/tonalli-memo-identidad-xec-agentes-320.webp 320w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "../assets/tonalli-memo-identidad-xec-agentes.webp": {
+    "src": "/assets/media/tonalli-memo-identidad-xec-agentes-320.webp",
+    "width": 320,
+    "height": 213,
+    "srcset": "/assets/media/tonalli-memo-identidad-xec-agentes-320.webp 320w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://magazine.ecash.mx/assets/tonalli-memo-identidad-xec-agentes.webp": {
+    "src": "/assets/media/tonalli-memo-identidad-xec-agentes-320.webp",
+    "width": 320,
+    "height": 213,
+    "srcset": "/assets/media/tonalli-memo-identidad-xec-agentes-320.webp 320w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "/assets/bip-110-bitcoin-cash-forks.webp": {
+    "src": "/assets/media/bip-110-bitcoin-cash-forks-1672.webp",
+    "width": 1672,
+    "height": 941,
+    "srcset": "/assets/media/bip-110-bitcoin-cash-forks-480.webp 480w, /assets/media/bip-110-bitcoin-cash-forks-960.webp 960w, /assets/media/bip-110-bitcoin-cash-forks-1440.webp 1440w, /assets/media/bip-110-bitcoin-cash-forks-1672.webp 1672w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "../assets/bip-110-bitcoin-cash-forks.webp": {
+    "src": "/assets/media/bip-110-bitcoin-cash-forks-1672.webp",
+    "width": 1672,
+    "height": 941,
+    "srcset": "/assets/media/bip-110-bitcoin-cash-forks-480.webp 480w, /assets/media/bip-110-bitcoin-cash-forks-960.webp 960w, /assets/media/bip-110-bitcoin-cash-forks-1440.webp 1440w, /assets/media/bip-110-bitcoin-cash-forks-1672.webp 1672w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://magazine.ecash.mx/assets/bip-110-bitcoin-cash-forks.webp": {
+    "src": "/assets/media/bip-110-bitcoin-cash-forks-1672.webp",
+    "width": 1672,
+    "height": 941,
+    "srcset": "/assets/media/bip-110-bitcoin-cash-forks-480.webp 480w, /assets/media/bip-110-bitcoin-cash-forks-960.webp 960w, /assets/media/bip-110-bitcoin-cash-forks-1440.webp 1440w, /assets/media/bip-110-bitcoin-cash-forks-1672.webp 1672w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "/assets/ia-binarios-open-source.webp": {
+    "src": "/assets/media/ia-binarios-open-source-1600.webp",
+    "width": 1600,
+    "height": 900,
+    "srcset": "/assets/media/ia-binarios-open-source-480.webp 480w, /assets/media/ia-binarios-open-source-960.webp 960w, /assets/media/ia-binarios-open-source-1440.webp 1440w, /assets/media/ia-binarios-open-source-1600.webp 1600w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "../assets/ia-binarios-open-source.webp": {
+    "src": "/assets/media/ia-binarios-open-source-1600.webp",
+    "width": 1600,
+    "height": 900,
+    "srcset": "/assets/media/ia-binarios-open-source-480.webp 480w, /assets/media/ia-binarios-open-source-960.webp 960w, /assets/media/ia-binarios-open-source-1440.webp 1440w, /assets/media/ia-binarios-open-source-1600.webp 1600w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  },
+  "https://magazine.ecash.mx/assets/ia-binarios-open-source.webp": {
+    "src": "/assets/media/ia-binarios-open-source-1600.webp",
+    "width": 1600,
+    "height": 900,
+    "srcset": "/assets/media/ia-binarios-open-source-480.webp 480w, /assets/media/ia-binarios-open-source-960.webp 960w, /assets/media/ia-binarios-open-source-1440.webp 1440w, /assets/media/ia-binarios-open-source-1600.webp 1600w",
+    "sizes": "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+  }
+}

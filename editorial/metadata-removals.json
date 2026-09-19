@@ -1,0 +1,602 @@
+{
+  "/analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Análisis técnico]'][@class='kicker mono']",
+      "expectedText": "[Análisis técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre"
+      ]
+    }
+  ],
+  "/analisis/ecash-mining-variance.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Análisis técnico'][@class='article-category']",
+      "expectedText": "Análisis técnico",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre"
+      ]
+    }
+  ],
+  "/analisis/gobernanza-rmz-ecash-mexico.html": [
+    {
+      "xpath": ".//span[normalize-space(.)='[Análisis técnico]'][@class='kicker']",
+      "expectedText": "[Análisis técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre"
+      ]
+    }
+  ],
+  "/analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Historia del consenso'][@class='kicker']",
+      "expectedText": "Historia del consenso",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "section",
+        "topics"
+      ]
+    }
+  ],
+  "/analisis/teyolia-2-1-direct-to-pool.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Technical Analysis] · xolosArmy Network'][@class='kicker mono']",
+      "expectedText": "[Technical Analysis] · xolosArmy Network",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre",
+        "topics"
+      ]
+    }
+  ],
+  "/blog/npm-xolosarmy-tonalli-core-ecash-mexico.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Noticia] + [Análisis Técnico]'][@class='space-mono text-xs font-bold text-[#00abe7] tracking-[0.35em] uppercase mb-2']",
+      "expectedText": "[Noticia] + [Análisis Técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/columna/2026-06-02-precio-ecash-xec.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Análisis de Mercado]'][@class='space-mono text-xs font-bold text-[#00abe7] tracking-[0.35em] uppercase mb-4']",
+      "expectedText": "[Análisis de Mercado]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Por eCash Magazine México · 2 de junio de 2026'][@class='space-mono text-[10px] text-gray-500 tracking-widest uppercase mt-6']",
+      "expectedText": "Por eCash Magazine México · 2 de junio de 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author",
+        "publishedAt"
+      ]
+    }
+  ],
+  "/columna/gnc-ecash-irrelevance-crypto-winter.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Opinion · Governance · eCash'][@class='kicker']",
+      "expectedText": "Opinion · Governance · eCash",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel",
+        "section",
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='By eCash Magazine México']",
+      "expectedText": "By eCash Magazine México",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='Analysis Column']",
+      "expectedText": "Analysis Column",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/cronica/alias-ecash-mexico.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Crónica] + [Análisis Técnico]'][@class='kicker mono']",
+      "expectedText": "[Crónica] + [Análisis Técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/cronica/asamblea-rmz-governanza-ecash-mexico.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Crónica] + [Análisis Técnico]'][@class='kicker mono']",
+      "expectedText": "[Crónica] + [Análisis Técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/cronica/compra-parcial-rmz-tonalli-wallet.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Crónica] + [Análisis Técnico]'][@class='kicker mono']",
+      "expectedText": "[Crónica] + [Análisis Técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/cronica/integracion-xec-thorchain.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Crónica] + [Análisis Técnico]'][@class='kicker mono']",
+      "expectedText": "[Crónica] + [Análisis Técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/cronica/oraculo-tonalli-app-ecash-mexico.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Reportaje] + [Análisis Técnico]'][@class='kicker mono']",
+      "expectedText": "[Reportaje] + [Análisis Técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/cronica/xolosarmy-thorchain-podcast.html": [
+    {
+      "xpath": ".//span[normalize-space(.)='[Crónica / Análisis]'][@class='emg-kicker']",
+      "expectedText": "[Crónica / Análisis]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/cultura/sin-cultura-no-hay-adopcion.html": [
+    {
+      "xpath": ".//p[normalize-space(.)='Cultura // Tesis'][@class='kicker mono']",
+      "expectedText": "Cultura // Tesis",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    },
+    {
+      "xpath": ".//p[normalize-space(.)='AutorFernando Ramírez']",
+      "expectedText": "AutorFernando Ramírez",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author"
+      ]
+    },
+    {
+      "xpath": ".//p[normalize-space(.)='Fecha de publicación6 de julio de 2026']",
+      "expectedText": "Fecha de publicación6 de julio de 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "publishedAt"
+      ]
+    }
+  ],
+  "/noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Seguridad]'][@class='tag']",
+      "expectedText": "[Seguridad]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel",
+        "section",
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='ECASH · CASHADDR · BITCOIN ABC · TONALLI WALLET'][@class='kicker']",
+      "expectedText": "ECASH · CASHADDR · BITCOIN ABC · TONALLI WALLET",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Redacción técnica · eCash Magazine México29 agosto 2026'][@class='meta']",
+      "expectedText": "Redacción técnica · eCash Magazine México29 agosto 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author",
+        "publishedAt"
+      ]
+    }
+  ],
+  "/noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Noticia]'][@class='kicker mono']",
+      "expectedText": "[Noticia]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre"
+      ]
+    }
+  ],
+  "/noticia/comunications-integration-xec-thorchain-with-teyolia.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[News]'][@class='kicker mono']",
+      "expectedText": "[News]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre"
+      ]
+    }
+  ],
+  "/noticia/mexico-kyc-aml-cripto-transferencias-2026.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Regulación · Activos virtuales · México'][@class='kicker']",
+      "expectedText": "Regulación · Activos virtuales · México",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "section",
+        "topics"
+      ]
+    }
+  ],
+  "/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Technical Note · Draft v0.1 · Review Request'][@class='article-kicker']",
+      "expectedText": "Technical Note · Draft v0.1 · Review Request",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/opinion/economia-agentica-tokenizada.html": [
+    {
+      "xpath": ".//span[normalize-space(.)='[Opinión]'][@class='category-tag']",
+      "expectedText": "[Opinión]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='Por: Colaborador Editorial']",
+      "expectedText": "Por: Colaborador Editorial",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author"
+      ]
+    }
+  ],
+  "/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Opinión] · Consenso · Tonalli Shield'][@class='kicker mono']",
+      "expectedText": "[Opinión] · Consenso · Tonalli Shield",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre",
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Por Fernando Ramírez 9 septiembre 2026 Opinión / Infraestructura'][@class='meta mono']",
+      "expectedText": "Por Fernando Ramírez 9 septiembre 2026 Opinión / Infraestructura",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author",
+        "publishedAt",
+        "genre",
+        "section"
+      ]
+    }
+  ],
+  "/opinion/ia-binarios-open-source-nueva-ventaja.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Opinión · Inteligencia artificial'][@class='kicker mono']",
+      "expectedText": "Opinión · Inteligencia artificial",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre",
+        "section",
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='5 septiembre 2026']",
+      "expectedText": "5 septiembre 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "publishedAt"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='Lectura: 9 minutos']",
+      "expectedText": "Lectura: 9 minutos",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "readingMinutes"
+      ]
+    },
+    {
+      "xpath": ".//p[normalize-space(.)='Género: Opinión']",
+      "expectedText": "Género: Opinión",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "genre"
+      ]
+    },
+    {
+      "xpath": ".//p[normalize-space(.)='Autor: Fernando Ramírez']",
+      "expectedText": "Autor: Fernando Ramírez",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author"
+      ]
+    }
+  ],
+  "/opinion/ia-y-codigo-verificable-en-cripto.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Opinión]'][@class='kicker mono']",
+      "expectedText": "[Opinión]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre"
+      ]
+    }
+  ],
+  "/opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Opinión]'][@class='tag']",
+      "expectedText": "[Opinión]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='FILOSOFÍA POLÍTICA · DINERO DIGITAL · JURISDICCIÓN'][@class='kicker']",
+      "expectedText": "FILOSOFÍA POLÍTICA · DINERO DIGITAL · JURISDICCIÓN",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='Por: Colaborador Editorial']",
+      "expectedText": "Por: Colaborador Editorial",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author"
+      ]
+    }
+  ],
+  "/opinion/tonalli-shield-ia-evidencia-rbitcoin.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Opinión] · Tonalli Shield'][@class='kicker mono']",
+      "expectedText": "[Opinión] · Tonalli Shield",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel",
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Por Fernando Ramírez 20 agosto 2026 Opinión / Ingeniería'][@class='meta mono']",
+      "expectedText": "Por Fernando Ramírez 20 agosto 2026 Opinión / Ingeniería",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author",
+        "publishedAt",
+        "originalGenreLabel",
+        "section"
+      ]
+    }
+  ],
+  "/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Investigación exploratoria · Consenso'][@class='kicker mono']",
+      "expectedText": "Investigación exploratoria · Consenso",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel",
+        "section",
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='Por Fernando Ramírez']",
+      "expectedText": "Por Fernando Ramírez",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author"
+      ]
+    },
+    {
+      "xpath": ".//span[normalize-space(.)='24 agosto 2026']",
+      "expectedText": "24 agosto 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "publishedAt"
+      ]
+    }
+  ],
+  "/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Auditoría de infraestructura financiera'][@class='kicker']",
+      "expectedText": "Auditoría de infraestructura financiera",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Rampa fiat → eCash probada con fondos reales'][@class='kicker']",
+      "expectedText": "Rampa fiat → eCash probada con fondos reales",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    }
+  ],
+  "/reportajes/tonalli-faucet-ecash-mexico.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Reportaje] · [Análisis Técnico]'][@class='kicker mono']",
+      "expectedText": "[Reportaje] · [Análisis Técnico]",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "originalGenreLabel"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Adopción Masiva Soberanía Financiera XolosArmy Network'][@class='meta-row mono']",
+      "expectedText": "Adopción Masiva Soberanía Financiera XolosArmy Network",
+      "reason": "Fila formada exclusivamente por etiquetas literales ya presentes en la lista completa de temas del nuevo encabezado.",
+      "fields": [
+        "topics",
+        "tags"
+      ]
+    }
+  ],
+  "/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='alias .xec1,600 RMZTM1humanos + agentes IA'][@class='flex flex-wrap gap-2 mt-7 text-[10px] uppercase tracking-wider space-mono text-slate-300']",
+      "expectedText": "alias .xec1,600 RMZTM1humanos + agentes IA",
+      "reason": "Fila formada exclusivamente por etiquetas literales ya presentes en la lista completa de temas del nuevo encabezado.",
+      "fields": [
+        "topics",
+        "tags"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Primera Plana · Identidad · 14 septiembre 2026'][@class='inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[.18em] font-bold space-mono text-emerald-300 border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 rounded-sm']",
+      "expectedText": "Primera Plana · Identidad · 14 septiembre 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "originalGenreLabel",
+        "section",
+        "publishedAt"
+      ]
+    }
+  ],
+  "/reportajes/tonalli-memo-mainnet-capa-social-ecash.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='TM1 Draft 0.2eCash mainnetChronikNFT + IPFS212 B eventData'][@class='flex flex-wrap gap-2 mt-7 text-[10px] uppercase tracking-wider space-mono text-slate-300']",
+      "expectedText": "TM1 Draft 0.2eCash mainnetChronikNFT + IPFS212 B eventData",
+      "reason": "Fila formada exclusivamente por etiquetas literales ya presentes en la lista completa de temas del nuevo encabezado.",
+      "fields": [
+        "topics",
+        "tags"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Primera Plana · Infraestructura · 10 septiembre 2026'][@class='inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[.18em] font-bold space-mono text-emerald-300 border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 rounded-sm']",
+      "expectedText": "Primera Plana · Infraestructura · 10 septiembre 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "originalGenreLabel",
+        "section",
+        "publishedAt"
+      ]
+    }
+  ],
+  "/reportajes/xec-client-utxo-real-thornode.html": [
+    {
+      "xpath": ".//span[normalize-space(.)='Análisis técnico · THORNode · XEC'][@class='kicker']",
+      "expectedText": "Análisis técnico · THORNode · XEC",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre",
+        "section",
+        "topics"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='starsquid/xec-clientUTXO client1 XEC = 100 base unitsCashAddrdisabled-by-default'][@class='tags']",
+      "expectedText": "starsquid/xec-clientUTXO client1 XEC = 100 base unitsCashAddrdisabled-by-default",
+      "reason": "Fila formada exclusivamente por etiquetas literales ya presentes en la lista completa de temas del nuevo encabezado.",
+      "fields": [
+        "topics",
+        "tags"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Por eCash Magazine México · 16 de agosto de 2026'][@class='meta']",
+      "expectedText": "Por eCash Magazine México · 16 de agosto de 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author",
+        "publishedAt"
+      ]
+    }
+  ],
+  "/reportajes/xec-thorchain-starsquid-xec-client.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Draft MR !2generic UTXO clientPiRK feedbackstarsquid/xec-clientTonalli path'][@class='pill-row']",
+      "expectedText": "Draft MR !2generic UTXO clientPiRK feedbackstarsquid/xec-clientTonalli path",
+      "reason": "Fila formada exclusivamente por etiquetas literales ya presentes en la lista completa de temas del nuevo encabezado.",
+      "fields": [
+        "topics",
+        "tags"
+      ]
+    },
+    {
+      "xpath": ".//div[normalize-space(.)='Por eCash Magazine México · 16 de agosto de 2026'][@class='meta']",
+      "expectedText": "Por eCash Magazine México · 16 de agosto de 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author",
+        "publishedAt"
+      ]
+    }
+  ],
+  "/reseñas/como-comprar-etoken-cultural-xolos-rmz.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='[Reseña] · Evaluación de Producto'][@class='kicker mono']",
+      "expectedText": "[Reseña] · Evaluación de Producto",
+      "reason": "Rótulo de cabecera duplicado: todos sus términos constan en el género normalizado, rótulo histórico, sección o temas del nuevo encabezado; no modifica clasificación.",
+      "fields": [
+        "genre",
+        "section",
+        "topics"
+      ]
+    }
+  ],
+  "/cronica/liquidez-soberana-ecash-xec-thorchain.html": [
+    {
+      "xpath": ".//span[normalize-space(.)='17 de junio de 2026']",
+      "expectedText": "17 de junio de 2026",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "publishedAt"
+      ]
+    }
+  ],
+  "/editorial/ecash-mexico-machine-economy.html": [
+    {
+      "xpath": ".//div[normalize-space(.)='Autor: Fernando Ramírez 25 de junio de 2026 Infraestructura · Liquidez · Machine Economy'][@class='article-meta']",
+      "expectedText": "Autor: Fernando Ramírez 25 de junio de 2026 Infraestructura · Liquidez · Machine Economy",
+      "reason": "Ficha o elemento exclusivamente de atribución, fecha, lectura o clasificación ya consignado en el nuevo encabezado. Se conservan los hermanos que contienen revisión, alcance, corte del roadmap o contexto adicional.",
+      "fields": [
+        "author",
+        "publishedAt",
+        "topics"
+      ]
+    }
+  ]
+}

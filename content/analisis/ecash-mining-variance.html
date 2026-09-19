@@ -1,0 +1,214 @@
+<div class="magazine-shell">
+<div>
+<header class="article-header">
+<div class="article-category">Análisis técnico</div>
+<h1 class="article-title">
+                    Ocho horas sin encontrar un bloque: ¿señal alcista o simple
+                    varianza minera en eCash?
+                </h1>
+<p class="article-deck">
+                    Un aumento del hashrate puede reflejar mayor rentabilidad y
+                    actividad minera, pero no demuestra por sí mismo que los mineros
+                    anticipen un movimiento extraordinario del mercado.
+                </p>
+</header>
+<div class="magazine-body content-container">
+<p>
+                    Una conversación reciente dentro de la comunidad eCash llamó la
+                    atención sobre un episodio particular: una operación con
+                    aproximadamente
+                    <strong class="technical-term">
+                        3 petahashes por segundo —3 PH/s—
+                    </strong>
+                    habría pasado cerca de ocho horas sin encontrar un bloque de
+                    <span class="technical-term">XEC</span>.
+                </p>
+<p>
+                    El dato fue compartido de manera comunitaria y no ha sido
+                    verificado de forma independiente mediante estadísticas públicas
+                    completas de la operación. Sin embargo, resulta útil como punto
+                    de partida para analizar una pregunta recurrente dentro de las
+                    redes Proof-of-Work:
+                </p>
+<blockquote class="main-point">
+<p>
+                        ¿La llegada de más potencia minera significa que los mineros
+                        saben que algo importante está por ocurrir?
+                    </p>
+</blockquote>
+<p>
+                    La interpretación resulta atractiva, especialmente cuando la
+                    ausencia de bloques coincide con movimientos del precio o con un
+                    incremento aparente del hashrate conectado a la red. Pero la
+                    explicación más probable es menos misteriosa: varianza
+                    estadística, cambios en la rentabilidad y reasignación temporal
+                    de potencia entre cadenas compatibles con
+                    <span class="technical-term">SHA-256</span>.
+                </p>
+<p>
+                    Un intervalo desafortunado para un minero individual no
+                    constituye, por sí solo, una señal de mercado.
+                </p>
+<h2>Minar no significa recibir bloques a intervalos regulares</h2>
+<p>
+                    La minería Proof-of-Work no funciona como un salario programado.
+                </p>
+<p>
+                    Cada intento de encontrar un bloque es un evento probabilístico.
+                    Un minero puede calcular cuántos bloques debería obtener en
+                    promedio de acuerdo con su proporción del hashrate total, pero
+                    eso no significa que encontrará uno exactamente cada determinado
+                    número de horas.
+                </p>
+<p>
+                    Una operación podría pasar mucho más tiempo del esperado sin
+                    descubrir un bloque y, posteriormente, encontrar varios en una
+                    ventana relativamente corta. A largo plazo, los resultados
+                    tienden a aproximarse al promedio estadístico. En periodos
+                    breves, las desviaciones pueden ser considerables.
+                </p>
+<p>
+                    Además, esta comparación solo resulta directa cuando se analiza
+                    minería individual o
+                    <strong class="technical-term">solo mining</strong>.
+                    En un pool con modalidades como
+                    <span class="technical-term">PPS</span> o
+                    <span class="technical-term">PPLNS</span>, los ingresos pueden
+                    distribuirse mediante participaciones internas aunque el equipo
+                    del usuario no sea identificado como descubridor directo del
+                    bloque.
+                </p>
+<h2>El cálculo para una operación de 3 PH/s</h2>
+<p>
+                    Tomemos como hipótesis los datos comentados dentro de la
+                    comunidad:
+                </p>
+<ul>
+<li>
+                        Potencia de la operación:
+                        <strong class="technical-term">3 PH/s</strong>
+</li>
+<li>
+                        Tiempo observado:
+                        <strong class="technical-term">8 horas</strong>
+</li>
+<li>
+                        Intervalo objetivo de eCash: un bloque cada
+                        <strong class="technical-term">10 minutos</strong>
+</li>
+<li>
+                        Bloques esperados en toda la red durante ocho horas:
+                        <strong class="technical-term">48</strong>
+</li>
+</ul>
+<p>
+                    El sitio oficial de minería de eCash confirma que la red utiliza
+                    <span class="technical-term">Proof-of-Work SHA-256</span> y
+                    mantiene como referencia un intervalo promedio de diez minutos.
+
+                    <a href="https://e.cash/mining" target="_blank" rel="noopener noreferrer" class="source-tag">
+                        Fuente: eCash Mining
+                    </a>
+</p>
+<p>
+                    Si durante ese periodo el hashrate total hubiera fluctuado entre
+                    <strong class="technical-term">46 PH/s</strong> y
+                    <strong class="technical-term">62 PH/s</strong>, una operación de
+                    <strong class="technical-term">3 PH/s</strong> habría
+                    representado aproximadamente entre
+                    <strong class="technical-term">4.8%</strong> y
+                    <strong class="technical-term">6.5%</strong> de la potencia
+                    total.
+                </p>
+<p>
+                    El número esperado de bloques se obtiene multiplicando los
+                    <strong class="technical-term">48 bloques</strong> de la red por
+                    la participación estimada del minero:
+                </p>
+<div class="technical-table-wrapper" role="region" aria-label="Cálculo de probabilidad de encontrar cero bloques" tabindex="0">
+<table class="technical-data">
+<thead>
+<tr>
+<th scope="col">Hashrate de red</th>
+<th scope="col">Participación de 3 PH/s</th>
+<th scope="col">Bloques esperados (λ)</th>
+<th scope="col">Probabilidad de cero bloques</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="mono">46 PH/s</td>
+<td class="mono">6.52%</td>
+<td class="mono">3.13</td>
+<td class="mono">4.4%</td>
+</tr>
+<tr>
+<td class="mono">62 PH/s</td>
+<td class="mono">4.84%</td>
+<td class="mono">2.32</td>
+<td class="mono">9.8%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Usando una aproximación de Poisson:</p>
+<div class="editorial-callout">
+<p class="math-expr">
+                        P(X = 0) = e<sup>−λ</sup>
+</p>
+</div>
+<p>
+                    donde <span class="math-expr">λ</span> representa el número
+                    esperado de bloques durante el periodo observado.
+                </p>
+<p>
+                    El resultado muestra que terminar las ocho horas sin encontrar
+                    ningún bloque habría tenido una probabilidad aproximada de entre
+                    <strong class="technical-term">4.4%</strong> y
+                    <strong class="technical-term">9.8%</strong>.
+                </p>
+<p>
+                    Sería un periodo desafortunado, pero no extraordinario:
+                    aproximadamente una ventana de cada 10 a 23 periodos comparables,
+                    suponiendo que la participación del minero permaneciera estable.
+                </p>
+<p>
+                    La red real, por supuesto, no permanece inmóvil. El hashrate
+                    puede entrar y salir, la dificultad cambia y los intervalos entre
+                    bloques varían. Por ello, el cálculo debe entenderse como una
+                    ilustración estadística, no como una reconstrucción exacta del
+                    episodio.
+                </p>
+<p>
+                    También es importante recordar que el hashrate mostrado por los
+                    exploradores es una estimación, no una medición directa de cada
+                    <span class="technical-term">ASIC</span> conectado. El explorador
+                    obtiene este indicador a partir de la dificultad y del ritmo
+                    reciente de producción de bloques.
+
+                    <a href="https://e.cash/blog/block-explorer" target="_blank" rel="noopener noreferrer" class="source-tag">
+                        Fuente
+                    </a>
+</p>
+<h2>El precio sí puede atraer nueva potencia minera</h2>
+<p>
+                    eCash utiliza el algoritmo
+                    <span class="technical-term">SHA-256</span>, compatible con el
+                    hardware empleado para minar
+                    <span class="technical-term">Bitcoin</span> y otras cadenas de
+                    la misma familia.
+                </p>
+</div>
+</div>
+<section class="mag-metadata-footer">
+<div class="content-container">
+<p class="footer-seo-data">
+                    Publicado por eCash Magazine México.
+                </p>
+<p class="footer-tag-list">
+                    eCash · XEC · minería · Proof-of-Work · SHA-256 · Heartbeat ·
+                    Avalanche · hashrate · descentralización
+                </p>
+</div>
+</section>
+</div>

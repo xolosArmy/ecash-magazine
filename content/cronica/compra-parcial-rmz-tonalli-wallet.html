@@ -1,0 +1,52 @@
+<div class="site-shell">
+<div class="article">
+<section class="hero">
+<img src="https://i.imgur.com/godoHEz.jpeg" alt="" role="presentation" class="editorial-legacy-image"><div class="hero-content">
+<div class="kicker mono">[Crónica] + [Análisis Técnico]</div>
+<h1>Tonalli Wallet activa la compra parcial de RMZ: nace el mercado fraccional on-chain en eCash</h1>
+<p class="deck">Una prueba real permitió comprar 1 RMZ desde una oferta mayor de 500 RMZ, dejando el remanente vivo en Agora para futuros compradores.</p>
+</div>
+</section>
+<div class="content-grid">
+<div class="main">
+<div class="lede-card">
+<div class="lede-label mono">Tesis Editorial</div>
+<p>La compra parcial de RMZ no es solo una mejora de interfaz: es una pieza de liquidez cultural. Permite que cualquier usuario entre al ecosistema con una cantidad pequeña, pruebe el DEX, adquiera su primera llave RMZ y participe en la red sin depender de custodios, exchanges centralizados ni compras forzadas de ofertas completas.</p>
+</div>
+<h2><span class="num">01</span>De la discusión a la infraestructura</h2>
+<p>Lo que comenzó como una discusión sobre rentabilidad para la plataforma <strong>eCash.mx</strong> terminó convertido en infraestructura funcional. Tonalli Wallet ya permite compras parciales de RMZ en el Exchange Descentralizado (DEX), reduciendo drásticamente la fricción de entrada y abriendo una nueva etapa para la economía interna de eCash México y la xolosArmy Network.</p>
+<h2><span class="num">02</span>Análisis Técnico: AgoraPartial y UTXOs</h2>
+<p>En el corazón de este avance se encuentra la implementación del protocolo <strong>AgoraPartial</strong>. Históricamente, las ofertas on-chain (como las basadas en <em>covenants</em> rígidos) exigían que un comprador adquiriera la totalidad de la oferta listada. Si alguien vendía 500 RMZ, no podías comprar solo 1.</p>
+<p>El análisis técnico de la prueba demostró la resolución de este problema manipulando los <strong>UTXOs</strong> (Unspent Transaction Outputs). El flujo actual permite que la Tonalli Wallet construya una transacción que toma el UTXO original de 500 RMZ, extrae la fracción solicitada (1 RMZ), transfiere el costo en XEC al vendedor, y genera un <strong>nuevo UTXO remanente</strong> (499 RMZ) que vuelve a bloquearse en el contrato inteligente del DEX con las mismas condiciones proporcionales de venta.</p>
+<div class="pullquote">
+            El mercado fraccional de RMZ respiró por primera vez en eCash.
+          </div>
+<h2><span class="num">03</span>Las Consecuencias: Liquidez Cultural</h2>
+<p>Para los desarrolladores, esto confirma que los <em>covenants</em> en eCash son lo suficientemente flexibles para emular lógicas complejas de mercados descentralizados sin inflar las comisiones ni saturar la red. Para los usuarios y comerciantes, significa flexibilidad total.</p>
+<p>RMZ deja de ser una "oferta grande detenida en pantalla" y se convierte en una puerta fraccional, accesible y permanentemente viva.</p>
+<h2><span class="num">04</span>El Cierre</h2>
+<p>Antes, el DEX decía: <em>compra toda la oferta o espera</em>.</p>
+<p>Ahora, Tonalli Wallet dice: <strong>compra 1 RMZ y entra</strong>.</p>
+<p>Ese pequeño cambio transforma por completo la experiencia de <em>onboarding</em>. Para eCash México, esto significa que la narrativa de cultura, comunidad e infraestructura ya no se queda en un discurso abstracto: empieza a tomar forma como una economía p2p real, medible y fraccional sobre la blockchain de eCash.</p>
+</div>
+<aside class="sidebar">
+<div class="sticky">
+<div class="side-card">
+<div class="side-title mono">Ficha Técnica</div>
+<p><strong>Actualización:</strong><br>Soporte para AgoraPartial</p>
+<p><strong>Plataforma:</strong><br>Tonalli Wallet DEX</p>
+<p><strong>Impacto:</strong><br>Reducción de barrera de entrada al permitir compra de tokens fraccionados.</p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Conceptos Clave</div>
+<ul>
+<li><strong>Agora:</strong> Protocolo de DEX on-chain sin custodia en eCash.</li>
+<li><strong>UTXO Remanente:</strong> El "vuelto" o saldo restante de una oferta que se vuelve a publicar automáticamente.</li>
+<li><strong>Fricción:</strong> Barreras económicas o técnicas que impiden la adopción.</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>

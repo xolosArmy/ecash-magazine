@@ -1,0 +1,146 @@
+<div class="shell">
+<div class="article-shell">
+<section class="hero">
+<div class="signal mono" aria-hidden="true">
+<div class="signal-card">IA → más código</div>
+<div class="signal-card">Seguridad → más evidencia</div>
+<div class="signal-card">Tonalli Shield → gates cerrados</div>
+</div>
+<div class="hero-content">
+<div class="kicker mono">[Opinión] · Tonalli Shield</div>
+<h1>Tonalli Shield: si la IA acelera el código, debemos elevar la evidencia</h1>
+<p class="deck">rbitcoin mostró hasta dónde puede llegar la ingeniería de Bitcoin asistida por IA. Para nosotros, la lección no es acelerar promesas: es diseñar Tonalli Shield para que una hipótesis pueda ser refutada antes de convertirse en infraestructura.</p>
+<div class="meta mono">
+<span>Por Fernando Ramírez</span>
+<span>20 agosto 2026</span>
+<span>Opinión / Ingeniería</span>
+</div>
+</div>
+</section>
+<div class="status-strip mono" aria-label="Estado actual de Tonalli Shield">
+<div class="status-item"><small>Fase</small><strong>PRE-ENGINEERING</strong></div>
+<div class="status-item"><small>Mainnet</small><strong>PROHIBIDO</strong></div>
+<div class="status-item"><small>Fondos reales</small><strong>PROHIBIDOS</strong></div>
+<div class="status-item"><small>ZK</small><strong>HIPÓTESIS</strong></div>
+</div>
+<div class="content-grid">
+<div class="main">
+<div class="editorial-note">
+<strong class="mono">Nota editorial:</strong> esta es una columna de opinión sustentada en documentos públicos. Las cifras y declaraciones sobre rbitcoin se atribuyen a su repositorio; no constituyen una auditoría independiente. Tonalli Shield se presenta con su estado actual: investigación pre-engineering, sin implementación funcional ni autorización para mainnet o fondos reales.
+          </div>
+<p class="lead">Cuando Brandon Black presentó rbitcoin, la parte más provocadora no fue Rust, el tamaño del archivo ni la velocidad de sincronización. Según la política de seguridad del proyecto, todo el código <em>first-party</em> fue escrito por Grok bajo su dirección.</p>
+<p>Para nosotros, esa declaración no elimina al ingeniero: hace más visible su responsabilidad. Una IA puede producir una arquitectura ambiciosa, escribir miles de líneas, generar pruebas y proponer soluciones con una velocidad que hace pocos años parecía imposible. Lo que no puede hacer es decretar que esa arquitectura es segura.</p>
+<p>Esa diferencia está en el centro de <strong>Tonalli Shield</strong>.</p>
+<h2>La IA ya puede escribir el experimento</h2>
+<p>rbitcoin es un precedente importante porque lleva el desarrollo asistido por IA a una de las zonas más sensibles del software: un nodo completo de Bitcoin, donde un error puede aceptar una cadena inválida, rechazar una cadena válida o servir información equivocada a una wallet.</p>
+<p>El proyecto es transparente sobre su autoría y también sobre su inmadurez. Su documentación lo clasifica como software experimental 0.x y su guía de mainnet utiliza un lenguaje inequívoco: uso de laboratorio, alta vigilancia y ninguna equivalencia demostrada con Bitcoin Core o Fulcrum.</p>
+<p>Más importante todavía: el registro público de rbitcoin reúne 21 hallazgos externos, incluidos dos críticos y nueve de severidad alta. Según el propio repositorio, todos fueron corregidos y recibieron pruebas de regresión. Al mismo tiempo, su documento de calidad reconocía que el fuzzing diferencial continuo seguía pendiente dentro del proyecto.</p>
+<div class="pullquote">La contribución histórica de rbitcoin quizá no sea demostrar que una IA puede reemplazar Bitcoin Core, sino mostrar cuánta verificación necesita una base de código que una IA puede producir a gran velocidad.</div>
+<p>Eso es exactamente lo que viene para la ciberseguridad dentro del ecosistema Bitcoin: más implementaciones, más experimentos y más capacidad para buscar fallos; pero también más código del que ningún equipo humano podrá confiar por simple lectura o reputación.</p>
+<p>La IA elevará simultáneamente la capacidad ofensiva y defensiva. Podrá comparar implementaciones, generar secuencias adversariales, encontrar conversiones peligrosas, descubrir estados imposibles y automatizar regresiones. También podrá reproducir errores con enorme velocidad, inventar APIs plausibles que no existen y producir explicaciones convincentes para garantías nunca demostradas.</p>
+<p>Por eso la nueva unidad de confianza no puede ser “lo escribió un experto” ni “lo escribió una IA”. Debe ser <strong>la evidencia reproducible asociada a un commit exacto</strong>.</p>
+<h2>Tonalli Shield es la pregunta principal</h2>
+<p>Nos interesa rbitcoin como precedente, pero nuestro objeto principal es Tonalli Shield: una investigación sobre si puede construirse para eCash una máquina de estados privada, auditable y no custodial, sin reemplazar la verdad pública del nodo y sin sacar de Tonalli Wallet los secretos o la autorización del usuario.</p>
+<p>No estamos anunciando un producto. El proyecto permanece en <strong>PRE-ENGINEERING</strong>. La implementación funcional no ha comenzado, el uso de mainnet y fondos reales está prohibido, no existe una L2 operativa, no asumimos que exista una subnet nativa de eCash y la arquitectura zero-knowledge continúa siendo una hipótesis de investigación.</p>
+<p>El estado público confirma esa cautela: la rama principal del repositorio independiente contiene únicamente la licencia; la misión, los límites y las decisiones propuestas viven por ahora en un PR documental abierto y en borrador. Son un expediente de investigación, no código ejecutable ni evidencia de una capacidad desplegada.</p>
+<p>Ésa no es una debilidad de comunicación. Es el primer control de seguridad. En una industria que suele anunciar la solución antes de escribir el modelo de amenazas, nosotros queremos preservar el derecho técnico a concluir que una idea debe rediseñarse o detenerse.</p>
+<h2>Las fronteras que no negociamos</h2>
+<p>La arquitectura propuesta distribuye autoridad. Ningún componente debe apropiarse de funciones que pertenecen a otro:</p>
+<table class="boundary-table">
+<thead>
+<tr><th>Componente</th><th>Función autorizada</th><th>Función prohibida</th></tr>
+</thead>
+<tbody>
+<tr><td>Bitcoin ABC</td><td>Validar la cadena y establecer la verdad pública de L1.</td><td>Recibir secretos de wallet o ser sustituido por una verdad inventada por Shield.</td></tr>
+<tr><td>Chronik</td><td>Observar e indexar datos para descubrimiento y experiencia de usuario.</td><td>Actuar como oráculo de consenso o resolver unilateralmente una discrepancia.</td></tr>
+<tr><td>Tonalli Shield</td><td>Definir y reconstruir un estado privado derivado bajo reglas explícitas.</td><td>Custodiar claves, autorizar gasto o crear una autoridad monetaria paralela.</td></tr>
+<tr><td>Tonalli Wallet</td><td>Conservar secretos, intención, aprobación y futura generación local de pruebas.</td><td>Delegar silenciosamente esa autoridad a un nodo, indexador o servicio remoto.</td></tr>
+</tbody>
+</table>
+<p>Si Bitcoin ABC y Chronik discrepan, Shield debe detenerse. Si falta historia, aparece un nullifier duplicado, una raíz no puede reconstruirse o una prueba pertenece a otro dominio, el gate debe permanecer cerrado. Pero <em>Fail Closed</em> tampoco significa inventar restricciones: significa obedecer con precisión la especificación y negarse a completar los huecos con defaults convenientes.</p>
+<h2>ZK: primero la propiedad, después el circuito</h2>
+<p>Zero-knowledge puede ser parte de la respuesta, pero hoy no es una garantía de Tonalli Shield. Antes de elegir un circuito debemos escribir la afirmación que queremos demostrar:</p>
+<div class="pullquote">El verificador aprende <em>X</em> y queda convencido de <em>Y</em>, sin recibir <em>Z</em>, bajo los supuestos <em>A</em>.</div>
+<p>Después tendremos que intentar refutarla: qué información residual puede correlacionarse, cómo se vincula la prueba a la cadena, la versión y el propósito, qué ocurre ante replay o reorg, dónde vive el witness, de dónde provienen los parámetros y cuánto cuesta generar una prueba en el dispositivo real.</p>
+<p>No comenzaremos por elegir una tecnología y después inventar qué protege. Una prueba que devuelve <code>true</code> no demuestra nada si verificó la propiedad equivocada.</p>
+<h2>Nuestro fork de Bitcoin ABC: infraestructura paciente</h2>
+<p><a href="https://github.com/xolosArmy/bitcoin-abc"><code>xolosArmy/bitcoin-abc</code></a> es nuestra superficie controlada de investigación alrededor del software de nodo de eCash. Hoy funciona como hogar documental y su rama pública está divergida y desactualizada respecto de upstream: no es una implementación de Shield, una nueva red ni un fork hostil de consenso.</p>
+<p>Su alcance futuro es más sobrio y, por eso mismo, más útil: fijar versiones upstream, verificar procedencia, reproducir builds, mapear capacidades reales de Bitcoin ABC, Chronik, Avalanche y regtest, y construir fixtures deterministas contra los cuales una futura máquina de estados pueda ser comparada.</p>
+<p>El propio expediente del fork advierte que su base documentada está desactualizada y que no debe utilizarse como base de implementación hasta completar una sincronización upstream separada y revisada. Ese bloqueo debe respetarse. Tener una copia del código no equivale a tener una distribución verificada; tener hashes o firmas tampoco equivale a haber probado correctamente la cadena de confianza.</p>
+<p>“Desarrollo a futuro” significa aquí preservar conocimiento y opcionalidad: un lugar donde investigar sin contaminar upstream, sin modificar consenso y sin fingir que una capacidad ausente ya existe. Cualquier delta futuro respecto de Bitcoin ABC tendrá que identificarse, justificarse y probarse por separado.</p>
+<h2>Cómo debe involucrarse la IA</h2>
+<p>En Tonalli Shield no queremos usar IA para reducir el estándar de ingeniería, sino para volver el proceso más adversarial y verificable. Su participación puede ser profunda:</p>
+<ol>
+<li>mapear capacidades desde código, pruebas y artefactos fijados;</li>
+<li>proponer especificaciones y modelos de estado que un humano pueda revisar;</li>
+<li>generar vectores límite, secuencias de reorg, datos malformados y campañas diferenciales;</li>
+<li>rastrear cada requisito hasta código, test, log y digest;</li>
+<li>buscar contradicciones entre documentación, implementación y comportamiento observado;</li>
+<li>convertir cada hallazgo reproducible en una regresión permanente.</li>
+</ol>
+<p>Pero la IA no puede ser la autoridad que aprueba su propio trabajo. El modelo de amenazas, la aceptación de riesgo, la propiedad que una prueba debe demostrar y la decisión de cruzar un gate siguen siendo responsabilidades humanas y, cuando sea posible, deben recibir reproducción independiente.</p>
+<h2>Cuatro resultados honestos</h2>
+<p>Tonalli Shield no está diseñado para producir obligatoriamente un “sí”. La investigación puede terminar en cualquiera de cuatro resultados:</p>
+<div class="outcomes">
+<div class="outcome"><code>GO-REGTEST</code><p>Existe evidencia suficiente para continuar únicamente en un laboratorio regtest, sin implicar mainnet, producción o fondos reales.</p></div>
+<div class="outcome"><code>SUBNET-READY-WAITING</code><p>El diseño local supera sus gates, pero depende de una capacidad futura de red, específica y comprobable.</p></div>
+<div class="outcome"><code>REDESIGN</code><p>Una premisa falló, aunque existe otra arquitectura plausible que merece evaluación.</p></div>
+<div class="outcome"><code>NO-GO</code><p>La propiedad buscada contradice los límites de seguridad, autoridad o privacidad y no existe mitigación defendible.</p></div>
+</div>
+<p>Si la evidencia concluye <code>NO-GO</code>, Shield habrá cumplido una función valiosa: impedir que una narrativa se convierta en riesgo técnico.</p>
+<h2>Construir también significa saber detenerse</h2>
+<p>rbitcoin hace visible una nueva realidad: la IA puede convertir una idea de años en una base de código en muy poco tiempo. La respuesta responsable no es correr más rápido hacia producción. Es construir mejores mecanismos para detenernos, comparar, reconstruir y admitir que una hipótesis falló.</p>
+<p>Para xolosArmy, Tonalli Shield representa esa disciplina. Queremos investigar privacidad y estado derivado sobre eCash, pero hacerlo sin pedir confianza anticipada, sin usar fondos como herramienta de descubrimiento y sin atribuirle a la criptografía propiedades que todavía no han sido demostradas.</p>
+<div class="conclusion">
+<p>El futuro de la infraestructura soberana no se medirá solo por lo que la IA nos permita lanzar, sino por aquello que tengamos la disciplina de no desplegar sin evidencia.</p>
+</div>
+<section class="references">
+<h2>Fuentes y documentos de contexto</h2>
+<ul>
+<li><a href="https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/SECURITY.md">rbitcoin: política de seguridad y declaración de autoría</a>.</li>
+<li><a href="https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/docs/experimental-mainnet.md">rbitcoin: runbook experimental de mainnet</a>.</li>
+<li><a href="https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/docs/external_findings/README.md">rbitcoin: registro de hallazgos externos</a>.</li>
+<li><a href="https://github.com/reardencode/rbitcoin/blob/8c7e8ed936c7a484b3b48a1e0e63e79e4e3d8e8d/docs/quality.md">rbitcoin: programa y deuda de calidad</a>.</li>
+<li><a href="https://github.com/xolosArmy/tonalli-shield/pull/1">Tonalli Shield: PR-Cero documental en Draft</a>.</li>
+<li><a href="https://github.com/xolosArmy/tonalli-shield/blob/46c37e50f17fac365ad6a1f7c27aa2c2bb0a27db/docs/STATUS.md">Tonalli Shield: estado detallado del proyecto</a>.</li>
+<li><a href="https://github.com/xolosArmy/tonalli-shield/blob/46c37e50f17fac365ad6a1f7c27aa2c2bb0a27db/docs/SECURITY_BOUNDARIES.md">Tonalli Shield: límites de seguridad propuestos</a>.</li>
+<li><a href="https://github.com/xolosArmy/bitcoin-abc/blob/e0602314163ae6f7cddb8615b4acc854a88ead39/doc/tonalli/README.md">xolosArmy/bitcoin-abc: alcance de investigación Tonalli</a>.</li>
+<li><a href="https://github.com/xolosArmy/bitcoin-abc/blob/e0602314163ae6f7cddb8615b4acc854a88ead39/doc/tonalli/UPSTREAM_TRACKING.md">xolosArmy/bitcoin-abc: política y estado de sincronización upstream</a>.</li>
+</ul>
+</section>
+</div>
+<aside class="sidebar">
+<div class="sticky">
+<div class="side-card primary">
+<div class="side-title mono">Ficha editorial</div>
+<p><strong>Género:</strong> Opinión</p>
+<p><strong>Autor:</strong> Fernando Ramírez</p>
+<p><strong>Temas:</strong> IA, ciberseguridad, Bitcoin, eCash, Tonalli Shield.</p>
+<p><strong>Revisión técnica interna:</strong> xolosArmy Network.</p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Mapa de autoridad</div>
+<div class="authority">
+<div><strong>Bitcoin ABC</strong><br>Verdad pública L1</div>
+<div><strong>Chronik</strong><br>Observación, no consenso</div>
+<div><strong>Tonalli Shield</strong><br>Estado privado derivado</div>
+<div><strong>Tonalli Wallet</strong><br>Secretos y autorización</div>
+</div>
+</div>
+<div class="side-card warning">
+<div class="side-title mono">Límite vigente</div>
+<p>No usar mainnet.</p>
+<p>No usar fondos reales.</p>
+<p>No presentar Shield como L2, subnet o privacidad funcional.</p>
+<p><code>GO-REGTEST</code> solo autorizaría continuar en regtest.</p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Invitación</div>
+<p><strong>Revisa las premisas, no pruebes con fondos.</strong></p>
+<p>Una refutación reproducible del modelo será tan valiosa como una confirmación.</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>

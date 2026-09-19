@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://magazine.ecash.mx/editorial/catalog.schema.json",
+  "title": "Catálogo editorial comprobable de eCash Magazine México",
+  "description": "Metadatos observados; null expresa ausencia o ambigüedad. Ninguna fecha, firma o género se deriva del nombre de archivo o la carpeta.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "baseUrl": {
+      "const": "https://magazine.ecash.mx"
+    },
+    "sourceRevision": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "articles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^/[^?#]+\\.html$"
+          },
+          "sourcePath": {
+            "type": "string",
+            "pattern": "^[^/][^?#]+\\.html$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "genre": {
+            "enum": [
+              "Noticia",
+              "Entrevista",
+              "Crónica",
+              "Reportaje",
+              "Columna",
+              "Opinión",
+              "Editorial",
+              "Reseña",
+              "Análisis técnico",
+              null
+            ]
+          },
+          "originalGenreLabel": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "classificationStatus": {
+            "enum": [
+              "confirmed",
+              "pending"
+            ]
+          },
+          "section": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "slug": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "provenance": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "slug",
+                "provenance"
+              ]
+            }
+          },
+          "author": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "type": {
+                    "enum": [
+                      "Person",
+                      "Organization",
+                      null
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "type"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "publishedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}(?:T\\d{2}:\\d{2}:\\d{2}(?:Z|[+-]\\d{2}:\\d{2}))?$"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}(?:T\\d{2}:\\d{2}:\\d{2}(?:Z|[+-]\\d{2}:\\d{2}))?$"
+          },
+          "summary": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "image": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "src": {
+                    "type": "string",
+                    "pattern": "^(https?://|/)"
+                  },
+                  "alt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "width": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1
+                  },
+                  "height": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "src",
+                  "alt",
+                  "width",
+                  "height"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "readingMinutes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^(https?://|/)"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "reference",
+                    "document",
+                    "image",
+                    "repository",
+                    "commit",
+                    "pull-request",
+                    "transaction",
+                    "token-id",
+                    "block",
+                    "specification",
+                    "software-version"
+                  ]
+                },
+                "category": {
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "technical",
+                    null
+                  ]
+                },
+                "classificationStatus": {
+                  "enum": [
+                    "confirmed",
+                    "pending"
+                  ]
+                },
+                "locator": {
+                  "type": "string"
+                },
+                "provenance": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "label",
+                "kind",
+                "category",
+                "classificationStatus",
+                "provenance"
+              ]
+            }
+          },
+          "related": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^/[^?#]+\\.html$"
+            }
+          },
+          "language": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidenceLimitations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "provenance": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "text",
+                "provenance"
+              ]
+            }
+          },
+          "metadataProvenance": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "pendingMetadata": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "editorialNote": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "url",
+          "sourcePath",
+          "title",
+          "genre",
+          "originalGenreLabel",
+          "classificationStatus",
+          "section",
+          "topics",
+          "author",
+          "publishedAt",
+          "updatedAt",
+          "summary",
+          "image",
+          "tags",
+          "readingMinutes",
+          "references",
+          "related",
+          "language",
+          "evidenceLimitations",
+          "metadataProvenance",
+          "pendingMetadata"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "genre": {
+                  "type": "null"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "classificationStatus": {
+                  "const": "pending"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "classificationStatus": {
+                  "const": "confirmed"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "baseUrl",
+    "sourceRevision",
+    "articles"
+  ]
+}

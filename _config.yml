@@ -1,0 +1,17 @@
+# GitHub Pages keeps serving the existing static HTML. These are build inputs
+# and review artifacts, not additional public copies of the articles.
+exclude:
+  - content
+  - scripts
+  - docs
+  - qa
+  - requirements-dev.txt
+  - README.md
+  - editorial/catalog.json
+  - editorial/catalog.schema.json
+  - editorial/frontpage.json
+  - editorial/media-map.json
+  - editorial/preservation.json
+  - editorial/generated-pages.json
+  - editorial/site.json
+  - editorial/metadata-removals.json

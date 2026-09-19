@@ -1,0 +1,137 @@
+<div class="site-shell">
+<div class="article">
+<section class="hero">
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="" role="presentation" class="editorial-legacy-image"><div class="hero-content">
+<div class="kicker mono">[Crónica] + [Análisis Técnico]</div>
+<h1>El día en que xolosarmy.xec pasó de identidad soberana a ciudadanía activa</h1>
+<p class="deck">El alias xolosarmy.xec ya no solo existe como identidad confirmada sobre eCash. Ahora emite votos firmados criptográficamente en la Asamblea RMZ.</p>
+</div>
+</section>
+<div class="content-grid">
+<div class="main">
+<div class="lede-card">
+<div class="lede-label mono">Entrada</div>
+<p>Hoy eCash México / xolosArmy Network cruzó una frontera importante: la identidad soberana dejó de ser solo una credencial verificable y se convirtió en una ciudadanía activa. La ruta completa quedó viva:</p>
+<span class="inline-flow mono">Identidad → Elegibilidad → Firma → Voto → Auditoría → Resultado</span>
+</div>
+<h2><span class="num">I</span> La Fase A: cuando la identidad quedó confirmada</h2>
+<p>El día comenzó con el cierre real de la Fase A: la identidad soberana de <span class="code-chip">xolosarmy.xec</span>. El flujo ya estaba funcionando:</p>
+<div class="flow-box">
+<span class="mono">Flujo Base</span>
+<div class="flow-step">Tonalli Wallet</div>
+<div class="flow-step">→ registro de alias .xec</div>
+<div class="flow-step">→ cobro de 1600 RMZ</div>
+<div class="flow-step">→ inscripción vía OP_RETURN en eCash</div>
+<div class="flow-step">→ indexación propia en alias.ecash.mx</div>
+<div class="flow-step">→ verificación pública en ecash.mx/identidad</div>
+</div>
+<p>La identidad quedó confirmada con estos datos de la red:</p>
+<pre><code>Alias: xolosarmy.xec
+Wallet: ecash:qzdq0q65fwnt94rlcph5kllj0xcry6e0v58zrgp7a3
+Tx alias: 8406ba40d1f760e807b6635a840c874e4ca8efd7ee323bb1a781539442288de1
+Bloque: 952171
+Status: confirmed
+Source: chronik-indexer</code></pre>
+<p>Después, en la interfaz de <code>ecash.mx/identidad</code>, apareció el mensaje que cerró simbólicamente esta fase: <strong>"Alias verificado. Identidad confirmada."</strong> Pero una identidad que no participa todavía es una identidad dormida. El siguiente paso era convertir esa identidad en acción.</p>
+<h2><span class="num">II</span> El cambio estratégico: adelantar la Asamblea RMZ</h2>
+<p>El plan original para la Fase B tenía este orden: B1 (Telegram token-gated), B2 (Medallas/reputación) y B3 (Asamblea/votaciones). Pero durante el proceso se decidió cambiar la prioridad. La lógica fue poderosa: antes de cerrar el acceso a espacios privados o decorar perfiles con reputación visual, había que demostrar que la identidad soberana podía participar en decisiones.</p>
+<div class="pullquote">
+            RMZ prueba pertenencia.<br>
+            Alias prueba identidad.<br>
+            La Asamblea prueba voluntad colectiva.
+          </div>
+<h2><span class="num">III</span> El diseño de la Asamblea: un voto por identidad</h2>
+<p>La arquitectura elegida para la Fase B3 fue un MVP de gobernanza con una característica central: <strong>Voto off-chain firmado, pero elegibilidad on-chain.</strong></p>
+<p>La regla inicial fue deliberadamente sencilla: <span class="code-chip">1 alias .xec confirmado + holder RMZ = 1 voto</span>. No se pondera por cantidad de RMZ. Esto importa porque evita que la primera versión de la Asamblea nazca como una plutocracia. El MVP pone el centro en la identidad comunitaria.</p>
+<h2><span class="num">IV</span> Nace rmz-assembly-api</h2>
+<p>Para sostener esta nueva capa de gobernanza se creó un backend dedicado: <code>~/rmz-assembly-api</code>. El proyecto se implementó con TypeScript, Express, Zod y JSONL. El primer commit dejó sembrada la estructura:</p>
+<pre><code><span class="code-comment">ea443c0 feat: add RMZ assembly API skeleton</span>
+
+GET  /v1/assembly/health
+GET  /v1/assembly/proposals/:proposalId
+GET  /v1/assembly/proposals/:proposalId/results
+GET  /v1/assembly/proposals/:proposalId/audit.jsonl
+POST /v1/assembly/eligibility/check
+POST /v1/assembly/votes/prepare
+POST /v1/assembly/votes</code></pre>
+<h2><span class="num">V</span> La elegibilidad dejó de ser simulación</h2>
+<p>El backend comenzó a comprobar: 1) Que el alias .xec fuera válido, 2) Que estuviera confirmado, 3) Que la dirección del alias coincidiera con la wallet enviada y 4) Que la wallet tuviera RMZ.</p>
+<pre><code class="code-json">{
+  "eligible": true,
+  "alias": "xolosarmy.xec",
+  "wallet": "ecash:qzdq0q65fwnt94rlcph5kllj0xcry6e0v58zrgp7a3",
+  "rmz": {
+    "holder": true,
+    "atoms": "100"
+  }
+}</code></pre>
+<p>En ese momento, <span class="code-chip">xolosarmy.xec</span> ya no era solamente un alias verificado. Era una identidad elegible para votar.</p>
+<h2><span class="num">VI</span> La firma criptográfica real</h2>
+<p>Al principio faltaba una pieza esencial: verificar correctamente la firma mediante <code>ecash-lib</code>. Durante el proceso se identificó el formato usado por Tonalli Wallet: <em>base64, 65 bytes, recoverable ECDSA, Hash double-SHA256</em>.</p>
+<p>Desde ese punto, el backend verifica que la firma sea válida sobre el mensaje exacto, que la public key derive a la wallet enviada y que esta coincida con el alias. <strong>Ese fue el momento técnico más importante de la jornada.</strong> El voto se convirtió en una prueba criptográfica real.</p>
+<h2><span class="num">VII</span> De localhost a producción: assembly.ecash.mx</h2>
+<p>El backend fue desplegado en el VPS. PM2 confirmó el servicio corriendo internamente en el puerto 3016. Se configuró Nginx, se emitió SSL con Certbot y la Asamblea quedó viva públicamente en: <span class="code-chip">https://assembly.ecash.mx</span>.</p>
+<h2><span class="num">VIII</span> El frontend: ecash.mx/asamblea</h2>
+<p>Con el backend funcionando, se implementó la página pública. Los archivos modificados en el repositorio demostraron la integración total del stack web: <code>asamblea/index.html</code>, <code>src/asamblea/asamblea.js</code>, <code>assets/js/asamblea.bundle.js</code> y <code>package.json</code>.</p>
+<p>El sistema generó el mensaje canónico, el documento de voluntad listo para ser firmado por el usuario.</p>
+<h2><span class="num">IX</span> El primer voto real y la auditoría</h2>
+<p>Tonalli Wallet firmó el mensaje. El backend verificó la firma. La Asamblea aceptó el voto. La interfaz mostró:</p>
+<pre><code>Yes: 1
+No: 0
+Abstain: 0
+effectiveVotes: 1</code></pre>
+<p>La Asamblea RMZ no quedó como un <em>mockup</em>. Quedó con un primer voto válido, auditable y efectivo guardado en archivos estructurados (<code>JSONL</code>), creando una memoria pública de la voluntad comunitaria.</p>
+<h2>Análisis: Lo que realmente se construyó</h2>
+<p>La identidad soberana dice: <em>"Esta wallet tiene un nombre."</em> La elegibilidad dice: <em>"Este nombre pertenece a la comunidad RMZ."</em> La firma dice: <em>"Esta voluntad fue expresada por quien controla la wallet."</em> El resultado dice: <em>"Esta voluntad cuenta."</em></p>
+<p>Hoy se construyó una primera forma de ciudadanía digital soberana sobre eCash. La ruta estratégica avanza: B3 Gobernanza (✅), B2 Reputación visual (siguiente) y B1 Acceso token-gated (al final).</p>
+<h2><span class="num">X</span> Memoria On-Chain: El NFT Conmemorativo</h2>
+<p>Para inmortalizar este hito histórico, la crónica y su esencia cultural fueron acuñadas permanentemente en la blockchain. Una pictografía azteca que representa el nacimiento de la ciudadanía digital fue minteada como NFT a través de Tonalli Wallet.</p>
+<p>Este activo digital atestigua que <strong>xolosarmy.xec</strong> no solo tiene voz y voto, sino también memoria histórica inmutable.</p>
+<p>
+<a href="https://explorer.xolosarmy.xyz/tx/c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05" target="_blank" rel="noopener noreferrer" class="code-chip">
+              Ver Transacción de Minteo en el Explorador ↗
+            </a>
+</p>
+</div>
+<aside class="sidebar">
+<div class="sticky">
+<div class="side-card">
+<div class="side-title mono">Mantra</div>
+<p>
+                XEC es el dinero.<br>
+                RMZ es la llave.<br>
+                La cultura es la red.
+              </p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Infraestructura Viva</div>
+<ul>
+<li>alias.ecash.mx</li>
+<li>assembly.ecash.mx</li>
+<li>ecash.mx/identidad</li>
+<li>ecash.mx/asamblea</li>
+<li>Tonalli Wallet / RMZ</li>
+</ul>
+</div>
+<div class="side-card">
+<div class="side-title mono">Firma del Voto</div>
+<p>
+<strong>Formato:</strong> Recoverable ECDSA (65 bytes)<br>
+<strong>Hash:</strong> double-SHA256<br>
+<strong>Prefijo:</strong> \x16eCash Signed Message:\n
+              </p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Memoria On-Chain</div>
+<p><strong>NFT Conmemorativo:</strong><br>Pictografía Azteca</p>
+<p><strong>Tx Hash:</strong><br>
+<a href="https://explorer.xolosarmy.xyz/tx/c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05" target="_blank" class="mono">
+                  c4f6498bfb0450bf3d2820a9008e4cb206f59b0b5fcd05914f51c23af2da0f05
+                </a>
+</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>

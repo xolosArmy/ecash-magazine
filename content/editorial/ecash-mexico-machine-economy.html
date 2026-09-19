@@ -1,0 +1,266 @@
+<div class="ecash-article">
+<header class="article-hero">
+<div class="section-tag">[Análisis técnico] · eCash México</div>
+<h1>Teyolia 2.1-G y Tonalli Multisig: infraestructura XEC para la economía máquina</h1>
+<p class="subtitle">
+        La combinación de campañas Teyolia, bóvedas P2SH multisig nativas en eCash y coordinación futura con THORChain abre una ruta para tesorerías autónomas, agentes de liquidez y gobernanza híbrida humano-máquina.
+      </p>
+<div class="article-meta">
+<span>Autor: Fernando Ramírez</span>
+<span>25 de junio de 2026</span>
+<span>Infraestructura · Liquidez · Machine Economy</span>
+</div>
+<p class="subtitle">
+        Revisión técnica interna: eCash México / xolosArmy Network
+      </p>
+</header>
+<section class="article-body">
+<div class="lead-box">
+<p>
+<strong>Teyolia 2.1-G</strong> representa un giro arquitectónico importante para la infraestructura comunitaria de eCash: en lugar de ejecutar automáticamente una ruta Direct-to-Pool desde un covenant efímero, los fondos pueden liquidarse primero hacia una <strong>bóveda Tonalli P2SH multisig de gobernanza</strong>.
+        </p>
+<p>
+          Desde esa bóveda, la comunidad puede coordinar una operación posterior de liquidez hacia THORChain con mayor capacidad de revisión, recuperación y control.
+        </p>
+<p>
+          La referencia de campaña sigue siendo ambiciosa: reunir <strong>4.5 mil millones de XEC</strong> para apoyar una primera fase de infraestructura y liquidez comunitaria orientada a una futura posición XEC/RUNE.
+        </p>
+<p>
+          La campaña no promete rendimiento financiero. Su objetivo es apoyar infraestructura pública para eCash: liquidez nativa, herramientas operativas y una reserva de riesgo.
+        </p>
+<p class="quote-line">
+          Native liquidity. No wrappers. No custody. Just freedom.
+        </p>
+</div>
+<p>
+        La economía máquina necesita algo más que inteligencia artificial. Necesita una forma segura, auditable y programable de custodiar, mover y coordinar valor.
+      </p>
+<p>
+        En ese punto, la innovación desarrollada por <strong>xolosArmy Network</strong> —la arquitectura <strong>Teyolia 2.1-G Governance-Bridge</strong> junto con <strong>Tonalli Multisig P2SH nativo</strong>— plantea una posibilidad importante para el ecosistema eCash: convertir a XEC en una capa práctica para tesorerías autónomas, agentes inteligentes, DAOs y protocolos que requieren liquidez cross-chain sin depender completamente de custodios, puentes centralizados o wrapped assets.
+      </p>
+<p>
+        No se trata de afirmar que la economía máquina ya está resuelta. Se trata de identificar una dirección técnica concreta: fondos reales en la red eCash, coordinación mediante multisig, propuestas auditablemente registradas y una ruta de liquidez soberana que puede conectarse con THORChain de manera controlada.
+      </p>
+<div class="highlight-box">
+<strong>Tesis central:</strong>
+        Teyolia 2.1-G + Tonalli Multisig puede servir como infraestructura base para que agentes, DAOs y sistemas autónomos gestionen XEC con reglas verificables, sin entregar control absoluto a una sola máquina ni a una entidad centralizada.
+      </div>
+<div class="video-wrapper">
+<iframe src="https://www.youtube.com/embed/-eGFMs-tXoM" title="eCash Magazine México - Economía Máquina" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<h2>1. El problema: las máquinas también necesitan tesorería</h2>
+<p>
+        Un agente autónomo puede analizar datos, ejecutar tareas, generar propuestas y coordinar flujos digitales. Pero cuando entra dinero real, aparece el problema crítico: ¿quién custodia los fondos?
+      </p>
+<p>
+        Si el agente controla directamente una llave privada, el sistema queda expuesto a errores de software, ataques, bugs, prompts maliciosos o decisiones no autorizadas. Si los fondos se entregan a un custodio centralizado, se pierde soberanía. Si se usan puentes o tokens envueltos, se agrega una capa adicional de riesgo.
+      </p>
+<p>
+        La arquitectura Tonalli propone otro camino: una <strong>bóveda P2SH multisig nativa en eCash</strong>, donde el agente no necesita tener control absoluto. Puede participar en la coordinación, generar propuestas o activar flujos, pero el movimiento final de fondos requiere validación multisig.
+      </p>
+<h2>2. Tesorería autónoma para agentes y DAOs</h2>
+<p>
+        El caso de uso más inmediato es la tesorería. Una DAO, un protocolo o incluso un agente de inteligencia artificial puede operar con una bóveda Tonalli de tipo <strong>2-de-3</strong> o <strong>3-de-5</strong>.
+      </p>
+<p>
+        En un modelo básico, los firmantes podrían ser:
+      </p>
+<ul>
+<li>un sistema automatizado o agente operativo;</li>
+<li>un firmante humano de gobernanza;</li>
+<li>un segundo firmante humano, comunitario o institucional;</li>
+<li>un oráculo o sistema de verificación externo;</li>
+<li>una multisig superior encargada de supervisión.</li>
+</ul>
+<p>
+        La ventaja es clara: el agente puede preparar una propuesta de gasto, pero no puede vaciar la tesorería por sí solo. Esto permite un modelo de <strong>gobernanza ligera</strong>, donde la máquina acelera la coordinación y los humanos conservan el control crítico.
+      </p>
+<div class="concept-box">
+<h3>Idea clave</h3>
+<p>
+          En lugar de confiar ciegamente en una máquina, el sistema permite que la máquina proponga y que la gobernanza apruebe.
+        </p>
+</div>
+<h2>3. Teyolia 2.1-G: liquidez programable, pero recuperable</h2>
+<p>
+        La evolución de Teyolia hacia el modelo <strong>2.1-G Governance-Bridge</strong> es importante porque cambia la lógica de ejecución. En lugar de depender únicamente de un flujo automático directo hacia una operación compleja, los fondos pueden pasar primero a una bóveda de gobernanza Tonalli.
+      </p>
+<p>
+        Este cambio tiene una consecuencia técnica y política: la liquidez puede ser programable sin dejar de ser recuperable.
+      </p>
+<p>
+        Un flujo conceptual podría verse así:
+      </p>
+<ol class="flow-list">
+<li>Una campaña Teyolia recauda XEC para una finalidad específica.</li>
+<li>Al completarse, los fondos se liquidan hacia una bóveda Tonalli P2SH multisig.</li>
+<li>La gobernanza revisa el estado técnico, operativo y de mercado.</li>
+<li>Se prepara una operación posterior, como un <code>ADDLP</code> hacia THORChain.</li>
+<li>Los firmantes aprueban la transacción cuando se cumplen las condiciones.</li>
+</ol>
+<p>
+        Para la economía máquina, este patrón es poderoso porque evita una de las fallas más comunes de la automatización financiera: ejecutar demasiado pronto, sin margen de recuperación. Aquí la automatización puede coordinar, monitorear y proponer, pero los fondos siguen estando en una dirección XEC real bajo control multisig.
+      </p>
+<h2>4. Máquinas como participantes de gobernanza</h2>
+<p>
+        El soporte de <code>OP_RETURN</code> en propuestas multisig añade otra pieza relevante: la capacidad de adjuntar memos o mensajes breves a una transacción. Esto permite que una propuesta no sea solo un movimiento de fondos, sino también una acción con contexto legible.
+      </p>
+<p>
+        Para agentes y sistemas autónomos, esto puede habilitar flujos donde una máquina genere propuestas con metadatos verificables:
+      </p>
+<ul>
+<li>motivo del gasto;</li>
+<li>identificador de campaña;</li>
+<li>referencia a una decisión de gobernanza;</li>
+<li>memo de coordinación para liquidez;</li>
+<li>registro de auditoría para participantes humanos.</li>
+</ul>
+<p>
+        En este modelo, la máquina no reemplaza a la gobernanza. La vuelve más eficiente. Puede observar condiciones, preparar transacciones, sugerir rutas y documentar acciones, mientras los firmantes mantienen la capacidad de aprobar o rechazar.
+      </p>
+<h2>5. Por qué 2.1-G es más prudente que un Direct-to-Pool automático</h2>
+<p>
+        La idea Direct-to-Pool sigue siendo conceptualmente poderosa: llevar XEC directamente hacia liquidez nativa. Sin embargo, cuando se trabaja con flujos UTXO, memos, direcciones de bóveda, posiciones LP y coordinación cross-chain, la automatización total puede introducir riesgos operativos.
+      </p>
+<p>
+        La ruta conservadora consiste en separar dos momentos:
+      </p>
+<ul>
+<li><strong>primero:</strong> liquidar la campaña hacia una bóveda Tonalli P2SH multisig recuperable;</li>
+<li><strong>después:</strong> coordinar la operación de liquidez cuando la infraestructura, el memo, la bóveda de THORChain y la gobernanza estén alineados.</li>
+</ul>
+<p>
+        Esto no elimina la ambición de liquidez nativa. La vuelve más gobernable. Para la economía máquina, esa diferencia es central: una máquina puede acelerar el proceso, pero no debe forzar una ejecución irreversible si las condiciones no están listas.
+      </p>
+<div class="warning-box">
+<strong>Límite importante:</strong>
+        Teyolia 2.1-G no debe presentarse como promesa de rendimiento ni como garantía de ejecución automática. Es una arquitectura de coordinación, recuperación y gobernanza para preparar infraestructura de liquidez.
+      </div>
+<h2>6. Agentes de liquidez: el caso más interesante</h2>
+<p>
+        Uno de los escenarios más relevantes para Teyolia 2.1-G es el surgimiento de <strong>liquidity agents</strong>: agentes de software diseñados para monitorear campañas, preparar operaciones de liquidez y ayudar a gestionar posiciones de Protocol Owned Liquidity.
+      </p>
+<p>
+        Un agente de liquidez podría:
+      </p>
+<ul>
+<li>monitorear una campaña Teyolia hasta su cumplimiento;</li>
+<li>verificar que los fondos llegaron a la bóveda Tonalli;</li>
+<li>preparar una propuesta de operación para THORChain;</li>
+<li>simular escenarios de entrada a liquidez;</li>
+<li>proponer rebalanceos futuros;</li>
+<li>alertar a la gobernanza si detecta condiciones de riesgo.</li>
+</ul>
+<p>
+        El punto central es que el agente no necesita poseer unilateralmente los fondos. Su papel puede ser operativo e informacional. La custodia permanece distribuida.
+      </p>
+<div class="highlight-box">
+<strong>Lectura estratégica:</strong>
+        La economía máquina no necesita máquinas todopoderosas. Necesita máquinas que puedan coordinar valor bajo reglas verificables.
+      </div>
+<h2>7. Casos de uso potenciales</h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Caso de uso</th>
+<th>Cómo lo aprovecharía la máquina</th>
+<th>Madurez actual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agente de Treasury DAO</td>
+<td>Gestiona propuestas de gasto desde bóvedas Tonalli multisig.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Liquidity Provider automático</td>
+<td>Prepara entradas y salidas de pools en THORChain bajo aprobación multisig.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>Cross-chain Payment Agent</td>
+<td>Usa XEC como settlement y coordina pagos con gobernanza.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>Agente de reaseguro o colateral</td>
+<td>Mantiene reservas en bóvedas recuperables con reglas de liberación.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>Máquina como firmante</td>
+<td>Participa directamente en multisigs con políticas programáticas.</td>
+<td>Baja</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>8. Beneficios reales para la economía máquina</h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Beneficio</th>
+<th>Impacto</th>
+<th>Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recuperabilidad de fondos</td>
+<td>Alto</td>
+<td>Los fondos no quedan atrapados en un flujo efímero sin ruta clara de rescate.</td>
+</tr>
+<tr>
+<td>Gobernanza programable</td>
+<td>Alto</td>
+<td>Permite modelos donde máquinas proponen y humanos o multisigs aprueban.</td>
+</tr>
+<tr>
+<td>Liquidez soberana</td>
+<td>Medio-alto</td>
+<td>Reduce dependencia de wrapped tokens, custodios y puentes centralizados.</td>
+</tr>
+<tr>
+<td>Seguridad para agentes</td>
+<td>Alto</td>
+<td>El agente puede operar sin tener control total de la tesorería.</td>
+</tr>
+<tr>
+<td>Transparencia on-chain</td>
+<td>Alto</td>
+<td>Las propuestas, movimientos y memos pueden quedar registrados y auditables.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>9. Límites y riesgos estructurales</h2>
+<p>
+        Aunque el potencial es importante, conviene evitar el exceso de hype. La economía máquina sobre eCash todavía requiere más desarrollo en varias áreas: interfaces más claras para agentes autónomos, políticas de firma programática mejor definidas, auditoría de flujos multisig complejos, integración estable con infraestructura cross-chain y mejores estándares para memos, propuestas y registros de gobernanza.
+      </p>
+<p>
+        También existe una tensión importante: mientras más autonomía se entrega a una máquina, mayor debe ser la calidad de sus límites. Un agente financiero no debe ser medido solo por lo que puede hacer, sino por lo que no se le permite hacer.
+      </p>
+<p>
+        Esta exigencia de límites verificables también aparece en <a href="../opinion/ia-y-codigo-verificable-en-cripto.html">la reflexión editorial sobre IA y código opaco</a>, donde la legibilidad del sistema se plantea como una condición de confianza y no como una promesa automática de seguridad.
+      </p>
+<p>
+        En ese sentido, Tonalli Multisig no es solamente una herramienta de firma. Es una forma de introducir fricción saludable en sistemas donde la velocidad de la automatización puede superar la prudencia de la gobernanza.
+      </p>
+<h2>Conclusión: máquinas con reglas, no máquinas con fe ciega</h2>
+<p>
+        La combinación de <strong>Teyolia 2.1-G</strong> y <strong>Tonalli Multisig P2SH nativo</strong> aporta una pieza relevante para el futuro de la economía máquina: una forma de coordinar valor en XEC con recuperación, transparencia y gobernanza.
+      </p>
+<p>
+        Su valor no está en prometer automatización absoluta. Está en algo más sobrio y posiblemente más importante: permitir que agentes, DAOs y protocolos trabajen con dinero real sin exigir confianza total en una sola llave, una sola persona, un puente centralizado o una máquina sin frenos.
+      </p>
+<p>
+        Para eCash, esto abre una narrativa técnica poderosa. XEC puede ser más que dinero electrónico entre personas. También puede convertirse en una capa de settlement para sistemas autónomos que necesitan mover valor con velocidad, bajo costo y reglas verificables.
+      </p>
+<p class="closing-line">
+        XEC es el dinero. RMZ es la llave. La cultura es la red. Y la próxima frontera puede ser la máquina aprendiendo a respetar la multisig.
+      </p>
+</section>
+</div>
