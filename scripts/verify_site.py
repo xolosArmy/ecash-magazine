@@ -12,6 +12,7 @@ from pathlib import Path
 from urllib.parse import unquote, urljoin, urlparse
 import json
 import re
+import subprocess
 import sys
 from lxml import etree, html
 
@@ -247,6 +248,35 @@ def main():
 
     cdn = [p for p, (_, source) in docs.items() if re.search(r'<script[^>]+src=[\"\'][^\"\']*cdn\.tailwindcss', source)]
     check('No runtime Tailwind CDN', not cdn, cdn)
+    if not args.allow_missing_catalog:
+        generated_manifest = root / 'editorial/generated-pages.json'
+        written_pages = []
+        if generated_manifest.is_file():
+            try:
+                written_pages = json.loads(generated_manifest.read_text(encoding='utf-8'))
+                missing_generated = [item.get('path') for item in written_pages if not item.get('path') or not (root / item['path']).is_file()]
+                check('Generated page manifest files exist', not missing_generated, missing_generated)
+            except (ValueError, TypeError) as exc:
+                check('Generated page manifest parses', False, str(exc))
+        try:
+            listed = subprocess.run(
+                ['git', '-C', str(root), 'ls-files', '-z'],
+                capture_output=True, check=True,
+            )
+            tracked = {path.decode() for path in listed.stdout.split(b'\0') if path}
+            extras = subprocess.run(
+                ['git', '-C', str(root), 'ls-files', '--others', '--exclude-standard', '-z'],
+                capture_output=True, check=True,
+            )
+            untracked = [path.decode() for path in extras.stdout.split(b'\0') if path]
+            missing_tracked = [
+                item['path'] for item in written_pages
+                if isinstance(item, dict) and item.get('path') and item['path'] not in tracked
+            ]
+            check('Generated pages are tracked in git', not missing_tracked, missing_tracked)
+            check('Working tree has no untracked generated files', not untracked, untracked)
+        except (OSError, subprocess.CalledProcessError) as exc:
+            warnings.append({'git_tracking_check_skipped': str(exc)})
     result = {'passed': not failures, 'counts': {'html': len(docs), 'historical': len(historical), 'catalog_articles': len(articles), 'article_reachable': len(set(article_paths)&reachable), 'checks': len(checks), 'failures': len(failures)}, 'checks': checks, 'warnings': warnings}
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)

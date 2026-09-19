@@ -49,6 +49,12 @@ jobs:
         run: |
           python scripts/build_site.py
           git diff --exit-code
+          untracked="$(git ls-files --others --exclude-standard)"
+          if [ -n "$untracked" ]; then
+            echo "Untracked generated files must be committed before the build can pass:"
+            printf '%s\n' "$untracked"
+            exit 1
+          fi
       - name: Validate structure and preserved editorial content
         run: |
           python scripts/verify_site.py --baseline "$ECASH_QA_BASELINE" --report docs/qa/ci/structural-after.json

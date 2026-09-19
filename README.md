@@ -34,6 +34,8 @@ de revisión sin excluir la URL histórica que ya existe bajo `/editorial/`.
 ```sh
 python -m pip install -r requirements-dev.txt
 python scripts/build_site.py
+git diff --exit-code
+test -z "$(git ls-files --others --exclude-standard)"
 python scripts/verify_site.py --report docs/qa/structural-after.json
 python scripts/extract_legacy.py --verify-generated --output .
 ```

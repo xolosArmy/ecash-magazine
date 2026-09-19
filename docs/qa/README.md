@@ -59,6 +59,8 @@ La portada entrega más contenido e imágenes, y su peso observado aumenta. Adem
 ```sh
 python -m pip install -r requirements-dev.txt
 python scripts/build_site.py
+git diff --exit-code
+test -z "$(git ls-files --others --exclude-standard)"
 python scripts/verify_site.py --baseline /ruta/a/copia-inicial --report docs/qa/structural-after.json
 python scripts/extract_legacy.py --verify-generated --output .
 npm ci --prefix qa
