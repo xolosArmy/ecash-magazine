@@ -1,0 +1,271 @@
+{
+  "tool": "html-validate 11.16.0",
+  "presets": [
+    "standard",
+    "a11y"
+  ],
+  "scope": "45 historical HTML documents",
+  "pages_with_findings": 14,
+  "errors": 30,
+  "warnings": 0,
+  "rule_counts": {
+    "element-permitted-content": 8,
+    "prefer-native-element": 1,
+    "parser-error": 2,
+    "unique-landmark": 7,
+    "aria-label-misuse": 7,
+    "no-implicit-button-type": 5
+  },
+  "findings": [
+    {
+      "path": "analisis/ecash-mining-variance.html",
+      "messages": [
+        {
+          "ruleId": "element-permitted-content",
+          "line": 513,
+          "message": "<main> element is not permitted as a descendant of <article>",
+          "selector": "html > body > div > article > main"
+        },
+        {
+          "ruleId": "prefer-native-element",
+          "line": 649,
+          "message": "Prefer to use the native <section> element",
+          "selector": "html > body > div > article > main > div:nth-child(17)"
+        }
+      ]
+    },
+    {
+      "path": "analisis/gobernanza-rmz-ecash-mexico.html",
+      "messages": [
+        {
+          "ruleId": "parser-error",
+          "line": 435,
+          "message": "failed to tokenize \"</    p>\\n ...\", state TEXT failed to consume data or change state.",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "path": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+      "messages": [
+        {
+          "ruleId": "unique-landmark",
+          "line": 42,
+          "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)",
+          "selector": "html > body > div > header"
+        },
+        {
+          "ruleId": "aria-label-misuse",
+          "line": 73,
+          "message": "\"aria-label\" cannot be used on this element",
+          "selector": "html > body > main > article > div:nth-child(15)"
+        }
+      ]
+    },
+    {
+      "path": "analisis/teyolia-2-1-direct-to-pool.html",
+      "messages": [
+        {
+          "ruleId": "no-implicit-button-type",
+          "line": 259,
+          "message": "<button> is missing recommended \"type\" attribute",
+          "selector": "html > body > div:nth-child(2) > header > div > button"
+        }
+      ]
+    },
+    {
+      "path": "analisis/teyolia-direct-to-pool.html",
+      "messages": [
+        {
+          "ruleId": "no-implicit-button-type",
+          "line": 216,
+          "message": "<button> is missing recommended \"type\" attribute",
+          "selector": "#step-controls > button:nth-child(1)"
+        },
+        {
+          "ruleId": "element-permitted-content",
+          "line": 217,
+          "message": "<h5> element is not permitted as content under <button>",
+          "selector": "#step-controls > button:nth-child(1) > h5"
+        },
+        {
+          "ruleId": "element-permitted-content",
+          "line": 218,
+          "message": "<p> element is not permitted as content under <button>",
+          "selector": "#step-controls > button:nth-child(1) > p"
+        },
+        {
+          "ruleId": "no-implicit-button-type",
+          "line": 220,
+          "message": "<button> is missing recommended \"type\" attribute",
+          "selector": "#step-controls > button:nth-child(2)"
+        },
+        {
+          "ruleId": "element-permitted-content",
+          "line": 221,
+          "message": "<h5> element is not permitted as content under <button>",
+          "selector": "#step-controls > button:nth-child(2) > h5"
+        },
+        {
+          "ruleId": "element-permitted-content",
+          "line": 222,
+          "message": "<p> element is not permitted as content under <button>",
+          "selector": "#step-controls > button:nth-child(2) > p"
+        },
+        {
+          "ruleId": "no-implicit-button-type",
+          "line": 224,
+          "message": "<button> is missing recommended \"type\" attribute",
+          "selector": "#step-controls > button:nth-child(3)"
+        },
+        {
+          "ruleId": "element-permitted-content",
+          "line": 225,
+          "message": "<h5> element is not permitted as content under <button>",
+          "selector": "#step-controls > button:nth-child(3) > h5"
+        },
+        {
+          "ruleId": "element-permitted-content",
+          "line": 226,
+          "message": "<p> element is not permitted as content under <button>",
+          "selector": "#step-controls > button:nth-child(3) > p"
+        },
+        {
+          "ruleId": "no-implicit-button-type",
+          "line": 261,
+          "message": "<button> is missing recommended \"type\" attribute",
+          "selector": "#futuro > div:nth-child(4) > button"
+        }
+      ]
+    },
+    {
+      "path": "cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "messages": [
+        {
+          "ruleId": "parser-error",
+          "line": 275,
+          "message": "failed to tokenize \"<> THORCha...\", state TEXT failed to consume data or change state.",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "path": "cronica/liquidez-soberana-ecash-xec-thorchain.html",
+      "messages": [
+        {
+          "ruleId": "element-permitted-content",
+          "line": 2,
+          "message": "<style> element is not permitted as content under <article>",
+          "selector": "article > style"
+        }
+      ]
+    },
+    {
+      "path": "cronica/xolosarmy-thorchain-podcast.html",
+      "messages": [
+        {
+          "ruleId": "unique-landmark",
+          "line": 320,
+          "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)",
+          "selector": "html > body > main > div > aside:nth-child(1)"
+        },
+        {
+          "ruleId": "unique-landmark",
+          "line": 385,
+          "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)",
+          "selector": "html > body > main > div > aside:nth-child(34)"
+        }
+      ]
+    },
+    {
+      "path": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "messages": [
+        {
+          "ruleId": "aria-label-misuse",
+          "line": 114,
+          "message": "\"aria-label\" cannot be used on this element",
+          "selector": "html > body > div > main > div:nth-child(3)"
+        }
+      ]
+    },
+    {
+      "path": "opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "messages": [
+        {
+          "ruleId": "aria-label-misuse",
+          "line": 289,
+          "message": "\"aria-label\" cannot be used on this element",
+          "selector": "html > body > div > main > div:nth-child(3) > article > div:nth-child(9)"
+        }
+      ]
+    },
+    {
+      "path": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "messages": [
+        {
+          "ruleId": "aria-label-misuse",
+          "line": 332,
+          "message": "\"aria-label\" cannot be used on this element",
+          "selector": "html > body > div > main > div:nth-child(2)"
+        }
+      ]
+    },
+    {
+      "path": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "messages": [
+        {
+          "ruleId": "aria-label-misuse",
+          "line": 278,
+          "message": "\"aria-label\" cannot be used on this element",
+          "selector": "html > body > div > main > div:nth-child(2)"
+        },
+        {
+          "ruleId": "aria-label-misuse",
+          "line": 305,
+          "message": "\"aria-label\" cannot be used on this element",
+          "selector": "html > body > div > main > div:nth-child(3) > article > div:nth-child(9)"
+        },
+        {
+          "ruleId": "aria-label-misuse",
+          "line": 393,
+          "message": "\"aria-label\" cannot be used on this element",
+          "selector": "html > body > div > main > div:nth-child(3) > article > div:nth-child(36)"
+        }
+      ]
+    },
+    {
+      "path": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+      "messages": [
+        {
+          "ruleId": "unique-landmark",
+          "line": 40,
+          "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)",
+          "selector": "html > body > div > header"
+        },
+        {
+          "ruleId": "unique-landmark",
+          "line": 41,
+          "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)",
+          "selector": "html > body > header"
+        }
+      ]
+    },
+    {
+      "path": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+      "messages": [
+        {
+          "ruleId": "unique-landmark",
+          "line": 40,
+          "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)",
+          "selector": "html > body > div > header"
+        },
+        {
+          "ruleId": "unique-landmark",
+          "line": 42,
+          "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)",
+          "selector": "html > body > header"
+        }
+      ]
+    }
+  ]
+}

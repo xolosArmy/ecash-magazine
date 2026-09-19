@@ -1,238 +1,140 @@
 <!DOCTYPE html>
-<html lang="es-MX">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BIP-110 y Bitcoin Cash: dos forks, dos destinos</title>
-  <meta name="description" content="Investigación comparativa sobre BIP-110 y el nacimiento de Bitcoin Cash: consenso, hashrate, replay protection, dificultad e independencia económica.">
-  <link rel="canonical" href="https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-
-  <meta property="og:type" content="article">
-  <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="eCash Magazine México">
-  <meta property="og:title" content="BIP-110 y Bitcoin Cash: dos forks, dos destinos">
-  <meta property="og:description" content="Por qué Bitcoin Cash sobrevivió como red minoritaria y la rama BIP-110 quedó inmovilizada tras dos bloques.">
-  <meta property="og:url" content="https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html">
-  <meta property="og:image" content="https://magazine.ecash.mx/assets/bip-110-bitcoin-cash-forks.webp">
-  <meta property="og:image:alt" content="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro.">
-  <meta property="og:image:width" content="1672">
-  <meta property="og:image:height" content="941">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BIP-110 y Bitcoin Cash: dos forks, dos destinos">
-  <meta name="twitter:description" content="La diferencia entre rechazar una cadena y construir una economía capaz de sobrevivir fuera de ella.">
-  <meta name="twitter:image" content="https://magazine.ecash.mx/assets/bip-110-bitcoin-cash-forks.webp">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AnalysisNewsArticle",
-    "headline": "BIP-110 y Bitcoin Cash: dos forks, dos destinos",
-    "description": "Investigación comparativa sobre BIP-110 y el nacimiento de Bitcoin Cash: consenso, hashrate, replay protection, dificultad e independencia económica.",
-    "datePublished": "2026-08-09",
-    "dateModified": "2026-08-09",
-    "inLanguage": "es-MX",
-    "articleSection": "Reportajes",
-    "image": "https://magazine.ecash.mx/assets/bip-110-bitcoin-cash-forks.webp",
-    "mainEntityOfPage": "https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html",
-    "publisher": {
-      "@type": "NewsMediaOrganization",
-      "name": "eCash Magazine México",
-      "url": "https://magazine.ecash.mx/"
-    },
-    "keywords": ["BIP-110", "Bitcoin Cash", "BCH", "fork de Bitcoin", "UASF", "consenso", "eCash"]
-  }
-  </script>
-
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #030506;
-      --surface: #0a0f12;
-      --card: #10171b;
-      --text: #edf4f6;
-      --muted: #a5b1b7;
-      --cyan: #00abe7;
-      --green: #50d890;
-      --orange: #ff8a3d;
-      --gold: #d7b45b;
-      --line: #243038;
-      --measure: 78ch;
+<html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIP-110 y Bitcoin Cash: dos forks, dos destinos | eCash Magazine México</title><meta name="description" content="La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin.">
+<link rel="canonical" href="https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html"><link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#F6F3EC">
+<meta property="og:site_name" content="eCash Magazine México"><meta property="og:type" content="article"><meta property="og:title" content="BIP-110 y Bitcoin Cash: dos forks, dos destinos"><meta property="og:url" content="https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html">
+<meta property="og:description" content="La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin."><meta property="og:image" content="https://magazine.ecash.mx/assets/media/bip-110-bitcoin-cash-forks-1672.webp"><meta property="og:image:alt" content="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro."><meta property="og:image:width" content="1672"><meta property="og:image:height" content="941">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="BIP-110 y Bitcoin Cash: dos forks, dos destinos"><meta name="twitter:description" content="La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin."><meta name="twitter:image" content="https://magazine.ecash.mx/assets/media/bip-110-bitcoin-cash-forks-1672.webp"><meta name="twitter:image:alt" content="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro.">
+<meta property="article:published_time" content="2026-08-09">
+<meta property="article:modified_time" content="2026-08-09">
+<link rel="alternate" type="application/rss+xml" title="eCash Magazine México — publicaciones" href="/feed.xml">
+<link rel="stylesheet" href="/assets/css/editorial.css"><script defer src="/assets/js/editorial.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsMediaOrganization", "@id": "https://magazine.ecash.mx/#organization", "name": "eCash Magazine México", "url": "https://magazine.ecash.mx/"}, {"@type": "Article", "@id": "https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html#article", "headline": "BIP-110 y Bitcoin Cash: dos forks, dos destinos", "url": "https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html", "mainEntityOfPage": "https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html", "publisher": {"@id": "https://magazine.ecash.mx/#organization"}, "datePublished": "2026-08-09", "dateModified": "2026-08-09", "description": "La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin.", "inLanguage": "es-MX", "image": "https://magazine.ecash.mx/assets/media/bip-110-bitcoin-cash-forks-1672.webp"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://magazine.ecash.mx/"}, {"@type": "ListItem", "position": 2, "name": "Reportaje", "item": "https://magazine.ecash.mx/generos/reportaje/"}, {"@type": "ListItem", "position": 3, "name": "BIP-110 y Bitcoin Cash: dos forks, dos destinos", "item": "https://magazine.ecash.mx/reportajes/bip-110-bitcoin-cash-forks-consenso.html"}]}]}</script>
+</head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header"><div class="masthead container">
+<a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
+<div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 18px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: #4fd8ff; text-underline-offset: 3px; }
-    a:hover { color: #fff; }
-    .shell { width: min(1400px, 100%); margin: 0 auto; padding: 0 20px; }
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .brand { color: #fff; font-family: ui-monospace, monospace; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
-    .brand span { color: var(--cyan); }
-    .edition { color: var(--muted); font-family: ui-monospace, monospace; font-size: .78rem; text-transform: uppercase; }
-    .hero { position: relative; width: min(1280px, 100%); margin: 34px auto 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #000; }
-    .hero img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; opacity: .72; }
-    .hero::after { position: absolute; inset: 0; content: ""; background: linear-gradient(180deg, rgba(0,0,0,.08) 25%, rgba(3,5,6,.95) 100%); }
-    .hero-copy { position: absolute; z-index: 1; right: clamp(20px, 5vw, 72px); bottom: clamp(22px, 5vw, 62px); left: clamp(20px, 5vw, 72px); max-width: 970px; }
-    .kicker { color: var(--gold); font-family: ui-monospace, monospace; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    h1 { max-width: 18ch; margin: 12px 0 10px; color: #fff; font-size: clamp(2.2rem, 6vw, 4.9rem); line-height: 1.02; letter-spacing: -.055em; text-wrap: balance; }
-    .dek { max-width: 760px; margin: 0; color: #d9e2e5; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.5; }
-    article { width: min(var(--measure), calc(100% - 32px)); margin: 0 auto; padding: 52px 0 80px; }
-    .standfirst { padding: 24px 26px; border: 1px solid var(--line); border-left: 4px solid var(--cyan); border-radius: 6px; background: var(--surface); color: #dbe5e8; font-size: 1.16rem; }
-    .dateline { margin: 22px 0 46px; color: var(--muted); font-family: ui-monospace, monospace; font-size: .78rem; text-transform: uppercase; }
-    h2 { margin: 64px 0 22px; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: #fff; font-size: clamp(1.65rem, 4vw, 2.35rem); line-height: 1.2; letter-spacing: -.025em; text-wrap: balance; }
-    h3 { margin: 38px 0 12px; color: #fff; font-size: 1.28rem; line-height: 1.3; }
-    p { margin: 0 0 24px; }
-    strong { color: #fff; }
-    blockquote { margin: 36px 0; padding: 20px 24px; border-left: 4px solid var(--gold); background: #0f1110; color: #f3e8c6; font-size: 1.18rem; font-weight: 650; }
-    ul, ol { margin: 0 0 30px; padding-left: 25px; }
-    li { margin-bottom: 9px; color: #d2dcdf; }
-    .table-wrap { margin: 34px 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
-    table { width: 100%; min-width: 760px; border-collapse: collapse; background: var(--surface); font-size: .9rem; }
-    th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    th { color: #fff; background: #10171b; font-family: ui-monospace, monospace; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
-    td:first-child { color: var(--muted); font-weight: 700; }
-    tr:last-child td { border-bottom: 0; }
-    .bch { color: var(--green); }
-    .rdts { color: var(--orange); }
-    .formula { margin: 28px 0; padding: 22px; overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: #fff; font-family: ui-monospace, monospace; text-align: center; }
-    .verdict { margin: 52px 0; padding: 26px; border: 1px solid rgba(0,171,231,.45); border-radius: 8px; background: linear-gradient(135deg, rgba(0,171,231,.12), rgba(80,216,144,.05)); }
-    .verdict p:last-child { margin-bottom: 0; }
-    .source-note { color: var(--muted); font-size: .9rem; }
-    footer { padding: 28px 20px; border-top: 1px solid var(--line); color: var(--muted); font-family: ui-monospace, monospace; font-size: .75rem; text-align: center; }
-    @media (max-width: 700px) {
-      body { font-size: 17px; }
-      .site-header { align-items: flex-start; flex-direction: column; }
-      .hero { margin-top: 20px; border-radius: 8px; }
-      .hero img { min-height: 500px; }
-      article { width: min(100% - 18px, var(--measure)); padding-top: 34px; }
-      .standfirst { padding: 18px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="shell">
-    <header class="site-header" aria-label="Cabecera de eCash Magazine México">
-      <a class="brand" href="https://magazine.ecash.mx/">eCash <span>Magazine</span></a>
-      <div class="edition">México · Reportaje · 9 agosto 2026</div>
-    </header>
-  </div>
-
-  <header class="hero" aria-label="Portada del reportaje">
-    <img src="/assets/bip-110-bitcoin-cash-forks.webp" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" alt="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro.">
-    <div class="hero-copy">
-      <div class="kicker">Investigación correlacional</div>
-      <h1>BIP-110 y Bitcoin Cash: dos forks, dos destinos</h1>
-      <p class="dek">La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin.</p>
-    </div>
-  </header>
-
-  <main>
-    <article>
-      <p class="standfirst"><strong>Los dos episodios nacieron de una disputa sobre la función monetaria de Bitcoin y ambos produjeron historiales incompatibles.</strong> Pero Bitcoin Cash llegó al 1 de agosto de 2017 con mecanismos para operar como una red independiente. BIP-110 llegó al 8 de agosto de 2026 esperando imponer sus reglas sobre BTC. Cuando casi todo el hashrate eligió la cadena principal, esa diferencia de diseño se convirtió en destino.</p>
-      <p class="dateline">Ciudad de México · Corte de información: 9 de agosto de 2026</p>
-
-      <h2>La misma pregunta, respuestas opuestas</h2>
-      <p>Bitcoin Cash y BIP-110 pueden colocarse en una misma genealogía política: ambos movimientos sostuvieron que Bitcoin se estaba alejando de su función como dinero. La correlación ideológica es fuerte; la solución técnica fue inversa.</p>
-      <p>Los partidarios de Bitcoin Cash atribuían la congestión y las comisiones elevadas al límite de capacidad. Su respuesta fue <strong>ampliar el espacio disponible para pagos on-chain</strong>. Los promotores de BIP-110 atribuyeron parte de la presión sobre nodos y blockspace a Ordinals, inscripciones y otros datos arbitrarios. Su respuesta fue <strong>restringir por consenso determinados usos no monetarios</strong>.</p>
-      <blockquote>Bitcoin Cash apostó por la abundancia de blockspace. BIP-110 apostó por clasificar y excluir parte de su demanda. Ambos dijeron defender el dinero; discrepaban sobre qué amenaza enfrentaba.</blockquote>
-
-      <h2>La comparación en una mirada</h2>
-      <section class="table-wrap" aria-label="Comparación entre Bitcoin Cash y BIP-110" tabindex="0">
-        <table>
-          <thead><tr><th>Variable</th><th class="bch">Bitcoin Cash · 2017</th><th class="rdts">BIP-110 · 2026</th></tr></thead>
-          <tbody>
-            <tr><td>Conflicto</td><td>Escalamiento y pagos on-chain</td><td>Dinero frente a almacenamiento arbitrario</td></tr>
-            <tr><td>Cambio</td><td>Hard fork permanente</td><td>Soft fork restrictivo y temporal</td></tr>
-            <tr><td>Objetivo político</td><td>Crear otra red si BTC no adoptaba bloques grandes</td><td>Convertir RDTS en las reglas de la cadena identificada como BTC</td></tr>
-            <tr><td>Separación</td><td>Deliberada y públicamente programada</td><td>Consecuencia de rechazar bloques sin bit 4</td></tr>
-            <tr><td>Replay protection</td><td><code>SIGHASH_FORKID</code></td><td>Sin protección equivalente incorporada</td></tr>
-            <tr><td>Dificultad</td><td>EDA para sobrevivir como cadena minoritaria</td><td>Retarget normal cada 2,016 bloques</td></tr>
-            <tr><td>Economía propia</td><td>Ticker, mercados, wallets, servicios y comunidad</td><td>Sin infraestructura económica independiente comparable</td></tr>
-            <tr><td>Resultado inicial</td><td>Cadena lenta, pero operativa</td><td>Dos bloques observados y estancamiento práctico</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <h2>Lo que ocurrió con BIP-110</h2>
-      <p>BIP-110 había alcanzado el estado documental <strong>Complete</strong> en el repositorio de BIPs. Esa etiqueta significa que la especificación estaba terminada; no equivale a aprobación, activación ni consenso económico de Bitcoin.</p>
-      <p>La especificación RDTS estableció una señalización modificada sobre el bit 4. Su umbral era de 1,109 bloques sobre 2,016 —55 %— y, si no se alcanzaba voluntariamente, los nodos que la aplicaban debían rechazar bloques sin señal desde la altura 961,632. El lock-in forzado llegaría en 963,648 y las restricciones de datos solamente se volverían activas en 965,664.</p>
-      <p>Al llegar la altura 961,632 el 8 de agosto, AntPool produjo un bloque sin la señal. La red seguida por Bitcoin Core y casi todo el poder de cómputo lo aceptó. Los nodos que aplicaban BIP-110 lo rechazaron y reconocieron una versión señalizada minada por Roughnecks mediante OCEAN. Esa rama produjo también el bloque 961,633 y después dejó de avanzar durante el periodo observado.</p>
-      <p><strong>Esto fue un fork de consenso, pero no una división económica equilibrada.</strong> Los dos historiales eran incompatibles desde el punto de vista de los nodos BIP-110; mercados, custodios, wallets y la inmensa mayoría del hashrate siguieron operando sobre la cadena principal.</p>
-      <p>También debe evitarse una confusión: el episodio <strong>no activó las siete restricciones RDTS</strong>. Lo que entró en vigor para esos nodos fue la obligación de señalizar. La rama minoritaria se estancó miles de bloques antes de la altura 965,664.</p>
-
-      <h2>Por qué Bitcoin Cash sí tenía un kit de supervivencia</h2>
-      <p>Bitcoin Cash no fue diseñado como una amenaza temporal destinada a conquistar el ticker BTC. Sus promotores aceptaron la posibilidad de ser minoría y prepararon tres mecanismos decisivos.</p>
-
-      <h3>1. Incompatibilidad deliberada</h3>
-      <p>La activación modificó las reglas de tamaño de bloque y produjo una cadena separada. El <a href="https://www.blockchain.com/explorer/blocks/bch/478559">primer bloque BCH, 478,559</a>, fue minado por ViaBTC el 1 de agosto de 2017 después de varias horas de espera. Con aproximadamente 1.9 MB, hizo visible la nueva política de capacidad y no podía ser aceptado bajo el límite anterior de BTC.</p>
-
-      <h3>2. Protección contra replay</h3>
-      <p>Bitcoin ABC introdujo <code>SIGHASH_FORKID</code>: un esquema de firma que genera un digest distinto y permite que una transacción firmada para BCH sea inválida en la rama que no usa ese mecanismo. La separación no era solo narrativa; también existía en la autorización criptográfica de los gastos.</p>
-
-      <h3>3. Ajuste de dificultad para una minoría</h3>
-      <p>El Emergency Difficulty Adjustment reducía la dificultad cuando la producción de bloques se ralentizaba. Más tarde generó oscilaciones severas y fue reemplazado en noviembre de 2017, pero Bitcoin ABC reconoció expresamente que el EDA había permitido a Bitcoin Cash sobrevivir como cadena minoritaria.</p>
-      <p>BIP-110 no incorporó una salida semejante. Conservó la dificultad de Bitcoin y el retarget normal de 2,016 bloques porque su plan era coordinar a los mineros dentro de BTC, no administrar una moneda separada con poco hashrate.</p>
-
-      <h2>La trampa matemática de la dificultad heredada</h2>
-      <p>Cuando una rama conserva la dificultad de una red pero recibe solo una fracción de su poder de cómputo, el tiempo esperado por bloque aumenta aproximadamente en proporción inversa:</p>
-      <div class="formula">tiempo esperado ≈ 10 minutos ÷ fracción del hashrate</div>
-      <p>Con una estimación hipotética de 0.15 % del hashrate, el promedio sería cercano a 4.6 días por bloque. Recorrer unos 2,014 bloques hasta el primer ajuste tomaría alrededor de 25 años si esa proporción permaneciera constante.</p>
-      <p>El hashrate no se observa directamente y una muestra de dos bloques es demasiado pequeña para medirlo con precisión. La cifra debe entenderse como <strong>escenario ilustrativo, no como pronóstico</strong>. La conclusión estructural no cambia: sin más mineros o sin modificar otra vez el consenso, la rama debía superar una barrera de dificultad diseñada para una red miles de veces mayor.</p>
-
-      <h2>El poder real de un nodo</h2>
-      <p>Los dos forks ayudan a distinguir dos formas de poder:</p>
-      <ul>
-        <li><strong>Poder negativo:</strong> un nodo decide qué reglas no acepta y puede rechazar una cadena.</li>
-        <li><strong>Poder positivo:</strong> una red consigue que mineros, usuarios, mercados, wallets, custodios y desarrolladores produzcan valor bajo las reglas elegidas.</li>
-      </ul>
-      <p>Los nodos BIP-110 ejercieron plenamente el primero: se negaron a aceptar el bloque de AntPool. No consiguieron el segundo. Bitcoin Cash, en cambio, combinó software, minería, replay protection, ajuste de dificultad, infraestructura comercial y una identidad económica distinta.</p>
-      <blockquote>Un nodo puede abandonar el consenso dominante. No puede obligar al resto de la economía a acompañarlo.</blockquote>
-
-      <h2>La correlación decisiva</h2>
-      <p>La variable que mejor explica los resultados no es simplemente el porcentaje inicial de hashrate. Bitcoin Cash también comenzó como minoría. La correlación más fuerte es la <strong>capacidad de autonomía</strong>:</p>
-      <ol>
-        <li>reglas de consenso identificables;</li>
-        <li>separación de transacciones y protección contra replay;</li>
-        <li>dificultad compatible con el hashrate disponible;</li>
-        <li>software e infraestructura operativa;</li>
-        <li>liquidez, precio y mercados propios;</li>
-        <li>usuarios y desarrolladores dispuestos a continuar.</li>
-      </ol>
-      <p>BCH reunió ese conjunto con imperfecciones y crisis posteriores. BIP-110 reunió una especificación completa, una implementación y una fracción residual de minería, pero no una economía alternativa preparada para el escenario de rechazo.</p>
-
-      <h2>¿Fue BIP-110 “otro Bitcoin Cash”?</h2>
-      <p>Solo en un sentido estrecho: un grupo aplicó reglas incompatibles y terminó siguiendo otro historial. En casi todo lo demás, la analogía falla.</p>
-      <p>Bitcoin Cash buscó una separación permanente y asumió una identidad propia. BIP-110 buscó modificar temporalmente las reglas de BTC y dependía de que la presión de los nodos atrajera a los mineros. BCH diseñó una vía de supervivencia para la minoría. BIP-110 diseñó una vía de activación para convertirse en mayoría.</p>
-
-      <div class="verdict">
-        <h2>Conclusión</h2>
-        <p><strong>Bitcoin Cash convirtió una derrota en la disputa por BTC en el nacimiento de una economía independiente.</strong> BIP-110 intentó ganar las reglas de BTC mediante una obligación de señalización; cuando la mayoría no lo siguió, su rama no tenía dificultad, replay protection ni infraestructura económica adaptadas para vivir como otra red.</p>
-        <p>La lección para la genealogía que conecta Bitcoin, Bitcoin Cash y eCash es concreta: una especificación declara reglas; un nodo puede defenderlas; un minero puede producir bloques. Pero solo la coordinación entre seguridad, software, liquidez, usuarios y continuidad convierte esos bloques en una red viva.</p>
-      </div>
-
-      <h2>Fuentes y metodología</h2>
-      <p>La comparación se construyó con la <a href="https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki">especificación oficial de BIP-110</a>, la documentación de Bitcoin ABC sobre <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/blob/master/doc/abc/replay-protected-sighash.md"><code>SIGHASH_FORKID</code></a> y su <a href="https://www.bitcoinabc.org/2017-11-01-DAA-es/">reemplazo del EDA por el DAA de 2017</a>. Para el acontecimiento del 8 y 9 de agosto se contrastaron los parámetros de consenso con la cobertura contemporánea de <a href="https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support">CoinDesk</a> y los historiales reportados para los bloques 961,632 y 961,633.</p>
-      <p class="source-note">Nota editorial: la rama BIP-110 era un acontecimiento en desarrollo al cierre de esta publicación. Las cantidades de bloques, la distancia entre cadenas y las estimaciones de hashrate pueden cambiar. Los parámetros de activación y la distinción entre señalización obligatoria, lock-in y activación RDTS provienen de la especificación del BIP.</p>
-    </article>
-  </main>
-
-  <footer>eCash Magazine México · Ideas, cultura e infraestructura para la economía eCash</footer>
-</body>
-</html>
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/reportaje/">Reportaje</a></li><li aria-current="page">BIP-110 y Bitcoin Cash: dos forks, dos destinos</li></ol></nav><header class="article-header"><div class="eyebrow"><a class="genre" href="/generos/reportaje/">Reportaje</a> </div><h1 class="article-title">BIP-110 y Bitcoin Cash: dos forks, dos destinos</h1><p class="article-deck">La diferencia entre separarse de Bitcoin y estar preparado para sobrevivir fuera de Bitcoin.</p><div class="story-meta"><span><time datetime="2026-08-09">9 de agosto de 2026</time></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/bip-110/">BIP-110</a></li><li><a class="tag" href="/temas/bitcoin-cash/">Bitcoin Cash</a></li><li><a class="tag" href="/temas/bch/">BCH</a></li><li><a class="tag" href="/temas/fork-de-bitcoin/">fork de Bitcoin</a></li><li><a class="tag" href="/temas/uasf/">UASF</a></li><li><a class="tag" href="/temas/consenso/">consenso</a></li><li><a class="tag" href="/temas/ecash/">eCash</a></li></ul><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#la-misma-pregunta-respuestas-opuestas">La misma pregunta, respuestas opuestas</a></li><li><a href="#la-comparacion-en-una-mirada">La comparación en una mirada</a></li><li><a href="#lo-que-ocurrio-con-bip-110">Lo que ocurrió con BIP-110</a></li><li><a href="#por-que-bitcoin-cash-si-tenia-un-kit-de-supervivencia">Por qué Bitcoin Cash sí tenía un kit de supervivencia</a></li><li><a href="#la-trampa-matematica-de-la-dificultad-heredada">La trampa matemática de la dificultad heredada</a></li><li><a href="#el-poder-real-de-un-nodo">El poder real de un nodo</a></li><li><a href="#la-correlacion-decisiva">La correlación decisiva</a></li><li><a href="#fue-bip-110-otro-bitcoin-cash">¿Fue BIP-110 “otro Bitcoin Cash”?</a></li><li><a href="#conclusion">Conclusión</a></li><li><a href="#fuentes-y-metodologia">Fuentes y metodología</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="shell">
+</div>
+<section class="hero" aria-label="Portada del reportaje">
+<img src="/assets/media/bip-110-bitcoin-cash-forks-1672.webp" width="1672" height="941" fetchpriority="high" decoding="async" alt="Un xoloitzcuintle observa dos ramas de una blockchain: una conduce a una red activa y otra se detiene ante un muro." srcset="/assets/media/bip-110-bitcoin-cash-forks-480.webp 480w, /assets/media/bip-110-bitcoin-cash-forks-960.webp 960w, /assets/media/bip-110-bitcoin-cash-forks-1440.webp 1440w, /assets/media/bip-110-bitcoin-cash-forks-1672.webp 1672w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px">
+<div class="hero-copy">
+<div class="kicker">Investigación correlacional</div>
+</div>
+</section>
+<div>
+<div>
+<p class="standfirst"><strong>Los dos episodios nacieron de una disputa sobre la función monetaria de Bitcoin y ambos produjeron historiales incompatibles.</strong> Pero Bitcoin Cash llegó al 1 de agosto de 2017 con mecanismos para operar como una red independiente. BIP-110 llegó al 8 de agosto de 2026 esperando imponer sus reglas sobre BTC. Cuando casi todo el hashrate eligió la cadena principal, esa diferencia de diseño se convirtió en destino.</p>
+<p class="dateline">Ciudad de México · Corte de información: 9 de agosto de 2026</p>
+<h2 id="la-misma-pregunta-respuestas-opuestas">La misma pregunta, respuestas opuestas</h2>
+<p>Bitcoin Cash y BIP-110 pueden colocarse en una misma genealogía política: ambos movimientos sostuvieron que Bitcoin se estaba alejando de su función como dinero. La correlación ideológica es fuerte; la solución técnica fue inversa.</p>
+<p>Los partidarios de Bitcoin Cash atribuían la congestión y las comisiones elevadas al límite de capacidad. Su respuesta fue <strong>ampliar el espacio disponible para pagos on-chain</strong>. Los promotores de BIP-110 atribuyeron parte de la presión sobre nodos y blockspace a Ordinals, inscripciones y otros datos arbitrarios. Su respuesta fue <strong>restringir por consenso determinados usos no monetarios</strong>.</p>
+<blockquote>Bitcoin Cash apostó por la abundancia de blockspace. BIP-110 apostó por clasificar y excluir parte de su demanda. Ambos dijeron defender el dinero; discrepaban sobre qué amenaza enfrentaba.</blockquote>
+<h2 id="la-comparacion-en-una-mirada">La comparación en una mirada</h2>
+<section class="table-wrap" aria-label="Comparación entre Bitcoin Cash y BIP-110" tabindex="0">
+<section class="table-scroll" tabindex="0" aria-label="Tabla 1: BIP-110 y Bitcoin Cash: dos forks, dos destinos"><table>
+<thead><tr><th scope="col">Variable</th><th class="bch" scope="col">Bitcoin Cash · 2017</th><th class="rdts" scope="col">BIP-110 · 2026</th></tr></thead>
+<tbody>
+<tr><td>Conflicto</td><td>Escalamiento y pagos on-chain</td><td>Dinero frente a almacenamiento arbitrario</td></tr>
+<tr><td>Cambio</td><td>Hard fork permanente</td><td>Soft fork restrictivo y temporal</td></tr>
+<tr><td>Objetivo político</td><td>Crear otra red si BTC no adoptaba bloques grandes</td><td>Convertir RDTS en las reglas de la cadena identificada como BTC</td></tr>
+<tr><td>Separación</td><td>Deliberada y públicamente programada</td><td>Consecuencia de rechazar bloques sin bit 4</td></tr>
+<tr><td>Replay protection</td><td><code>SIGHASH_FORKID</code></td><td>Sin protección equivalente incorporada</td></tr>
+<tr><td>Dificultad</td><td>EDA para sobrevivir como cadena minoritaria</td><td>Retarget normal cada 2,016 bloques</td></tr>
+<tr><td>Economía propia</td><td>Ticker, mercados, wallets, servicios y comunidad</td><td>Sin infraestructura económica independiente comparable</td></tr>
+<tr><td>Resultado inicial</td><td>Cadena lenta, pero operativa</td><td>Dos bloques observados y estancamiento práctico</td></tr>
+</tbody>
+</table>
+</section></section>
+<h2 id="lo-que-ocurrio-con-bip-110">Lo que ocurrió con BIP-110</h2>
+<p>BIP-110 había alcanzado el estado documental <strong>Complete</strong> en el repositorio de BIPs. Esa etiqueta significa que la especificación estaba terminada; no equivale a aprobación, activación ni consenso económico de Bitcoin.</p>
+<p>La especificación RDTS estableció una señalización modificada sobre el bit 4. Su umbral era de 1,109 bloques sobre 2,016 —55 %— y, si no se alcanzaba voluntariamente, los nodos que la aplicaban debían rechazar bloques sin señal desde la altura 961,632. El lock-in forzado llegaría en 963,648 y las restricciones de datos solamente se volverían activas en 965,664.</p>
+<p>Al llegar la altura 961,632 el 8 de agosto, AntPool produjo un bloque sin la señal. La red seguida por Bitcoin Core y casi todo el poder de cómputo lo aceptó. Los nodos que aplicaban BIP-110 lo rechazaron y reconocieron una versión señalizada minada por Roughnecks mediante OCEAN. Esa rama produjo también el bloque 961,633 y después dejó de avanzar durante el periodo observado.</p>
+<p><strong>Esto fue un fork de consenso, pero no una división económica equilibrada.</strong> Los dos historiales eran incompatibles desde el punto de vista de los nodos BIP-110; mercados, custodios, wallets y la inmensa mayoría del hashrate siguieron operando sobre la cadena principal.</p>
+<p>También debe evitarse una confusión: el episodio <strong>no activó las siete restricciones RDTS</strong>. Lo que entró en vigor para esos nodos fue la obligación de señalizar. La rama minoritaria se estancó miles de bloques antes de la altura 965,664.</p>
+<h2 id="por-que-bitcoin-cash-si-tenia-un-kit-de-supervivencia">Por qué Bitcoin Cash sí tenía un kit de supervivencia</h2>
+<p>Bitcoin Cash no fue diseñado como una amenaza temporal destinada a conquistar el ticker BTC. Sus promotores aceptaron la posibilidad de ser minoría y prepararon tres mecanismos decisivos.</p>
+<h3 id="1-incompatibilidad-deliberada">1. Incompatibilidad deliberada</h3>
+<p>La activación modificó las reglas de tamaño de bloque y produjo una cadena separada. El <a href="https://www.blockchain.com/explorer/blocks/bch/478559">primer bloque BCH, 478,559</a>, fue minado por ViaBTC el 1 de agosto de 2017 después de varias horas de espera. Con aproximadamente 1.9 MB, hizo visible la nueva política de capacidad y no podía ser aceptado bajo el límite anterior de BTC.</p>
+<h3 id="2-proteccion-contra-replay">2. Protección contra replay</h3>
+<p>Bitcoin ABC introdujo <code>SIGHASH_FORKID</code>: un esquema de firma que genera un digest distinto y permite que una transacción firmada para BCH sea inválida en la rama que no usa ese mecanismo. La separación no era solo narrativa; también existía en la autorización criptográfica de los gastos.</p>
+<h3 id="3-ajuste-de-dificultad-para-una-minoria">3. Ajuste de dificultad para una minoría</h3>
+<p>El Emergency Difficulty Adjustment reducía la dificultad cuando la producción de bloques se ralentizaba. Más tarde generó oscilaciones severas y fue reemplazado en noviembre de 2017, pero Bitcoin ABC reconoció expresamente que el EDA había permitido a Bitcoin Cash sobrevivir como cadena minoritaria.</p>
+<p>BIP-110 no incorporó una salida semejante. Conservó la dificultad de Bitcoin y el retarget normal de 2,016 bloques porque su plan era coordinar a los mineros dentro de BTC, no administrar una moneda separada con poco hashrate.</p>
+<h2 id="la-trampa-matematica-de-la-dificultad-heredada">La trampa matemática de la dificultad heredada</h2>
+<p>Cuando una rama conserva la dificultad de una red pero recibe solo una fracción de su poder de cómputo, el tiempo esperado por bloque aumenta aproximadamente en proporción inversa:</p>
+<div class="formula">tiempo esperado ≈ 10 minutos ÷ fracción del hashrate</div>
+<p>Con una estimación hipotética de 0.15 % del hashrate, el promedio sería cercano a 4.6 días por bloque. Recorrer unos 2,014 bloques hasta el primer ajuste tomaría alrededor de 25 años si esa proporción permaneciera constante.</p>
+<p>El hashrate no se observa directamente y una muestra de dos bloques es demasiado pequeña para medirlo con precisión. La cifra debe entenderse como <strong>escenario ilustrativo, no como pronóstico</strong>. La conclusión estructural no cambia: sin más mineros o sin modificar otra vez el consenso, la rama debía superar una barrera de dificultad diseñada para una red miles de veces mayor.</p>
+<h2 id="el-poder-real-de-un-nodo">El poder real de un nodo</h2>
+<p>Los dos forks ayudan a distinguir dos formas de poder:</p>
+<ul>
+<li><strong>Poder negativo:</strong> un nodo decide qué reglas no acepta y puede rechazar una cadena.</li>
+<li><strong>Poder positivo:</strong> una red consigue que mineros, usuarios, mercados, wallets, custodios y desarrolladores produzcan valor bajo las reglas elegidas.</li>
+</ul>
+<p>Los nodos BIP-110 ejercieron plenamente el primero: se negaron a aceptar el bloque de AntPool. No consiguieron el segundo. Bitcoin Cash, en cambio, combinó software, minería, replay protection, ajuste de dificultad, infraestructura comercial y una identidad económica distinta.</p>
+<blockquote>Un nodo puede abandonar el consenso dominante. No puede obligar al resto de la economía a acompañarlo.</blockquote>
+<h2 id="la-correlacion-decisiva">La correlación decisiva</h2>
+<p>La variable que mejor explica los resultados no es simplemente el porcentaje inicial de hashrate. Bitcoin Cash también comenzó como minoría. La correlación más fuerte es la <strong>capacidad de autonomía</strong>:</p>
+<ol>
+<li>reglas de consenso identificables;</li>
+<li>separación de transacciones y protección contra replay;</li>
+<li>dificultad compatible con el hashrate disponible;</li>
+<li>software e infraestructura operativa;</li>
+<li>liquidez, precio y mercados propios;</li>
+<li>usuarios y desarrolladores dispuestos a continuar.</li>
+</ol>
+<p>BCH reunió ese conjunto con imperfecciones y crisis posteriores. BIP-110 reunió una especificación completa, una implementación y una fracción residual de minería, pero no una economía alternativa preparada para el escenario de rechazo.</p>
+<h2 id="fue-bip-110-otro-bitcoin-cash">¿Fue BIP-110 “otro Bitcoin Cash”?</h2>
+<p>Solo en un sentido estrecho: un grupo aplicó reglas incompatibles y terminó siguiendo otro historial. En casi todo lo demás, la analogía falla.</p>
+<p>Bitcoin Cash buscó una separación permanente y asumió una identidad propia. BIP-110 buscó modificar temporalmente las reglas de BTC y dependía de que la presión de los nodos atrajera a los mineros. BCH diseñó una vía de supervivencia para la minoría. BIP-110 diseñó una vía de activación para convertirse en mayoría.</p>
+<div class="verdict">
+<h2 id="conclusion">Conclusión</h2>
+<p><strong>Bitcoin Cash convirtió una derrota en la disputa por BTC en el nacimiento de una economía independiente.</strong> BIP-110 intentó ganar las reglas de BTC mediante una obligación de señalización; cuando la mayoría no lo siguió, su rama no tenía dificultad, replay protection ni infraestructura económica adaptadas para vivir como otra red.</p>
+<p>La lección para la genealogía que conecta Bitcoin, Bitcoin Cash y eCash es concreta: una especificación declara reglas; un nodo puede defenderlas; un minero puede producir bloques. Pero solo la coordinación entre seguridad, software, liquidez, usuarios y continuidad convierte esos bloques en una red viva.</p>
+</div>
+<h2 id="fuentes-y-metodologia">Fuentes y metodología</h2>
+<p>La comparación se construyó con la <a href="https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki">especificación oficial de BIP-110</a>, la documentación de Bitcoin ABC sobre <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/blob/master/doc/abc/replay-protected-sighash.md"><code>SIGHASH_FORKID</code></a> y su <a href="https://www.bitcoinabc.org/2017-11-01-DAA-es/">reemplazo del EDA por el DAA de 2017</a>. Para el acontecimiento del 8 y 9 de agosto se contrastaron los parámetros de consenso con la cobertura contemporánea de <a href="https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support">CoinDesk</a> y los historiales reportados para los bloques 961,632 y 961,633.</p>
+<p class="source-note">Nota editorial: la rama BIP-110 era un acontecimiento en desarrollo al cierre de esta publicación. Las cantidades de bloques, la distancia entre cadenas y las estimaciones de hashrate pueden cambiar. Los parámetros de activación y la distinción entre señalización obligatoria, lock-in y activación RDTS provienen de la especificación del BIP.</p>
+</div>
+</div>
+</article><section class="evidence" id="fuentes-evidencia" aria-labelledby="fuentes-title"><h2 id="fuentes-title">Fuentes y evidencia</h2>
+<p>Referencias consignadas en esta publicación. Su presencia no equivale por sí sola a una verificación independiente.</p><ul><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki">especificación oficial de BIP-110</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/blob/master/doc/abc/replay-protected-sighash.md">SIGHASH_FORKID</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://www.bitcoinabc.org/2017-11-01-DAA-es/">reemplazo del EDA por el DAA de 2017</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support">CoinDesk</a></p></li></ul>
+<div class="notice"><h3>Limitaciones de comprobación consignadas</h3><p>Nota editorial: la rama BIP-110 era un acontecimiento en desarrollo al cierre de esta publicación. Las cantidades de bloques, la distancia entre cadenas y las estimaciones de hashrate pueden cambiar. Los parámetros de activación y la distinción entre señalización obligatoria, lock-in y activación RDTS provienen de la especificación del BIP.</p></div></section></div><section class="related-stories section-block" id="relacionados"><div class="section-heading"><h2>Lecturas relacionadas</h2></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html">La finalidad no es el puente</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-09T00:00:00-06:00">9 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html">Avalanche, poder de los stakers y Tonalli Core</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-08-24">24 de agosto de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html">CashAddr OOB: qué pasó en Bitcoin ABC y por qué Tonalli Wallet no quedó afectada</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/redaccion-tecnica-ecash-magazine-mexico/">Redacción técnica · eCash Magazine México</a></span><span><time datetime="2026-08-29">29 de agosto de 2026</time></span></div></div></article></div></section><section class="section-block"><div class="section-heading"><h2>Últimas publicaciones</h2><a href="/blog/index.html">Ver el archivo completo →</a></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Tonalli Memo: tu identidad .xec, tu voz on-chain</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-10">10 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html">La finalidad no es el puente</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-09T00:00:00-06:00">9 de septiembre de 2026</time></span></div></div></article></div></section></div></main><footer class="site-footer"><div class="container"><p class="brand-name">eCash Magazine México</p><p>Tecnología, economía y cultura desde México.</p><nav aria-label="Enlaces editoriales"><a href="/principios-editoriales/">Principios editoriales</a><a href="/correcciones/">Correcciones y actualizaciones</a><a href="/autores/">Autores</a><a href="/feed.xml">RSS</a><a href="https://ecash.mx">Portal eCash México ↗</a></nav><p>XEC es el dinero · RMZ es la llave · La cultura es la red</p><small>Contenidos bajo CC0 · eCash Magazine México</small></div></footer></body></html>

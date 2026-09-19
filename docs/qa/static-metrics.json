@@ -1,0 +1,99 @@
+{
+  "method": "Static file bytes and deterministic gzip level 9, mtime=0. Separate from browser transfer sizes, Lighthouse scores and field Core Web Vitals.",
+  "baselineRevision": "7b5cc72c05ee9deb74f26ff85edd209ee2d9b511",
+  "implementationRevision": "39f378c81465cd332c2884ba3571193c04bb6e59",
+  "finalCiRun": "https://github.com/xolosArmy/ecash-magazine/actions/runs/35450868683",
+  "documents": {
+    "index.html": {
+      "before": {
+        "bytes": 9011,
+        "gzip9Bytes": 3411
+      },
+      "after": {
+        "bytes": 19813,
+        "gzip9Bytes": 5193
+      }
+    },
+    "blog/index.html": {
+      "before": {
+        "bytes": 10330,
+        "gzip9Bytes": 2902
+      },
+      "after": {
+        "bytes": 55774,
+        "gzip9Bytes": 12799
+      }
+    },
+    "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html": {
+      "before": {
+        "bytes": 19211,
+        "gzip9Bytes": 6638
+      },
+      "after": {
+        "bytes": 22664,
+        "gzip9Bytes": 7133
+      }
+    },
+    "analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html": {
+      "before": {
+        "bytes": 48002,
+        "gzip9Bytes": 14264
+      },
+      "after": {
+        "bytes": 65746,
+        "gzip9Bytes": 15765
+      }
+    }
+  },
+  "sharedAssets": {
+    "assets/css/editorial.css": {
+      "bytes": 34840,
+      "gzip9Bytes": 6942
+    },
+    "assets/js/editorial.js": {
+      "bytes": 6077,
+      "gzip9Bytes": 2104
+    },
+    "assets/js/navigation.js": {
+      "bytes": 989,
+      "gzip9Bytes": 457
+    },
+    "assets/data/search.json": {
+      "bytes": 339783,
+      "gzip9Bytes": 118463
+    },
+    "assets/fonts/lexend-latin-400-700.woff2": {
+      "bytes": 39680,
+      "gzip9Bytes": 39713
+    },
+    "assets/media/logo-ecash-magazine-256.webp": {
+      "bytes": 4752,
+      "gzip9Bytes": 4775
+    },
+    "assets/media/logo-ecash-magazine-128.webp": {
+      "bytes": 1850,
+      "gzip9Bytes": 1873
+    }
+  },
+  "legacy45Coverage": {
+    "before": {
+      "description": 38,
+      "og:title": 30,
+      "og:image": 11,
+      "viewport": 44,
+      "canonical": 23,
+      "tailwindCDN": 9,
+      "twitter:card": 16,
+      "sitemapURLs": 26
+    },
+    "after": {
+      "description": 45,
+      "og:title": 45,
+      "og:image": 45,
+      "twitter:card": 45,
+      "viewport": 45,
+      "canonical": 45,
+      "sitemapURLs": 172
+    }
+  }
+}

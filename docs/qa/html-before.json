@@ -1,0 +1,219 @@
+{
+  "tool": "html-validate 11.16.0",
+  "preset": "recommended",
+  "pages_with_findings": 39,
+  "errors": 456,
+  "warnings": 0,
+  "rule_counts": {
+    "void-style": 202,
+    "long-title": 33,
+    "no-trailing-whitespace": 131,
+    "no-inline-style": 48,
+    "element-permitted-content": 8,
+    "prefer-native-element": 1,
+    "parser-error": 2,
+    "unique-landmark": 7,
+    "aria-label-misuse": 7,
+    "no-raw-characters": 10,
+    "no-implicit-button-type": 5,
+    "prefer-tbody": 1,
+    "doctype-style": 1
+  },
+  "pages": [
+    {
+      "path": "analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+      "errors": 16,
+      "warnings": 0
+    },
+    {
+      "path": "analisis/ecash-mining-variance.html",
+      "errors": 3,
+      "warnings": 0
+    },
+    {
+      "path": "analisis/gobernanza-rmz-ecash-mexico.html",
+      "errors": 43,
+      "warnings": 0
+    },
+    {
+      "path": "analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+      "errors": 3,
+      "warnings": 0
+    },
+    {
+      "path": "analisis/teyolia-2-1-direct-to-pool.html",
+      "errors": 23,
+      "warnings": 0
+    },
+    {
+      "path": "analisis/teyolia-direct-to-pool.html",
+      "errors": 11,
+      "warnings": 0
+    },
+    {
+      "path": "blog/2026-05-29-xolosarmy-weekly-update.html",
+      "errors": 7,
+      "warnings": 0
+    },
+    {
+      "path": "blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+      "errors": 2,
+      "warnings": 0
+    },
+    {
+      "path": "blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+      "errors": 5,
+      "warnings": 0
+    },
+    {
+      "path": "columna/gnc-ecash-irrelevance-crypto-winter.html",
+      "errors": 3,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "errors": 9,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/alias-ecash-mexico.html",
+      "errors": 15,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/asamblea-rmz-governanza-ecash-mexico.html",
+      "errors": 16,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/compra-parcial-rmz-tonalli-wallet.html",
+      "errors": 10,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/integracion-xec-thorchain.html",
+      "errors": 15,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/liquidez-soberana-ecash-xec-thorchain.html",
+      "errors": 1,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/oraculo-tonalli-app-ecash-mexico.html",
+      "errors": 17,
+      "warnings": 0
+    },
+    {
+      "path": "cronica/xolosarmy-thorchain-podcast.html",
+      "errors": 7,
+      "warnings": 0
+    },
+    {
+      "path": "cultura/sin-cultura-no-hay-adopcion.html",
+      "errors": 24,
+      "warnings": 0
+    },
+    {
+      "path": "editorial/ecash-mexico-machine-economy.html",
+      "errors": 17,
+      "warnings": 0
+    },
+    {
+      "path": "noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+      "errors": 1,
+      "warnings": 0
+    },
+    {
+      "path": "noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+      "errors": 13,
+      "warnings": 0
+    },
+    {
+      "path": "noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+      "errors": 13,
+      "warnings": 0
+    },
+    {
+      "path": "noticia/mexico-kyc-aml-cripto-transferencias-2026.html",
+      "errors": 3,
+      "warnings": 0
+    },
+    {
+      "path": "noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html",
+      "errors": 6,
+      "warnings": 0
+    },
+    {
+      "path": "opinion/economia-agentica-tokenizada.html",
+      "errors": 46,
+      "warnings": 0
+    },
+    {
+      "path": "opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "errors": 19,
+      "warnings": 0
+    },
+    {
+      "path": "opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "errors": 20,
+      "warnings": 0
+    },
+    {
+      "path": "opinion/ia-y-codigo-verificable-en-cripto.html",
+      "errors": 22,
+      "warnings": 0
+    },
+    {
+      "path": "opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html",
+      "errors": 1,
+      "warnings": 0
+    },
+    {
+      "path": "opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "errors": 25,
+      "warnings": 0
+    },
+    {
+      "path": "reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "errors": 4,
+      "warnings": 0
+    },
+    {
+      "path": "reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+      "errors": 3,
+      "warnings": 0
+    },
+    {
+      "path": "reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+      "errors": 4,
+      "warnings": 0
+    },
+    {
+      "path": "reportajes/tonalli-faucet-ecash-mexico.html",
+      "errors": 14,
+      "warnings": 0
+    },
+    {
+      "path": "reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "errors": 1,
+      "warnings": 0
+    },
+    {
+      "path": "reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+      "errors": 1,
+      "warnings": 0
+    },
+    {
+      "path": "reportajes/xec-thorchain-starsquid-xec-client.html",
+      "errors": 1,
+      "warnings": 0
+    },
+    {
+      "path": "reseñas/como-comprar-etoken-cultural-xolos-rmz.html",
+      "errors": 12,
+      "warnings": 0
+    }
+  ]
+}

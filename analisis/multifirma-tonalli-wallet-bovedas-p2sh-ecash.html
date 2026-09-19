@@ -1,390 +1,48 @@
 <!DOCTYPE html>
-<html lang="es-MX">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[Análisis técnico] Multifirma P2SH en Tonalli Wallet</title>
-  <meta name="description" content="Análisis técnico de la multifirma P2SH de Tonalli Wallet: bóveda 2-de-3, funcionamiento, evidencia en mainnet, ventajas y límites.">
-  <!-- Canonical propuesto: confirmar esta ruta antes del merge. -->
-  <link rel="canonical" href="https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html">
-
-  <meta property="og:type" content="article">
-  <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="eCash Magazine México">
-  <meta property="og:title" content="[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash">
-  <meta property="og:description" content="Análisis técnico de la multifirma P2SH de Tonalli Wallet: bóveda 2-de-3, funcionamiento, evidencia en mainnet, ventajas y límites.">
-  <meta property="og:url" content="https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html">
-  <meta property="og:image" content="https://i.imgur.com/eRiUhXC.jpeg">
-  <meta property="og:image:alt" content="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash.">
-  <meta property="og:image:width" content="1672">
-  <meta property="og:image:height" content="941">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash">
-  <meta name="twitter:description" content="Análisis técnico de la multifirma P2SH de Tonalli Wallet: bóveda 2-de-3, funcionamiento, evidencia en mainnet, ventajas y límites.">
-  <meta name="twitter:image" content="https://i.imgur.com/eRiUhXC.jpeg">
-  <meta name="twitter:image:alt" content="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash.">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash",
-    "description": "Análisis técnico de la multifirma P2SH de Tonalli Wallet: bóveda 2-de-3, funcionamiento, evidencia en mainnet, ventajas y límites.",
-    "image": [
-      "https://i.imgur.com/eRiUhXC.jpeg"
-    ],
-    "inLanguage": "es-MX",
-    "articleSection": "Análisis técnico",
-    "keywords": [
-      "multifirma en Tonalli Wallet",
-      "wallet multifirma eCash",
-      "bóveda 2-de-3",
-      "P2SH en eCash",
-      "tesorería XEC",
-      "administración compartida de XEC"
-    ],
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html"
-    },
-    "publisher": {
-      "@type": "NewsMediaOrganization",
-      "name": "eCash Magazine México",
-      "url": "https://magazine.ecash.mx/"
-    },
-    "about": [
-      {
-        "@type": "SoftwareApplication",
-        "name": "Tonalli Wallet",
-        "applicationCategory": "FinanceApplication"
-      },
-      {
-        "@type": "Thing",
-        "name": "eCash",
-        "alternateName": "XEC"
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    /* CORE MAGAZINE DESIGN SYSTEM */
-    :root {
-      color-scheme: dark;
-      --bg-body: #010101;
-      --bg-surface: #0a0a0a;
-      --bg-card: #141414;
-      --text-primary: #f0f0f0;
-      --text-secondary: #9a9a9a;
-      --accent-cyan: #00ebe7;
-      --accent-gold: #cfaa43;
-      --border-subtle: #2a2a2a;
-      --container-width: 75ch;
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 2rem;
-      --space-lg: 3rem;
-      --space-xl: 5rem;
+<html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash | eCash Magazine México</title><meta name="description" content="El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada.">
+<link rel="canonical" href="https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html"><link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#F6F3EC">
+<meta property="og:site_name" content="eCash Magazine México"><meta property="og:type" content="article"><meta property="og:title" content="[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash"><meta property="og:url" content="https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html">
+<meta property="og:description" content="El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada."><meta property="og:image" content="https://magazine.ecash.mx/assets/media/multifirma-tonalli-p2sh-1440.webp"><meta property="og:image:alt" content="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash."><meta property="og:image:width" content="1440"><meta property="og:image:height" content="810">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash"><meta name="twitter:description" content="El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada."><meta name="twitter:image" content="https://magazine.ecash.mx/assets/media/multifirma-tonalli-p2sh-1440.webp"><meta name="twitter:image:alt" content="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash.">
+<link rel="alternate" type="application/rss+xml" title="eCash Magazine México — publicaciones" href="/feed.xml">
+<link rel="stylesheet" href="/assets/css/editorial.css"><script defer src="/assets/js/editorial.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsMediaOrganization", "@id": "https://magazine.ecash.mx/#organization", "name": "eCash Magazine México", "url": "https://magazine.ecash.mx/"}, {"@type": "Article", "@id": "https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html#article", "headline": "[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash", "url": "https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html", "mainEntityOfPage": "https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html", "publisher": {"@id": "https://magazine.ecash.mx/#organization"}, "description": "El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada.", "inLanguage": "es-MX", "image": "https://magazine.ecash.mx/assets/media/multifirma-tonalli-p2sh-1440.webp"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://magazine.ecash.mx/"}, {"@type": "ListItem", "position": 2, "name": "Análisis técnico", "item": "https://magazine.ecash.mx/generos/analisis-tecnico/"}, {"@type": "ListItem", "position": 3, "name": "[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash", "item": "https://magazine.ecash.mx/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html"}]}]}</script>
+</head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header"><div class="masthead container">
+<a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
+<div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
     }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      overflow-x: hidden;
-      background: var(--bg-body);
-      color: var(--text-primary);
-      font-family:
-        "SF Pro Display",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-      font-size: 19px;
-      line-height: 1.68;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .magazine-shell {
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: var(--space-sm);
-    }
-
-    .mag-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-sm);
-      padding: var(--space-sm) 0;
-      margin-bottom: var(--space-lg);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .brand-logo {
-      color: var(--text-primary);
-      font-family: "Space Mono", monospace;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .brand-logo span {
-      color: var(--accent-cyan);
-    }
-
-    .mag-metadata {
-      color: var(--text-secondary);
-      font-family: "Space Mono", monospace;
-      font-size: 0.8rem;
-    }
-
-    article {
-      width: min(var(--container-width), calc(100% - 32px));
-      margin: 0 auto;
-      padding: var(--space-md) 0 var(--space-xl);
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: #fff;
-      line-height: 1.2;
-      text-wrap: balance;
-    }
-
-    h1 {
-      margin: 0 0 var(--space-md);
-      font-size: clamp(2.1rem, 6vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-    }
-
-    h2 {
-      padding-bottom: 10px;
-      margin: var(--space-xl) 0 var(--space-md);
-      border-bottom: 1px solid var(--border-subtle);
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    h3 {
-      margin: var(--space-lg) 0 var(--space-sm);
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    article > h1 + p {
-      padding: var(--space-md);
-      margin-bottom: var(--space-lg);
-      border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--accent-cyan);
-      border-radius: 4px;
-      background: var(--bg-surface);
-      color: var(--text-secondary);
-      font-size: 1.2rem;
-      line-height: 1.55;
-    }
-
-    .article-hero {
-      margin: 0 0 var(--space-md);
-    }
-
-    .article-hero img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-    }
-
-    article > h1 + .article-hero + p {
-      padding: var(--space-md);
-      margin-bottom: var(--space-lg);
-      border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--accent-cyan);
-      border-radius: 4px;
-      background: var(--bg-surface);
-      color: var(--text-secondary);
-      font-size: 1.2rem;
-      line-height: 1.55;
-    }
-
-    p {
-      margin: 0 0 var(--space-md);
-      color: var(--text-primary);
-      opacity: 0.95;
-    }
-
-    strong {
-      color: #fff;
-      font-weight: 600;
-    }
-
-    a {
-      color: var(--accent-cyan);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      overflow-wrap: anywhere;
-      transition: opacity 0.2s ease;
-    }
-
-    a:hover {
-      opacity: 0.72;
-    }
-
-    a:focus-visible,
-    .brand-logo:focus-visible {
-      outline: 2px solid var(--accent-cyan);
-      outline-offset: 4px;
-    }
-
-    ul,
-    ol {
-      margin: 0 0 var(--space-lg);
-    }
-
-    li {
-      margin-bottom: var(--space-xs);
-      color: var(--text-secondary);
-    }
-
-    code {
-      padding: 0.1em 0.32em;
-      border-radius: 4px;
-      background: var(--bg-card);
-      color: var(--text-primary);
-      font-family: "Space Mono", "SFMono-Regular", Consolas, monospace;
-      font-size: 0.86em;
-      overflow-wrap: anywhere;
-    }
-
-    pre {
-      margin: var(--space-md) 0;
-      padding: var(--space-sm);
-      overflow-x: auto;
-      border: 1px solid var(--border-subtle);
-      border-radius: 4px;
-      background: var(--bg-surface);
-      color: var(--text-primary);
-      font-size: 0.78rem;
-      line-height: 1.55;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    pre code {
-      padding: 0;
-      background: transparent;
-      color: inherit;
-      overflow-wrap: normal;
-    }
-
-    h2[id*="limitaciones"],
-    h2[id*="ausencia-de-auditor"] {
-      color: var(--accent-gold);
-    }
-
-    .mag-footer {
-      padding: var(--space-md);
-      margin-top: var(--space-lg);
-      border-top: 1px solid var(--border-subtle);
-      background: var(--bg-surface);
-      color: var(--text-secondary);
-      font-family: "Space Mono", monospace;
-      font-size: 0.75rem;
-      text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      body {
-        font-size: 18px;
-      }
-
-      h2 {
-        font-size: 1.9rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .mag-header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      article {
-        width: min(100% - 16px, var(--container-width));
-        padding-top: var(--space-sm);
-      }
-
-      h2 {
-        margin-top: var(--space-lg);
-        font-size: 1.7rem;
-      }
-
-      article > h1 + p {
-        padding: var(--space-sm);
-        font-size: 1.08rem;
-      }
-
-      article > h1 + .article-hero + p {
-        padding: var(--space-sm);
-        font-size: 1.08rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="magazine-shell">
-    <header class="mag-header">
-      <a
-        href="https://magazine.ecash.mx/"
-        class="brand-logo"
-        aria-label="Ir a eCash Magazine México"
-      >
-        eCash <span>Magazine</span>
-      </a>
-      <div class="mag-metadata">México / 2026</div>
-    </header>
-
-    <main>
-    <article class="technical-analysis" data-genre="analisis-tecnico">
-<h1
-id="análisis-técnico-tonalli-wallet-y-p2sh-cómo-funciona-una-bóveda-2-de-3-en-ecash">[Análisis
-técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en
-eCash</h1>
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/generos/analisis-tecnico/">Análisis técnico</a></li><li aria-current="page">[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash</li></ol></nav><header class="article-header"><div class="eyebrow"><a class="genre" href="/generos/analisis-tecnico/">Análisis técnico</a> </div><h1 class="article-title" id="análisis-técnico-tonalli-wallet-y-p2sh-cómo-funciona-una-bóveda-2-de-3-en-ecash">[Análisis técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en eCash</h1><p class="article-deck">El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/multifirma-en-tonalli-wallet/">multifirma en Tonalli Wallet</a></li><li><a class="tag" href="/temas/wallet-multifirma-ecash/">wallet multifirma eCash</a></li><li><a class="tag" href="/temas/boveda-2-de-3/">bóveda 2-de-3</a></li><li><a class="tag" href="/temas/p2sh-en-ecash/">P2SH en eCash</a></li><li><a class="tag" href="/temas/tesoreria-xec/">tesorería XEC</a></li><li><a class="tag" href="/temas/administracion-compartida-de-xec/">administración compartida de XEC</a></li></ul><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#el-riesgo-de-depender-de-una-sola-llave">El riesgo de depender de una sola llave</a></li><li><a href="#qué-significa-una-bóveda-2-de-3">Qué significa una bóveda 2-de-3</a></li><li><a href="#capacidad-observada-en-el-código">Capacidad observada en el código</a></li><li><a href="#qué-significa-p2sh-en-ecash">Qué significa P2SH en eCash</a></li><li><a href="#wallet-personal-p2pkh-y-bóveda-p2sh-dos-espacios-distintos">Wallet personal P2PKH y bóveda P2SH: dos espacios distintos</a></li><li><a href="#información-pública-de-la-bóveda-y-secretos-que-nunca-deben-compartirse">Información pública de la bóveda y secretos que nunca deben compartirse</a></li><li><a href="#flujo-observado-crear-firmar-y-transmitir">Flujo observado: crear, firmar y transmitir</a></li><li><a href="#comportamiento-probado-qué-significan-realmente-las-171-pruebas">Comportamiento probado: qué significan realmente las 171 pruebas</a></li><li><a href="#evidencia-en-mainnet-una-operación-pública-2-de-3">Evidencia en mainnet: una operación pública 2-de-3</a></li><li><a href="#tres-casos-prácticos">Tres casos prácticos</a></li><li><a href="#ventajas-razonables-no-garantías">Ventajas razonables, no garantías</a></li><li><a href="#posibilidades-futuras-agentes-autónomos-dao-y-addlp">Posibilidades futuras: agentes autónomos, DAO y ADDLP</a></li><li><a href="#limitaciones-y-riesgos-conocidos">Limitaciones y riesgos conocidos</a></li><li><a href="#ausencia-de-auditoría-independiente-publicada">Ausencia de auditoría independiente publicada</a></li><li><a href="#recomendaciones-prácticas">Recomendaciones prácticas</a></li><li><a href="#conclusión">Conclusión</a></li><li><a href="#fuentes-primarias-consultadas">Fuentes primarias consultadas</a></li><li><a href="#metodología-de-verificación">Metodología de verificación</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="magazine-shell">
+<div>
+<div class="technical-analysis" data-genre="analisis-tecnico">
 <figure class="article-hero">
-<img
-src="https://i.imgur.com/eRiUhXC.jpeg"
-width="1672"
-height="941"
-loading="eager"
-fetchpriority="high"
-decoding="async"
-alt="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash.">
+<img src="/assets/media/multifirma-tonalli-p2sh-1440.webp" width="1440" height="810" fetchpriority="high" decoding="async" alt="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash." srcset="/assets/media/multifirma-tonalli-p2sh-480.webp 480w, /assets/media/multifirma-tonalli-p2sh-960.webp 960w, /assets/media/multifirma-tonalli-p2sh-1440.webp 1440w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px">
 </figure>
-<p><em>El código público de Tonalli Wallet contiene un flujo
-experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración
-2-de-3, cada input requiere al menos dos firmas válidas para poder
-transmitirse. La arquitectura reduce la dependencia de una sola llave,
-pero todavía exige coordinación manual, carece de pruebas funcionales
-automatizadas dedicadas al flujo y no presenta una auditoría de
-seguridad independiente publicada.</em></p>
 <h2 id="el-riesgo-de-depender-de-una-sola-llave">El riesgo de depender
 de una sola llave</h2>
 <p>En una wallet de firma única, una sola llave privada puede autorizar
@@ -403,8 +61,7 @@ gastar.</li>
 respaldos. Distribuye la autoridad entre varios firmantes y hace que
 cada input de la transacción cumpla un umbral. La documentación de
 Tonalli describe bóvedas P2SH m-de-n y usa 2-de-3 como ejemplo
-operativo. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L18-L32">Documentación
+operativo. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L18-L32">Documentación
 primaria, líneas 18-32</a></p>
 <h2 id="qué-significa-una-bóveda-2-de-3">Qué significa una bóveda
 2-de-3</h2>
@@ -425,52 +82,39 @@ semillas, dispositivos, personas y ubicaciones sean realmente
 independientes.</p>
 <h2 id="capacidad-observada-en-el-código">Capacidad observada en el
 código</h2>
-<p>La revisión técnica se fijó en el commit <a
-href="https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc"><code>9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc</code></a>
+<p>La revisión técnica se fijó en el commit <a href="https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc"><code>9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc</code></a>
 de <code>xolosArmy/RMZWallet</code>. La multifirma fue introducida
-originalmente por el commit <a
-href="https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df"><code>ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df</code></a>.</p>
+originalmente por el commit <a href="https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df"><code>ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df</code></a>.</p>
 <p>En ese árbol puede observarse lo siguiente:</p>
 <ul>
 <li>La interfaz y la guía califican la capacidad como
 <strong>experimental</strong> y recomiendan usar primero montos
-pequeños. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L5-L16">Guía,
-líneas 5-16</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L50-L63">Pantalla
+pequeños. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L5-L16">Guía,
+líneas 5-16</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L50-L63">Pantalla
 de creación, líneas 50-63</a></li>
 <li>El servicio acepta esquemas m-de-n con la validación
 <code>1 &lt;= m &lt;= n &lt;= 20</code>; elimina llaves duplicadas, las
 ordena y rechaza un <code>redeemScript</code> mayor de 520 bytes. El
-máximo efectivo puede ser menor que 20 según el tamaño de las llaves. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L187-L197">Servicio,
-líneas 187-197</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L237-L260">Servicio,
+máximo efectivo puede ser menor que 20 según el tamaño de las llaves. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L187-L197">Servicio,
+líneas 187-197</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L237-L260">Servicio,
 líneas 237-260</a></li>
 <li>El <code>redeemScript</code> se construye como
 <code>m &lt;pubkeys...&gt; n OP_CHECKMULTISIG</code>; la dirección P2SH
-se deriva de <code>HASH160(redeemScript)</code>. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L226-L235">Servicio,
+se deriva de <code>HASH160(redeemScript)</code>. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L226-L235">Servicio,
 líneas 226-235</a></li>
 <li>El <code>scriptSig</code> de gasto se arma como
 <code>OP_0 &lt;firmas...&gt; &lt;redeemScript&gt;</code>, y el servicio
-valida que el script y las firmas correspondan a la bóveda. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308">Servicio,
-líneas 263-308</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428">Servicio,
+valida que el script y las firmas correspondan a la bóveda. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308">Servicio,
+líneas 263-308</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428">Servicio,
 líneas 331-428</a></li>
 <li>El MVP filtra UTXO con tokens y se limita a XEC puro. La guía
-excluye RMZ, ALP, NFT y otros tokens. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L9-L16">Guía,
-líneas 9-16</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L731-L737">Fondeo,
-líneas 731-737</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L815-L825">Propuestas,
+excluye RMZ, ALP, NFT y otros tokens. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L9-L16">Guía,
+líneas 9-16</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L731-L737">Fondeo,
+líneas 731-737</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L815-L825">Propuestas,
 líneas 815-825</a></li>
 <li>Las consultas de UTXO y el broadcast se realizan mediante Chronik;
 el commit revisado configura <code>chronik.e.cash</code> y
-<code>chronik.xolosarmy.xyz</code> como endpoints predeterminados. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts#L1-L36">Cliente
+<code>chronik.xolosarmy.xyz</code> como endpoints predeterminados. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts#L1-L36">Cliente
 Chronik, líneas 1-36</a></li>
 </ul>
 <p>Esto describe una <strong>capacidad presente en el código</strong>.
@@ -488,53 +132,41 @@ la lista completa de firmantes. Al gastar, el input revela el
 pareja de transacciones verificada en mainnet muestra ese
 comportamiento: el fondeo contiene
 <code>OP_HASH160 &lt;hash&gt; OP_EQUAL</code> y el gasto revela el
-script 2-de-3. <a
-href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff">Fondeo
-en el explorador</a> <a
-href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329">Gasto
+script 2-de-3. <a href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff">Fondeo
+en el explorador</a> <a href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329">Gasto
 en el explorador</a></p>
-<h2
-id="wallet-personal-p2pkh-y-bóveda-p2sh-dos-espacios-distintos">Wallet
+<h2 id="wallet-personal-p2pkh-y-bóveda-p2sh-dos-espacios-distintos">Wallet
 personal P2PKH y bóveda P2SH: dos espacios distintos</h2>
 <p>La implementación separa:</p>
 <ol type="1">
 <li><strong>Wallet personal P2PKH.</strong> Su firmante se construye con
 la llave privada y la llave pública de la wallet activa. La semilla
-cifrada se conserva en almacenamiento local. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L230-L260">Servicio
-personal, líneas 230-260</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L457-L500">Cifrado
-local, líneas 457-500</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L957-L974">Firmante
+cifrada se conserva en almacenamiento local. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L230-L260">Servicio
+personal, líneas 230-260</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L457-L500">Cifrado
+local, líneas 457-500</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L957-L974">Firmante
 P2PKH, líneas 957-974</a></li>
 <li><strong>Bóveda P2SH.</strong> Conserva su dirección, UTXO y datos
 públicos bajo claves de almacenamiento separadas. Los fondos de la
-bóveda solo pueden gastarse cuando cada input reúne el umbral. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98">Tipos
+bóveda solo pueden gastarse cuando cada input reúne el umbral. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98">Tipos
 y almacenamiento de bóvedas, líneas 35-98</a></li>
 </ol>
 <p>La separación no significa que Tonalli cree automáticamente otra
 semilla para cada bóveda. La llave de la wallet personal activa funciona
 como una de las llaves firmantes. Por eso la guía y la interfaz
 establecen la regla <strong>un dispositivo, una wallet, un
-firmante</strong>. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L34-L46">Guía,
-líneas 34-46</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L87-L103">Interfaz
+firmante</strong>. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L34-L46">Guía,
+líneas 34-46</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L87-L103">Interfaz
 de firma, líneas 87-103</a></p>
-<h2
-id="información-pública-de-la-bóveda-y-secretos-que-nunca-deben-compartirse">Información
+<h2 id="información-pública-de-la-bóveda-y-secretos-que-nunca-deben-compartirse">Información
 pública de la bóveda y secretos que nunca deben compartirse</h2>
 <p>El JSON exportado contiene la etiqueta, <code>m</code>,
 <code>n</code>, llaves públicas, <code>redeemScriptHex</code>,
 <code>scriptHashHex</code>, dirección P2SH y fecha. No incluye la
-semilla ni la llave privada. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L613-L627">Exportación,
+semilla ni la llave privada. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L613-L627">Exportación,
 líneas 613-627</a></p>
 <p>Al importar, el servicio vuelve a ordenar las llaves y reconstruye el
 script, su hash y la dirección. Rechaza diferencias y también rechaza a
-una wallet cuya llave pública no pertenezca al grupo. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L629-L681">Importación
+una wallet cuya llave pública no pertenezca al grupo. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L629-L681">Importación
 y validación, líneas 629-681</a></p>
 <p>Se pueden compartir entre firmantes:</p>
 <ul>
@@ -564,73 +196,60 @@ independientes</h3>
 <p>Cada participante desbloquea una wallet distinta en un dispositivo
 distinto, abre <code>/multisig/create</code> y comparte únicamente su
 llave pública. La pantalla incorpora la llave pública de la wallet
-activa y envía <code>m</code> y la lista al servicio de creación. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L14-L48">Ruta
+activa y envía <code>m</code> y la lista al servicio de creación. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L14-L48">Ruta
 de creación, líneas 14-48</a></p>
 <h3 id="paso-2-crear-la-bóveda">2. Crear la bóveda</h3>
 <p>El servicio ordena las llaves, comprueba el umbral, exige que la
 wallet creadora sea firmante, construye el <code>redeemScript</code>,
-calcula HASH160 y deriva la dirección P2SH. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L560-L600">Servicio,
+calcula HASH160 y deriva la dirección P2SH. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L560-L600">Servicio,
 líneas 560-600</a></p>
 <h3 id="paso-3-exportar-e-importar-el-json-público">3. Exportar e importar el
 JSON público</h3>
 <p>Los demás dispositivos importan el JSON. Cada uno debe obtener la
 misma dirección P2SH y confirmar el dato por un canal independiente
 antes de fondear. La guía documenta el procedimiento y el código vuelve
-a derivar los campos críticos. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L66-L82">Guía,
+a derivar los campos críticos. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L66-L82">Guía,
 líneas 66-82</a></p>
 <h3 id="paso-4-fondear-con-xec-puro">4. Fondear con XEC puro</h3>
 <p>La ruta específica de la bóveda usa la wallet personal como fuente,
 descarta UTXO con tokens, construye el envío a P2SH y transmite mediante
-Chronik. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L705-L788">Servicio
+Chronik. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L705-L788">Servicio
 de fondeo, líneas 705-788</a> La documentación advierte no usar el flujo
-general <code>/send-xec</code> para este fondeo. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L84-L101">Guía,
+general <code>/send-xec</code> para este fondeo. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L84-L101">Guía,
 líneas 84-101</a></p>
 <h3 id="paso-5-crear-una-propuesta-parcial">5. Crear una propuesta
 parcial</h3>
 <p>Un firmante indica destino, monto, una comisión de servicio opcional
 y, si corresponde, un memo <code>OP_RETURN</code>. El servicio
 selecciona XEC puro, devuelve el cambio a la bóveda, firma con el
-creador y produce <code>partialTxHex</code>. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L791-L885">Creación
+creador y produce <code>partialTxHex</code>. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L791-L885">Creación
 de propuesta, líneas 791-885</a></p>
 <p>En 2-de-3, esa propuesta normalmente queda con una firma y necesita
 otra. La guía documenta ese estado, pero no sustituye una prueba
-funcional automatizada. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L103-L115">Guía,
+funcional automatizada. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L103-L115">Guía,
 líneas 103-115</a></p>
 <h3 id="paso-6-inspeccionar-y-cofirmar">6. Inspeccionar y cofirmar</h3>
 <p>El segundo firmante pega el <code>partialTxHex</code>, solicita el
 resumen y revisa inputs, firmas válidas, destinos, montos, cambio,
 comisión, memo y scripts desconocidos. La interfaz no habilita “Agregar
 mi firma” sin un resumen y no habilita “Transmitir” mientras
-<code>summary.isComplete</code> sea falso. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L34-L85">Interfaz
-de firma, líneas 34-85</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L105-L166">Controles,
+<code>summary.isComplete</code> sea falso. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L34-L85">Interfaz
+de firma, líneas 34-85</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L105-L166">Controles,
 líneas 105-166</a></p>
 <p>El servicio verifica las firmas por llave pública y por input,
 rechaza firmas inválidas o duplicadas y exige <code>ALL_BIP143</code>.
-<a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428">Verificación
+<a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428">Verificación
 criptográfica, líneas 331-428</a></p>
 <h3 id="paso-7-transmitir-y-verificar">7. Transmitir y verificar</h3>
 <p>Antes del broadcast, el servicio vuelve a inspeccionar la
 transacción, bloquea UTXO con token, firmas inválidas o duplicadas y
 cualquier input por debajo de <code>m</code>; después llama a Chronik.
-<a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L962-L995">Broadcast,
+<a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L962-L995">Broadcast,
 líneas 962-995</a></p>
 <p>Después de transmitir, los firmantes deben abrir el TXID y comprobar
-destino, monto, cambio, comisión y confirmación. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L172-L195">Guía,
+destino, monto, cambio, comisión y confirmación. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L172-L195">Guía,
 líneas 172-195</a></p>
-<h2
-id="comportamiento-probado-qué-significan-realmente-las-171-pruebas">Comportamiento
+<h2 id="comportamiento-probado-qué-significan-realmente-las-171-pruebas">Comportamiento
 probado: qué significan realmente las 171 pruebas</h2>
 <p>La cifra <strong>171</strong> no corresponde a 171 pruebas de
 multifirma. Es únicamente la suma aritmética de resultados
@@ -645,8 +264,7 @@ construcción SLP NFT1 Group, ejecutadas con
 <code>node --import tsx --test src/services/slpNftTxBuilder.test.ts</code>.</li>
 </ul>
 <p>El script de pruebas del repositorio confirma que el proyecto separa
-ambos ejecutores. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16">package.json,
+ambos ejecutores. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16">package.json,
 líneas 6-16</a></p>
 <p><strong>Confirmación expresa:</strong> no se localizaron pruebas
 funcionales, criptográficas o de integración dedicadas a
@@ -654,10 +272,8 @@ funcionales, criptográficas o de integración dedicadas a
 <code>VaultDashboard</code>, <code>CreateProposal</code> o
 <code>SignProposal</code>. Las únicas apariciones de
 <code>/multisig</code> en archivos de prueba comprueban el estado activo
-de la navegación y el catálogo de rutas. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L60-L90">Prueba
-de navegación, líneas 60-90</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L148-L160">Prueba
+de la navegación y el catálogo de rutas. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L60-L90">Prueba
+de navegación, líneas 60-90</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L148-L160">Prueba
 de navegación, líneas 148-160</a></p>
 <p>Una primera corrida de Vitest realizada simultáneamente con el
 ejecutor SLP registró 165 aprobadas y dos expiraciones de cinco segundos
@@ -672,21 +288,18 @@ bajo el entorno registrado; no prueba corrección de seguridad.</p>
 <h2 id="evidencia-en-mainnet-una-operación-pública-2-de-3">Evidencia en
 mainnet: una operación pública 2-de-3</h2>
 <p>La documentación registra una prueba realizada el 24 de junio de
-2026. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L237-L246">Registro
+2026. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L237-L246">Registro
 primario, líneas 237-246</a> La revisión final contrastó ese registro
 con Chronik y con el explorador de eCash.</p>
 <h3 id="identificadores">Identificadores</h3>
 <ul>
 <li><strong>Dirección P2SH:</strong>
 <code>ecash:ppev5u3xnqqk4nxsrxxq6xn94ck2yqnvpg2wamux7f</code></li>
-<li><strong>Fondeo:</strong> <a
-href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff"><code>72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff</code></a></li>
+<li><strong>Fondeo:</strong> <a href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff"><code>72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff</code></a></li>
 <li><strong>Bloque del fondeo:</strong> 954924</li>
 <li><strong>Hash del bloque de fondeo:</strong>
 <code>0000000000000000937000a81b3d146b29082d400818dc9f92db73f1fce386fe</code></li>
-<li><strong>Gasto multifirma:</strong> <a
-href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329"><code>3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329</code></a></li>
+<li><strong>Gasto multifirma:</strong> <a href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329"><code>3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329</code></a></li>
 <li><strong>Bloque del gasto:</strong> 954927</li>
 <li><strong>Hash del bloque de gasto:</strong>
 <code>00000000000000004529beb19d2a513d9ac54685f9e0367418b256e0d345cac5</code></li>
@@ -712,24 +325,23 @@ equivalentes a <strong>1,100.00 XEC</strong>, con este
 </ul>
 <p>El <code>OP_0</code> inicial es el elemento vacío requerido por la
 semántica histórica de <code>OP_CHECKMULTISIG</code>. La estructura
-coincide con la que construye y valida el servicio. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308">Constructor
+coincide con la que construye y valida el servicio. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308">Constructor
 y parser de scriptSig, líneas 263-308</a></p>
 <h3 id="redeemscript-exacto">RedeemScript exacto</h3>
-<pre class="text"><code>522102669b1ee6cc4596ff4b486f35518f2ec24703d17cb1799f1cc44c9408c0731710
+<section class="code-region" aria-label="Bloque de código o datos técnicos 1"><pre class="text" tabindex="0"><code>522102669b1ee6cc4596ff4b486f35518f2ec24703d17cb1799f1cc44c9408c0731710
 2102aba83b38996d54e6183199123d88023d5adf677cadc962b0db2f13187efce0b9
 2102b7c6d1350ea9a289efcb7e96b4b25d8aed3849a76dd50901aa8ec4971f075c46
 53ae</code></pre>
-<p>Sin saltos de línea:</p>
+</section><p>Sin saltos de línea:</p>
 <p><code>522102669b1ee6cc4596ff4b486f35518f2ec24703d17cb1799f1cc44c9408c07317102102aba83b38996d54e6183199123d88023d5adf677cadc962b0db2f13187efce0b92102b7c6d1350ea9a289efcb7e96b4b25d8aed3849a76dd50901aa8ec4971f075c4653ae</code></p>
 <p>Decodificado:</p>
-<pre class="text"><code>OP_2
+<section class="code-region" aria-label="Bloque de código o datos técnicos 2"><pre class="text" tabindex="0"><code>OP_2
 &lt;02669b1ee6cc4596ff4b486f35518f2ec24703d17cb1799f1cc44c9408c0731710&gt;
 &lt;02aba83b38996d54e6183199123d88023d5adf677cadc962b0db2f13187efce0b9&gt;
 &lt;02b7c6d1350ea9a289efcb7e96b4b25d8aed3849a76dd50901aa8ec4971f075c46&gt;
 OP_3
 OP_CHECKMULTISIG</code></pre>
-<p>El HASH160 calculado del <code>redeemScript</code> es:</p>
+</section><p>El HASH160 calculado del <code>redeemScript</code> es:</p>
 <p><code>72ca722698016accd0198c0d1a65ae2ca2026c0a</code></p>
 <p>Coincide exactamente con el hash del <code>outputScript</code>
 fondeado y deriva la dirección P2SH publicada.</p>
@@ -745,8 +357,7 @@ verificación</h3>
 <p>La consulta se realizó con <code>chronik-client</code> contra el
 endpoint predeterminado del repositorio y el script se decodificó con
 <code>ecash-lib</code>:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--input-type</span><span class="op">=</span>module <span class="at">-e</span> <span class="st">&quot;import { ChronikClient } from &#39;chronik-client&#39;; import { Script, fromHex, isPushOp, shaRmd160, toHex, Address } from &#39;ecash-lib&#39;; const txid=&#39;3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329&#39;; const tx=await new ChronikClient(&#39;https://chronik.e.cash&#39;).tx(txid); const read=s=&gt;{const a=[];const it=s.ops();for(let op=it.next();op!==undefined;op=it.next())a.push(op);return a}; const all=read(new Script(fromHex(tx.inputs[0].inputScript))); const pushes=all.filter(isPushOp); const redeem=new Script(pushes.at(-1).data); const hash=shaRmd160(redeem.bytecode); const fee=BigInt(tx.inputs[0].sats)-tx.outputs.reduce((n,o)=&gt;n+BigInt(o.sats),0n); console.log(JSON.stringify({block:tx.block.height,scriptSigOps:all.length,signatures:pushes.length-1,sighash:pushes.slice(0,-1).map(x=&gt;&#39;0x&#39;+x.data.at(-1).toString(16)),redeemScriptHex:redeem.toHex(),hash160:toHex(hash),address:Address.fromScript(Script.p2sh(hash)).toString(),feeSats:fee.toString()},null,2));&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><section class="code-region" aria-label="Bloque de código o datos técnicos 3"><pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--input-type</span><span class="op">=</span>module <span class="at">-e</span> <span class="st">"import { ChronikClient } from 'chronik-client'; import { Script, fromHex, isPushOp, shaRmd160, toHex, Address } from 'ecash-lib'; const txid='3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329'; const tx=await new ChronikClient('https://chronik.e.cash').tx(txid); const read=s=&gt;{const a=[];const it=s.ops();for(let op=it.next();op!==undefined;op=it.next())a.push(op);return a}; const all=read(new Script(fromHex(tx.inputs[0].inputScript))); const pushes=all.filter(isPushOp); const redeem=new Script(pushes.at(-1).data); const hash=shaRmd160(redeem.bytecode); const fee=BigInt(tx.inputs[0].sats)-tx.outputs.reduce((n,o)=&gt;n+BigInt(o.sats),0n); console.log(JSON.stringify({block:tx.block.height,scriptSigOps:all.length,signatures:pushes.length-1,sighash:pushes.slice(0,-1).map(x=&gt;'0x'+x.data.at(-1).toString(16)),redeemScriptHex:redeem.toHex(),hash160:toHex(hash),address:Address.fromScript(Script.p2sh(hash)).toString(),feeSats:fee.toString()},null,2));"</span></span></code></pre></section></div>
 <p>Resultado: bloque <code>954927</code>, cuatro operaciones en
 <code>scriptSig</code>, dos firmas, ambos bytes de sighash
 <code>0x41</code>, HASH160 <code>72ca...6c0a</code>, dirección
@@ -828,8 +439,7 @@ aumenta la complejidad y el tiempo de coordinación.</p>
 <h3 id="mayor-control-de-tesorerías">Mayor control de tesorerías</h3>
 <p>El valor no está en volver imposible un robo, sino en exigir que
 fallen o sean engañados varios controles independientes.</p>
-<h2
-id="posibilidades-futuras-agentes-autónomos-dao-y-addlp">Posibilidades
+<h2 id="posibilidades-futuras-agentes-autónomos-dao-y-addlp">Posibilidades
 futuras: agentes autónomos, DAO y ADDLP</h2>
 <p>Una bóveda multifirma puede limitar el poder de gasto de un agente o
 de un sistema automatizado: el software podría preparar una propuesta y
@@ -840,8 +450,7 @@ JSON y <code>partialTxHex</code>. No se comprobó una API de coordinación
 autónoma, un motor de políticas para agentes ni una integración DAO
 terminada. La guía menciona ADDLP futuro como “puede coordinar más
 adelante” y advierte que el memo genérico no sustituye una revisión
-específica de compatibilidad. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L117-L129">Guía,
+específica de compatibilidad. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L117-L129">Guía,
 líneas 117-129</a></p>
 <p>Por ello, agentes, DAO y ADDLP deben presentarse como <strong>usos
 arquitectónicos posibles o futuros</strong>, no como capacidades
@@ -875,8 +484,7 @@ puede ser necesario generar otra propuesta.</li>
 <li>Función marcada como experimental.</li>
 <li>Solo XEC puro; no UTXO con tokens.</li>
 <li>Coordinación manual entre firmantes.</li>
-<li>Bóvedas y propuestas guardadas localmente en el navegador. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98">Tipos
+<li>Bóvedas y propuestas guardadas localmente en el navegador. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98">Tipos
 y claves de almacenamiento, líneas 35-98</a></li>
 <li>Sin pruebas funcionales automatizadas dedicadas al flujo
 multifirma.</li>
@@ -885,10 +493,8 @@ o mocknet.</li>
 <li>Una sola ejecución pública 2-de-3 localizada en mainnet.</li>
 <li>Scripts desconocidos generan advertencia, pero el código de
 broadcast no muestra un bloqueo general por cualquier output
-desconocido; la revisión humana sigue siendo esencial. <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L484-L534">Inspector
-de outputs, líneas 484-534</a> <a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L972-L995">Broadcast,
+desconocido; la revisión humana sigue siendo esencial. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L484-L534">Inspector
+de outputs, líneas 484-534</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L972-L995">Broadcast,
 líneas 972-995</a></li>
 </ul>
 <h2 id="ausencia-de-auditoría-independiente-publicada">Ausencia de
@@ -934,38 +540,27 @@ dispositivos, respaldos y procedimientos también son independientes.</p>
 <h2 id="fuentes-primarias-consultadas">Fuentes primarias
 consultadas</h2>
 <ul>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc">Commit
+<li><a href="https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc">Commit
 fijado de revisión</a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df">Commit
+<li><a href="https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df">Commit
 que introdujo el MVP P2SH multifirma</a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md">Guía
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md">Guía
 del MVP multifirma</a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts">Servicio
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts">Servicio
 <code>EcashMultisigService.ts</code></a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts">Servicio
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts">Servicio
 <code>XolosWalletService.ts</code></a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx">Rutas
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx">Rutas
 de creación y firma</a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts">Cliente
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts">Cliente
 Chronik</a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16">Configuración
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16">Configuración
 de ejecutores en <code>package.json</code></a></li>
-<li><a
-href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx">Pruebas
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx">Pruebas
 de navegación con las únicas referencias a multifirma</a></li>
-<li><a
-href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff">TXID
+<li><a href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff">TXID
 de fondeo</a></li>
-<li><a
-href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329">TXID
+<li><a href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329">TXID
 del gasto 2-de-3</a></li>
 </ul>
 <h2 id="metodología-de-verificación">Metodología de verificación</h2>
@@ -987,12 +582,15 @@ original, la revisión probatoria aceptada y el Manual periodístico de
 eCash Magazine México. El detalle completo de afirmaciones, comandos,
 resultados y niveles de confianza se conserva en el anexo probatorio
 separado.</p>
-    </article>
-    </main>
-
-    <footer class="mag-footer">
-      eCash Magazine México · Ideas, cultura e infraestructura para la economía eCash
-    </footer>
-  </div>
-</body>
-</html>
+</div>
+</div>
+</div>
+</article><section class="evidence" id="fuentes-evidencia" aria-labelledby="fuentes-title"><h2 id="fuentes-title">Fuentes y evidencia</h2>
+<p>Referencias consignadas en esta publicación. Su presencia no equivale por sí sola a una verificación independiente.</p><ul><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc">Commit fijado de revisión</a></p><p><code>9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc</code></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df">Commit que introdujo el MVP P2SH multifirma</a></p><p><code>ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df</code></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md">Guía del MVP multifirma</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts">Servicio EcashMultisigService.ts</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts">Servicio XolosWalletService.ts</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx">Rutas de creación y firma</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts">Cliente Chronik</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16">Configuración de ejecutores en package.json</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx">Pruebas de navegación con las únicas referencias a multifirma</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff">TXID de fondeo</a></p><p><code>72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff</code></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329">TXID del gasto 2-de-3</a></p><p><code>3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329</code></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L18-L32">Documentación primaria, líneas 18-32</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L5-L16">Guía, líneas 5-16</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L50-L63">Pantalla de creación, líneas 50-63</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L187-L197">Servicio, líneas 187-197</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L237-L260">Servicio, líneas 237-260</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L226-L235">Servicio, líneas 226-235</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308">Servicio, líneas 263-308</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428">Servicio, líneas 331-428</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L9-L16">Guía, líneas 9-16</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L731-L737">Fondeo, líneas 731-737</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L815-L825">Propuestas, líneas 815-825</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts#L1-L36">Cliente Chronik, líneas 1-36</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L230-L260">Servicio personal, líneas 230-260</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L457-L500">Cifrado local, líneas 457-500</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L957-L974">Firmante P2PKH, líneas 957-974</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98">Tipos y almacenamiento de bóvedas, líneas 35-98</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L34-L46">Guía, líneas 34-46</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L87-L103">Interfaz de firma, líneas 87-103</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L613-L627">Exportación, líneas 613-627</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L629-L681">Importación y validación, líneas 629-681</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L14-L48">Ruta de creación, líneas 14-48</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L560-L600">Servicio, líneas 560-600</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L66-L82">Guía, líneas 66-82</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L705-L788">Servicio de fondeo, líneas 705-788</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L84-L101">Guía, líneas 84-101</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L791-L885">Creación de propuesta, líneas 791-885</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L103-L115">Guía, líneas 103-115</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L34-L85">Interfaz de firma, líneas 34-85</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L105-L166">Controles, líneas 105-166</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L962-L995">Broadcast, líneas 962-995</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L172-L195">Guía, líneas 172-195</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L60-L90">Prueba de navegación, líneas 60-90</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L148-L160">Prueba de navegación, líneas 148-160</a></p></li><li class="evidence-item"><span class="evidence-kind">Fuente primaria</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L237-L246">Registro primario, líneas 237-246</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L117-L129">Guía, líneas 117-129</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L484-L534">Inspector de outputs, líneas 484-534</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L972-L995">Broadcast, líneas 972-995</a></p></li></ul>
+<div class="notice"><h3>Limitaciones de comprobación consignadas</h3><p>El código público de Tonalli Wallet contiene un flujo experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración 2-de-3, cada input requiere al menos dos firmas válidas para poder transmitirse. La arquitectura reduce la dependencia de una sola llave, pero todavía exige coordinación manual, carece de pruebas funcionales automatizadas dedicadas al flujo y no presenta una auditoría de seguridad independiente publicada.</p><p>No se localizó una auditoría de seguridad independiente publicada en el repositorio, su documentación ni la búsqueda del repositorio al 31 de julio de 2026. Esto no permite descartar una revisión privada no publicada; sí impide describir la función como auditada.</p><p>La proporción también importa: el proyecto marca la función como experimental, limita el MVP a XEC puro, depende de coordinación manual, no incluye pruebas funcionales automatizadas dedicadas a la multifirma y no presenta una auditoría independiente publicada.</p></div></section></div><section class="section-block"><div class="section-heading"><h2>Últimas publicaciones</h2><a href="/blog/index.html">Ver el archivo completo →</a></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Tonalli Memo: tu identidad .xec, tu voz on-chain</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-10">10 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html">La finalidad no es el puente</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-09T00:00:00-06:00">9 de septiembre de 2026</time></span></div></div></article></div></section></div></main><footer class="site-footer"><div class="container"><p class="brand-name">eCash Magazine México</p><p>Tecnología, economía y cultura desde México.</p><nav aria-label="Enlaces editoriales"><a href="/principios-editoriales/">Principios editoriales</a><a href="/correcciones/">Correcciones y actualizaciones</a><a href="/autores/">Autores</a><a href="/feed.xml">RSS</a><a href="https://ecash.mx">Portal eCash México ↗</a></nav><p>XEC es el dinero · RMZ es la llave · La cultura es la red</p><small>Contenidos bajo CC0 · eCash Magazine México</small></div></footer></body></html>

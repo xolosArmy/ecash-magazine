@@ -1,0 +1,558 @@
+<div class="magazine-shell">
+<div>
+<div class="technical-analysis" data-genre="analisis-tecnico">
+<h1 id="análisis-técnico-tonalli-wallet-y-p2sh-cómo-funciona-una-bóveda-2-de-3-en-ecash">[Análisis
+técnico] Tonalli Wallet y P2SH: cómo funciona una bóveda 2-de-3 en
+eCash</h1>
+<figure class="article-hero">
+<img src="https://i.imgur.com/eRiUhXC.jpeg" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" alt="Xoloitzcuintle custodia una bóveda digital P2SH con un esquema multifirma 2-de-3 de Tonalli Wallet sobre eCash.">
+</figure>
+<p><em>El código público de Tonalli Wallet contiene un flujo
+experimental para bóvedas P2SH m-de-n con XEC puro. En una configuración
+2-de-3, cada input requiere al menos dos firmas válidas para poder
+transmitirse. La arquitectura reduce la dependencia de una sola llave,
+pero todavía exige coordinación manual, carece de pruebas funcionales
+automatizadas dedicadas al flujo y no presenta una auditoría de
+seguridad independiente publicada.</em></p>
+<h2 id="el-riesgo-de-depender-de-una-sola-llave">El riesgo de depender
+de una sola llave</h2>
+<p>En una wallet de firma única, una sola llave privada puede autorizar
+un movimiento. Esa sencillez ayuda en el uso cotidiano, pero concentra
+el riesgo: perder la semilla sin respaldo, exponer la llave a malware o
+comprometer el dispositivo puede bastar para perder el acceso o permitir
+un gasto no deseado.</p>
+<p>Una wallet multifirma cambia la condición de autorización. En vez de
+aceptar una sola firma, utiliza una regla <strong>m-de-n</strong>:</p>
+<ul>
+<li><strong>n</strong> es el total de llaves públicas autorizadas.</li>
+<li><strong>m</strong> es el mínimo de firmas válidas requerido para
+gastar.</li>
+</ul>
+<p>La multifirma no elimina las llaves privadas ni sustituye los
+respaldos. Distribuye la autoridad entre varios firmantes y hace que
+cada input de la transacción cumpla un umbral. La documentación de
+Tonalli describe bóvedas P2SH m-de-n y usa 2-de-3 como ejemplo
+operativo. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L18-L32">Documentación
+primaria, líneas 18-32</a></p>
+<h2 id="qué-significa-una-bóveda-2-de-3">Qué significa una bóveda
+2-de-3</h2>
+<p>Una bóveda <strong>2-de-3</strong> tiene tres firmantes -A, B y C- y
+acepta cualquiera de estas combinaciones:</p>
+<ul>
+<li>A + B.</li>
+<li>A + C.</li>
+<li>B + C.</li>
+</ul>
+<p>Una sola llave no puede gastar. Si A pierde su dispositivo, B y C
+todavía pueden alcanzar el umbral. Si un atacante obtiene únicamente B,
+tampoco puede mover los fondos.</p>
+<p>El límite matemático también es claro: perder dos llaves puede
+bloquear permanentemente una bóveda 2-de-3; comprometer dos firmantes
+puede permitir un gasto no autorizado. La tolerancia depende de que
+semillas, dispositivos, personas y ubicaciones sean realmente
+independientes.</p>
+<h2 id="capacidad-observada-en-el-código">Capacidad observada en el
+código</h2>
+<p>La revisión técnica se fijó en el commit <a href="https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc"><code>9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc</code></a>
+de <code>xolosArmy/RMZWallet</code>. La multifirma fue introducida
+originalmente por el commit <a href="https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df"><code>ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df</code></a>.</p>
+<p>En ese árbol puede observarse lo siguiente:</p>
+<ul>
+<li>La interfaz y la guía califican la capacidad como
+<strong>experimental</strong> y recomiendan usar primero montos
+pequeños. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L5-L16">Guía,
+líneas 5-16</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L50-L63">Pantalla
+de creación, líneas 50-63</a></li>
+<li>El servicio acepta esquemas m-de-n con la validación
+<code>1 &lt;= m &lt;= n &lt;= 20</code>; elimina llaves duplicadas, las
+ordena y rechaza un <code>redeemScript</code> mayor de 520 bytes. El
+máximo efectivo puede ser menor que 20 según el tamaño de las llaves. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L187-L197">Servicio,
+líneas 187-197</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L237-L260">Servicio,
+líneas 237-260</a></li>
+<li>El <code>redeemScript</code> se construye como
+<code>m &lt;pubkeys...&gt; n OP_CHECKMULTISIG</code>; la dirección P2SH
+se deriva de <code>HASH160(redeemScript)</code>. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L226-L235">Servicio,
+líneas 226-235</a></li>
+<li>El <code>scriptSig</code> de gasto se arma como
+<code>OP_0 &lt;firmas...&gt; &lt;redeemScript&gt;</code>, y el servicio
+valida que el script y las firmas correspondan a la bóveda. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308">Servicio,
+líneas 263-308</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428">Servicio,
+líneas 331-428</a></li>
+<li>El MVP filtra UTXO con tokens y se limita a XEC puro. La guía
+excluye RMZ, ALP, NFT y otros tokens. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L9-L16">Guía,
+líneas 9-16</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L731-L737">Fondeo,
+líneas 731-737</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L815-L825">Propuestas,
+líneas 815-825</a></li>
+<li>Las consultas de UTXO y el broadcast se realizan mediante Chronik;
+el commit revisado configura <code>chronik.e.cash</code> y
+<code>chronik.xolosarmy.xyz</code> como endpoints predeterminados. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts#L1-L36">Cliente
+Chronik, líneas 1-36</a></li>
+</ul>
+<p>Esto describe una <strong>capacidad presente en el código</strong>.
+No prueba por sí mismo que todos los escenarios, combinaciones m-de-n,
+navegadores, dispositivos o recuperaciones hayan sido ensayados.</p>
+<h2 id="qué-significa-p2sh-en-ecash">Qué significa P2SH en eCash</h2>
+<p>P2SH significa <em>Pay to Script Hash</em>: pagar al hash de un
+script. Los XEC no se bloquean directamente a una sola llave pública,
+sino a una dirección que representa el hash de una condición.</p>
+<p>En una bóveda 2-de-3, la condición se puede representar así:</p>
+<p><code>OP_2 &lt;llave A&gt; &lt;llave B&gt; &lt;llave C&gt; OP_3 OP_CHECKMULTISIG</code></p>
+<p>Antes del primer gasto, la salida P2SH publica el hash del script, no
+la lista completa de firmantes. Al gastar, el input revela el
+<code>redeemScript</code> y con él las llaves públicas y el umbral. La
+pareja de transacciones verificada en mainnet muestra ese
+comportamiento: el fondeo contiene
+<code>OP_HASH160 &lt;hash&gt; OP_EQUAL</code> y el gasto revela el
+script 2-de-3. <a href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff">Fondeo
+en el explorador</a> <a href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329">Gasto
+en el explorador</a></p>
+<h2 id="wallet-personal-p2pkh-y-bóveda-p2sh-dos-espacios-distintos">Wallet
+personal P2PKH y bóveda P2SH: dos espacios distintos</h2>
+<p>La implementación separa:</p>
+<ol type="1">
+<li><strong>Wallet personal P2PKH.</strong> Su firmante se construye con
+la llave privada y la llave pública de la wallet activa. La semilla
+cifrada se conserva en almacenamiento local. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L230-L260">Servicio
+personal, líneas 230-260</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L457-L500">Cifrado
+local, líneas 457-500</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts#L957-L974">Firmante
+P2PKH, líneas 957-974</a></li>
+<li><strong>Bóveda P2SH.</strong> Conserva su dirección, UTXO y datos
+públicos bajo claves de almacenamiento separadas. Los fondos de la
+bóveda solo pueden gastarse cuando cada input reúne el umbral. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98">Tipos
+y almacenamiento de bóvedas, líneas 35-98</a></li>
+</ol>
+<p>La separación no significa que Tonalli cree automáticamente otra
+semilla para cada bóveda. La llave de la wallet personal activa funciona
+como una de las llaves firmantes. Por eso la guía y la interfaz
+establecen la regla <strong>un dispositivo, una wallet, un
+firmante</strong>. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L34-L46">Guía,
+líneas 34-46</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L87-L103">Interfaz
+de firma, líneas 87-103</a></p>
+<h2 id="información-pública-de-la-bóveda-y-secretos-que-nunca-deben-compartirse">Información
+pública de la bóveda y secretos que nunca deben compartirse</h2>
+<p>El JSON exportado contiene la etiqueta, <code>m</code>,
+<code>n</code>, llaves públicas, <code>redeemScriptHex</code>,
+<code>scriptHashHex</code>, dirección P2SH y fecha. No incluye la
+semilla ni la llave privada. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L613-L627">Exportación,
+líneas 613-627</a></p>
+<p>Al importar, el servicio vuelve a ordenar las llaves y reconstruye el
+script, su hash y la dirección. Rechaza diferencias y también rechaza a
+una wallet cuya llave pública no pertenezca al grupo. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L629-L681">Importación
+y validación, líneas 629-681</a></p>
+<p>Se pueden compartir entre firmantes:</p>
+<ul>
+<li><code>m</code> y <code>n</code>.</li>
+<li>Llaves públicas.</li>
+<li><code>redeemScriptHex</code> y <code>scriptHashHex</code>.</li>
+<li>Dirección P2SH.</li>
+<li>JSON público de la bóveda.</li>
+<li><code>partialTxHex</code> de una operación concreta, después de
+verificar su integridad.</li>
+</ul>
+<p>Nunca deben compartirse:</p>
+<ul>
+<li>Frase semilla.</li>
+<li>Llave privada.</li>
+<li>Contraseña de cifrado.</li>
+<li>Respaldos sin protección.</li>
+</ul>
+<p>Una llave pública no autoriza un gasto, pero puede revelar relaciones
+entre firmantes. El JSON es compartible para coordinar la bóveda; no
+necesariamente conviene publicarlo junto con nombres y
+responsabilidades.</p>
+<h2 id="flujo-observado-crear-firmar-y-transmitir">Flujo observado:
+crear, firmar y transmitir</h2>
+<h3 id="paso-1-preparar-firmantes-independientes">1. Preparar firmantes
+independientes</h3>
+<p>Cada participante desbloquea una wallet distinta en un dispositivo
+distinto, abre <code>/multisig/create</code> y comparte únicamente su
+llave pública. La pantalla incorpora la llave pública de la wallet
+activa y envía <code>m</code> y la lista al servicio de creación. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx#L14-L48">Ruta
+de creación, líneas 14-48</a></p>
+<h3 id="paso-2-crear-la-bóveda">2. Crear la bóveda</h3>
+<p>El servicio ordena las llaves, comprueba el umbral, exige que la
+wallet creadora sea firmante, construye el <code>redeemScript</code>,
+calcula HASH160 y deriva la dirección P2SH. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L560-L600">Servicio,
+líneas 560-600</a></p>
+<h3 id="paso-3-exportar-e-importar-el-json-público">3. Exportar e importar el
+JSON público</h3>
+<p>Los demás dispositivos importan el JSON. Cada uno debe obtener la
+misma dirección P2SH y confirmar el dato por un canal independiente
+antes de fondear. La guía documenta el procedimiento y el código vuelve
+a derivar los campos críticos. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L66-L82">Guía,
+líneas 66-82</a></p>
+<h3 id="paso-4-fondear-con-xec-puro">4. Fondear con XEC puro</h3>
+<p>La ruta específica de la bóveda usa la wallet personal como fuente,
+descarta UTXO con tokens, construye el envío a P2SH y transmite mediante
+Chronik. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L705-L788">Servicio
+de fondeo, líneas 705-788</a> La documentación advierte no usar el flujo
+general <code>/send-xec</code> para este fondeo. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L84-L101">Guía,
+líneas 84-101</a></p>
+<h3 id="paso-5-crear-una-propuesta-parcial">5. Crear una propuesta
+parcial</h3>
+<p>Un firmante indica destino, monto, una comisión de servicio opcional
+y, si corresponde, un memo <code>OP_RETURN</code>. El servicio
+selecciona XEC puro, devuelve el cambio a la bóveda, firma con el
+creador y produce <code>partialTxHex</code>. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L791-L885">Creación
+de propuesta, líneas 791-885</a></p>
+<p>En 2-de-3, esa propuesta normalmente queda con una firma y necesita
+otra. La guía documenta ese estado, pero no sustituye una prueba
+funcional automatizada. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L103-L115">Guía,
+líneas 103-115</a></p>
+<h3 id="paso-6-inspeccionar-y-cofirmar">6. Inspeccionar y cofirmar</h3>
+<p>El segundo firmante pega el <code>partialTxHex</code>, solicita el
+resumen y revisa inputs, firmas válidas, destinos, montos, cambio,
+comisión, memo y scripts desconocidos. La interfaz no habilita “Agregar
+mi firma” sin un resumen y no habilita “Transmitir” mientras
+<code>summary.isComplete</code> sea falso. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L34-L85">Interfaz
+de firma, líneas 34-85</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/SignProposal.tsx#L105-L166">Controles,
+líneas 105-166</a></p>
+<p>El servicio verifica las firmas por llave pública y por input,
+rechaza firmas inválidas o duplicadas y exige <code>ALL_BIP143</code>.
+<a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L331-L428">Verificación
+criptográfica, líneas 331-428</a></p>
+<h3 id="paso-7-transmitir-y-verificar">7. Transmitir y verificar</h3>
+<p>Antes del broadcast, el servicio vuelve a inspeccionar la
+transacción, bloquea UTXO con token, firmas inválidas o duplicadas y
+cualquier input por debajo de <code>m</code>; después llama a Chronik.
+<a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L962-L995">Broadcast,
+líneas 962-995</a></p>
+<p>Después de transmitir, los firmantes deben abrir el TXID y comprobar
+destino, monto, cambio, comisión y confirmación. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L172-L195">Guía,
+líneas 172-195</a></p>
+<h2 id="comportamiento-probado-qué-significan-realmente-las-171-pruebas">Comportamiento
+probado: qué significan realmente las 171 pruebas</h2>
+<p>La cifra <strong>171</strong> no corresponde a 171 pruebas de
+multifirma. Es únicamente la suma aritmética de resultados
+pertenecientes a dos ejecutores y áreas distintas:</p>
+<ul>
+<li><strong>Vitest:</strong> 167 de 167 pruebas aprobadas en 15
+archivos, ejecutadas con
+<code>npx vitest run --exclude src/services/slpNftTxBuilder.test.ts</code>.</li>
+<li><strong>Ejecutor de pruebas de Node con el cargador
+<code>tsx</code>:</strong> 4 de 4 pruebas aprobadas en un archivo sobre
+construcción SLP NFT1 Group, ejecutadas con
+<code>node --import tsx --test src/services/slpNftTxBuilder.test.ts</code>.</li>
+</ul>
+<p>El script de pruebas del repositorio confirma que el proyecto separa
+ambos ejecutores. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16">package.json,
+líneas 6-16</a></p>
+<p><strong>Confirmación expresa:</strong> no se localizaron pruebas
+funcionales, criptográficas o de integración dedicadas a
+<code>EcashMultisigService</code>, <code>CreateVault</code>,
+<code>VaultDashboard</code>, <code>CreateProposal</code> o
+<code>SignProposal</code>. Las únicas apariciones de
+<code>/multisig</code> en archivos de prueba comprueban el estado activo
+de la navegación y el catálogo de rutas. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L60-L90">Prueba
+de navegación, líneas 60-90</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx#L148-L160">Prueba
+de navegación, líneas 148-160</a></p>
+<p>Una primera corrida de Vitest realizada simultáneamente con el
+ejecutor SLP registró 165 aprobadas y dos expiraciones de cinco segundos
+en <code>WcWallet.test.ts</code>; al repetir Vitest de forma aislada,
+las 167 pasaron. Los dos casos eran de WalletConnect, no de multifirma.
+Esta variación aconseja no usar la suite general como prueba de madurez
+de la bóveda.</p>
+<p>El typecheck y el build terminaron con código de salida 0 en el
+commit revisado. El build generó advertencias de empaquetado y tamaño,
+pero no errores de compilación. Esto prueba compilabilidad del árbol
+bajo el entorno registrado; no prueba corrección de seguridad.</p>
+<h2 id="evidencia-en-mainnet-una-operación-pública-2-de-3">Evidencia en
+mainnet: una operación pública 2-de-3</h2>
+<p>La documentación registra una prueba realizada el 24 de junio de
+2026. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L237-L246">Registro
+primario, líneas 237-246</a> La revisión final contrastó ese registro
+con Chronik y con el explorador de eCash.</p>
+<h3 id="identificadores">Identificadores</h3>
+<ul>
+<li><strong>Dirección P2SH:</strong>
+<code>ecash:ppev5u3xnqqk4nxsrxxq6xn94ck2yqnvpg2wamux7f</code></li>
+<li><strong>Fondeo:</strong> <a href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff"><code>72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff</code></a></li>
+<li><strong>Bloque del fondeo:</strong> 954924</li>
+<li><strong>Hash del bloque de fondeo:</strong>
+<code>0000000000000000937000a81b3d146b29082d400818dc9f92db73f1fce386fe</code></li>
+<li><strong>Gasto multifirma:</strong> <a href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329"><code>3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329</code></a></li>
+<li><strong>Bloque del gasto:</strong> 954927</li>
+<li><strong>Hash del bloque de gasto:</strong>
+<code>00000000000000004529beb19d2a513d9ac54685f9e0367418b256e0d345cac5</code></li>
+<li><strong>Fecha y hora del bloque de gasto:</strong> 24 de junio de
+2026, 19:28:15 UTC</li>
+</ul>
+<h3 id="fondeo-p2sh">Fondeo P2SH</h3>
+<p>Chronik devuelve una salida de <strong>110,000 satoshis</strong>,
+equivalentes a <strong>1,100.00 XEC</strong>, con este
+<code>outputScript</code>:</p>
+<p><code>a91472ca722698016accd0198c0d1a65ae2ca2026c0a87</code></p>
+<p>La forma decodificada es:</p>
+<p><code>OP_HASH160 72ca722698016accd0198c0d1a65ae2ca2026c0a OP_EQUAL</code></p>
+<p>La salida aparece como gastada por el TXID multifirma indicado.</p>
+<h3 id="estructura-del-scriptsig">Estructura del scriptSig</h3>
+<p>El input del gasto contiene cuatro elementos:</p>
+<p><code>OP_0 &lt;firma 1&gt; &lt;firma 2&gt; &lt;redeemScript&gt;</code></p>
+<ul>
+<li>Firma 1: 71 bytes; último byte <code>0x41</code>.</li>
+<li>Firma 2: 72 bytes; último byte <code>0x41</code>.</li>
+<li><code>0x41</code> corresponde al tipo utilizado por el código como
+<code>ALL_BIP143</code>.</li>
+</ul>
+<p>El <code>OP_0</code> inicial es el elemento vacío requerido por la
+semántica histórica de <code>OP_CHECKMULTISIG</code>. La estructura
+coincide con la que construye y valida el servicio. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L263-L308">Constructor
+y parser de scriptSig, líneas 263-308</a></p>
+<h3 id="redeemscript-exacto">RedeemScript exacto</h3>
+<pre class="text"><code>522102669b1ee6cc4596ff4b486f35518f2ec24703d17cb1799f1cc44c9408c0731710
+2102aba83b38996d54e6183199123d88023d5adf677cadc962b0db2f13187efce0b9
+2102b7c6d1350ea9a289efcb7e96b4b25d8aed3849a76dd50901aa8ec4971f075c46
+53ae</code></pre>
+<p>Sin saltos de línea:</p>
+<p><code>522102669b1ee6cc4596ff4b486f35518f2ec24703d17cb1799f1cc44c9408c07317102102aba83b38996d54e6183199123d88023d5adf677cadc962b0db2f13187efce0b92102b7c6d1350ea9a289efcb7e96b4b25d8aed3849a76dd50901aa8ec4971f075c4653ae</code></p>
+<p>Decodificado:</p>
+<pre class="text"><code>OP_2
+&lt;02669b1ee6cc4596ff4b486f35518f2ec24703d17cb1799f1cc44c9408c0731710&gt;
+&lt;02aba83b38996d54e6183199123d88023d5adf677cadc962b0db2f13187efce0b9&gt;
+&lt;02b7c6d1350ea9a289efcb7e96b4b25d8aed3849a76dd50901aa8ec4971f075c46&gt;
+OP_3
+OP_CHECKMULTISIG</code></pre>
+<p>El HASH160 calculado del <code>redeemScript</code> es:</p>
+<p><code>72ca722698016accd0198c0d1a65ae2ca2026c0a</code></p>
+<p>Coincide exactamente con el hash del <code>outputScript</code>
+fondeado y deriva la dirección P2SH publicada.</p>
+<h3 id="montos-y-comisión">Montos y comisión</h3>
+<ul>
+<li>Input: 110,000 satoshis = 1,100.00 XEC.</li>
+<li>Salida a destino: 10,000 satoshis = 100.00 XEC.</li>
+<li>Cambio a la misma bóveda P2SH: 99,400 satoshis = 994.00 XEC.</li>
+<li>Comisión de red: 600 satoshis = 6.00 XEC.</li>
+</ul>
+<h3 id="método-reproducible-de-verificación">Método reproducible de
+verificación</h3>
+<p>La consulta se realizó con <code>chronik-client</code> contra el
+endpoint predeterminado del repositorio y el script se decodificó con
+<code>ecash-lib</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--input-type</span><span class="op">=</span>module <span class="at">-e</span> <span class="st">"import { ChronikClient } from 'chronik-client'; import { Script, fromHex, isPushOp, shaRmd160, toHex, Address } from 'ecash-lib'; const txid='3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329'; const tx=await new ChronikClient('https://chronik.e.cash').tx(txid); const read=s=&gt;{const a=[];const it=s.ops();for(let op=it.next();op!==undefined;op=it.next())a.push(op);return a}; const all=read(new Script(fromHex(tx.inputs[0].inputScript))); const pushes=all.filter(isPushOp); const redeem=new Script(pushes.at(-1).data); const hash=shaRmd160(redeem.bytecode); const fee=BigInt(tx.inputs[0].sats)-tx.outputs.reduce((n,o)=&gt;n+BigInt(o.sats),0n); console.log(JSON.stringify({block:tx.block.height,scriptSigOps:all.length,signatures:pushes.length-1,sighash:pushes.slice(0,-1).map(x=&gt;'0x'+x.data.at(-1).toString(16)),redeemScriptHex:redeem.toHex(),hash160:toHex(hash),address:Address.fromScript(Script.p2sh(hash)).toString(),feeSats:fee.toString()},null,2));"</span></span></code></pre></div>
+<p>Resultado: bloque <code>954927</code>, cuatro operaciones en
+<code>scriptSig</code>, dos firmas, ambos bytes de sighash
+<code>0x41</code>, HASH160 <code>72ca...6c0a</code>, dirección
+<code>ecash:ppev...mux7f</code> y comisión de 600 satoshis.</p>
+<h3 id="qué-demuestra-esta-operación">Qué demuestra esta operación</h3>
+<ul>
+<li>Que una salida P2SH 2-de-3 fue fondeada en eCash mainnet.</li>
+<li>Que esa salida fue gastada con dos firmas y el
+<code>redeemScript</code> esperado.</li>
+<li>Que existe al menos una ejecución pública compatible con el flujo
+documentado de Tonalli Wallet.</li>
+</ul>
+<h3 id="qué-no-demuestra-esta-operación">Qué no demuestra esta
+operación</h3>
+<ul>
+<li>Que todas las configuraciones m-de-n funcionen en todos los
+casos.</li>
+<li>Que exista cobertura de recuperación, concurrencia, múltiples
+inputs, navegadores o dispositivos.</li>
+<li>Que la función haya sido sometida a una auditoría de seguridad.</li>
+<li>Que haya una campaña de pruebas automatizadas de multifirma.</li>
+<li>Que tokens, NFT, RMZ o ALP estén soportados.</li>
+<li>Que agentes o DAO tengan una integración autónoma terminada.</li>
+</ul>
+<p>No se encontró en <code>docs</code> ni en <code>src</code> evidencia
+multifirma equivalente para testnet, regtest o mocknet. La única red
+nombrada en el registro específico es mainnet. Esta es una ausencia en
+el árbol revisado, no una afirmación sobre pruebas privadas no
+publicadas.</p>
+<h2 id="tres-casos-prácticos">Tres casos prácticos</h2>
+<h3 id="protección-personal-con-respaldo-distribuido">Protección
+personal con respaldo distribuido</h3>
+<p>Una persona conserva una llave principal, una segunda llave en otro
+dispositivo y una tercera bajo custodia de alguien de confianza. En
+2-de-3, perder un dispositivo no bloquea necesariamente los fondos y la
+persona de confianza no puede gastar por sí sola.</p>
+<p>La ventaja desaparece si dos dispositivos comparten la misma semilla,
+si todos los respaldos están en el mismo lugar o si el mismo malware
+puede comprometer dos firmantes.</p>
+<h3 id="pagos-de-una-empresa">Pagos de una empresa</h3>
+<p>Una empresa asigna tres firmantes: dirección, administración y
+operaciones. Todo pago necesita dos autorizaciones. Quien prepara una
+transferencia no puede ejecutarla unilateralmente y la empresa no
+depende de la disponibilidad permanente de una sola persona.</p>
+<p>La bóveda no valida facturas ni proveedores. La organización todavía
+necesita reglas para revisar destino, monto, cambio, comisión y
+sustitución de firmantes.</p>
+<h3 id="tesorería-comunitaria">Tesorería comunitaria</h3>
+<p>Una comunidad reparte tres llaves entre responsables y exige dos
+firmas para cada gasto. Ninguna persona puede mover unilateralmente los
+XEC.</p>
+<p>El umbral criptográfico no demuestra que la decisión comunitaria haya
+sido legítima. Actas, votaciones y controles de gobernanza siguen siendo
+una capa organizativa distinta.</p>
+<h2 id="ventajas-razonables-no-garantías">Ventajas razonables, no
+garantías</h2>
+<h3 id="menor-dependencia-de-un-único-punto-de-fallo">Menor dependencia
+de un único punto de fallo</h3>
+<p>Una sola llave perdida o comprometida no alcanza el umbral en 2-de-3.
+Es la ventaja central del esquema.</p>
+<h3 id="tolerancia-a-la-pérdida-de-un-dispositivo">Tolerancia a la
+pérdida de un dispositivo</h3>
+<p>Si las otras dos llaves permanecen disponibles, todavía existe una
+vía de gasto. Para que sea real, las llaves deben tener semillas y
+respaldos independientes.</p>
+<h3 id="administración-compartida">Administración compartida</h3>
+<p>Familias, empresas, colectivos y DAO pueden traducir una regla
+organizativa -“dos personas deben aprobar”- en una condición verificable
+por la red.</p>
+<h3 id="separación-de-responsabilidades">Separación de
+responsabilidades</h3>
+<p>Una persona puede preparar la propuesta, otra revisar los datos y una
+tercera actuar como respaldo. La separación reduce el poder unilateral,
+pero no reemplaza los procedimientos internos.</p>
+<h3 id="distribución-entre-personas-equipos-y-lugares">Distribución
+entre personas, equipos y lugares</h3>
+<p>Separar llaves ayuda frente a robo, incendio o pérdida local. También
+aumenta la complejidad y el tiempo de coordinación.</p>
+<h3 id="mayor-control-de-tesorerías">Mayor control de tesorerías</h3>
+<p>El valor no está en volver imposible un robo, sino en exigir que
+fallen o sean engañados varios controles independientes.</p>
+<h2 id="posibilidades-futuras-agentes-autónomos-dao-y-addlp">Posibilidades
+futuras: agentes autónomos, DAO y ADDLP</h2>
+<p>Una bóveda multifirma puede limitar el poder de gasto de un agente o
+de un sistema automatizado: el software podría preparar una propuesta y
+otro firmante independiente decidir si la autoriza. Es una arquitectura
+razonable para separar proponer de ejecutar.</p>
+<p>Sin embargo, la evidencia revisada muestra un flujo manual basado en
+JSON y <code>partialTxHex</code>. No se comprobó una API de coordinación
+autónoma, un motor de políticas para agentes ni una integración DAO
+terminada. La guía menciona ADDLP futuro como “puede coordinar más
+adelante” y advierte que el memo genérico no sustituye una revisión
+específica de compatibilidad. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md#L117-L129">Guía,
+líneas 117-129</a></p>
+<p>Por ello, agentes, DAO y ADDLP deben presentarse como <strong>usos
+arquitectónicos posibles o futuros</strong>, no como capacidades
+terminadas.</p>
+<h2 id="limitaciones-y-riesgos-conocidos">Limitaciones y riesgos
+conocidos</h2>
+<p>La multifirma no es seguridad absoluta. No protege por sí sola
+contra:</p>
+<ul>
+<li><strong>Pérdida simultánea de suficientes llaves.</strong> En
+2-de-3, perder dos puede bloquear los fondos.</li>
+<li><strong>Compromiso de dos o más firmantes.</strong> Dos llaves
+comprometidas alcanzan el umbral.</li>
+<li><strong>Firma de una transacción incorrecta.</strong> Dos firmas
+válidas también pueden autorizar un destino equivocado.</li>
+<li><strong>Respaldos mal protegidos.</strong> Guardar varias semillas
+en la misma nube, correo o caja reduce la independencia.</li>
+<li><strong>Ingeniería social.</strong> Un atacante puede engañar a más
+de un firmante.</li>
+<li><strong>Malware o dispositivos comprometidos.</strong> Una interfaz
+o portapapeles alterado puede cambiar direcciones y montos.</li>
+<li><strong>Configuración incorrecta.</strong> Un umbral sin margen de
+recuperación puede volver la bóveda frágil.</li>
+<li><strong>Falta de coordinación.</strong> Ausencia, incapacidad o
+pérdida de respaldos puede impedir alcanzar el quorum.</li>
+<li><strong>Propuestas obsoletas.</strong> Si un UTXO cambia de estado,
+puede ser necesario generar otra propuesta.</li>
+</ul>
+<p>Límites específicos del commit revisado:</p>
+<ul>
+<li>Función marcada como experimental.</li>
+<li>Solo XEC puro; no UTXO con tokens.</li>
+<li>Coordinación manual entre firmantes.</li>
+<li>Bóvedas y propuestas guardadas localmente en el navegador. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L35-L98">Tipos
+y claves de almacenamiento, líneas 35-98</a></li>
+<li>Sin pruebas funcionales automatizadas dedicadas al flujo
+multifirma.</li>
+<li>Sin evidencia localizada de pruebas específicas en testnet, regtest
+o mocknet.</li>
+<li>Una sola ejecución pública 2-de-3 localizada en mainnet.</li>
+<li>Scripts desconocidos generan advertencia, pero el código de
+broadcast no muestra un bloqueo general por cualquier output
+desconocido; la revisión humana sigue siendo esencial. <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L484-L534">Inspector
+de outputs, líneas 484-534</a> <a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts#L972-L995">Broadcast,
+líneas 972-995</a></li>
+</ul>
+<h2 id="ausencia-de-auditoría-independiente-publicada">Ausencia de
+auditoría independiente publicada</h2>
+<p>No se localizó una auditoría de seguridad independiente publicada en
+el repositorio, su documentación ni la búsqueda del repositorio al 31 de
+julio de 2026. Esto no permite descartar una revisión privada no
+publicada; sí impide describir la función como auditada.</p>
+<h2 id="recomendaciones-prácticas">Recomendaciones prácticas</h2>
+<ol type="1">
+<li>Empieza con poco XEC y completa un ciclo de fondeo, propuesta,
+cofirma, transmisión y recuperación.</li>
+<li>Usa una semilla distinta por firmante.</li>
+<li>Separa dispositivos, personas y ubicaciones.</li>
+<li>Respalda cada semilla fuera de línea.</li>
+<li>Conserva el JSON público de la bóveda en más de un medio.</li>
+<li>Compara la dirección P2SH por un canal independiente antes de
+fondear.</li>
+<li>Revisa destino, monto, cambio, comisión, memo y scripts en cada
+dispositivo.</li>
+<li>No firmes advertencias que no entiendas.</li>
+<li>No envíes tokens a la bóveda experimental.</li>
+<li>Exige auditoría, pruebas específicas y ejercicios de recuperación
+antes de custodiar montos relevantes.</li>
+</ol>
+<h2 id="conclusión">Conclusión</h2>
+<p>La multifirma atiende un problema real: que toda una tesorería
+dependa de una sola llave y de una sola persona. En una bóveda 2-de-3,
+una sola pérdida o un solo compromiso no basta para autorizar un gasto.
+Esa propiedad puede servir para respaldo personal, pagos empresariales y
+tesorerías comunitarias.</p>
+<p>Tonalli Wallet tiene código público para crear, importar, fondear,
+inspeccionar, cofirmar y transmitir bóvedas P2SH m-de-n, y existe una
+operación 2-de-3 verificable en eCash mainnet. Es evidencia técnica
+concreta.</p>
+<p>La proporción también importa: el proyecto marca la función como
+experimental, limita el MVP a XEC puro, depende de coordinación manual,
+no incluye pruebas funcionales automatizadas dedicadas a la multifirma y
+no presenta una auditoría independiente publicada.</p>
+<p>La conclusión no es que la multifirma garantice seguridad. Es que
+distribuye la autoridad y reduce ciertos riesgos cuando llaves,
+dispositivos, respaldos y procedimientos también son independientes.</p>
+<h2 id="fuentes-primarias-consultadas">Fuentes primarias
+consultadas</h2>
+<ul>
+<li><a href="https://github.com/xolosArmy/RMZWallet/commit/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc">Commit
+fijado de revisión</a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/commit/ecdca3a1cf6d9ad8a12497aa0754e1a9c26862df">Commit
+que introdujo el MVP P2SH multifirma</a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/docs/ecash-multisig-mvp.md">Guía
+del MVP multifirma</a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/EcashMultisigService.ts">Servicio
+<code>EcashMultisigService.ts</code></a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/XolosWalletService.ts">Servicio
+<code>XolosWalletService.ts</code></a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/multisig/CreateVault.tsx">Rutas
+de creación y firma</a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/services/ChronikClient.ts">Cliente
+Chronik</a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/package.json#L6-L16">Configuración
+de ejecutores en <code>package.json</code></a></li>
+<li><a href="https://github.com/xolosArmy/RMZWallet/blob/9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc/src/routes/MobileNavigationV3.test.tsx">Pruebas
+de navegación con las únicas referencias a multifirma</a></li>
+<li><a href="https://explorer.e.cash/tx/72c34c5c93dc44032f8f138928e02fb16b3669b8b4a698660ad2e50e592304ff">TXID
+de fondeo</a></li>
+<li><a href="https://explorer.e.cash/tx/3dec057346e0e31e82e40ef5802ef179bd02441e6eb3ccc94d3f6fe0f5319329">TXID
+del gasto 2-de-3</a></li>
+</ul>
+<h2 id="metodología-de-verificación">Metodología de verificación</h2>
+<p>La revisión se fijó en <code>xolosArmy/RMZWallet</code> commit
+<code>9cce6d516a3dd498a9ab8a4f9cf7a38fcc4769fc</code> y contrastó la
+guía <code>docs/ecash-multisig-mvp.md</code>, los servicios
+<code>EcashMultisigService.ts</code>, <code>XolosWalletService.ts</code>
+y <code>ChronikClient.ts</code>, las rutas de <code>/multisig</code>,
+<code>package.json</code> y el inventario de pruebas. Se ejecutaron
+<code>npm run typecheck</code>, <code>npm run build</code>, Vitest con
+167 casos y el archivo SLP con el ejecutor de Node y <code>tsx</code>,
+además de búsquedas <code>rg</code> para localizar cobertura multifirma,
+entornos de prueba y auditorías publicadas. La evidencia on-chain se
+comprobó con <code>chronik-client</code>, <code>ecash-lib</code> y
+<code>explorer.e.cash</code>, reconstruyendo el <code>scriptSig</code>,
+el <code>redeemScript</code>, su HASH160, la dirección P2SH, los montos
+y la comisión. Como artefactos editoriales se revisaron el borrador
+original, la revisión probatoria aceptada y el Manual periodístico de
+eCash Magazine México. El detalle completo de afirmaciones, comandos,
+resultados y niveles de confianza se conserva en el anexo probatorio
+separado.</p>
+</div>
+</div>
+</div>

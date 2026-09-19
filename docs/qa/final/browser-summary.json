@@ -1,0 +1,1813 @@
+{
+  "method": "GitHub Actions runner; local HTTP + Chromium, axe and Lighthouse",
+  "commit": "39f378c81465cd332c2884ba3571193c04bb6e59",
+  "baselineRevision": "7b5cc72c05ee9deb74f26ff85edd209ee2d9b511",
+  "createdAt": "2026-09-19T15:09:02.492Z",
+  "lighthouseCaveat": "Single-run simulated mobile lab measurements. Both copies use the same uncompressed local HTTP server; original third-party resources retain their network behavior. These are not production field Core Web Vitals.",
+  "checks": [
+    {
+      "name": "Historical HTTP /",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /blog/index.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /analisis/ecash-mining-variance.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /analisis/gobernanza-rmz-ecash-mexico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /analisis/teyolia-2-1-direct-to-pool.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /analisis/teyolia-direct-to-pool.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /blog/2026-05-29-xolosarmy-weekly-update.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /columna/2026-06-02-precio-ecash-xec.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /columna/gnc-ecash-irrelevance-crypto-winter.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/alias-ecash-mexico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/asamblea-rmz-governanza-ecash-mexico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/compra-parcial-rmz-tonalli-wallet.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/integracion-xec-thorchain.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/liquidez-soberana-ecash-xec-thorchain.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/oraculo-tonalli-app-ecash-mexico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cronica/xolosarmy-thorchain-podcast.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /cultura/sin-cultura-no-hay-adopcion.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /editorial/ecash-mexico-machine-economy.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /noticia/mexico-kyc-aml-cripto-transferencias-2026.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /opinion/economia-agentica-tokenizada.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /opinion/ia-y-codigo-verificable-en-cripto.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/bip-110-bitcoin-cash-forks-consenso.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/tonalli-faucet-ecash-mexico.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/xec-client-utxo-real-thornode.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reportajes/xec-thorchain-starsquid-xec-client.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "Historical HTTP /reseñas/como-comprar-etoken-cultural-xolos-rmz.html",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "axe WCAG after-home-390",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "axe WCAG after-article-390",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "axe WCAG after-technical-article-390",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Responsive home 320",
+      "passed": true,
+      "detail": {
+        "viewport": 320,
+        "documentWidth": 320,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive article 320",
+      "passed": true,
+      "detail": {
+        "viewport": 320,
+        "documentWidth": 320,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive archive 320",
+      "passed": true,
+      "detail": {
+        "viewport": 320,
+        "documentWidth": 320,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive home 390",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive article 390",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive archive 390",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive home 768",
+      "passed": true,
+      "detail": {
+        "viewport": 768,
+        "documentWidth": 768,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive article 768",
+      "passed": true,
+      "detail": {
+        "viewport": 768,
+        "documentWidth": 768,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive archive 768",
+      "passed": true,
+      "detail": {
+        "viewport": 768,
+        "documentWidth": 768,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive home 1440",
+      "passed": true,
+      "detail": {
+        "viewport": 1440,
+        "documentWidth": 1440,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive article 1440",
+      "passed": true,
+      "detail": {
+        "viewport": 1440,
+        "documentWidth": 1440,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive archive 1440",
+      "passed": true,
+      "detail": {
+        "viewport": 1440,
+        "documentWidth": 1440,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive home 1920",
+      "passed": true,
+      "detail": {
+        "viewport": 1920,
+        "documentWidth": 1920,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive article 1920",
+      "passed": true,
+      "detail": {
+        "viewport": 1920,
+        "documentWidth": 1920,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Responsive archive 1920",
+      "passed": true,
+      "detail": {
+        "viewport": 1920,
+        "documentWidth": 1920,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /analisis/ecash-mining-variance.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "class": "technical-data",
+            "right": 473
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "class": "",
+            "right": 473
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 473
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "class": "",
+            "right": 473
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "class": "",
+            "right": 473
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 473
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "mono",
+            "right": 473
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 473
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "mono",
+            "right": 473
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /analisis/gobernanza-rmz-ecash-mexico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "",
+            "right": 607
+          },
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "",
+            "right": 591
+          },
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "sourceCode bash",
+            "right": 8205
+          },
+          {
+            "tag": "SPAN",
+            "id": "cb3-1",
+            "class": "",
+            "right": 8205
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": "st",
+            "right": 8205
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "class": "now",
+            "right": 402
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 402
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 402
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /analisis/teyolia-2-1-direct-to-pool.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /analisis/teyolia-direct-to-pool.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /blog/2026-05-29-xolosarmy-weekly-update.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /columna/2026-06-02-precio-ecash-xec.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /columna/gnc-ecash-irrelevance-crypto-winter.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/alias-ecash-mexico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/asamblea-rmz-governanza-ecash-mexico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "",
+            "right": 640
+          },
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "",
+            "right": 451
+          },
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "code-json",
+            "right": 550
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/compra-parcial-rmz-tonalli-wallet.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/integracion-xec-thorchain.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/liquidez-soberana-ecash-xec-thorchain.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/oraculo-tonalli-app-ecash-mexico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "",
+            "right": 714
+          },
+          {
+            "tag": "CODE",
+            "id": "",
+            "class": "",
+            "right": 558
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /cronica/xolosarmy-thorchain-podcast.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /cultura/sin-cultura-no-hay-adopcion.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /editorial/ecash-mexico-machine-economy.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /noticia/mexico-kyc-aml-cripto-transferencias-2026.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /opinion/economia-agentica-tokenizada.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /opinion/ia-y-codigo-verificable-en-cripto.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "class": "boundary-table",
+            "right": 395
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 394
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 394
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 517
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 517
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/bip-110-bitcoin-cash-forks-consenso.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": [
+          {
+            "tag": "TABLE",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "THEAD",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TH",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TBODY",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TD",
+            "id": "",
+            "class": "",
+            "right": 404
+          },
+          {
+            "tag": "TR",
+            "id": "",
+            "class": "",
+            "right": 404
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/tonalli-faucet-ecash-mexico.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/xec-client-utxo-real-thornode.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /reportajes/xec-thorchain-starsquid-xec-client.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "Article overflow 390 /reseñas/como-comprar-etoken-cultural-xolos-rmz.html",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "overflowing": []
+      }
+    },
+    {
+      "name": "axe WCAG after-archive-390",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "axe WCAG after-search-390",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "axe WCAG after-p2sh-390",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "axe WCAG after-teyolia-390",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "axe WCAG after-home-1440",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "axe WCAG after-article-1440",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Keyboard first focus is skip link",
+      "passed": true
+    },
+    {
+      "name": "Skip-link focus visible in rendered viewport",
+      "passed": true,
+      "detail": {
+        "outline": "solid",
+        "width": "3px",
+        "top": 8
+      }
+    },
+    {
+      "name": "Skip link targets main content",
+      "passed": true
+    },
+    {
+      "name": "Mobile menu keyboard activation",
+      "passed": true
+    },
+    {
+      "name": "Keyboard can enter mobile navigation",
+      "passed": true
+    },
+    {
+      "name": "Escape closes menu and returns focus",
+      "passed": true
+    },
+    {
+      "name": "Search starts with 43 articles and no index download",
+      "passed": true
+    },
+    {
+      "name": "Genre filter uses static records without downloading index",
+      "passed": true
+    },
+    {
+      "name": "Full-text query returns results and downloads index once",
+      "passed": true,
+      "detail": 10
+    },
+    {
+      "name": "Real browser full-text search finds body-only term",
+      "passed": true,
+      "detail": "estructurales"
+    },
+    {
+      "name": "Real browser search ignores accents and reuses index",
+      "passed": true
+    },
+    {
+      "name": "Real browser search displays empty state",
+      "passed": true
+    },
+    {
+      "name": "Search reset restores all articles",
+      "passed": true
+    },
+    {
+      "name": "Failed index load exposes fallback scope to reader",
+      "passed": true
+    },
+    {
+      "name": "Without JavaScript all 43 archive articles remain available",
+      "passed": true
+    },
+    {
+      "name": "Without JavaScript mobile navigation remains available",
+      "passed": true
+    },
+    {
+      "name": "Own assets and console after-screenshots-desktop",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Own assets and console after-screenshots-mobile",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Own assets and console after-responsive",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Own assets and console after-keyboard-search",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Lighthouse completed before home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Lighthouse completed before article",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Lighthouse completed after home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Lighthouse completed after article",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "diagnostics": [
+    {
+      "page": "before-screenshots-desktop",
+      "ownErrors": [],
+      "externalErrors": [
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        }
+      ],
+      "navigationAborts": [
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830542852&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1385425343.1789830543&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=1440x1000&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830543&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2F&dt=eCash%20Magazine%20M%C3%A9xico%20%7C%20Primera%20Plana&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=197"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830543784&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1385425343.1789830543&frm=0&ngs=1&pscdl=noapi&rcb=12&sr=1440x1000&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830543&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20identidad%20.xec%2C%20costo%20real%20y%20comunicaci%C3%B3n%20entre%20humanos%20y%20agentes%20IA%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=43"
+        }
+      ],
+      "expectedFailure": false
+    },
+    {
+      "page": "before-screenshots-mobile",
+      "ownErrors": [],
+      "externalErrors": [
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/YZvGu8q.png"
+        },
+        {
+          "type": "http",
+          "message": "403",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 403 ()",
+          "url": "https://i.imgur.com/eRiUhXC.jpeg"
+        }
+      ],
+      "navigationAborts": [
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830559986&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=600892573.1789830560&frm=0&ngs=1&pscdl=noapi&rcb=4&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830560&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2F&dt=eCash%20Magazine%20M%C3%A9xico%20%7C%20Primera%20Plana&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=153"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830561147&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=600892573.1789830560&frm=0&ngs=1&pscdl=noapi&rcb=15&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830560&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20identidad%20.xec%2C%20costo%20real%20y%20comunicaci%C3%B3n%20entre%20humanos%20y%20agentes%20IA%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=37"
+        }
+      ],
+      "expectedFailure": false
+    },
+    {
+      "page": "after-screenshots-desktop",
+      "ownErrors": [],
+      "externalErrors": [],
+      "navigationAborts": [
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830585711&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1970954294.1789830586&frm=0&ngs=1&pscdl=noapi&rcb=16&sr=1440x1000&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830585&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2F&dt=Primera%20Plana%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=154"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830586687&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1970954294.1789830586&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=1440x1000&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830585&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20tu%20identidad%20.xec%2C%20tu%20voz%20on-chain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=40"
+        }
+      ],
+      "expectedFailure": false
+    },
+    {
+      "page": "after-screenshots-mobile",
+      "ownErrors": [],
+      "externalErrors": [],
+      "navigationAborts": [
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830590470&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=2141484871.1789830591&frm=0&ngs=1&pscdl=noapi&rcb=2&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153~120474862&sid=1789830590&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2F&dt=Primera%20Plana%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=159"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830591828&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=2141484871.1789830591&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830590&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20tu%20identidad%20.xec%2C%20tu%20voz%20on-chain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=38"
+        }
+      ],
+      "expectedFailure": false
+    },
+    {
+      "page": "after-responsive",
+      "ownErrors": [],
+      "externalErrors": [],
+      "navigationAborts": [
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830596903&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=320x900&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20tu%20identidad%20.xec%2C%20tu%20voz%20on-chain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=38"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830597357&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=390x900&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~119793972~120213116~120385422~120420414~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20tu%20identidad%20.xec%2C%20tu%20voz%20on-chain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=26"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830598213&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=1440x900&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20tu%20identidad%20.xec%2C%20tu%20voz%20on-chain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=27"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830598645&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=12&sr=1920x900&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20tu%20identidad%20.xec%2C%20tu%20voz%20on-chain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=27"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830598939&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=9&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fanalisis%2Fbitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html&dt=Bitcoin%20ABC%200.33.6%20corrige%20un%20fallo%20raro%20de%20Chronik%3A%20por%20qu%C3%A9%20importa%20para%20la%20infraestructura%20eCash%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=27"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830599602&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fanalisis%2Fteyolia-2-1-direct-to-pool.html&dt=eCash%20DeFi%20Dawn%3A%20The%20Arrival%20of%20Tonalli%20Multisig%20and%20the%20New%20THORChain%20Governance%20Bridge%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=23"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830599750&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=15&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fanalisis%2Fteyolia-direct-to-pool.html&dt=Soberan%C3%ADa%20Digital%3A%20La%20Multifirma%20de%20Tonalli%20abre%20el%20camino%20a%20THORChain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=23"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.youtube.com/embed/3jGWWfcrtZM?start=1"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830600712&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fcronica%2Falias-ecash-mexico.html&dt=La%20noche%20en%20que%20xolosarmy.xec%20qued%C3%B3%20vivo%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=44"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830600857&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fcronica%2Fasamblea-rmz-governanza-ecash-mexico.html&dt=El%20d%C3%ADa%20en%20que%20xolosarmy.xec%20pas%C3%B3%20de%20identidad%20soberana%20a%20ciudadan%C3%ADa%20activa%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=26"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830601657&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=11&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fcultura%2Fsin-cultura-no-hay-adopcion.html&dt=Sin%20cultura%20no%20hay%20adopci%C3%B3n%3A%20por%20qu%C3%A9%20la%20autocustodia%20necesita%20comunidad%20en%20M%C3%A9xico%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=23"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.youtube.com/embed/-eGFMs-tXoM"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830603000&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=14&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fopinion%2Fia-y-codigo-verificable-en-cripto.html&dt=La%20IA%20va%20a%20castigar%20el%20c%C3%B3digo%20opaco%3A%20por%20qu%C3%A9%20eCash%20M%C3%A9xico%20apuesta%20por%20infraestructura%20verificable%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=30"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830604178&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-mainnet-capa-social-ecash.html&dt=Tonalli%20Memo%20ya%20vive%20en%20mainnet%3A%20texto%2C%20NFTs%20y%20enlaces%20sobre%20eCash%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=24"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830607170&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=1440x1000&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2F&dt=Primera%20Plana%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=25"
+        },
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1h1v9257579215za200zd9257579215xf1&_p=1789830607641&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1959607032.1789830597&frm=0&ngs=1&pscdl=noapi&rcb=4&sr=1440x1000&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~119791748~120213116~120385423~120469145~120469153&sid=1789830596&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Freportajes%2Ftonalli-memo-alias-xec-identidad-agentes-humanos.html&dt=Tonalli%20Memo%3A%20tu%20identidad%20.xec%2C%20tu%20voz%20on-chain%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_ee=1&tfd=27"
+        }
+      ],
+      "expectedFailure": false
+    },
+    {
+      "page": "after-keyboard-search",
+      "ownErrors": [],
+      "externalErrors": [],
+      "navigationAborts": [
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_ABORTED",
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-3HX6VT60WB&gtm=45je69g1v9257579215za200zd9257579215xf1&_p=1789830608122&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1266494135.1789830608&frm=0&ngs=1&pscdl=noapi&rcb=16&sr=390x844&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938466~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789830608&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2F&dt=Primera%20Plana%20%7C%20eCash%20Magazine%20M%C3%A9xico&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=157"
+        }
+      ],
+      "expectedFailure": false
+    },
+    {
+      "page": "expected-index-failure",
+      "ownErrors": [
+        {
+          "type": "requestfailed",
+          "message": "net::ERR_FAILED",
+          "url": "http://127.0.0.1:8766/assets/data/search.json"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://127.0.0.1:8766/assets/data/search.json"
+        }
+      ],
+      "externalErrors": [],
+      "navigationAborts": [],
+      "expectedFailure": true
+    }
+  ],
+  "axe": [
+    {
+      "page": "before-home-390",
+      "violations": 1,
+      "incomplete": 1,
+      "passes": 10,
+      "file": "axe-before-home-390.json"
+    },
+    {
+      "page": "before-article-390",
+      "violations": 0,
+      "incomplete": 1,
+      "passes": 10,
+      "file": "axe-before-article-390.json"
+    },
+    {
+      "page": "before-technical-article-390",
+      "violations": 1,
+      "incomplete": 0,
+      "passes": 19,
+      "file": "axe-before-technical-article-390.json"
+    },
+    {
+      "page": "after-home-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 19,
+      "file": "axe-after-home-390.json"
+    },
+    {
+      "page": "after-article-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 21,
+      "file": "axe-after-article-390.json"
+    },
+    {
+      "page": "after-technical-article-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 23,
+      "file": "axe-after-technical-article-390.json"
+    },
+    {
+      "page": "after-archive-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 25,
+      "file": "axe-after-archive-390.json"
+    },
+    {
+      "page": "after-search-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 25,
+      "file": "axe-after-search-390.json"
+    },
+    {
+      "page": "after-p2sh-390",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 23,
+      "file": "axe-after-p2sh-390.json"
+    },
+    {
+      "page": "after-teyolia-390",
+      "violations": 0,
+      "incomplete": 1,
+      "passes": 21,
+      "file": "axe-after-teyolia-390.json"
+    },
+    {
+      "page": "after-home-1440",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 17,
+      "file": "axe-after-home-1440.json"
+    },
+    {
+      "page": "after-article-1440",
+      "violations": 0,
+      "incomplete": 0,
+      "passes": 20,
+      "file": "axe-after-article-1440.json"
+    }
+  ],
+  "lighthouse": [
+    {
+      "phase": "before",
+      "page": "home",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.73,
+        "accessibility": 0.91,
+        "best-practices": 0.96,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 2476.3827,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 3445.1277,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 2476.3827,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 137,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.2685188768608268,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 265416,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-before-home-mobile.html"
+    },
+    {
+      "phase": "before",
+      "page": "article",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.72,
+        "accessibility": 1,
+        "best-practices": 0.92,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 4120.0488,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 5046.766099999999,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 4120.0488,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 42,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 417954,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-before-article-mobile.html"
+    },
+    {
+      "phase": "after",
+      "page": "home",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.99,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1353.0140999999999,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1878.0140999999999,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 1353.0140999999999,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 44,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.0001385967628672573,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 483862,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-after-home-mobile.html"
+    },
+    {
+      "phase": "after",
+      "page": "article",
+      "formFactor": "mobile",
+      "version": "13.5.0",
+      "score": {
+        "performance": 0.98,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1354.1669000000002,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1504.1776,
+          "unit": "millisecond"
+        },
+        "speed-index": {
+          "value": 1354.1669000000002,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 36.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0.0926671129570166,
+          "unit": "unitless"
+        },
+        "total-byte-weight": {
+          "value": 299482,
+          "unit": "byte"
+        }
+      },
+      "runtimeError": null,
+      "report": "lighthouse-after-article-mobile.html"
+    }
+  ],
+  "browserVersion": "151.0.7922.34",
+  "viewportWidths": [
+    320,
+    390,
+    768,
+    1440,
+    1920
+  ],
+  "passed": true,
+  "counts": {
+    "checks": 136,
+    "failed": 0,
+    "externalErrors": 8
+  }
+}

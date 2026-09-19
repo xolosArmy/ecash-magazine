@@ -1,0 +1,39 @@
+{
+  "analytics": {
+    "measurementId": "G-3HX6VT60WB",
+    "paths": [
+      "/analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+      "/analisis/teyolia-2-1-direct-to-pool.html",
+      "/analisis/teyolia-direct-to-pool.html",
+      "/blog/2026-05-29-xolosarmy-weekly-update.html",
+      "/blog/index.html",
+      "/blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+      "/blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+      "/columna/2026-06-02-precio-ecash-xec.html",
+      "/cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "/cronica/alias-ecash-mexico.html",
+      "/cronica/asamblea-rmz-governanza-ecash-mexico.html",
+      "/cronica/compra-parcial-rmz-tonalli-wallet.html",
+      "/cronica/integracion-xec-thorchain.html",
+      "/cronica/oraculo-tonalli-app-ecash-mexico.html",
+      "/cronica/xolosarmy-thorchain-podcast.html",
+      "/cultura/sin-cultura-no-hay-adopcion.html",
+      "/editorial/ecash-mexico-machine-economy.html",
+      "/",
+      "/noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+      "/noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+      "/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "/opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "/opinion/ia-y-codigo-verificable-en-cripto.html",
+      "/opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "/reportajes/tonalli-faucet-ecash-mexico.html",
+      "/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "/reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+      "/reportajes/xec-client-utxo-real-thornode.html",
+      "/reportajes/xec-thorchain-starsquid-xec-client.html",
+      "/reseñas/como-comprar-etoken-cultural-xolos-rmz.html"
+    ],
+    "note": "Preserves the existing analytics configuration on the 31 previously instrumented routes; no new tracker or automatic extension to new routes."
+  }
+}

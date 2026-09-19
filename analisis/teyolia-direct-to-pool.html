@@ -1,364 +1,187 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<!-- Google tag (gtag.js) -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-
-  gtag("config", "G-3HX6VT60WB");
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eCash Magazine México: El Salto a THORChain</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            scroll-behavior: smooth;
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-
-        .gradient-border {
-            background: linear-gradient(90deg, #00abe7, #00d4ff);
-            height: 4px;
-            width: 100%;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            transition: transform 0.2s ease;
-        }
-
-        .step-active {
-            border-left: 4px solid #00abe7;
-            background: #f1f5f9;
-        }
-
-        .tab-btn.active {
-            border-bottom: 2px solid #00abe7;
-            color: #00abe7;
-        }
-    </style>
-</head>
-<body>
-
-<!-- Chosen Palette: "Ethereal Tech" - Base neutra (Slate-50/100), acentos en azul eCash (#00abe7) y verde esmeralda para éxito/crecimiento. -->
-
-<!-- Application Structure Plan: 
-    1. Hero Section: Título visionario y resumen del impacto.
-    2. Sección "El Hito": Presentación de la Multifirma Tonalli con explicación visual de P2SH.
-    3. Sección "El Pivot": Comparativa interactiva entre el plan original vs Teyolia 2.1-G (Dashboard format).
-    4. Flujo de Gobernanza: Diagrama interactivo paso a paso del viaje de los fondos.
-    5. Transparencia y Futuro: Gráficos de comisiones y llamado a la acción. 
-    Elegí esta estructura para transformar un reporte técnico en una narrativa visual donde el usuario decide qué profundidad de detalle explorar. -->
-
-<!-- Visualization & Content Choices: 
-    - Report Info -> Goal: Comparar arquitecturas -> Method: Tabs y Tarjetas comparativas -> Interaction: Toggle de versión -> Justification: Facilita entender el porqué del cambio técnico.
-    - Report Info -> Goal: Mostrar flujo de fondos -> Method: Lista interactiva con estados -> Interaction: Clic en pasos -> Justification: Desmitifica la complejidad de la integración THORChain.
-    - Report Info -> Goal: Explicar Multifirma -> Method: Visualización de Quórum (2-de-3) -> Justification: Refuerza la seguridad percibida.
-    - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Charts via Canvas/Chart.js. -->
-
-<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white font-bold">e</div>
-            <span class="font-bold text-xl tracking-tight">eCash <span class="text-sky-600">Magazine</span></span>
-        </div>
-        <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <a href="#hito" class="hover:text-sky-600 transition">Hito Técnico</a>
-            <a href="#solucion" class="hover:text-sky-600 transition">Teyolia 2.1-G</a>
-            <a href="#flujo" class="hover:text-sky-600 transition">Gobernanza</a>
-            <a href="#futuro" class="hover:text-sky-600 transition">Futuro</a>
-        </div>
-    </div>
-    <div class="gradient-border"></div>
-</nav>
-
-<header class="relative py-20 bg-white overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center">
-        <span class="inline-block px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-bold uppercase tracking-widest mb-4">Especial: Infraestructura XEC</span>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
-            Soberanía Digital: La Multifirma de Tonalli <br> <span class="text-sky-600 underline decoration-sky-200">abre el camino</span> a THORChain
-        </h1>
-        <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain.
-        </p>
-    </div>
-</header>
-
-<main class="max-w-6xl mx-auto px-4 py-12">
-
-    <!-- Sección 1: El Hito de Tonalli -->
-    <section id="hito" class="mb-24">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl font-bold text-slate-900 mb-4 italic">El amanecer de la custodia segura</h2>
-                <p class="text-slate-600 mb-6">
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain | eCash Magazine México</title><meta name="description" content="Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain.">
+<link rel="canonical" href="https://magazine.ecash.mx/analisis/teyolia-direct-to-pool.html"><link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#F6F3EC">
+<meta property="og:site_name" content="eCash Magazine México"><meta property="og:type" content="article"><meta property="og:title" content="Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain"><meta property="og:url" content="https://magazine.ecash.mx/analisis/teyolia-direct-to-pool.html">
+<meta property="og:description" content="Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain."><meta property="og:image" content="https://magazine.ecash.mx/assets/media/ecash-magazine-social.png"><meta property="og:image:alt" content="eCash Magazine México"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain"><meta name="twitter:description" content="Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain."><meta name="twitter:image" content="https://magazine.ecash.mx/assets/media/ecash-magazine-social.png"><meta name="twitter:image:alt" content="eCash Magazine México">
+<link rel="alternate" type="application/rss+xml" title="eCash Magazine México — publicaciones" href="/feed.xml">
+<link rel="stylesheet" href="/assets/css/editorial.css"><script defer src="/assets/js/editorial.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsMediaOrganization", "@id": "https://magazine.ecash.mx/#organization", "name": "eCash Magazine México", "url": "https://magazine.ecash.mx/"}, {"@type": "Article", "@id": "https://magazine.ecash.mx/analisis/teyolia-direct-to-pool.html#article", "headline": "Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain", "url": "https://magazine.ecash.mx/analisis/teyolia-direct-to-pool.html", "mainEntityOfPage": "https://magazine.ecash.mx/analisis/teyolia-direct-to-pool.html", "publisher": {"@id": "https://magazine.ecash.mx/#organization"}, "description": "Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain.", "inLanguage": "es", "articleSection": "Infraestructura XEC"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://magazine.ecash.mx/"}, {"@type": "ListItem", "position": 2, "name": "Archivo", "item": "https://magazine.ecash.mx/blog/index.html"}, {"@type": "ListItem", "position": 3, "name": "Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain", "item": "https://magazine.ecash.mx/analisis/teyolia-direct-to-pool.html"}]}]}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-3HX6VT60WB");</script>
+</head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header"><div class="masthead container">
+<a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
+<div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> <span class="section-label">Infraestructura XEC</span></div><h1 class="article-title">Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain</h1><p class="article-deck">Explora cómo xolosArmy ha transformado un desafío de red en una victoria de gobernanza, implementando el primer puente transparente hacia la liquidez masiva de THORChain.</p><div class="story-meta"><span><span>Fecha de publicación no consignada</span></span></div><p class="original-label">Rótulo original: Especial: Infraestructura XEC. Clasificación editorial pendiente.</p><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/infraestructura-xec/">Infraestructura XEC</a></li></ul></header>
+<div class="article-layout"><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div class="relative py-20 bg-white overflow-hidden">
+<div class="max-w-6xl mx-auto px-4 relative z-10 text-center">
+<span class="inline-block px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-bold uppercase tracking-widest mb-4">Especial: Infraestructura XEC</span>
+</div>
+</div>
+<div class="max-w-6xl mx-auto px-4 py-12">
+<section id="hito" class="mb-24">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-bold text-slate-900 mb-4 italic" id="el-amanecer-de-la-custodia-segura">El amanecer de la custodia segura</h2>
+<p class="text-slate-600 mb-6">
                     Tonalli Wallet ha marcado un antes y un después en la historia de eCash. Con el exitoso lanzamiento del MVP de <strong>bóvedas multifirma nativas (P2SH 2-de-3)</strong> en Mainnet, la red adquiere una capacidad de grado institucional para la protección de activos.
                 </p>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-4 p-4 glass-card rounded-xl">
-                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-green-600 font-bold shrink-0">✓</div>
-                        <div>
-                            <h4 class="font-bold">Seguridad Distribuida</h4>
-                            <p class="text-sm text-slate-500">Ningún actor individual puede mover los fondos. Se requieren 2 de 3 firmas para cualquier transacción.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 glass-card rounded-xl">
-                        <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 font-bold shrink-0">⚛</div>
-                        <div>
-                            <h4 class="font-bold">Nativo en eCash</h4>
-                            <p class="text-sm text-slate-500">Implementado mediante scripts P2SH, garantizando compatibilidad total con el protocolo Bitcoin ABC.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-slate-900 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10 text-8xl font-bold">2/3</div>
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <span class="w-3 h-3 bg-green-400 rounded-full"></span> Estado de la Bóveda Mainnet
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 glass-card rounded-xl">
+<div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-green-600 font-bold shrink-0">✓</div>
+<div>
+<h3 class="font-bold" id="seguridad-distribuida">Seguridad Distribuida</h3>
+<p class="text-sm text-slate-500">Ningún actor individual puede mover los fondos. Se requieren 2 de 3 firmas para cualquier transacción.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 glass-card rounded-xl">
+<div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 font-bold shrink-0">⚛</div>
+<div>
+<h4 class="font-bold">Nativo en eCash</h4>
+<p class="text-sm text-slate-500">Implementado mediante scripts P2SH, garantizando compatibilidad total con el protocolo Bitcoin ABC.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-slate-900 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 text-8xl font-bold">2/3</div>
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2" id="estado-de-la-boveda-mainnet">
+<span class="w-3 h-3 bg-green-400 rounded-full"></span> Estado de la Bóveda Mainnet
                 </h3>
-                <div class="space-y-6">
-                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
-                        <span>Firma A (xolosArmy)</span>
-                        <span class="text-green-400 font-mono">[LISTA]</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
-                        <span>Firma B (GNC/ABC)</span>
-                        <span class="text-green-400 font-mono">[LISTA]</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
-                        <span>Firma C (Whale/Comunidad)</span>
-                        <span class="text-amber-400 font-mono">[RESPALDO]</span>
-                    </div>
-                    <div class="mt-8 p-4 bg-slate-800 rounded-lg">
-                        <p class="text-xs text-slate-400 mb-2 uppercase tracking-widest">Script Hash (P2SH)</p>
-                        <p class="text-xs font-mono break-all text-sky-300">ecash:pp0m93...x7v4q2n8l0m5z9</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección 2: El Desafío y la Solución -->
-    <section id="solucion" class="mb-24 py-16 bg-slate-100 rounded-[3rem] px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">De Teyolia 2.1 a 2.1-G</h2>
-            <p class="text-slate-600 max-w-2xl mx-auto">
+<div class="space-y-6">
+<div class="flex justify-between items-center border-b border-slate-700 pb-2">
+<span>Firma A (xolosArmy)</span>
+<span class="text-green-400 font-mono">[LISTA]</span>
+</div>
+<div class="flex justify-between items-center border-b border-slate-700 pb-2">
+<span>Firma B (GNC/ABC)</span>
+<span class="text-green-400 font-mono">[LISTA]</span>
+</div>
+<div class="flex justify-between items-center border-b border-slate-700 pb-2">
+<span>Firma C (Whale/Comunidad)</span>
+<span class="text-amber-400 font-mono">[RESPALDO]</span>
+</div>
+<div class="mt-8 p-4 bg-slate-800 rounded-lg">
+<p class="text-xs text-slate-400 mb-2 uppercase tracking-widest">Script Hash (P2SH)</p>
+<p class="text-xs font-mono break-all text-sky-300">ecash:pp0m93...x7v4q2n8l0m5z9</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solucion" class="mb-24 py-16 bg-slate-100 rounded-[3rem] px-8">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-slate-900 mb-4" id="de-teyolia-2-1-a-2-1-g">De Teyolia 2.1 a 2.1-G</h2>
+<p class="text-slate-600 max-w-2xl mx-auto">
                 La madurez técnica implica saber pivotar cuando la seguridad de la red está en juego. Analizamos la transición del modelo de recaudación directa al modelo de Puente de Gobernanza.
             </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="p-6 bg-white rounded-2xl border border-slate-200">
-                <h3 class="text-red-600 font-bold mb-4 flex items-center gap-2">
+</div>
+<div class="grid md:grid-cols-2 gap-8 mb-12">
+<div class="p-6 bg-white rounded-2xl border border-slate-200">
+<h3 class="text-red-600 font-bold mb-4 flex items-center gap-2" id="riesgos-detectados-modelo-original">
                     ⚠ Riesgos Detectados (Modelo Original)
                 </h3>
-                <ul class="space-y-3 text-sm text-slate-600">
-                    <li class="flex gap-2"><span>•</span> <strong>Vault Churn:</strong> Los cambios rápidos de bóvedas en THORChain podrían dejar fondos en el limbo.</li>
-                    <li class="flex gap-2"><span>•</span> <strong>Pause States:</strong> Si la red entra en pausa, el script automático podría fallar.</li>
-                    <li class="flex gap-2"><span>•</span> <strong>Pérdida de LP:</strong> Riesgo de que la propiedad del proveedor de liquidez quedara en un script irrecuperable.</li>
-                </ul>
-            </div>
-            <div class="p-6 bg-white rounded-2xl border-2 border-sky-500 relative">
-                <div class="absolute -top-3 right-4 bg-sky-500 text-white text-[10px] px-2 py-1 rounded font-bold uppercase">Solución Pragmática</div>
-                <h3 class="text-sky-600 font-bold mb-4 flex items-center gap-2">
+<ul class="space-y-3 text-sm text-slate-600">
+<li class="flex gap-2"><span>•</span> <strong>Vault Churn:</strong> Los cambios rápidos de bóvedas en THORChain podrían dejar fondos en el limbo.</li>
+<li class="flex gap-2"><span>•</span> <strong>Pause States:</strong> Si la red entra en pausa, el script automático podría fallar.</li>
+<li class="flex gap-2"><span>•</span> <strong>Pérdida de LP:</strong> Riesgo de que la propiedad del proveedor de liquidez quedara en un script irrecuperable.</li>
+</ul>
+</div>
+<div class="p-6 bg-white rounded-2xl border-2 border-sky-500 relative">
+<div class="absolute -top-3 right-4 bg-sky-500 text-white text-[10px] px-2 py-1 rounded font-bold uppercase">Solución Pragmática</div>
+<h3 class="text-sky-600 font-bold mb-4 flex items-center gap-2" id="teyolia-2-1-g-governance">
                     🛡 Teyolia 2.1-G (Governance)
                 </h3>
-                <ul class="space-y-3 text-sm text-slate-600">
-                    <li class="flex gap-2"><span>•</span> <strong>Recaudación Trustless:</strong> Los fondos solo se mueven si se alcanza la meta.</li>
-                    <li class="flex gap-2"><span>•</span> <strong>Reembolsos Automáticos:</strong> Si la campaña falla, los donantes recuperan su XEC sin intermediarios.</li>
-                    <li class="flex gap-2"><span>•</span> <strong>Aterrizaje en Multifirma:</strong> Los fondos se custodian en la bóveda Tonalli antes de inyectarse.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl shadow-sm">
-            <h4 class="text-center font-bold text-slate-800 mb-8 uppercase tracking-widest">Distribución de Transparencia (1% Infraestructura)</h4>
-            <div class="chart-container">
-                <canvas id="transparencyChart"></canvas>
-            </div>
-            <p class="text-center text-xs text-slate-400 mt-6 italic">Visualización dinámica de la tasa de infraestructura recolectada de forma transparente on-chain.</p>
-        </div>
-    </section>
-
-    <!-- Sección 3: Flujo Interactivo -->
-    <section id="flujo" class="mb-24">
-        <h2 class="text-3xl font-bold text-center mb-12">El Viaje de los Fondos</h2>
-        
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3 space-y-4" id="step-controls">
-                <button onclick="updateStep(0)" class="w-full text-left p-6 rounded-2xl transition glass-card step-btn step-active" data-step="0">
-                    <h5 class="font-bold mb-1">1. Campaña Teyolia</h5>
-                    <p class="text-xs text-slate-500">Recaudación descentralizada bajo contrato inteligente.</p>
-                </button>
-                <button onclick="updateStep(1)" class="w-full text-left p-6 rounded-2xl transition glass-card step-btn" data-step="1">
-                    <h5 class="font-bold mb-1">2. Éxito y Custodia</h5>
-                    <p class="text-xs text-slate-500">Traspaso a la Bóveda Multifirma de Tonalli (2/3).</p>
-                </button>
-                <button onclick="updateStep(2)" class="w-full text-left p-6 rounded-2xl transition glass-card step-btn" data-step="2">
-                    <h5 class="font-bold mb-1">3. Inyección a Pool</h5>
-                    <p class="text-xs text-slate-500">xolosArmy coordina con gobernanza la liquidez final.</p>
-                </button>
-            </div>
-            <div class="md:w-2/3 bg-white border border-slate-200 rounded-3xl p-8 min-h-[300px] flex flex-col justify-center items-center text-center">
-                <div id="step-content-icon" class="mb-6 text-6xl">🚀</div>
-                <h3 id="step-content-title" class="text-2xl font-bold mb-4 text-slate-800">Campaña Teyolia</h3>
-                <p id="step-content-desc" class="text-slate-600 max-w-md">
+<ul class="space-y-3 text-sm text-slate-600">
+<li class="flex gap-2"><span>•</span> <strong>Recaudación Trustless:</strong> Los fondos solo se mueven si se alcanza la meta.</li>
+<li class="flex gap-2"><span>•</span> <strong>Reembolsos Automáticos:</strong> Si la campaña falla, los donantes recuperan su XEC sin intermediarios.</li>
+<li class="flex gap-2"><span>•</span> <strong>Aterrizaje en Multifirma:</strong> Los fondos se custodian en la bóveda Tonalli antes de inyectarse.</li>
+</ul>
+</div>
+</div>
+<div class="bg-white p-8 rounded-2xl shadow-sm">
+<h4 class="text-center font-bold text-slate-800 mb-8 uppercase tracking-widest">Distribución de Transparencia (1% Infraestructura)</h4>
+<div class="chart-container">
+<figure id="transparencyChart" class="editorial-data-chart"><meter min="0" max="100" value="99" aria-label="Liquidez para THORChain: 99%; Infraestructura xolosArmy (1%): 1%">99% / 1%</meter><section class="table-scroll" tabindex="0" aria-label="Tabla 1: Soberanía Digital: La Multifirma de Tonalli abre el camino a THORChain"><table><caption>Distribución de Transparencia (1% Infraestructura)</caption><thead><tr><th scope="col">Concepto</th><th scope="col">Porcentaje</th></tr></thead><tbody><tr><th scope="row">Liquidez para THORChain</th><td>99%</td></tr><tr><th scope="row">Infraestructura xolosArmy (1%)</th><td>1%</td></tr></tbody></table></section></figure></div>
+<p class="text-center text-xs text-slate-400 mt-6 italic">Visualización dinámica de la tasa de infraestructura recolectada de forma transparente on-chain.</p>
+</div>
+</section>
+<section id="flujo" class="mb-24">
+<h2 class="text-3xl font-bold text-center mb-12" id="el-viaje-de-los-fondos">El Viaje de los Fondos</h2>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="md:w-1/3 space-y-4" id="step-controls">
+<details class="editorial-step" open=""><summary>
+<strong class="font-bold mb-1">1. Campaña Teyolia</strong>
+<span class="text-xs text-slate-500">Recaudación descentralizada bajo contrato inteligente.</span>
+</summary><div id="step-content-icon" class="mb-6 text-6xl">🚀</div>
+<h3 id="step-content-title" class="text-2xl font-bold mb-4 text-slate-800">Campaña Teyolia</h3>
+<p id="step-content-desc" class="text-slate-600 max-w-md">
                     La dApp Teyolia funciona como un Flipstarter evolucionado. Los fondos no son custodiados por humanos hasta que la meta se cumple, garantizando la seguridad del donante.
                 </p>
-                <div id="step-content-badge" class="mt-8 px-4 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">ESTADO: TRUSTLESS</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Final: Futuro y Comunidad -->
-    <section id="futuro" class="mb-12 py-16 text-center bg-sky-900 rounded-[3rem] text-white">
-        <h2 class="text-4xl font-bold mb-6">Hacia las grandes ligas de DeFi</h2>
-        <p class="text-sky-100 max-w-2xl mx-auto mb-10 px-4">
+<div id="step-content-badge" class="mt-8 px-4 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">ESTADO: TRUSTLESS</div>
+</details><details class="editorial-step"><summary>
+<strong class="font-bold mb-1">2. Éxito y Custodia</strong>
+<span class="text-xs text-slate-500">Traspaso a la Bóveda Multifirma de Tonalli (2/3).</span>
+</summary><div class="step-icon">🔐</div><h3 id="exito-y-custodia">Éxito y Custodia</h3><p>Al completarse la meta, los fondos viajan a la bóveda Tonalli. Aquí, el GNC, Bitcoin ABC o holders clave actúan como guardianes junto a xolosArmy.</p><p class="step-status">ESTADO: MULTIFIRMA 2/3</p></details><details class="editorial-step"><summary>
+<strong class="font-bold mb-1">3. Inyección a Pool</strong>
+<span class="text-xs text-slate-500">xolosArmy coordina con gobernanza la liquidez final.</span>
+</summary><div class="step-icon">⚡</div><h3 id="inyeccion-a-pool">Inyección a Pool</h3><p>Finalmente, los fondos se mueven a THORChain para activar el pool XEC. Este paso manual previene riesgos de red y asegura la propiedad del LP.</p><p class="step-status">ESTADO: DEFI ACTIVO</p></details></div>
+</div>
+</section>
+<section id="futuro" class="mb-12 py-16 text-center bg-sky-900 rounded-[3rem] text-white">
+<h2 class="text-4xl font-bold mb-6" id="hacia-las-grandes-ligas-de-defi">Hacia las grandes ligas de DeFi</h2>
+<p class="text-sky-100 max-w-2xl mx-auto mb-10 px-4">
             Este modelo de "Puente de Gobernanza" no es solo para THORChain. Es la base para que el Global Network Council (GNC) y otros fondos de desarrollo puedan financiar infraestructura de forma descentralizada y profesional.
         </p>
-        <div class="flex flex-wrap justify-center gap-4 px-4">
-            <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
-                <div class="text-3xl font-bold text-sky-400 mb-1">Ready</div>
-                <div class="text-xs uppercase tracking-widest text-sky-200">Código THORChain</div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
-                <div class="text-3xl font-bold text-sky-400 mb-1">100%</div>
-                <div class="text-xs uppercase tracking-widest text-sky-200">Transparencia</div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
-                <div class="text-3xl font-bold text-sky-400 mb-1">xolos</div>
-                <div class="text-xs uppercase tracking-widest text-sky-200">Liderazgo Técnico</div>
-            </div>
-        </div>
-        <div class="mt-12">
-            <button class="bg-sky-500 hover:bg-sky-400 text-white font-bold py-4 px-10 rounded-full shadow-lg transition transform hover:-translate-y-1">
+<div class="flex flex-wrap justify-center gap-4 px-4">
+<div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+<div class="text-3xl font-bold text-sky-400 mb-1">Ready</div>
+<div class="text-xs uppercase tracking-widest text-sky-200">Código THORChain</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+<div class="text-3xl font-bold text-sky-400 mb-1">100%</div>
+<div class="text-xs uppercase tracking-widest text-sky-200">Transparencia</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+<div class="text-3xl font-bold text-sky-400 mb-1">xolos</div>
+<div class="text-xs uppercase tracking-widest text-sky-200">Liderazgo Técnico</div>
+</div>
+</div>
+<div class="mt-12">
+<p class="legacy-action-label">
                 Apoyar a xolosArmy
-            </button>
-        </div>
-    </section>
-
-</main>
-
-<footer class="bg-slate-50 border-t border-slate-200 py-12">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="text-slate-400 text-sm">
-            © 2024 eCash Magazine México. Reportaje por el ecosistema XEC.
-        </div>
-        <div class="flex gap-4 text-xs font-bold text-slate-500">
-            <span>BITCOIN ABC</span>
-            <span>GNC</span>
-            <span>THORCHAIN</span>
-            <span>TONALLI</span>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Datos del flujo
-    const steps = [
-        {
-            icon: "🚀",
-            title: "Campaña Teyolia",
-            desc: "La dApp Teyolia funciona como un Flipstarter evolucionado. Los fondos no son custodiados por humanos hasta que la meta se cumple, garantizando la seguridad del donante.",
-            badge: "ESTADO: TRUSTLESS",
-            badgeColor: "bg-green-100 text-green-700"
-        },
-        {
-            icon: "🔐",
-            title: "Éxito y Custodia",
-            desc: "Al completarse la meta, los fondos viajan a la bóveda Tonalli. Aquí, el GNC, Bitcoin ABC o holders clave actúan como guardianes junto a xolosArmy.",
-            badge: "ESTADO: MULTIFIRMA 2/3",
-            badgeColor: "bg-sky-100 text-sky-700"
-        },
-        {
-            icon: "⚡",
-            title: "Inyección a Pool",
-            desc: "Finalmente, los fondos se mueven a THORChain para activar el pool XEC. Este paso manual previene riesgos de red y asegura la propiedad del LP.",
-            badge: "ESTADO: DEFI ACTIVO",
-            badgeColor: "bg-amber-100 text-amber-700"
-        }
-    ];
-
-    function updateStep(index) {
-        // Actualizar contenido
-        document.getElementById('step-content-icon').innerText = steps[index].icon;
-        document.getElementById('step-content-title').innerText = steps[index].title;
-        document.getElementById('step-content-desc').innerText = steps[index].desc;
-        document.getElementById('step-content-badge').innerText = steps[index].badge;
-        document.getElementById('step-content-badge').className = `mt-8 px-4 py-1 ${steps[index].badgeColor} text-xs font-bold rounded-full`;
-
-        // Actualizar botones
-        document.querySelectorAll('.step-btn').forEach((btn, i) => {
-            if(i === index) {
-                btn.classList.add('step-active');
-                btn.classList.remove('opacity-60');
-            } else {
-                btn.classList.remove('step-active');
-                btn.classList.add('opacity-60');
-            }
-        });
-    }
-
-    // Inicializar Gráfico
-    function initCharts() {
-        const ctx = document.getElementById('transparencyChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Liquidez para THORChain', 'Infraestructura xolosArmy (1%)'],
-                datasets: [{
-                    data: [99, 1],
-                    backgroundColor: ['#0ea5e9', '#f59e0b'],
-                    hoverOffset: 10,
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 20,
-                            font: { size: 12, family: 'Inter' }
-                        }
-                    }
-                },
-                cutout: '70%'
-            }
-        });
-    }
-
-    window.onload = initCharts;
-</script>
-
-</body>
-</html>
+            </p>
+</div>
+</section>
+</div>
+</article></div><section class="section-block"><div class="section-heading"><h2>Últimas publicaciones</h2><a href="/blog/index.html">Ver el archivo completo →</a></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Tonalli Memo: tu identidad .xec, tu voz on-chain</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-10">10 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html">La finalidad no es el puente</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-09T00:00:00-06:00">9 de septiembre de 2026</time></span></div></div></article></div></section></div></main><footer class="site-footer"><div class="container"><p class="brand-name">eCash Magazine México</p><p>Tecnología, economía y cultura desde México.</p><nav aria-label="Enlaces editoriales"><a href="/principios-editoriales/">Principios editoriales</a><a href="/correcciones/">Correcciones y actualizaciones</a><a href="/autores/">Autores</a><a href="/feed.xml">RSS</a><a href="https://ecash.mx">Portal eCash México ↗</a></nav><p>XEC es el dinero · RMZ es la llave · La cultura es la red</p><small>Contenidos bajo CC0 · eCash Magazine México</small></div></footer></body></html>

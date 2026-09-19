@@ -1,0 +1,115 @@
+{
+  "method": "WCAG sRGB relative luminance; static design-token combinations, not rendered-page audit",
+  "colors": {
+    "paper": "#f6f3ec",
+    "paper-raised": "#fffdf8",
+    "paper-deep": "#ebe7dd",
+    "ink": "#172a32",
+    "ink-soft": "#465861",
+    "cyan": "#006d86",
+    "cyan-hover": "#004f63",
+    "cyan-pale": "#e1edf0",
+    "line": "#cdcfc8",
+    "line-strong": "#172a32",
+    "focus": "#006d86"
+  },
+  "checks": [
+    {
+      "foreground": "ink",
+      "background": "paper",
+      "ratio": 13.4,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "ink",
+      "background": "paper-raised",
+      "ratio": 14.61,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "ink",
+      "background": "paper-deep",
+      "ratio": 12.03,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "ink",
+      "background": "cyan-pale",
+      "ratio": 12.43,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "ink-soft",
+      "background": "paper",
+      "ratio": 6.7,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "ink-soft",
+      "background": "paper-raised",
+      "ratio": 7.3,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "ink-soft",
+      "background": "paper-deep",
+      "ratio": 6.01,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "ink-soft",
+      "background": "cyan-pale",
+      "ratio": 6.21,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan",
+      "background": "paper",
+      "ratio": 5.37,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan",
+      "background": "paper-raised",
+      "ratio": 5.85,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan",
+      "background": "paper-deep",
+      "ratio": 4.82,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan",
+      "background": "cyan-pale",
+      "ratio": 4.98,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan-hover",
+      "background": "paper",
+      "ratio": 8.24,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan-hover",
+      "background": "paper-raised",
+      "ratio": 8.99,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan-hover",
+      "background": "paper-deep",
+      "ratio": 7.4,
+      "AA_normal_text": true
+    },
+    {
+      "foreground": "cyan-hover",
+      "background": "cyan-pale",
+      "ratio": 7.65,
+      "AA_normal_text": true
+    }
+  ],
+  "all_pass": true
+}

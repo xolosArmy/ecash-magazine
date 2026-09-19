@@ -1,0 +1,13 @@
+{
+  "tool": "html-validate 11.16.0",
+  "presets": [
+    "standard",
+    "a11y"
+  ],
+  "scope": "173 generated HTML documents (45 historical preserved)",
+  "pages_with_findings": 0,
+  "errors": 0,
+  "warnings": 0,
+  "rule_counts": {},
+  "findings": []
+}

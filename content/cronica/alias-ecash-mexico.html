@@ -1,0 +1,73 @@
+<div class="site-shell">
+<div class="article">
+<section class="hero">
+<img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="" role="presentation" class="editorial-legacy-image"><div class="hero-content">
+<div class="kicker mono">[Crónica] + [Análisis Técnico]</div>
+<h1>La noche en que xolosarmy.xec quedó vivo</h1>
+<p class="deck">Tonalli Wallet registró xolosarmy.xec, cobró 1600 RMZ, escribió el alias en la blockchain de eCash y permitió verificar la identidad desde ecash.mx/identidad. No fue solo una prueba técnica: fue el cierre de un circuito soberano.</p>
+</div>
+</section>
+<div class="content-grid">
+<div class="main">
+<div class="lede-card">
+<div class="lede-label mono">El Bug</div>
+<p>Hubo un momento en que todo parecía funcionar, pero no funcionaba. La wallet conectaba. La interfaz respondía. El flujo tenía sentido. Tonalli Wallet podía cobrar RMZ, preparar el registro de alias y mostrar la intención completa al usuario. Pero la segunda transacción, la importante, la que debía escribir <span class="code-chip">xolosarmy.xec</span> en la blockchain de eCash, no aparecía.</p>
+</div>
+<p>La primera transacción sí vivía. El pago de 1600 RMZ a la tesorería salía correctamente. Pero la segunda, la del alias <span class="code-chip">.xec</span>, quedaba en una zona incómoda: generada, calculada, aparentemente lista, pero ausente del explorador y de Chronik.</p>
+<p>Ese fue el punto en que el proyecto dejó de ser una pantalla bonita y se convirtió en infraestructura real.</p>
+<h2>De la identidad cultural a la identidad verificable</h2>
+<p>El objetivo era claro: que <span class="code-chip">ecash.mx/identidad</span> no fuera solo una página simbólica para Guardianes RMZ, sino una puerta verificable.</p>
+<div class="flow-box">
+<span class="mono">Flujo de Identidad</span>
+<div class="flow-step">1. El usuario conecta Tonalli Wallet.</div>
+<div class="flow-step">2. La dApp verifica pertenencia RMZ.</div>
+<div class="flow-step">3. El usuario registra o escribe un alias .xec.</div>
+<div class="flow-step">4. El sistema resuelve ese alias contra un indexador propio.</div>
+<div class="flow-step">5. La dirección del alias se compara con la wallet conectada. Si coincide, la identidad queda confirmada.</div>
+</div>
+<p>En la prueba final, la página mostró: <strong>xolosarmy.xec - Alias verificado. Identidad confirmada.</strong> Ese mensaje parece pequeño. Pero detrás hay cuatro piezas funcionando juntas: Tonalli Wallet, RMZ, la blockchain de eCash y <span class="code-chip">alias.ecash.mx</span>.</p>
+<h2>El problema no era visual: era de UTXOs</h2>
+<p>Durante la depuración, se agregó una herramienta interna para construir la transacción de alias sin enviarla. Esa prueba mostró que el <code>OP_RETURN</code> era correcto, que contenía el prefijo .xec, que el fee oficial era de 500 XEC y que la estructura general estaba bien.</p>
+<p>El bug real estaba en otra parte: la segunda transacción intentaba usar como entrada el <strong>cambio producido por la primera transacción RMZ</strong>. Al intentar gastar ese cambio inmediatamente, la red / Chronik no la aceptaba correctamente.</p>
+<p>La solución técnica fue <strong>reservar UTXOs XEC independientes</strong> antes de enviar la primera transacción. Así, la transacción RMZ y la transacción del alias dejaron de pisarse entre sí. Después de ese ajuste, el alias <span class="code-chip">xolosarmy.xec</span> quedó registrado exitosamente.</p>
+<h2>La soberanía también era el indexador</h2>
+<p>Otro punto decisivo fue abandonar la dependencia de servicios externos. La dApp necesitaba resolver alias .xec, pero una llamada directa desde navegador chocó con problemas de CORS. La salida fácil habría sido hacer un proxy. La salida soberana fue otra: construir un indexador propio.</p>
+<p>Así nació <span class="code-chip">alias.ecash.mx</span>. El indexador lee Chronik por el Lokad ID <code>2e786563</code> (correspondiente a .xec), parsea los OP_RETURN y soporta registros pendientes desde mempool.</p>
+<div class="pullquote">
+            xolosarmy.xec no es solo un alias. Es una prueba de arquitectura. Es una señal de que eCash México puede construir capas culturales sobre infraestructura real.
+          </div>
+<h2>Lo que quedó vivo</h2>
+<p>El resultado no fue una promesa. Fue un circuito completo, dejando vivos cuatro pilares fundamentales para el ecosistema:</p>
+<ul>
+<li><strong>Wallet propia:</strong> Tonalli Wallet / RMZWallet</li>
+<li><strong>Token comunitario:</strong> RMZ</li>
+<li><strong>Identidad on-chain:</strong> alias .xec</li>
+<li><strong>Indexador soberano:</strong> alias.ecash.mx</li>
+</ul>
+<p>La frase fundacional del proyecto queda mucho más clara después de esta noche de código y despliegue:</p>
+<p><em>XEC es el dinero.<br>RMZ es la llave.<br>La cultura es la red.</em></p>
+<p>Y ahora, esa frase ya tiene una identidad verificable: <strong>xolosarmy.xec</strong>.</p>
+</div>
+<aside class="sidebar">
+<div class="sticky">
+<div class="side-card">
+<div class="side-title mono">Metadatos de la Tx</div>
+<p><strong>Alias Registrado:</strong><br><span class="code-chip">xolosarmy.xec</span></p>
+<p><strong>Costo:</strong><br>1600 RMZ + 500 XEC (Fee)</p>
+<p><strong>Bloque:</strong><br>952171</p>
+<p><strong>Estado:</strong><br><span>Confirmed</span></p>
+</div>
+<div class="side-card">
+<div class="side-title mono">Stack Técnico</div>
+<ul>
+<li>Chronik Indexer</li>
+<li>OP_RETURN</li>
+<li>Gestión de UTXOs</li>
+<li>Resolución CORS propia</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>

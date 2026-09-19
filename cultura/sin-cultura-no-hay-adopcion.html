@@ -1,392 +1,65 @@
-<!doctype html>
-<html lang="es-MX">
-  <head>
-<!-- Google tag (gtag.js) -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-
-  gtag("config", "G-3HX6VT60WB");
-</script>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Fernando Ramírez" />
-    <meta
-      name="description"
-      content="La tecnología habilita la autocustodia, pero la cultura enseña a ejercerla. Un ensayo sobre educación, comunidad, Tonalli, Teyolia y eCash en México."
-    />
-    <title>
-      Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en
-      México | eCash Magazine México
-    </title>
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link
-      rel="canonical"
-      href="https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html"
-    />
-    <meta property="og:locale" content="es_MX" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="eCash Magazine México" />
-    <meta
-      property="og:title"
-      content="Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México"
-    />
-    <meta
-      property="og:description"
-      content="La tecnología habilita la autocustodia, pero la cultura enseña a ejercerla. Un ensayo sobre educación, comunidad, Tonalli, Teyolia y eCash en México."
-    />
-    <meta
-      property="og:url"
-      content="https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html"
-    />
-    <meta property="og:image" content="https://i.imgur.com/YZvGu8q.png" />
-    <meta property="article:author" content="Fernando Ramírez" />
-    <meta property="article:published_time" content="2026-07-06" />
-    <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México"
-    />
-    <meta
-      name="twitter:description"
-      content="La tecnología habilita la autocustodia, pero la cultura enseña a ejercerla. Un ensayo sobre educación, comunidad, Tonalli, Teyolia y eCash en México."
-    />
-    <meta name="twitter:image" content="https://i.imgur.com/YZvGu8q.png" />
-    <meta name="theme-color" content="#05070a" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
-      :root {
-        --bg: #05070a;
-        --panel: #0a1019;
-        --text: #e6edf7;
-        --muted: #a7b3c5;
-        --cyan: #00abe7;
-        --light: #67d7ff;
-        --gold: #ffcc00;
-        --line: rgba(255, 255, 255, 0.12);
-        --cyan-line: rgba(0, 171, 231, 0.32);
-        color-scheme: dark;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        overflow-x: hidden;
-        background:
-          radial-gradient(
-            circle at 12% 4%,
-            rgba(0, 171, 231, 0.12),
-            transparent 28rem
-          ),
-          var(--bg);
-        color: var(--text);
-        font-family: "Lexend", system-ui, sans-serif;
-        line-height: 1.75;
-      }
-      a {
-        color: var(--light);
-        text-decoration-color: rgba(103, 215, 255, 0.45);
-        text-underline-offset: 0.2em;
-      }
-      a:hover,
-      a:focus-visible {
-        color: #fff;
-        text-decoration-color: var(--gold);
-      }
-      a:focus-visible {
-        outline: 2px solid var(--gold);
-        outline-offset: 4px;
-      }
-      .mono {
-        font-family: "Space Mono", monospace;
-      }
-      .topbar {
-        border-bottom: 1px solid var(--line);
-        background: rgba(5, 7, 10, 0.94);
-      }
-      .topbar-inner,
-      .hero,
-      .meta,
-      .layout,
-      footer {
-        width: min(100% - 2rem, 72rem);
-        margin-inline: auto;
-      }
-      .topbar-inner {
-        padding: 1rem 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        color: #fff;
-        font-weight: 700;
-        text-decoration: none;
-      }
-      .brand img {
-        width: 2.5rem;
-        height: 2.5rem;
-        border: 1px solid var(--cyan-line);
-        border-radius: 50%;
-      }
-      .brand span {
-        color: var(--cyan);
-      }
-      .back {
-        border: 1px solid var(--cyan-line);
-        padding: 0.5rem 0.7rem;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-      .hero {
-        padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(3rem, 7vw, 5rem);
-      }
-      .kicker {
-        margin: 0 0 1.2rem;
-        color: var(--gold);
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-      }
-      h1 {
-        max-width: 65rem;
-        margin: 0;
-        color: #fff;
-        font-size: clamp(2.4rem, 7vw, 5.7rem);
-        letter-spacing: -0.055em;
-        line-height: 1.02;
-      }
-      .deck {
-        max-width: 52rem;
-        margin: 1.8rem 0 0;
-        color: #cbd6e5;
-        font-size: clamp(1.08rem, 2.4vw, 1.38rem);
-      }
-      .meta {
-        margin-bottom: 3.5rem;
-        padding: 1.25rem;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        border: 1px solid var(--cyan-line);
-        border-radius: 1.2rem;
-        background: var(--panel);
-      }
-      .meta p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.86rem;
-      }
-      .meta strong {
-        display: block;
-        color: var(--light);
-        font-size: 0.68rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .layout {
-        display: grid;
-        grid-template-columns: minmax(0, 46rem) minmax(14rem, 1fr);
-        gap: clamp(2rem, 5vw, 5rem);
-        align-items: start;
-      }
-      article {
-        min-width: 0;
-      }
-      article section {
-        padding-bottom: 3.7rem;
-        scroll-margin-top: 2rem;
-      }
-      h2 {
-        margin: 0 0 1.2rem;
-        color: #fff;
-        font-size: clamp(1.55rem, 3.8vw, 2.25rem);
-        letter-spacing: -0.03em;
-        line-height: 1.25;
-      }
-      h2::before {
-        content: attr(data-number);
-        display: block;
-        margin-bottom: 0.55rem;
-        color: var(--gold);
-        font:
-          700 0.72rem "Space Mono",
-          monospace;
-        letter-spacing: 0.12em;
-      }
-      p {
-        margin: 0 0 1.35rem;
-        color: #c9d3e1;
-        font-size: 1.02rem;
-      }
-      strong {
-        color: #fff;
-      }
-      .thesis {
-        margin-bottom: 3.7rem;
-        padding: clamp(1.4rem, 4vw, 2.2rem);
-        border-left: 4px solid var(--gold);
-        border-radius: 0 1.2rem 1.2rem 0;
-        background: linear-gradient(
-          120deg,
-          rgba(255, 204, 0, 0.1),
-          rgba(0, 171, 231, 0.08)
-        );
-      }
-      .thesis p {
-        margin: 0;
-        color: #fff;
-        font-size: clamp(1.25rem, 3vw, 1.65rem);
-        font-weight: 600;
-      }
-      aside {
-        position: sticky;
-        top: 1.5rem;
-      }
-      .side,
-      .references {
-        margin-bottom: 1rem;
-        padding: 1.2rem;
-        border: 1px solid var(--line);
-        border-radius: 1rem;
-        background: var(--panel);
-      }
-      .side h2 {
-        color: var(--light);
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      .side h2::before,
-      .references h2::before {
-        content: none;
-      }
-      .side ol,
-      .references ul {
-        margin: 0;
-        padding-left: 1.25rem;
-      }
-      .side li,
-      .references li {
-        margin-bottom: 0.6rem;
-        color: var(--muted);
-      }
-      .side a {
-        font-size: 0.82rem;
-      }
-      .references {
-        border-color: var(--cyan-line);
-      }
-      .closing {
-        color: #fff;
-        font-size: clamp(1.3rem, 3vw, 1.7rem);
-        font-weight: 700;
-      }
-      footer {
-        margin-top: 4rem;
-        padding: 2rem 0 3rem;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 0.75rem;
-      }
-      @media (max-width: 820px) {
-        .meta,
-        .layout {
-          grid-template-columns: 1fr;
-        }
-        aside {
-          position: static;
-        }
-      }
-      @media (max-width: 520px) {
-        .topbar-inner,
-        .hero,
-        .meta,
-        .layout,
-        footer {
-          width: min(100% - 1.25rem, 72rem);
-        }
-        .brand {
-          font-size: 0.86rem;
-        }
-        .brand img {
-          width: 2rem;
-          height: 2rem;
-        }
-        .back {
-          font-size: 0.6rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <a class="brand mono" href="../index.html"
-          ><img src="../favicon.ico" alt="" width="64" height="64" /><span
-            >eCash</span
-          >Magazine</a
-        >
-        <a class="back mono" href="../index.html">Primera Plana</a>
-      </div>
-    </header>
-    <main>
-      <header class="hero">
-        <p class="kicker mono">Cultura // Tesis</p>
-        <h1>
-          Sin cultura no hay adopción: por qué la autocustodia necesita
-          comunidad en México
-        </h1>
-        <p class="deck">
-          La tecnología puede entregar las llaves al usuario, pero solo la
-          educación, la práctica y el tejido comunitario pueden convertir ese
-          control en autonomía responsable.
-        </p>
-      </header>
-      <section class="meta" aria-label="Información editorial">
-        <p><strong class="mono">Autor</strong>Fernando Ramírez</p>
-        <p>
-          <strong class="mono">Revisión editorial interna</strong>eCash México /
+<!DOCTYPE html>
+<html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México | eCash Magazine México</title><meta name="description" content="La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable.">
+<link rel="canonical" href="https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html"><link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#F6F3EC">
+<meta property="og:site_name" content="eCash Magazine México"><meta property="og:type" content="article"><meta property="og:title" content="Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México"><meta property="og:url" content="https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html">
+<meta property="og:description" content="La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable."><meta property="og:image" content="https://magazine.ecash.mx/assets/media/ecash-magazine-social.png"><meta property="og:image:alt" content="eCash Magazine México"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México"><meta name="twitter:description" content="La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable."><meta name="twitter:image" content="https://magazine.ecash.mx/assets/media/ecash-magazine-social.png"><meta name="twitter:image:alt" content="eCash Magazine México">
+<meta property="article:published_time" content="2026-07-06">
+<link rel="alternate" type="application/rss+xml" title="eCash Magazine México — publicaciones" href="/feed.xml">
+<link rel="stylesheet" href="/assets/css/editorial.css"><script defer src="/assets/js/editorial.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "NewsMediaOrganization", "@id": "https://magazine.ecash.mx/#organization", "name": "eCash Magazine México", "url": "https://magazine.ecash.mx/"}, {"@type": "Article", "@id": "https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html#article", "headline": "Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México", "url": "https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html", "mainEntityOfPage": "https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html", "publisher": {"@id": "https://magazine.ecash.mx/#organization"}, "datePublished": "2026-07-06", "description": "La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable.", "inLanguage": "es-MX", "articleSection": "Cultura", "author": {"@type": "Person", "name": "Fernando Ramírez", "url": "https://magazine.ecash.mx/autores/fernando-ramirez/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://magazine.ecash.mx/"}, {"@type": "ListItem", "position": 2, "name": "Archivo", "item": "https://magazine.ecash.mx/blog/index.html"}, {"@type": "ListItem", "position": 3, "name": "Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México", "item": "https://magazine.ecash.mx/cultura/sin-cultura-no-hay-adopcion.html"}]}]}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-3HX6VT60WB"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-3HX6VT60WB");</script>
+</head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header"><div class="masthead container">
+<a class="brand" href="/" aria-label="eCash Magazine México — Primera Plana"><span class="brand-name">eCash<span>Magazine</span></span><span class="brand-place">México</span></a>
+<div class="masthead-tools"><a href="/blog/index.html">Archivo</a><a href="/buscar/">Buscar</a><button type="button" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" hidden>Menú</button></div></div>
+<nav class="site-nav" id="site-nav" aria-label="Navegación principal"><div class="container nav-links"><a href="/">Primera Plana</a><a href="/generos/">Géneros</a><a href="/temas/">Temas</a><a href="/autores/">Autores</a><a href="/blog/index.html">Archivo completo</a><a href="/buscar/">Buscar</a><a href="/principios-editoriales/">La revista</a></div></nav></header><script>/* Run immediately after the header so mobile navigation settles before main content. */
+(() => {
+  'use strict';
+  const menuButton = document.querySelector('.nav-toggle');
+  const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls'));
+  if (!menuButton || !menu) return;
+  const smallScreen = window.matchMedia('(max-width: 800px)');
+  const setMenu = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    menu.hidden = smallScreen.matches && !open;
+  };
+  const adaptMenu = () => setMenu(false);
+  menuButton.hidden = false;
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && smallScreen.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+  smallScreen.addEventListener('change', adaptMenu);
+  adaptMenu();
+})();
+</script><main id="contenido"><div class="container"><nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/blog/index.html">Archivo</a></li><li aria-current="page">Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México</li></ol></nav><header class="article-header"><div class="eyebrow"><span class="genre genre--pending">Género pendiente</span> <span class="section-label">Cultura</span></div><h1 class="article-title">Sin cultura no hay adopción: por qué la autocustodia necesita comunidad en México</h1><p class="article-deck">La tecnología puede entregar las llaves al usuario, pero solo la educación, la práctica y el tejido comunitario pueden convertir ese control en autonomía responsable.</p><div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-07-06">6 de julio de 2026</time></span></div><p class="original-label">Rótulo original: Cultura // Tesis; ensayo. Clasificación editorial pendiente.</p><ul class="tags" aria-label="Temas"><li><a class="tag" href="/temas/cultura/">Cultura</a></li></ul><p class="reading-links"><a href="#fuentes-evidencia">Consultar fuentes y evidencia ↓</a></p></header>
+<div class="article-layout"><details class="toc"><summary>En este artículo</summary><ol><li><a href="#tener-una-wallet-no-significa-comprender-la-autocustodia">Tener una wallet no significa comprender la autocustodia</a></li><li><a href="#el-problema-no-es-solamente-tecnologico">El problema no es solamente tecnológico</a></li><li><a href="#por-que-la-cultura-precede-a-la-adopcion">Por qué la cultura precede a la adopción</a></li><li><a href="#tonalli-como-herramienta-de-autocustodia">Tonalli como herramienta de autocustodia</a></li><li><a href="#teyolia-como-coordinacion-comunitaria">Teyolia como coordinación comunitaria</a></li><li><a href="#xec-como-dinero-operativo">XEC como dinero operativo</a></li><li><a href="#responsabilidad-seguridad-y-educacion">Responsabilidad, seguridad y educación</a></li><li><a href="#la-soberania-no-se-descarga-se-aprende">La soberanía no se descarga: se aprende</a></li><li><a href="#referencias">Referencias y documentación</a></li><li><a href="#en-este-ensayo">En este ensayo</a></li><li><a href="#principio-editorial">Principio editorial</a></li></ol></details><article class="article-content" id="lectura" aria-label="Texto de la publicación"><div>
+<div class="hero">
+</div>
+<section class="meta" aria-label="Información editorial">
+<p>
+<strong class="mono">Revisión editorial interna</strong>eCash México /
           xolosArmy Network
         </p>
-        <p>
-          <strong class="mono">Fecha de publicación</strong
-          ><time datetime="2026-07-06">6 de julio de 2026</time>
-        </p>
-      </section>
-      <div class="layout">
-        <article>
-          <div class="thesis">
-            <p>
+</section>
+<div class="layout">
+<div>
+<div class="thesis">
+<p>
               “La tecnología habilita la autocustodia; la cultura enseña a
               ejercerla.”
             </p>
-          </div>
-          <section id="autocustodia">
-            <h2 data-number="01">
+</div>
+<section id="autocustodia">
+<h2 data-number="01" id="tener-una-wallet-no-significa-comprender-la-autocustodia">
               Tener una wallet no significa comprender la autocustodia
             </h2>
-            <p>
+<p>
               Para muchas personas, el primer encuentro con los activos
               digitales ocurre en un servicio custodial. La experiencia puede
               parecer familiar: se abre una cuenta, se deposita dinero y una
@@ -394,14 +67,14 @@
               comprar una criptomoneda no equivale automáticamente a controlar
               las llaves que permiten moverla.
             </p>
-            <p>
+<p>
               Cuando los fondos permanecen en un servicio custodial, el usuario
               depende de ese intermediario para acceder, retirar y administrar
               sus activos. Los modelos de custodia pueden variar, pero la
               pregunta decisiva sigue siendo la misma: ¿quién puede autorizar la
               transacción y quién conserva el material de recuperación?
             </p>
-            <p>
+<p>
               Una wallet de autocustodia cambia esa relación. Permite que la
               persona administre sus llaves y firme sus propias operaciones. Sin
               embargo, instalarla no transmite por sí solo el conocimiento
@@ -409,21 +82,16 @@
               dirección legítima o entender las consecuencias de enviar una
               operación a la red.
             </p>
-            <p>
+<p>
               Por eso conviene comenzar por los fundamentos:
-              <a
-                href="https://ecash.mx/blog/que-es-ecash.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >qué es eCash y cómo funciona XEC</a
-              >. La autonomía empieza cuando el saldo deja de ser únicamente un
+              <a href="https://ecash.mx/blog/que-es-ecash.html" target="_blank" rel="noopener noreferrer">qué es eCash y cómo funciona XEC</a>. La autonomía empieza cuando el saldo deja de ser únicamente un
               número en pantalla y se comprende la responsabilidad detrás de
               cada firma.
             </p>
-          </section>
-          <section id="tecnologia">
-            <h2 data-number="02">El problema no es solamente tecnológico</h2>
-            <p>
+</section>
+<section id="tecnologia">
+<h2 data-number="02" id="el-problema-no-es-solamente-tecnologico">El problema no es solamente tecnológico</h2>
+<p>
               Una red monetaria necesita ingeniería sólida. También necesita
               personas capaces de interpretar sus garantías y sus límites. La
               velocidad no corrige una copia de recuperación expuesta; una
@@ -431,34 +99,29 @@
               equivocada; el código abierto no obliga a nadie a leer la
               documentación.
             </p>
-            <p>
+<p>
               La capa Avalanche de eCash permite que los nodos alcancen
               normalmente finalidad en aproximadamente tres segundos, mientras
               Proof of Work conserva el registro histórico verificable.
             </p>
-            <p>
+<p>
               Esta combinación mejora la finalidad y reduce la latencia de
               liquidación. También puede contribuir a una mayor capacidad de
               procesamiento, pero no sustituye por sí sola el resto de la
               estrategia de escalabilidad de la red.
             </p>
-            <p>
+<p>
               La distinción importa: “aproximadamente” no significa una garantía
               cronométrica en cada circunstancia, y finalidad rápida no
               significa riesgo cero. La confianza informada nace de entender
               cómo se complementan las capas, no de convertirlas en eslóganes.
               Puede consultarse
-              <a
-                href="https://ecash.mx/blog/avalanche-pre-consensus.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >la guía sobre Avalanche Pre-Consensus</a
-              >.
+              <a href="https://ecash.mx/blog/avalanche-pre-consensus.html" target="_blank" rel="noopener noreferrer">la guía sobre Avalanche Pre-Consensus</a>.
             </p>
-          </section>
-          <section id="cultura">
-            <h2 data-number="03">Por qué la cultura precede a la adopción</h2>
-            <p>
+</section>
+<section id="cultura">
+<h2 data-number="03" id="por-que-la-cultura-precede-a-la-adopcion">Por qué la cultura precede a la adopción</h2>
+<p>
               En México sabemos que el dinero nunca es solo una tecnología. Es
               también confianza entre familias, memoria de crisis, acuerdos de
               barrio, hábitos de ahorro y formas cotidianas de resolver
@@ -466,13 +129,13 @@
               dimensión social: necesitan prácticas, lenguaje compartido,
               educación y mecanismos para transmitir experiencia.
             </p>
-            <p>
+<p>
               Sin una cultura de responsabilidad y aprendizaje, la adopción
               corre el riesgo de terminar delegando nuevamente el control en
               intermediarios. No es un destino inevitable, sino una posibilidad
               cuando la comodidad llega antes que la comprensión.
             </p>
-            <p>
+<p>
               Cultura y código no compiten. El código define reglas
               verificables; la cultura ayuda a que una comunidad las entienda,
               las cuestione y las use con prudencia. Una reunión donde alguien
@@ -480,46 +143,41 @@
               conversación donde se reconoce un error son infraestructura
               cultural. No producen bloques, pero sí mejores criterios.
             </p>
-          </section>
-          <section id="tonalli">
-            <h2 data-number="04">Tonalli como herramienta de autocustodia</h2>
-            <p>
+</section>
+<section id="tonalli">
+<h2 data-number="04" id="tonalli-como-herramienta-de-autocustodia">Tonalli como herramienta de autocustodia</h2>
+<p>
               Tonalli es una interfaz de autocustodia y una herramienta para
               interactuar con eCash. En ella, el usuario conserva la
               responsabilidad sobre sus llaves y sus copias de recuperación. No
               es un banco, un custodio ni un guardián que pueda reconstruir
               secretos perdidos.
             </p>
-            <p>
+<p>
               La wallet ayuda a preparar y firmar operaciones, pero la decisión
               sigue en manos de quien controla las llaves. La libertad técnica
               resulta concreta cuando se acompaña de procedimientos sencillos:
               respaldar antes de recibir fondos relevantes, proteger el respaldo
               y practicar primero con cantidades pequeñas.
             </p>
-            <p>
+<p>
               Una herramienta comprensible reduce fricción; no elimina la
               necesidad de aprender. El
-              <a
-                href="https://ecash.mx/blog/tutorial-tonalli-wallet.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >tutorial de Tonalli Wallet</a
-              >
+              <a href="https://ecash.mx/blog/tutorial-tonalli-wallet.html" target="_blank" rel="noopener noreferrer">tutorial de Tonalli Wallet</a>
               ofrece un punto de partida para recorrer la interfaz con contexto
               y convertir una instalación en una práctica consciente.
             </p>
-          </section>
-          <section id="teyolia">
-            <h2 data-number="05">Teyolia como coordinación comunitaria</h2>
-            <p>
+</section>
+<section id="teyolia">
+<h2 data-number="05" id="teyolia-como-coordinacion-comunitaria">Teyolia como coordinación comunitaria</h2>
+<p>
               Teyolia articula campañas y covenants verificables sobre eCash
               para coordinar aportaciones y liquidaciones bajo reglas
               previamente definidas. Su alcance es más concreto que el de una
               plataforma genérica de contratos inteligentes: organiza flujos
               específicos mediante condiciones que pueden inspeccionarse.
             </p>
-            <p>
+<p>
               Este diseño reduce la dependencia de una plataforma centralizada
               para coordinar campañas. Las reglas técnicas delimitan qué ocurre
               con las aportaciones y bajo qué condiciones se liquidan. Aun así,
@@ -527,27 +185,22 @@
               todavía debe valorar el propósito, revisar la implementación,
               comunicar riesgos y responder ante situaciones no previstas.
             </p>
-            <p>
+<p>
               Lo valioso no es prometer coordinación sin riesgo, sino hacer
               visibles más partes del acuerdo. La documentación sobre
-              <a
-                href="https://ecash.mx/blog/teyolia-crowdfunding-xec.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Teyolia y el crowdfunding con XEC</a
-              >
+              <a href="https://ecash.mx/blog/teyolia-crowdfunding-xec.html" target="_blank" rel="noopener noreferrer">Teyolia y el crowdfunding con XEC</a>
               permite discutirlo desde reglas concretas.
             </p>
-          </section>
-          <section id="xec">
-            <h2 data-number="06">XEC como dinero operativo</h2>
-            <p>
+</section>
+<section id="xec">
+<h2 data-number="06" id="xec-como-dinero-operativo">XEC como dinero operativo</h2>
+<p>
               XEC está diseñado como dinero electrónico transferible y de bajo
               costo. Su utilidad práctica depende de que una persona pueda
               recibir, verificar y volver a transferir valor sin convertir cada
               movimiento cotidiano en una operación prohibitiva.
             </p>
-            <p>
+<p>
               Ese diseño abre un terreno de experimentación, pero no prueba por
               sí mismo que exista una economía consolidada. Las transferencias
               directas y de bajo costo pueden servir como una de las piezas para
@@ -555,20 +208,18 @@
               siempre que existan controles verificables y modelos operativos
               sostenibles.
             </p>
-            <p>
+<p>
               Antes de delegar movimientos a un agente o automatizar una
               tesorería, hay que definir permisos, montos, firmantes y rutas de
               recuperación. El ensayo sobre
-              <a href="../editorial/ecash-mexico-machine-economy.html"
-                >eCash México y la economía máquina</a
-              >
+              <a href="../editorial/ecash-mexico-machine-economy.html">eCash México y la economía máquina</a>
               examina esa posibilidad como una ruta de desarrollo, no como un
               mercado ya desplegado.
             </p>
-          </section>
-          <section id="seguridad">
-            <h2 data-number="07">Responsabilidad, seguridad y educación</h2>
-            <p>
+</section>
+<section id="seguridad">
+<h2 data-number="07" id="responsabilidad-seguridad-y-educacion">Responsabilidad, seguridad y educación</h2>
+<p>
               La autocustodia elimina algunos intermediarios y también traslada
               responsabilidad al usuario. Una copia de recuperación debe
               conservarse de forma segura, lejos de miradas, capturas
@@ -576,7 +227,7 @@
               copias, su ubicación y protección deben pensarse con el mismo
               cuidado.
             </p>
-            <p>
+<p>
               Si el usuario pierde todas sus copias de recuperación y deja de
               tener acceso a la wallet, no existe una autoridad central capaz de
               restaurar las llaves. Perder una sola copia no implica
@@ -584,32 +235,30 @@
               y accesible, pero sí debe motivar una revisión del plan de
               recuperación.
             </p>
-            <p>
+<p>
               Antes de enviar una transacción se deben verificar la dirección y
               el monto. Cuando sea posible, una operación pequeña puede
               confirmar el procedimiento antes de mover una cantidad mayor. La
               prisa es un mal modelo de seguridad.
             </p>
-            <p>
+<p>
               La seguridad se fortalece mediante código abierto, pruebas
               reproducibles, revisión humana, auditorías, documentación y
               herramientas automatizadas de detección. Una herramienta basada en
               inteligencia artificial puede señalar patrones o priorizar una
               revisión, pero no sustituye una auditoría ni el criterio humano.
             </p>
-            <p>
+<p>
               La reflexión sobre
-              <a href="../opinion/ia-y-codigo-verificable-en-cripto.html"
-                >IA y código verificable en cripto</a
-              >
+              <a href="../opinion/ia-y-codigo-verificable-en-cripto.html">IA y código verificable en cripto</a>
               desarrolla ese principio: automatizar el análisis puede ampliar
               nuestra capacidad de observar, siempre que no confundamos una
               alerta automática con una garantía.
             </p>
-          </section>
-          <section id="soberania">
-            <h2 data-number="08">La soberanía no se descarga: se aprende</h2>
-            <p>
+</section>
+<section id="soberania">
+<h2 data-number="08" id="la-soberania-no-se-descarga-se-aprende">La soberanía no se descarga: se aprende</h2>
+<p>
               Una aplicación puede descargarse en minutos. La soberanía
               cotidiana tarda más porque requiere práctica, respaldo, educación,
               prudencia, comunidad y herramientas comprensibles. Practicar
@@ -617,7 +266,7 @@
               decisiones y compartir conocimiento evita que cada persona
               descubra sola los mismos riesgos.
             </p>
-            <p>
+<p>
               La comunidad no debe convertirse en una nueva autoridad
               incuestionable. Su función más fértil es crear condiciones para
               que más personas puedan verificar, disentir y actuar por cuenta
@@ -625,75 +274,65 @@
               enseñar a cuidarlas y reconocer con honestidad aquello que aún no
               se sabe.
             </p>
-            <p>
+<p>
               El código ofrece posibilidades, las interfaces las vuelven
               accesibles y la cultura forma el criterio para usarlas. Ninguna
               capa basta por sí sola.
             </p>
-            <p class="closing">“La soberanía no se descarga: se aprende.”</p>
-          </section>
-          <section class="references" aria-labelledby="referencias">
-            <h2 id="referencias">Referencias y documentación</h2>
-            <ul>
-              <li>
-                <a
-                  href="https://e.cash/blog/avalanche"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Avalanche-enhanced Proof of Work</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://e.cash/blog/avalanche-faq"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Avalanche FAQ</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://github.com/xolosArmy/RMZWallet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Repositorio de Tonalli Wallet</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://github.com/xolosArmy/ecash-flipstarter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Repositorio con Teyolia y sus covenants</a
-                >
-              </li>
-            </ul>
-          </section>
-        </article>
-        <aside aria-label="Índice del ensayo">
-          <div class="side">
-            <h2 class="mono">En este ensayo</h2>
-            <ol>
-              <li><a href="#autocustodia">Wallet y autocustodia</a></li>
-              <li><a href="#tecnologia">Tecnología y confianza</a></li>
-              <li><a href="#cultura">Cultura y adopción</a></li>
-              <li><a href="#tonalli">Tonalli</a></li>
-              <li><a href="#teyolia">Teyolia</a></li>
-              <li><a href="#xec">XEC operativo</a></li>
-              <li><a href="#seguridad">Seguridad y educación</a></li>
-              <li><a href="#soberania">Soberanía aprendida</a></li>
-            </ol>
-          </div>
-          <div class="side">
-            <h2 class="mono">Principio editorial</h2>
-            <p>
-              <strong>Autocustodia</strong> no significa aislamiento. Significa
+<p class="closing">“La soberanía no se descarga: se aprende.”</p>
+</section>
+<section class="references" aria-labelledby="referencias">
+<h2 id="referencias">Referencias y documentación</h2>
+<ul>
+<li>
+<a href="https://e.cash/blog/avalanche" target="_blank" rel="noopener noreferrer">Avalanche-enhanced Proof of Work</a>
+</li>
+<li>
+<a href="https://e.cash/blog/avalanche-faq" target="_blank" rel="noopener noreferrer">Avalanche FAQ</a>
+</li>
+<li>
+<a href="https://github.com/xolosArmy/RMZWallet" target="_blank" rel="noopener noreferrer">Repositorio de Tonalli Wallet</a>
+</li>
+<li>
+<a href="https://github.com/xolosArmy/ecash-flipstarter" target="_blank" rel="noopener noreferrer">Repositorio con Teyolia y sus covenants</a>
+</li>
+</ul>
+</section>
+</div>
+<aside aria-label="Índice del ensayo">
+<div class="side">
+<h2 class="mono" id="en-este-ensayo">En este ensayo</h2>
+<ol>
+<li><a href="#autocustodia">Wallet y autocustodia</a></li>
+<li><a href="#tecnologia">Tecnología y confianza</a></li>
+<li><a href="#cultura">Cultura y adopción</a></li>
+<li><a href="#tonalli">Tonalli</a></li>
+<li><a href="#teyolia">Teyolia</a></li>
+<li><a href="#xec">XEC operativo</a></li>
+<li><a href="#seguridad">Seguridad y educación</a></li>
+<li><a href="#soberania">Soberanía aprendida</a></li>
+</ol>
+</div>
+<div class="side">
+<h2 class="mono" id="principio-editorial">Principio editorial</h2>
+<p>
+<strong>Autocustodia</strong> no significa aislamiento. Significa
               control acompañado de conocimiento y responsabilidad.
             </p>
-          </div>
-        </aside>
-      </div>
-    </main>
-    <footer class="mono">eCash Magazine México · Cultura · 2026</footer>
-  </body>
-</html>
+</div>
+</aside>
+</div>
+</div>
+</article><section class="evidence" id="fuentes-evidencia" aria-labelledby="fuentes-title"><h2 id="fuentes-title">Fuentes y evidencia</h2>
+<p>Referencias consignadas en esta publicación. Su presencia no equivale por sí sola a una verificación independiente.</p><ul><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://e.cash/blog/avalanche">Avalanche-enhanced Proof of Work</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://e.cash/blog/avalanche-faq">Avalanche FAQ</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/RMZWallet">Repositorio de Tonalli Wallet</a></p></li><li class="evidence-item"><span class="evidence-kind">Referencia · clasificación pendiente</span><p><a href="https://github.com/xolosArmy/ecash-flipstarter">Repositorio con Teyolia y sus covenants</a></p></li></ul>
+</section></div><section class="related-stories section-block" id="relacionados"><div class="section-heading"><h2>Lecturas relacionadas</h2></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/analisis-tecnico/">Análisis técnico</a>
+<h3 class="story-title"><a href="/editorial/ecash-mexico-machine-economy.html">Teyolia 2.1-G y Tonalli Multisig: infraestructura XEC para la economía máquina</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-06-25">25 de junio de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/ia-y-codigo-verificable-en-cripto.html">La IA va a castigar el código opaco: por qué eCash México apuesta por infraestructura verificable</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span></div></div></article></div></section><section class="section-block"><div class="section-heading"><h2>Últimas publicaciones</h2><a href="/blog/index.html">Ver el archivo completo →</a></div><div class="story-grid"><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html">Tonalli Memo: tu identidad .xec, tu voz on-chain</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-14">14 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><span class="genre genre--pending">Género pendiente</span>
+<h3 class="story-title"><a href="/reportajes/tonalli-memo-mainnet-capa-social-ecash.html">Tonalli Memo ya vive en mainnet: texto, NFTs y enlaces sobre eCash</a></h3>
+<div class="story-meta"><span><time datetime="2026-09-10">10 de septiembre de 2026</time></span></div></div></article><article class="story-card story-card--compact"><div class="story-card-body"><a class="genre" href="/generos/opinion/">Opinión</a>
+<h3 class="story-title"><a href="/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html">La finalidad no es el puente</a></h3>
+<div class="story-meta"><span><a rel="author" href="/autores/fernando-ramirez/">Fernando Ramírez</a></span><span><time datetime="2026-09-09T00:00:00-06:00">9 de septiembre de 2026</time></span></div></div></article></div></section></div></main><footer class="site-footer"><div class="container"><p class="brand-name">eCash Magazine México</p><p>Tecnología, economía y cultura desde México.</p><nav aria-label="Enlaces editoriales"><a href="/principios-editoriales/">Principios editoriales</a><a href="/correcciones/">Correcciones y actualizaciones</a><a href="/autores/">Autores</a><a href="/feed.xml">RSS</a><a href="https://ecash.mx">Portal eCash México ↗</a></nav><p>XEC es el dinero · RMZ es la llave · La cultura es la red</p><small>Contenidos bajo CC0 · eCash Magazine México</small></div></footer></body></html>

@@ -1,0 +1,79 @@
+name: Editorial QA
+
+on:
+  push:
+    branches: [feat/editorial-magazine-evolution]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: editorial-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ECASH_QA_BASELINE: /tmp/ecash-magazine-baseline
+    steps:
+      - name: Check out branch and immutable baseline history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: qa/package-lock.json
+      - name: Install review-only dependencies
+        run: |
+          python -m pip install -r requirements-dev.txt
+          npm ci --prefix qa --no-audit --no-fund
+          qa/node_modules/.bin/playwright install --with-deps chromium
+      - name: Prepare immutable baseline
+        run: |
+          git worktree add --detach "$ECASH_QA_BASELINE" 7b5cc72c05ee9deb74f26ff85edd209ee2d9b511
+          mkdir -p docs/qa/ci
+      - name: Build and require reproducible generated files
+        run: |
+          python scripts/build_site.py
+          git diff --exit-code
+          untracked="$(git ls-files --others --exclude-standard)"
+          if [ -n "$untracked" ]; then
+            echo "Untracked generated files must be committed before the build can pass:"
+            printf '%s\n' "$untracked"
+            exit 1
+          fi
+      - name: Validate structure and preserved editorial content
+        run: |
+          python scripts/verify_site.py --baseline "$ECASH_QA_BASELINE" --report docs/qa/ci/structural-after.json
+          python scripts/extract_legacy.py --verify-generated --output . > docs/qa/ci/preservation.json
+      - name: Validate HTML and accessibility markup
+        run: npm run --prefix qa html
+      - name: Verify DOM behavior and deferred search
+        env:
+          NODE_PATH: ${{ github.workspace }}/qa/node_modules
+        run: |
+          node docs/qa/check-interactions.cjs
+          cp docs/qa/interaction-dom.json docs/qa/ci/interaction-dom.json
+      - name: Browser, responsive, keyboard, axe and Lighthouse
+        run: npm run --prefix qa browser
+      - name: Upload screenshots and verification reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-qa-${{ github.sha }}
+          path: docs/qa/ci/
+          if-no-files-found: warn
+          retention-days: 30

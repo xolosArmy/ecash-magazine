@@ -1,0 +1,823 @@
+{
+  "article_count": 43,
+  "passed": 43,
+  "failed": 0,
+  "verified_metadata_replacements": 61,
+  "articles": [
+    {
+      "url": "/analisis/bitcoin-abc-corrige-error-raro-en-chronik-en-ultima-version.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Análisis técnico]",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/analisis/ecash-mining-variance.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Análisis técnico",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/analisis/gobernanza-rmz-ecash-mexico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Análisis técnico]",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/analisis/multifirma-tonalli-wallet-bovedas-p2sh-ecash.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": []
+    },
+    {
+      "url": "/analisis/proof-of-stake-2011-ecash-avalanche-hibrido.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Historia del consenso",
+          "fields": [
+            "section",
+            "topics"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/analisis/teyolia-2-1-direct-to-pool.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Technical Analysis] · xolosArmy Network",
+          "fields": [
+            "genre",
+            "topics"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/analisis/teyolia-direct-to-pool.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": []
+    },
+    {
+      "url": "/blog/2026-05-29-xolosarmy-weekly-update.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": []
+    },
+    {
+      "url": "/blog/npm-xolosarmy-tonalli-core-ecash-mexico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Noticia] + [Análisis Técnico]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": []
+    },
+    {
+      "url": "/columna/2026-06-02-precio-ecash-xec.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Análisis de Mercado]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por eCash Magazine México · 2 de junio de 2026",
+          "fields": [
+            "author",
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/columna/gnc-ecash-irrelevance-crypto-winter.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Opinion · Governance · eCash",
+          "fields": [
+            "originalGenreLabel",
+            "section",
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "By eCash Magazine México",
+          "fields": [
+            "author"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Analysis Column",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cronica/2026-06-16-xolosarmy-weekly-update.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [
+        {
+          "type": "unavailable_decorative_background",
+          "source": "https://images.unsplash.com/photo-1639762681485-074b7f4ec651?auto=format&fit=crop&w=1600&q=80",
+          "omitted": true
+        }
+      ],
+      "verified_metadata_replacements": []
+    },
+    {
+      "url": "/cronica/alias-ecash-mexico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Crónica] + [Análisis Técnico]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cronica/asamblea-rmz-governanza-ecash-mexico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Crónica] + [Análisis Técnico]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cronica/compra-parcial-rmz-tonalli-wallet.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Crónica] + [Análisis Técnico]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cronica/integracion-xec-thorchain.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Crónica] + [Análisis Técnico]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cronica/liquidez-soberana-ecash-xec-thorchain.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "17 de junio de 2026",
+          "fields": [
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cronica/oraculo-tonalli-app-ecash-mexico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Reportaje] + [Análisis Técnico]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cronica/xolosarmy-thorchain-podcast.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Crónica / Análisis]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/cultura/sin-cultura-no-hay-adopcion.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Cultura // Tesis",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "AutorFernando Ramírez",
+          "fields": [
+            "author"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Fecha de publicación6 de julio de 2026",
+          "fields": [
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/editorial/ecash-mexico-machine-economy.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Autor: Fernando Ramírez 25 de junio de 2026 Infraestructura · Liquidez · Machine Economy",
+          "fields": [
+            "author",
+            "publishedAt",
+            "topics"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/noticia/cashaddr-decode-oob-bitcoinabc-tonalli-wallet.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Seguridad]",
+          "fields": [
+            "originalGenreLabel",
+            "section",
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "ECASH · CASHADDR · BITCOIN ABC · TONALLI WALLET",
+          "fields": [
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Redacción técnica · eCash Magazine México29 agosto 2026",
+          "fields": [
+            "author",
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/noticia/comunicaciones-integracion-xec-thorchain-con-teyolia.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Noticia]",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/noticia/comunications-integration-xec-thorchain-with-teyolia.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[News]",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/noticia/mexico-kyc-aml-cripto-transferencias-2026.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Regulación · Activos virtuales · México",
+          "fields": [
+            "section",
+            "topics"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/noticia/xolosarmy-technical-governance-review-package-teyolia-xec-rune-liquidity-bootstrap.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Technical Note · Draft v0.1 · Review Request",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/opinion/economia-agentica-tokenizada.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Opinión]",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por: Colaborador Editorial",
+          "fields": [
+            "author"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/opinion/finalidad-puente-drivechains-subnets-tonalli-shield.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Opinión] · Consenso · Tonalli Shield",
+          "fields": [
+            "genre",
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por Fernando Ramírez 9 septiembre 2026 Opinión / Infraestructura",
+          "fields": [
+            "author",
+            "publishedAt",
+            "genre",
+            "section"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/opinion/ia-binarios-open-source-nueva-ventaja.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Opinión · Inteligencia artificial",
+          "fields": [
+            "genre",
+            "section",
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "5 septiembre 2026",
+          "fields": [
+            "publishedAt"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Lectura: 9 minutos",
+          "fields": [
+            "readingMinutes"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Género: Opinión",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Autor: Fernando Ramírez",
+          "fields": [
+            "author"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/opinion/ia-y-codigo-verificable-en-cripto.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Opinión]",
+          "fields": [
+            "genre"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/opinion/rothbard-ecash-bitcoinabc-xolosarmy-jurisdiccion.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Opinión]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "FILOSOFÍA POLÍTICA · DINERO DIGITAL · JURISDICCIÓN",
+          "fields": [
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por: Colaborador Editorial",
+          "fields": [
+            "author"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/opinion/tonalli-shield-ia-evidencia-rbitcoin.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Opinión] · Tonalli Shield",
+          "fields": [
+            "originalGenreLabel",
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por Fernando Ramírez 20 agosto 2026 Opinión / Ingeniería",
+          "fields": [
+            "author",
+            "publishedAt",
+            "originalGenreLabel",
+            "section"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Investigación exploratoria · Consenso",
+          "fields": [
+            "originalGenreLabel",
+            "section",
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por Fernando Ramírez",
+          "fields": [
+            "author"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "24 agosto 2026",
+          "fields": [
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/bip-110-bitcoin-cash-forks-consenso.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": []
+    },
+    {
+      "url": "/reportajes/firma-alpha-tonalli-wallet-mainnet-agora.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Auditoría de infraestructura financiera",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/firma-wallet-seed-tonalli-interoperabilidad-mainnet.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Rampa fiat → eCash probada con fondos reales",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/tonalli-faucet-ecash-mexico.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Reportaje] · [Análisis Técnico]",
+          "fields": [
+            "originalGenreLabel"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Adopción Masiva Soberanía Financiera XolosArmy Network",
+          "fields": [
+            "topics",
+            "tags"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "alias .xec1,600 RMZTM1humanos + agentes IA",
+          "fields": [
+            "topics",
+            "tags"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Primera Plana · Identidad · 14 septiembre 2026",
+          "fields": [
+            "originalGenreLabel",
+            "section",
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "TM1 Draft 0.2eCash mainnetChronikNFT + IPFS212 B eventData",
+          "fields": [
+            "topics",
+            "tags"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Primera Plana · Infraestructura · 10 septiembre 2026",
+          "fields": [
+            "originalGenreLabel",
+            "section",
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/xec-client-utxo-real-thornode.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Análisis técnico · THORNode · XEC",
+          "fields": [
+            "genre",
+            "section",
+            "topics"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "starsquid/xec-clientUTXO client1 XEC = 100 base unitsCashAddrdisabled-by-default",
+          "fields": [
+            "topics",
+            "tags"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por eCash Magazine México · 16 de agosto de 2026",
+          "fields": [
+            "author",
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reportajes/xec-thorchain-starsquid-xec-client.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "Draft MR !2generic UTXO clientPiRK feedbackstarsquid/xec-clientTonalli path",
+          "fields": [
+            "topics",
+            "tags"
+          ],
+          "verified": true
+        },
+        {
+          "expectedText": "Por eCash Magazine México · 16 de agosto de 2026",
+          "fields": [
+            "author",
+            "publishedAt"
+          ],
+          "verified": true
+        }
+      ]
+    },
+    {
+      "url": "/reseñas/como-comprar-etoken-cultural-xolos-rmz.html",
+      "pass": true,
+      "missing": {},
+      "exceptions": [
+        {
+          "type": "unavailable_decorative_background",
+          "source": "https://images.unsplash.com/photo-1614064641913-a5f10665f8df?auto=format&fit=crop&w=1600&q=80",
+          "omitted": true
+        }
+      ],
+      "verified_metadata_replacements": [
+        {
+          "expectedText": "[Reseña] · Evaluación de Producto",
+          "fields": [
+            "genre",
+            "section",
+            "topics"
+          ],
+          "verified": true
+        }
+      ]
+    }
+  ]
+}
