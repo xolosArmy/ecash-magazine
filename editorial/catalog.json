@@ -3894,6 +3894,178 @@
         "image",
         "readingMinutes"
       ]
+    },
+    {
+      "id": "primero-xolo-despues-protocolo-xolosarmy-ecash",
+      "url": "/opinion/primero-xolo-despues-protocolo-xolosarmy-ecash.html",
+      "sourcePath": "opinion/primero-xolo-despues-protocolo-xolosarmy-ecash.html",
+      "title": "Primero el xolo, después el protocolo",
+      "genre": "Opinión",
+      "originalGenreLabel": "Columna de opinión",
+      "classificationStatus": "confirmed",
+      "section": "xolosArmy Network",
+      "topics": [
+        {
+          "label": "xolosArmy Network",
+          "slug": "xolosarmy-network",
+          "provenance": "Nueva columna editorial 2026-09-21 :: tema explícito en cabecera y cuerpo"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "Nueva columna editorial 2026-09-21 :: tema explícito en cabecera y cuerpo"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "Nueva columna editorial 2026-09-21 :: tema explícito en cuerpo y ficha editorial"
+        },
+        {
+          "label": "Cypherpunk",
+          "slug": "cypherpunk",
+          "provenance": "Nueva columna editorial 2026-09-21 :: sección «Cypherpunk no es estética»"
+        },
+        {
+          "label": "Open source",
+          "slug": "open-source",
+          "provenance": "Nueva columna editorial 2026-09-21 :: valor cypherpunk explícito"
+        },
+        {
+          "label": "Verificabilidad",
+          "slug": "verificabilidad",
+          "provenance": "Nueva columna editorial 2026-09-21 :: valor cypherpunk explícito"
+        },
+        {
+          "label": "Descentralización",
+          "slug": "descentralizacion",
+          "provenance": "Nueva columna editorial 2026-09-21 :: valor cypherpunk explícito"
+        },
+        {
+          "label": "Xoloitzcuintle",
+          "slug": "xoloitzcuintle",
+          "provenance": "Nueva columna editorial 2026-09-21 :: ancla cultural explícita"
+        },
+        {
+          "label": "Tonalli Core",
+          "slug": "tonalli-core",
+          "provenance": "Nueva columna editorial 2026-09-21 :: objetivo técnico de largo plazo"
+        },
+        {
+          "label": "Staking",
+          "slug": "staking",
+          "provenance": "Nueva columna editorial 2026-09-21 :: objetivo técnico de largo plazo sobre XEC"
+        }
+      ],
+      "author": {
+        "name": "Fernando Ramírez",
+        "type": "Person"
+      },
+      "publishedAt": "2026-09-21T08:17:00-06:00",
+      "updatedAt": "2026-09-21T08:17:00-06:00",
+      "summary": "xolosArmy Network no nació como un whitepaper en busca de comunidad. Nació de una comunidad real alrededor de los Xoloitzcuintles Ramírez y encontró en eCash una infraestructura coherente con una idea cypherpunk: código abierto, verificabilidad, descentralización y permiso para construir sin pedir permiso.",
+      "image": {
+        "src": "/assets/media/xolo-codigo-1440.webp",
+        "alt": "Xoloitzcuintle como símbolo cultural frente a una interfaz de código",
+        "width": 1440,
+        "height": 2146
+      },
+      "tags": [
+        "eCash",
+        "XEC",
+        "xolosArmy Network",
+        "cypherpunk",
+        "Tonalli Core",
+        "staking"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://e.cash/blog/what-is-ecash",
+          "label": "eCash — What is eCash?",
+          "kind": "reference",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "locator": "eCash overview",
+          "provenance": "Nueva columna editorial 2026-09-21 :: lista de fuentes"
+        },
+        {
+          "url": "https://e.cash/blog/preconsensus-launch",
+          "label": "eCash — Avalanche Pre-Consensus Launches on eCash",
+          "kind": "reference",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "locator": "Pre-Consensus launch",
+          "provenance": "Nueva columna editorial 2026-09-21 :: lista de fuentes"
+        },
+        {
+          "url": "https://e.cash/staking",
+          "label": "eCash — Avalanche consensus powered by eCash stakers",
+          "kind": "reference",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "locator": "Staking requirements and operation",
+          "provenance": "Nueva columna editorial 2026-09-21 :: lista de fuentes"
+        },
+        {
+          "url": "https://roadmap.xolosarmy.xyz/",
+          "label": "xolosArmy Network — Public Roadmap",
+          "kind": "reference",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "locator": "Public roadmap",
+          "provenance": "Nueva columna editorial 2026-09-21 :: lista de fuentes"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-core",
+          "label": "xolosArmy — Tonalli Core",
+          "kind": "repository",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "locator": "Public repository",
+          "provenance": "Nueva columna editorial 2026-09-21 :: lista de fuentes"
+        },
+        {
+          "url": "https://www.xolosramirez.com/",
+          "label": "Xolos Ramírez",
+          "kind": "reference",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "locator": "Public site",
+          "provenance": "Nueva columna editorial 2026-09-21 :: lista de fuentes"
+        }
+      ],
+      "related": [
+        "/opinion/ia-binarios-open-source-nueva-ventaja.html",
+        "/reportajes/avalanche-stakers-tonalli-core-roadmap-publico.html",
+        "/blog/xolosarmy-despliega-stack-de-infraestructura-soberana-ecash-mexico.html"
+      ],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "Tonalli Core como nodo propio y la participación en staking de XEC se presentan como objetivo estratégico de largo plazo, no como capacidad desplegada o autorizada para fondos reales.",
+          "provenance": "Nueva columna editorial 2026-09-21 :: secciones «Tonalli Core» y «Staking de XEC»"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "Nueva columna editorial autorizada 2026-09-21 :: H1",
+        "url": "Nueva ruta editorial creada 2026-09-21",
+        "genre": "Encargo editorial del 2026-09-21: columna de opinión; clasificada en el género Opinión",
+        "author": "Firma explícita del texto: Fernando Ramírez",
+        "publishedAt": "Fecha de publicación editorial: 2026-09-21, America/Mexico_City",
+        "updatedAt": "Primera publicación; coincide con publishedAt",
+        "summary": "Bajada redactada para la nueva columna",
+        "section": "Cabecera y ficha editorial: xolosArmy Network",
+        "topics": "Proveniencia individual registrada en topics[].provenance",
+        "image": "Asset editorial local preexistente /assets/media/xolo-codigo-1440.webp reutilizado para esta columna",
+        "readingMinutes": "No calculado; permanece pendiente",
+        "related": "Enlaces explícitos incluidos en el cuerpo/sidebar de la nueva columna",
+        "references": "Fuentes explícitas incluidas en la sección «Fuentes y lecturas»",
+        "language": "Documento redactado en español de México"
+      },
+      "pendingMetadata": [
+        "readingMinutes"
+      ],
+      "editorialNote": "Nueva publicación de opinión añadida el 21 de septiembre de 2026. No forma parte de las 43 URLs históricas del baseline de preservación."
     }
   ]
 }
