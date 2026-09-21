@@ -78,7 +78,7 @@ def main():
             catalog = json.loads(catalog_path.read_text(encoding='utf-8'))
             articles = catalog['articles']
             article_paths = [normalized(a['url'])[1] for a in articles]
-            check('43 catalog articles', len(articles) == 43, len(articles))
+            check('Catalog preserves at least 43 historical articles', len(articles) >= 43, len(articles))
             check('Catalog URLs unique', len(article_paths) == len(set(article_paths)))
             check('Catalog URLs exist', set(article_paths) <= set(docs), sorted(set(article_paths) - set(docs)))
             if historical:
