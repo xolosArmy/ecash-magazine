@@ -1,7 +1,7 @@
 # eCash Magazine México
 
 Revista estática publicada en GitHub Pages en **https://magazine.ecash.mx**.
-El sistema editorial conserva las 43 publicaciones y sus URLs históricas.
+El sistema editorial conserva las 43 publicaciones históricas y sus URLs, y admite nuevas publicaciones editoriales sin alterar ese baseline de preservación.
 
 ## Fuente editorial y generación
 
@@ -9,8 +9,9 @@ El sistema editorial conserva las 43 publicaciones y sus URLs históricas.
   temas, imágenes y referencias documentadas. Cada campo tiene procedencia.
 - `editorial/catalog.schema.json`: contrato de datos; los valores ausentes o
   ambiguos siguen siendo `null`, con su motivo registrado.
-- `content/<ruta-histórica>.html`: cuerpos periodísticos preservados, sin el
-  diseño anterior. No son páginas públicas independientes.
+- `content/<ruta>.html`: cuerpos periodísticos fuente. Las 43 rutas históricas
+  permanecen preservadas; las nuevas publicaciones se incorporan aquí antes de
+  regenerar sus páginas públicas.
 - `editorial/frontpage.json`: selección explícita de la historia principal.
 - `editorial/media-map.json`: correspondencia de recursos históricos con sus
   versiones locales, dimensiones y variantes responsivas.
@@ -64,7 +65,7 @@ duplica en otro módulo; sus metadatos pendientes no se completan por convenienc
 El buscador descarga el índice de texto completo sólo al escribir una consulta;
 los filtros por género, tema, firma y año trabajan sobre el HTML ya presente.
 
-El RSS contiene las 43 publicaciones. `pubDate` sólo se emite cuando la fuente
+El RSS contiene todas las publicaciones del catálogo; las 43 históricas permanecen preservadas. `pubDate` sólo se emite cuando la fuente
 conserva fecha, hora y zona; no se inventa medianoche para cumplir el formato RSS.
 
 La comprobación de navegador se ejecuta en `.github/workflows/editorial-qa.yml`
