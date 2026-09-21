@@ -215,7 +215,7 @@ def main():
         for target in adjacency.get(page, set()) - reachable:
             reachable.add(target)
             queue.append(target)
-    check('43 articles reachable from homepage without JavaScript', set(article_paths) <= reachable,
+    check('All catalogue articles reachable from homepage without JavaScript', set(article_paths) <= reachable,
           {'reachable_articles': len(set(article_paths) & reachable), 'unreachable': sorted(set(article_paths) - reachable)})
     archive_targets = adjacency.get('blog/index.html', set())
     check('Archive links every article', set(article_paths) <= archive_targets,
