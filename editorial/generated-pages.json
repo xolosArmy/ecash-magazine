@@ -258,6 +258,12 @@
     "indexable": true
   },
   {
+    "route": "/opinion/primero-xolo-despues-protocolo-xolosarmy-ecash.html",
+    "path": "opinion/primero-xolo-despues-protocolo-xolosarmy-ecash.html",
+    "article": true,
+    "indexable": true
+  },
+  {
     "route": "/",
     "path": "index.html",
     "article": false,
@@ -492,8 +498,20 @@
     "indexable": true
   },
   {
+    "route": "/temas/cypherpunk/",
+    "path": "temas/cypherpunk/index.html",
+    "article": false,
+    "indexable": true
+  },
+  {
     "route": "/temas/dinero-digital/",
     "path": "temas/dinero-digital/index.html",
+    "article": false,
+    "indexable": true
+  },
+  {
+    "route": "/temas/descentralizacion/",
+    "path": "temas/descentralizacion/index.html",
     "article": false,
     "indexable": true
   },
@@ -644,6 +662,12 @@
   {
     "route": "/temas/nakamoto-consensus/",
     "path": "temas/nakamoto-consensus/index.html",
+    "article": false,
+    "indexable": true
+  },
+  {
+    "route": "/temas/open-source/",
+    "path": "temas/open-source/index.html",
     "article": false,
     "indexable": true
   },
@@ -804,6 +828,12 @@
     "indexable": true
   },
   {
+    "route": "/temas/verificabilidad/",
+    "path": "temas/verificabilidad/index.html",
+    "article": false,
+    "indexable": true
+  },
+  {
     "route": "/temas/xec/",
     "path": "temas/xec/index.html",
     "article": false,
@@ -812,6 +842,12 @@
   {
     "route": "/temas/xec-liquidacion-y-fees/",
     "path": "temas/xec-liquidacion-y-fees/index.html",
+    "article": false,
+    "indexable": true
+  },
+  {
+    "route": "/temas/xoloitzcuintle/",
+    "path": "temas/xoloitzcuintle/index.html",
     "article": false,
     "indexable": true
   },

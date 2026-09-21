@@ -10,6 +10,7 @@ const root = path.resolve(__dirname, '../..');
 const navigationCode = readFileSync(path.join(root, 'assets/js/navigation.js'), 'utf8');
 const code = readFileSync(path.join(root, 'assets/js/editorial.js'), 'utf8');
 const searchIndex = JSON.parse(readFileSync(path.join(root, 'assets/data/search.json'), 'utf8'));
+const articleCount = searchIndex.articles.length;
 const checks = [];
 function check(name, success, detail) { checks.push({name, passed: Boolean(success), ...(detail === undefined ? {} : {detail})}); }
 function create(page, query = '', mobile = true, network = {}) {
@@ -53,8 +54,8 @@ async function main() {
     const count = doc.getElementById('results-count');
     const records = Array.from(doc.querySelectorAll('#search-results [data-article-url]'));
     const visible = () => records.filter(e => !e.hidden);
-    check(`${page}: 43 searchable records`, records.length === 43, records.length);
-    check(`${page}: all records initially visible`, visible().length === 43, visible().length);
+    check(`${page}: all catalog records are searchable`, records.length === articleCount, records.length);
+    check(`${page}: all records initially visible`, visible().length === articleCount, visible().length);
     check(`${page}: labeled query input exists`, Boolean(form && input && (doc.querySelector('label[for="search-input"]') || input.getAttribute('aria-label'))));
     if (!form || !input) { window.close(); continue; }
     check(`${page}: initial archive avoids full-text index download`, state.fetchCalls === 0);
@@ -72,7 +73,7 @@ async function main() {
       return visible().length;
     }
     const avalanche = await query('Avalanche');
-    check(`${page}: query narrows results`, avalanche > 0 && avalanche < 43, avalanche);
+    check(`${page}: query narrows results`, avalanche > 0 && avalanche < articleCount, avalanche);
     check(`${page}: query fetches the generated same-origin index once`, state.fetchCalls === 1 && state.requested[0] === '/assets/data/search.json');
     check(`${page}: URL keeps query`, new URL(window.location.href).searchParams.get('q') === 'Avalanche');
     const accents = await query('aválanche');
@@ -91,7 +92,7 @@ async function main() {
       control.dispatchEvent(new window.Event('change', {bubbles: true}));
       await settle(window);
       const n = visible().length;
-      check(`${page}: ${key} filter returns actual records`, n > 0 && n <= 43, {value: option.value, results: n});
+      check(`${page}: ${key} filter returns actual records`, n > 0 && n <= articleCount, {value: option.value, results: n});
       control.value = '';
       control.dispatchEvent(new window.Event('change', {bubbles: true}));
       await settle(window);
@@ -99,7 +100,7 @@ async function main() {
     await query('Tonalli');
     form.reset();
     await settle(window);
-    check(`${page}: reset restores entire archive`, visible().length === 43 && input.value === '', visible().length);
+    check(`${page}: reset restores entire archive`, visible().length === articleCount && input.value === '', visible().length);
     check(`${page}: reset clears known filter parameters`, !new URL(window.location.href).searchParams.has('q'));
     window.history.pushState(null, '', '?q=Avalanche');
     window.dispatchEvent(new window.PopStateEvent('popstate'));
@@ -121,7 +122,7 @@ async function main() {
   const failure = create('buscar/index.html', '?q=Avalanche', true, {fail: true});
   await settle(failure.window);
   const fallback = Array.from(failure.doc.querySelectorAll('#search-results [data-article-url]')).filter(e => !e.hidden);
-  check('Index failure preserves title/metadata search', fallback.length > 0 && fallback.length < 43, fallback.length);
+  check('Index failure preserves title/metadata search', fallback.length > 0 && fallback.length < articleCount, fallback.length);
   check('Index failure announces scope limitation', failure.doc.getElementById('results-count').textContent.includes('Búsqueda limitada a títulos y ficha'));
   failure.window.close();
 
@@ -141,7 +142,7 @@ async function main() {
   clearInput.dispatchEvent(new clear.window.Event('input', {bubbles: true}));
   if (clear.state.resolve) clear.state.resolve();
   await settle(clear.window);
-  check('Clearing while loading keeps all 43 articles visible after completion', Array.from(clear.doc.querySelectorAll('#search-results [data-article-url]')).filter(e => !e.hidden).length === 43 && clearInput.value === '');
+  check('Clearing while loading keeps the full catalogue visible after completion', Array.from(clear.doc.querySelectorAll('#search-results [data-article-url]')).filter(e => !e.hidden).length === articleCount && clearInput.value === '');
   clear.window.close();
 
   const result = {method: 'jsdom 30.1.0 DOM behavior checks with generated search-index fetch fixture, no browser rendering or network', passed: checks.every(x=>x.passed), checks};

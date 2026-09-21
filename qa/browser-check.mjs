@@ -182,14 +182,14 @@ try {
   ui.on('request', request => {if (request.url().endsWith('/assets/data/search.json')) indexRequests += 1;});
   await open(ui, origins.after, '/buscar/');
   const countVisible = () => ui.locator('#search-results [data-article-url]:visible').count();
-  check('Search starts with 43 articles and no index download', await countVisible() === 43 && indexRequests === 0);
+  check('Search starts with full catalogue and no index download', await countVisible() === catalog.articles.length && indexRequests === 0);
   await ui.locator('#filter-genre').selectOption({label:'Reportaje'});
-  check('Genre filter uses static records without downloading index', await countVisible() > 0 && await countVisible() < 43 && indexRequests === 0);
+  check('Genre filter uses static records without downloading index', await countVisible() > 0 && await countVisible() < catalog.articles.length && indexRequests === 0);
   await ui.locator('#filter-genre').selectOption('');
   await ui.locator('#search-input').fill('Avalanche');
   await ui.waitForFunction(() => !document.getElementById('results-count').textContent.includes('Buscando en el texto completo') && document.getElementById('results-count').textContent.includes('publicaci'));
   const avalancheCount = await countVisible();
-  check('Full-text query returns results and downloads index once', avalancheCount > 0 && avalancheCount < 43 && indexRequests === 1, avalancheCount);
+  check('Full-text query returns results and downloads index once', avalancheCount > 0 && avalancheCount < catalog.articles.length && indexRequests === 1, avalancheCount);
   const normalized = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const metadataText = normalized(await ui.locator('#search-results [data-search]').evaluateAll(elements => elements.map(el => el.dataset.search).join(' ')));
   const word = searchIndex.articles.flatMap(a => normalized(a.searchText).match(/[a-z]{11,}/g) || []).find(token => !metadataText.includes(token));
@@ -204,7 +204,7 @@ try {
   check('Real browser search displays empty state', await countVisible() === 0 && await ui.locator('#search-empty').isVisible());
   await ui.locator('button[type="reset"]').click();
   await ui.waitForFunction(() => document.getElementById('search-input').value === '' && !location.search.includes('q='));
-  check('Search reset restores all articles', await countVisible() === 43);
+  check('Search reset restores all articles', await countVisible() === catalog.articles.length);
   await interactive.close();
 
   const failureContext = await browser.newContext({viewport:{width:390,height:844}});
@@ -219,7 +219,7 @@ try {
   const nojs = await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
   const staticPage = await nojs.newPage();
   await staticPage.goto(origins.after + '/blog/index.html');
-  check('Without JavaScript all 43 archive articles remain available', await staticPage.locator('#search-results [data-article-url]:visible').count() === 43);
+  check('Without JavaScript all catalogue articles remain available', await staticPage.locator('#search-results [data-article-url]:visible').count() === catalog.articles.length);
   check('Without JavaScript mobile navigation remains available', await staticPage.locator('.site-nav').isVisible());
   await nojs.close();
 

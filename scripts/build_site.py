@@ -632,8 +632,8 @@ def main():
     SITE = json.loads((ROOT / 'editorial/site.json').read_text())
     METADATA_REMOVALS = json.loads((ROOT / 'editorial/metadata-removals.json').read_text())
     ARTICLES = catalog['articles']
-    if len(ARTICLES) != 43 or len({a['url'] for a in ARTICLES}) != 43:
-        raise ValueError('Expected exactly 43 unique historical articles')
+    if len(ARTICLES) < 43 or len({a['url'] for a in ARTICLES}) != len(ARTICLES):
+        raise ValueError('Expected at least the 43 historical articles and unique catalogue URLs')
     for a in ARTICLES:
         if a.get('genre') not in GENRES + [None]:
             raise ValueError(f'Unknown genre {a.get("genre")}')
@@ -655,7 +655,7 @@ def main():
     search_path.parent.mkdir(parents=True, exist_ok=True)
     search_path.write_text(json.dumps({'articles': [{'url': a['url'], 'searchText': SEARCH_TEXT[a['url']]} for a in ARTICLES]}, ensure_ascii=False, separators=(',', ':'))+'\n')
     (ROOT / 'editorial/generated-pages.json').write_text(json.dumps(WRITTEN,ensure_ascii=False,indent=2)+'\n')
-    print(f'Generated {len(WRITTEN)} static HTML pages, sitemap and RSS; 43 historical article URLs preserved.')
+    print(f'Generated {len(WRITTEN)} static HTML pages, sitemap and RSS; 43 historical article URLs preserved; {len(ARTICLES)} total publications.')
 
 
 if __name__ == '__main__':

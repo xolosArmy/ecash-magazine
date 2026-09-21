@@ -78,13 +78,13 @@ def main():
             catalog = json.loads(catalog_path.read_text(encoding='utf-8'))
             articles = catalog['articles']
             article_paths = [normalized(a['url'])[1] for a in articles]
-            check('43 catalog articles', len(articles) == 43, len(articles))
+            check('Catalog preserves at least 43 historical articles', len(articles) >= 43, len(articles))
             check('Catalog URLs unique', len(article_paths) == len(set(article_paths)))
             check('Catalog URLs exist', set(article_paths) <= set(docs), sorted(set(article_paths) - set(docs)))
             if historical:
                 expected = historical - {'index.html', 'blog/index.html'}
-                check('Catalog equals historical article inventory', set(article_paths) == expected,
-                      {'missing': sorted(expected - set(article_paths)), 'extra': sorted(set(article_paths) - expected)})
+                check('Catalog includes historical article inventory', expected <= set(article_paths),
+                      {'missing': sorted(expected - set(article_paths)), 'new_publications': sorted(set(article_paths) - expected)})
             bad_genres = [{'url': a['url'], 'genre': a.get('genre')} for a in articles if a.get('genre') is not None and a['genre'] not in GENRES]
             check('Genres use approved vocabulary or null', not bad_genres, bad_genres)
             warnings.append({'pending_metadata': [{'url': a['url'], 'fields': [f for f in ['genre','author','publishedAt'] if not a.get(f)]} for a in articles if any(not a.get(f) for f in ['genre','author','publishedAt'])]})
@@ -215,7 +215,7 @@ def main():
         for target in adjacency.get(page, set()) - reachable:
             reachable.add(target)
             queue.append(target)
-    check('43 articles reachable from homepage without JavaScript', set(article_paths) <= reachable,
+    check('All catalogue articles reachable from homepage without JavaScript', set(article_paths) <= reachable,
           {'reachable_articles': len(set(article_paths) & reachable), 'unreachable': sorted(set(article_paths) - reachable)})
     archive_targets = adjacency.get('blog/index.html', set())
     check('Archive links every article', set(article_paths) <= archive_targets,
