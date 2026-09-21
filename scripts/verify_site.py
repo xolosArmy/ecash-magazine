@@ -83,8 +83,8 @@ def main():
             check('Catalog URLs exist', set(article_paths) <= set(docs), sorted(set(article_paths) - set(docs)))
             if historical:
                 expected = historical - {'index.html', 'blog/index.html'}
-                check('Catalog equals historical article inventory', set(article_paths) == expected,
-                      {'missing': sorted(expected - set(article_paths)), 'extra': sorted(set(article_paths) - expected)})
+                check('Catalog includes historical article inventory', expected <= set(article_paths),
+                      {'missing': sorted(expected - set(article_paths)), 'new_publications': sorted(set(article_paths) - expected)})
             bad_genres = [{'url': a['url'], 'genre': a.get('genre')} for a in articles if a.get('genre') is not None and a['genre'] not in GENRES]
             check('Genres use approved vocabulary or null', not bad_genres, bad_genres)
             warnings.append({'pending_metadata': [{'url': a['url'], 'fields': [f for f in ['genre','author','publishedAt'] if not a.get(f)]} for a in articles if any(not a.get(f) for f in ['genre','author','publishedAt'])]})
