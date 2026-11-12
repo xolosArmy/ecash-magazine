@@ -264,6 +264,12 @@
     "indexable": true
   },
   {
+    "route": "/reportajes/tonalli-memo-2-red-social-onchain-ecash.html",
+    "path": "reportajes/tonalli-memo-2-red-social-onchain-ecash.html",
+    "article": true,
+    "indexable": true
+  },
+  {
     "route": "/",
     "path": "index.html",
     "article": false,
