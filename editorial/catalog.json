@@ -4066,6 +4066,150 @@
         "readingMinutes"
       ],
       "editorialNote": "Nueva publicación de opinión añadida el 21 de septiembre de 2026. No forma parte de las 43 URLs históricas del baseline de preservación."
+    },
+    {
+      "id": "tonalli-memo-2-red-social-onchain-ecash",
+      "url": "/reportajes/tonalli-memo-2-red-social-onchain-ecash.html",
+      "sourcePath": "reportajes/tonalli-memo-2-red-social-onchain-ecash.html",
+      "title": "Tonalli Memo 2.0: el camino hacia una red social on-chain sobre eCash",
+      "genre": "Reportaje",
+      "originalGenreLabel": "Reportaje",
+      "classificationStatus": "confirmed",
+      "section": "Infraestructura",
+      "topics": [
+        {
+          "label": "Infraestructura",
+          "slug": "infraestructura",
+          "provenance": "Nueva publicación 2026-11-12 :: contenido y alcance del reportaje"
+        },
+        {
+          "label": "eCash",
+          "slug": "ecash",
+          "provenance": "Nueva publicación 2026-11-12 :: contenido y alcance del reportaje"
+        },
+        {
+          "label": "XEC",
+          "slug": "xec",
+          "provenance": "Nueva publicación 2026-11-12 :: contenido y alcance del reportaje"
+        },
+        {
+          "label": "xolosArmy Network",
+          "slug": "xolosarmy-network",
+          "provenance": "Nueva publicación 2026-11-12 :: contenido y alcance del reportaje"
+        },
+        {
+          "label": "Tonalli Wallet",
+          "slug": "tonalli-wallet",
+          "provenance": "Nueva publicación 2026-11-12 :: contenido y alcance del reportaje"
+        },
+        {
+          "label": "Verificabilidad",
+          "slug": "verificabilidad",
+          "provenance": "Nueva publicación 2026-11-12 :: contenido y alcance del reportaje"
+        }
+      ],
+      "author": {
+        "name": "eCash Magazine México",
+        "type": "Organization"
+      },
+      "publishedAt": "2026-11-12",
+      "updatedAt": "2026-11-12",
+      "summary": "De mensajes verificables a conversaciones, reacciones y propinas en XEC y RMZ: xolosArmy Network desarrolla una arquitectura social sobre eCash que todavía está sujeta a pruebas, auditorías y autorizaciones.",
+      "image": {
+        "src": "/assets/media/xolo-codigo-1440.webp",
+        "alt": "Fotografía editorial de un xoloitzcuintle frente a una interfaz de código; imagen ilustrativa del desarrollo de Tonalli Memo",
+        "width": 1440,
+        "height": 2146
+      },
+      "tags": [
+        "Infraestructura",
+        "eCash",
+        "XEC",
+        "xolosArmy Network",
+        "Tonalli Wallet",
+        "Verificabilidad"
+      ],
+      "readingMinutes": null,
+      "references": [
+        {
+          "url": "https://github.com/xolosArmy/tonalli-memo/pull/40",
+          "label": "RFC-0001 / PR #40",
+          "kind": "pull_request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "Reportaje 2026-11-12 :: Documentos y transparencia editorial"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-memo/pull/41",
+          "label": "Vectores estructurales / PR #41",
+          "kind": "pull_request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "Reportaje 2026-11-12 :: Documentos y transparencia editorial"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-memo/pull/42",
+          "label": "Firmas offline / PR #42",
+          "kind": "pull_request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "Reportaje 2026-11-12 :: Documentos y transparencia editorial"
+        },
+        {
+          "url": "https://github.com/xolosArmy/tonalli-memo/pull/45",
+          "label": "Laboratorio S1-B offline / PR #45",
+          "kind": "pull_request",
+          "category": "technical",
+          "classificationStatus": "confirmed",
+          "provenance": "Reportaje 2026-11-12 :: Documentos y transparencia editorial"
+        },
+        {
+          "url": "https://docs.e.cash/",
+          "label": "Documentación oficial eCash",
+          "kind": "reference",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "Reportaje 2026-11-12 :: Documentos y transparencia editorial"
+        },
+        {
+          "url": "https://roadmap.xolosarmy.xyz/",
+          "label": "Roadmap público xolosArmy Network",
+          "kind": "reference",
+          "category": "primary",
+          "classificationStatus": "confirmed",
+          "provenance": "Reportaje 2026-11-12 :: Documentos y transparencia editorial"
+        }
+      ],
+      "related": [
+        "/reportajes/tonalli-memo-mainnet-capa-social-ecash.html",
+        "/reportajes/tonalli-memo-alias-xec-identidad-agentes-humanos.html"
+      ],
+      "language": "es-MX",
+      "evidenceLimitations": [
+        {
+          "text": "La capa social TM1 v2 está en desarrollo; los PR #40, #41, #42 y #45 permanecen en borrador al corte. Ninguna prueba offline acredita despliegue de reacciones, hilos o propinas en mainnet.",
+          "provenance": "PR públicos y documentación técnica consultados el 2026-11-12"
+        }
+      ],
+      "metadataProvenance": {
+        "title": "Reportaje editorial 2026-11-12 :: título aprobado en el encargo",
+        "url": "Nueva ruta editorial creada el 2026-11-12",
+        "genre": "Encargo editorial de reportaje especializado para eCash Magazine México",
+        "section": "Tema principal: infraestructura social sobre eCash",
+        "topics": "Etiquetas identificables dentro del reportaje; provenance por tema",
+        "author": "Firma institucional de eCash Magazine México",
+        "publishedAt": "Publicación autorizada el 2026-11-12; sólo fecha comprobada, sin hora supuesta",
+        "updatedAt": "Fecha inicial de publicación, sin cambios posteriores",
+        "summary": "Bajada elaborada para el reportaje",
+        "image": "Reutilización documentada de recurso local de archivo /assets/media/xolo-codigo-1440.webp; ilustración editorial, no captura de v2",
+        "references": "Enlaces a fuentes y PRs explícitos en el reportaje",
+        "related": "Enlaces previos de la serie Tonalli Memo",
+        "language": "Reportaje en español de México"
+      },
+      "pendingMetadata": [
+        "readingMinutes"
+      ],
+      "editorialNote": "Nueva publicación 2026-11-12. La imagen es editorial de archivo y no afirma producto social v2 desplegado; se declara relación editorial con xolosArmy Network."
     }
   ]
 }
